@@ -87,7 +87,7 @@
                 <a href="#divisions" class="hover:text-gold transition duration-300">Our Divisions</a>
                 <a href="#trust" class="hover:text-gold transition duration-300">Mandates</a>
                 <a href="#projects" class="hover:text-gold transition duration-300">Projects</a>
-                <a href="SH.html" target="_blank" class="text-gold font-bold hover:text-slate-900 transition duration-300">S&H Demo</a>
+                <a href="#gallery" onclick="openGalleryFromNav(event)" class="hover:text-gold transition duration-300">Gallery</a>
             </div>
             
             <a href="#contact" class="border-2 border-slate-200 text-slate-700 hover:bg-gold hover:border-gold hover:text-white px-4 md:px-6 py-2 rounded text-[10px] md:text-xs font-bold uppercase tracking-wider transition duration-300 flex items-center gap-2">
@@ -99,7 +99,7 @@
             <a href="#divisions" onclick="toggleMobileMenu()" class="block py-3 text-sm font-bold text-slate-600 uppercase">Our Divisions</a>
             <a href="#trust" onclick="toggleMobileMenu()" class="block py-3 text-sm font-bold text-slate-600 uppercase border-t border-gray-50">Mandates</a>
             <a href="#projects" onclick="toggleMobileMenu()" class="block py-3 text-sm font-bold text-slate-600 uppercase border-t border-gray-50">Projects</a>
-            <a href="SH.html" onclick="toggleMobileMenu()" class="block py-3 text-sm font-bold text-gold uppercase border-t border-gray-50">S&H Demo</a>
+            <a href="#gallery" onclick="openGalleryFromNav(event)" class="block py-3 text-sm font-bold text-slate-600 uppercase border-t border-gray-50">Gallery</a>
         </div>
     </nav>
 
@@ -319,7 +319,7 @@
 
             <div class="flex flex-col items-center justify-center">
                 
-                <div class="flex flex-col items-center gap-4 group cursor-pointer" onclick="toggleAccordion('gallery-grid', this)">
+                <div id="gallery-trigger" class="flex flex-col items-center gap-4 group cursor-pointer" onclick="toggleAccordion('gallery-grid', this)">
                     <div class="w-24 h-24 rounded-full bg-slate-50 border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-105 transition-all duration-500">
                         <img src="gallery.jpg" class="w-full h-full object-cover p-1 rounded-full" onerror="this.parentElement.innerHTML='<i class=\'fas fa-images text-3xl text-gold\'></i>'">
                     </div>
@@ -484,6 +484,28 @@
                 content.classList.add('max-h-0', 'opacity-0');
                 content.classList.remove('max-h-[2000px]', 'opacity-100');
                 if(icon) icon.classList.remove('rotate-180');
+            }
+        }
+
+        // NEW function specifically to trigger gallery directly from the Nav menu
+        function openGalleryFromNav(e) {
+            if (e) e.preventDefault();
+            
+            // Close mobile menu if it's open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('open')) {
+                toggleMobileMenu();
+            }
+            
+            // Scroll down to the gallery section smoothly
+            const gallerySection = document.getElementById('gallery');
+            gallerySection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Automatically open the grid if it's currently closed
+            const grid = document.getElementById('gallery-grid');
+            if (grid.classList.contains('max-h-0')) {
+                const triggerBtn = document.getElementById('gallery-trigger');
+                toggleAccordion('gallery-grid', triggerBtn);
             }
         }
 
