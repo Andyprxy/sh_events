@@ -376,12 +376,15 @@
                     <h3 class="text-3xl text-slate-900 heading-font mb-4 uppercase">Submit Briefing Note</h3>
                     <p class="text-slate-600 text-sm leading-relaxed max-w-lg mx-auto">For formal government mandates or institutional inquiries, please submit a preliminary briefing note below.</p>
                 </div>
-                <form onsubmit="event.preventDefault(); alert('Briefing Note Submitted');" class="space-y-6">
+                <form action="https://formsubmit.co/sylvester@sh-events.co.za" method="POST" class="space-y-6">
+                    <input type="hidden" name="_subject" value="New Mandate Submission - S&H Consulting">
+                    <input type="hidden" name="_captcha" value="false">
+                    
                     <div class="grid md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="Organisation / Entity" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm">
-                        <input type="email" placeholder="Work Email" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm">
+                        <input type="text" name="Organisation" required placeholder="Organisation / Entity" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm">
+                        <input type="email" name="Email" required placeholder="Work Email" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm">
                     </div>
-                    <textarea rows="4" placeholder="Briefly outline objectives and timelines..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm resize-none"></textarea>
+                    <textarea name="Message" required rows="4" placeholder="Briefly outline objectives and timelines..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm resize-none"></textarea>
                     <button type="submit" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-sm uppercase py-4 rounded transition shadow-md">Submit Formal Mandate</button>
                 </form>
             </div>
@@ -402,7 +405,7 @@
                     <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-6">Contact Details</h4>
                     <ul class="text-gray-400 text-sm space-y-4">
                         <li><i class="fas fa-phone text-gold mr-2"></i> +27 61 496 4840</li>
-                        <li><i class="fas fa-envelope text-gold mr-2"></i> info@shgroup.cloud</li>
+                        <li><i class="fas fa-envelope text-gold mr-2"></i> sylvester@sh-events.co.za</li>
                         <li class="pt-2">
                             <a href="https://wa.me/27693937899" target="_blank" class="hover:text-white transition flex items-center justify-center md:justify-start gap-2">
                                 <i class="fab fa-whatsapp text-xl text-green-500"></i> WhatsApp HQ
