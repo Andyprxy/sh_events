@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Vehicle Handover | S&H Consulting</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                slate: { 850: '#1e293b', 900: '#0f172a' },
+                gold: { DEFAULT: '#b89b5e', dark: '#a3884e' }
+              }
+            }
+          }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        .heading-font { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
+        
+        /* Smooth step transitions */
+        .step-container { transition: opacity 0.4s ease, transform 0.4s ease; }
+        .hide-step { opacity: 0; transform: translateY(10px); pointer-events: none; position: absolute; visibility: hidden; }
+        .show-step { opacity: 1; transform: translateY(0); position: relative; visibility: visible; }
+    </style>
+</head>
+<body class="antialiased selection:bg-slate-500 selection:text-white min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden border-t-8 border-gold">
+        
+        <div class="bg-slate-900 p-6 text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover"></div>
+            <div class="relative z-10">
+                <span class="text-gold text-[10px] font-bold tracking-[0.2em] uppercase">S&H Mobility Protocol</span>
+                <h2 class="text-2xl text-white heading-font uppercase mt-1">Digital Handover</h2>
+            </div>
+        </div>
+
+        <div class="px-8 pt-6 pb-2">
+            <div class="flex justify-between items-center relative">
+                <div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-slate-100 z-0"></div>
+                <div class="w-8 h-8 rounded-full bg-slate-900 border-2 border-gold text-gold flex items-center justify-center font-bold text-xs z-10 heading-font" id="ind-1">1</div>
+                <div class="w-8 h-8 rounded-full bg-white border-2 border-slate-200 text-slate-400 flex items-center justify-center font-bold text-xs z-10 heading-font transition-colors duration-300" id="ind-2">2</div>
+                <div class="w-8 h-8 rounded-full bg-white border-2 border-slate-200 text-slate-400 flex items-center justify-center font-bold text-xs z-10 heading-font transition-colors duration-300" id="ind-3">3</div>
+            </div>
+        </div>
+
+        <form id="handoverForm" class="p-8">
+            
+            <div class="step-container show-step" id="step-1">
+                <div class="mb-6">
+                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-2">Email Address</label>
+                    <input type="email" id="clientEmail" name="clientEmail" placeholder="e.g., driver@company.com" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm transition">
+                </div>
+                
+                <div class="mb-8">
+                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-2">Driver's License (Front)</label>
+                    <label for="licenseFront" class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-slate-200 rounded-lg bg-slate-50 cursor-pointer hover:border-gold hover:bg-white transition group">
+                        <i class="fas fa-id-card text-slate-400 text-3xl mb-2 group-hover:text-gold transition"></i>
+                        <span class="text-sm text-slate-600 font-medium">Tap to scan license</span>
+                        <div class="text-xs text-green-600 font-bold mt-2 break-all text-center" id="name-licenseFront"></div>
+                    </label>
+                    <input type="file" id="licenseFront" name="licenseFront" accept="image/*" required class="hidden" onchange="updateFileName(this, 'name-licenseFront')">
+                </div>
+
+                <button type="button" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-sm uppercase py-4 rounded transition shadow-md heading-font tracking-widest" onclick="nextStep(1)">Proceed to Exterior</button>
+            </div>
+
+            <div class="step-container hide-step" id="step-2">
+                <p class="text-xs text-slate-500 text-center mb-6">Capture all four corners of the vehicle.</p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-600 uppercase tracking-wide mb-2 text-center">Front-Left</label>
+                        <label for="carFrontLeft" class="flex flex-col items-center justify-center p-3 border-2 border-dashed border-slate-200 rounded-lg bg-slate-50 cursor-pointer hover:border-gold hover:bg-white transition group text-center h-24">
+                            <i class="fas fa-camera text-slate-400 text-lg mb-1 group-hover:text-gold transition"></i>
+                            <div class="text-[10px] text-green-600 font-bold mt-1" id="name-carFrontLeft"></div>
+                        </label>
+                        <input type="file" id="carFrontLeft" name="carFrontLeft" accept="image/*" capture="environment" required class="hidden" onchange="updateFileName(this, 'name-carFrontLeft')">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-600 uppercase tracking-wide mb-2 text-center">Front-Right</label>
+                        <label for="carFrontRight" class="flex flex-col items-center justify-center p-3 border-2 border-dashed border-slate-200 rounded-lg bg-slate-50 cursor-pointer hover:border-gold hover:bg-white transition group text-center h-24">
+                            <i class="fas fa-camera text-slate-400 text-lg mb-1 group-hover:text-gold transition"></i>
+                            <div class="text-[10px] text-green-600 font-bold mt-1" id="name-carFrontRight"></div>
+                        </label>
+                        <input type="file" id="carFrontRight" name="carFrontRight" accept="image/*" capture="environment" required class="hidden" onchange="updateFileName(this, 'name-carFrontRight')">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-600 uppercase tracking-wide mb-2 text-center">Rear-Left</label>
+                        <label for="carRearLeft" class="flex flex-col items-center justify-center p-3 border-2 border-dashed border-slate-200 rounded-lg bg-slate-50 cursor-pointer hover:border-gold hover:bg-white transition group text-center h-24">
+                            <i class="fas fa-camera text-slate-400 text-lg mb-1 group-hover:text-gold transition"></i>
+                            <div class="text-[10px] text-green-600 font-bold mt-1" id="name-carRearLeft"></div>
+                        </label>
+                        <input type="file" id="carRearLeft" name="carRearLeft" accept="image/*" capture="environment" required class="hidden" onchange="updateFileName(this, 'name-carRearLeft')">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-600 uppercase tracking-wide mb-2 text-center">Rear-Right</label>
+                        <label for="carRearRight" class="flex flex-col items-center justify-center p-3 border-2 border-dashed border-slate-200 rounded-lg bg-slate-50 cursor-pointer hover:border-gold hover:bg-white transition group text-center h-24">
+                            <i class="fas fa-camera text-slate-400 text-lg mb-1 group-hover:text-gold transition"></i>
+                            <div class="text-[10px] text-green-600 font-bold mt-1" id="name-carRearRight"></div>
+                        </label>
+                        <input type="file" id="carRearRight" name="carRearRight" accept="image/*" capture="environment" required class="hidden" onchange="updateFileName(this, 'name-carRearRight')">
+                    </div>
+
+                </div>
+
+                <div class="flex gap-3">
+                    <button type="button" class="w-1/3 border border-slate-200 text-slate-600 font-bold text-sm uppercase py-4 rounded hover:bg-slate-50 transition heading-font" onclick="prevStep(2)">Back</button>
+                    <button type="button" class="w-2/3 bg-slate-900 hover:bg-gold text-white font-bold text-sm uppercase py-4 rounded transition shadow-md heading-font tracking-widest" onclick="nextStep(2)">Proceed</button>
+                </div>
+            </div>
+
+            <div class="step-container hide-step" id="step-3">
+                <div class="mb-8">
+                    <label class="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-2">Dashboard (Mileage & Fuel)</label>
+                    <label for="dashboard" class="flex flex-col items-center justify-center p-8 border-2 border-dashed border-slate-200 rounded-lg bg-slate-50 cursor-pointer hover:border-gold hover:bg-white transition group">
+                        <i class="fas fa-gauge-high text-slate-400 text-4xl mb-3 group-hover:text-gold transition"></i>
+                        <span class="text-sm text-slate-600 font-medium">Capture Dashboard</span>
+                        <div class="text-xs text-green-600 font-bold mt-2 break-all text-center" id="name-dashboard"></div>
+                    </label>
+                    <input type="file" id="dashboard" name="dashboard" accept="image/*" capture="environment" required class="hidden" onchange="updateFileName(this, 'name-dashboard')">
+                </div>
+
+                <div class="flex gap-3">
+                    <button type="button" class="w-1/3 border border-slate-200 text-slate-600 font-bold text-sm uppercase py-4 rounded hover:bg-slate-50 transition heading-font" onclick="prevStep(3)">Back</button>
+                    <button type="submit" id="submitBtn" class="w-2/3 bg-gold hover:bg-yellow-600 text-white font-bold text-sm uppercase py-4 rounded transition shadow-md heading-font tracking-widest">Upload Protocol</button>
+                </div>
+                <div id="statusMsg" class="mt-4 text-center text-sm font-bold"></div>
+            </div>
+
+        </form>
+    </div>
+
+<script>
+    // Update UI when file is selected
+    function updateFileName(inputElement, displayId) {
+        const displayDiv = document.getElementById(displayId);
+        if (inputElement.files && inputElement.files[0]) {
+            displayDiv.innerHTML = "<i class='fas fa-check-circle'></i> Secured";
+            inputElement.previousElementSibling.classList.add('border-green-500', 'bg-green-50');
+            inputElement.previousElementSibling.classList.remove('border-slate-200', 'bg-slate-50');
+            // Hide the camera icon to save space when secured
+            inputElement.previousElementSibling.querySelector('i.fa-camera')?.classList.add('hidden');
+        } else {
+            displayDiv.textContent = "";
+            inputElement.previousElementSibling.classList.remove('border-green-500', 'bg-green-50');
+            inputElement.previousElementSibling.classList.add('border-slate-200', 'bg-slate-50');
+            inputElement.previousElementSibling.querySelector('i.fa-camera')?.classList.remove('hidden');
+        }
+    }
+
+    // Step Navigation Logic
+    function nextStep(currentStep) {
+        const currentDiv = document.getElementById(`step-${currentStep}`);
+        const requiredInputs = currentDiv.querySelectorAll('[required]');
+        let isValid = true;
+
+        requiredInputs.forEach(input => {
+            if (!input.value) {
+                isValid = false;
+                if(input.type === 'file') {
+                    input.previousElementSibling.classList.add('border-red-500', 'bg-red-50');
+                } else {
+                    input.classList.add('border-red-500');
+                }
+            } else {
+                if(input.type === 'file') {
+                    input.previousElementSibling.classList.remove('border-red-500', 'bg-red-50');
+                } else {
+                    input.classList.remove('border-red-500');
+                }
+            }
+        });
+
+        if (!isValid) return;
+
+        // Animate out current
+        currentDiv.classList.remove('show-step');
+        currentDiv.classList.add('hide-step');
+        
+        // Animate in next
+        const nextDiv = document.getElementById(`step-${currentStep + 1}`);
+        nextDiv.classList.remove('hide-step');
+        nextDiv.classList.add('show-step');
+        
+        // Update Indicators
+        const currentInd = document.getElementById(`ind-${currentStep}`);
+        currentInd.classList.replace('border-gold', 'border-slate-900');
+        currentInd.classList.replace('text-gold', 'text-white');
+        currentInd.classList.add('bg-slate-900');
+        currentInd.innerHTML = "<i class='fas fa-check'></i>";
+
+        const nextInd = document.getElementById(`ind-${currentStep + 1}`);
+        nextInd.classList.replace('border-slate-200', 'border-gold');
+        nextInd.classList.replace('text-slate-400', 'text-gold');
+        nextInd.classList.replace('bg-white', 'bg-slate-900');
+    }
+
+    function prevStep(currentStep) {
+        document.getElementById(`step-${currentStep}`).classList.remove('show-step');
+        document.getElementById(`step-${currentStep}`).classList.add('hide-step');
+        
+        document.getElementById(`step-${currentStep - 1}`).classList.remove('hide-step');
+        document.getElementById(`step-${currentStep - 1}`).classList.add('show-step');
+        
+        // Reset current indicator
+        const currentInd = document.getElementById(`ind-${currentStep}`);
+        currentInd.classList.replace('border-gold', 'border-slate-200');
+        currentInd.classList.replace('text-gold', 'text-slate-400');
+        currentInd.classList.replace('bg-slate-900', 'bg-white');
+
+        // Restore previous indicator
+        const prevInd = document.getElementById(`ind-${currentStep - 1}`);
+        prevInd.innerHTML = currentStep - 1;
+        prevInd.classList.replace('border-slate-900', 'border-gold');
+        prevInd.classList.replace('text-white', 'text-gold');
+        prevInd.classList.add('bg-slate-900');
+    }
+
+    // Form Submission to n8n Webhook
+    document.getElementById('handoverForm').addEventListener('submit', async function(e) {
+        e.preventDefault(); 
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('statusMsg');
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Syncing...';
+        statusMsg.textContent = '';
+
+        const formData = new FormData(this);
+
+        // n8n Webhook URL
+        const n8nWebhookUrl = 'https://n8n.automania.cloud/webhook/vehicle-inspection'; 
+
+        try {
+            const response = await fetch(n8nWebhookUrl, {
+                method: 'POST',
+                body: formData 
+            });
+
+            if (response.ok) {
+                statusMsg.classList.add('text-green-600');
+                statusMsg.textContent = 'Protocol secured and verified.';
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Upload Complete';
+                submitBtn.classList.replace('bg-gold', 'bg-green-600');
+                setTimeout(() => {
+                    window.location.reload(); 
+                }, 3000);
+            } else {
+                throw new Error('Server error');
+            }
+        } catch (error) {
+            statusMsg.classList.add('text-red-600');
+            statusMsg.textContent = 'Sync failed. Check connection.';
+            console.error('Webhook Error:', error);
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Upload Protocol';
+        }
+    });
+</script>
+
+</body>
+</html>
