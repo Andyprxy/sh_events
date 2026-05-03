@@ -152,7 +152,6 @@
             displayDiv.innerHTML = "<i class='fas fa-check-circle'></i> Secured";
             inputElement.previousElementSibling.classList.add('border-green-500', 'bg-green-50');
             inputElement.previousElementSibling.classList.remove('border-slate-200', 'bg-slate-50');
-            // Hide the camera icon to save space when secured
             inputElement.previousElementSibling.querySelector('i.fa-camera')?.classList.add('hidden');
         } else {
             displayDiv.textContent = "";
@@ -243,8 +242,15 @@
 
         const formData = new FormData(this);
 
-        // n8n Webhook URL
-        const n8nWebhookUrl = 'https://n8n.automania.cloud/webhook/vehicle-inspection'; 
+        // Dynamic Environment Check (Test vs Production)
+        const isTestMode = window.location.hostname === 'localhost' || 
+                           window.location.hostname === '127.0.0.1' || 
+                           window.location.hostname.includes('github.io') || 
+                           window.location.hostname.includes('AndileBrian.Online');
+        
+        const n8nWebhookUrl = isTestMode 
+            ? 'https://n8n.automania.cloud/webhook-test/vehicle-inspection' 
+            : 'https://n8n.automania.cloud/webhook/vehicle-inspection';
 
         try {
             const response = await fetch(n8nWebhookUrl, {
