@@ -150,9 +150,15 @@
                         <p class="text-slate-600 text-sm leading-relaxed">Blue-light brigade ready fleets and VIP shuttles featuring the Hyundai Staria Executive MPV for secure delegation logistics.</p>
                     </div>
                     
-                    <button onclick="toggleAccordion('mobility-details', this)" class="text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 self-start hover:text-gold transition flex items-center gap-2">
-                        View Fleet <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                    </button>
+                    <div class="flex justify-between items-center w-full">
+                        <button onclick="toggleAccordion('mobility-details', this)" class="text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2">
+                            View Fleet <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        
+                        <a href="handover/" class="text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2">
+                            Handover <i class="fas fa-camera"></i>
+                        </a>
+                    </div>
 
                     <div id="mobility-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-4">
                         <div class="mt-6 flex items-start sm:items-center gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
