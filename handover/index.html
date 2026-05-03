@@ -242,15 +242,8 @@
 
         const formData = new FormData(this);
 
-        // Dynamic Environment Check (Test vs Production)
-        const isTestMode = window.location.hostname === 'localhost' || 
-                           window.location.hostname === '127.0.0.1' || 
-                           window.location.hostname.includes('github.io') || 
-                           window.location.hostname.includes('AndileBrian.Online');
-        
-        const n8nWebhookUrl = isTestMode 
-            ? 'https://n8n.automania.cloud/webhook-test/vehicle-inspection' 
-            : 'https://n8n.automania.cloud/webhook/vehicle-inspection';
+        // Temporarily hardcoded for testing on mobile via local network IP
+        const n8nWebhookUrl = 'https://n8n.automania.cloud/webhook-test/vehicle-inspection'; 
 
         try {
             const response = await fetch(n8nWebhookUrl, {
