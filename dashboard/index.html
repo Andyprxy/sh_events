@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Live Analytics Dashboard | S&H Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for interactive premium graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                slate: { 850: '#1e293b', 900: '#0f172a' },
+                gold: { DEFAULT: '#b89b5e', dark: '#a3884e' }
+              }
+            }
+          }
+        }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: #f8fafc;
+            color: #0f172a; 
+            overflow: hidden; /* Lock scroll for dashboard app feel */
+        }
+        h1, h2, h3, .heading-font { 
+            font-family: 'Oswald', sans-serif; 
+            letter-spacing: 0.05em; 
+        }
+        
+        /* --- Premium Liquid Glass UI --- */
+        .glass-sidebar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 4px 0 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .liquid-glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 10px 30px rgba(184, 155, 94, 0.08), 0 1px 3px rgba(0,0,0,0.02);
+            border-radius: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .liquid-glass-card:hover {
+            box-shadow: 0 15px 40px rgba(184, 155, 94, 0.15), 0 5px 10px rgba(184, 155, 94, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* --- Ambient Glows --- */
+        .glow-orb-1 {
+            position: fixed; top: -10%; left: 10%; width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(184,155,94,0.12) 0%, rgba(248,250,252,0) 70%);
+            border-radius: 50%; z-index: -1; filter: blur(80px);
+        }
+        .glow-orb-2 {
+            position: fixed; bottom: -10%; right: -5%; width: 40vw; height: 40vw;
+            background: radial-gradient(circle, rgba(15,23,42,0.06) 0%, rgba(248,250,252,0) 70%);
+            border-radius: 50%; z-index: -1; filter: blur(80px);
+        }
+
+        /* Custom Scrollbar for dashboard content */
+        .dash-scroll::-webkit-scrollbar { width: 6px; }
+        .dash-scroll::-webkit-scrollbar-track { background: transparent; }
+        .dash-scroll::-webkit-scrollbar-thumb { background: rgba(184, 155, 94, 0.3); border-radius: 10px; }
+        .dash-scroll::-webkit-scrollbar-thumb:hover { background: rgba(184, 155, 94, 0.6); }
+
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(184, 155, 94, 0.1) 0%, transparent 100%);
+            border-left: 3px solid #b89b5e;
+            color: #0f172a;
+        }
+    </style>
+</head>
+<body class="antialiased flex h-screen w-full relative">
+
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="w-64 h-full glass-sidebar flex flex-col z-20 shrink-0">
+        <!-- Logo Area -->
+        <div class="h-20 flex items-center px-6 border-b border-slate-100">
+            <img src="../sh.JPG" alt="S&H Logo" class="h-10 mix-blend-multiply">
+        </div>
+
+        <!-- Navigation / Role Views -->
+        <div class="flex-1 py-6 overflow-y-auto">
+            <span class="px-6 text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-4 block">Command Views</span>
+            
+            <nav class="space-y-1">
+                <a href="#" class="nav-item active flex items-center gap-3 px-6 py-3 text-sm font-bold transition">
+                    <i class="fas fa-chart-pie w-5 text-gold text-center"></i>
+                    Project Manager
+                </a>
+                <a href="#" class="nav-item flex items-center gap-3 px-6 py-3 text-sm text-slate-500 hover:text-slate-900 transition">
+                    <i class="fas fa-map-marked-alt w-5 text-center"></i>
+                    Site Manager
+                </a>
+                <a href="#" class="nav-item flex items-center gap-3 px-6 py-3 text-sm text-slate-500 hover:text-slate-900 transition">
+                    <i class="fas fa-hard-hat w-5 text-center"></i>
+                    Safety Officer
+                </a>
+                <a href="#" class="nav-item flex items-center gap-3 px-6 py-3 text-sm text-slate-500 hover:text-slate-900 transition">
+                    <i class="fas fa-clipboard-list w-5 text-center"></i>
+                    Admin Dept Manager
+                </a>
+            </nav>
+
+            <span class="px-6 text-[10px] font-bold tracking-widest uppercase text-slate-400 mt-10 mb-4 block">System Tools</span>
+            <nav class="space-y-1">
+                <a href="#" class="flex items-center gap-3 px-6 py-3 text-sm text-slate-500 hover:text-slate-900 transition">
+                    <i class="fas fa-users w-5 text-center"></i> Delegate Database
+                </a>
+                <a href="#" class="flex items-center gap-3 px-6 py-3 text-sm text-slate-500 hover:text-slate-900 transition">
+                    <i class="fas fa-qrcode w-5 text-center"></i> QR Scanner Logs
+                </a>
+                <a href="#" class="flex items-center gap-3 px-6 py-3 text-sm text-slate-500 hover:text-slate-900 transition">
+                    <i class="fas fa-file-export w-5 text-center"></i> Export Reports
+                </a>
+            </nav>
+        </div>
+
+        <!-- User Profile Bottom -->
+        <div class="p-6 border-t border-slate-100">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-white text-xs font-bold shadow-md">
+                    PM
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-slate-900 uppercase">Executive Desk</p>
+                    <p class="text-[10px] text-slate-500 tracking-wider">System Administrator</p>
+                </div>
+            </div>
+            <a href="../" class="mt-4 flex items-center justify-center gap-2 w-full border border-slate-200 py-2 rounded text-xs font-bold text-slate-600 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition uppercase tracking-widest">
+                <i class="fas fa-arrow-left"></i> Exit System
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="flex-1 h-full flex flex-col z-10 relative overflow-hidden">
+        
+        <!-- Top Bar -->
+        <header class="h-20 px-8 flex justify-between items-center bg-white/50 backdrop-blur-md border-b border-slate-100 shrink-0">
+            <div>
+                <h1 class="text-2xl heading-font uppercase text-slate-900">ProjectX Summit Command Center</h1>
+                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Live System Active
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 text-slate-600 hover:text-gold transition">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 text-slate-600 hover:text-gold transition">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="bg-gold hover:bg-[#a3884e] text-white px-5 py-2.5 rounded text-[10px] font-bold uppercase tracking-wider transition shadow-md">
+                    Generate Report
+                </button>
+            </div>
+        </header>
+
+        <!-- Dashboard Scrolling Area -->
+        <div class="flex-1 overflow-y-auto dash-scroll p-8 pb-20">
+            
+            <!-- KPI Cards Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- KPI 1 -->
+                <div class="liquid-glass-card p-6 relative overflow-hidden">
+                    <i class="fas fa-users absolute top-6 right-6 text-2xl text-gold/30"></i>
+                    <p class="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-1">Total Registered</p>
+                    <h3 class="text-4xl heading-font text-slate-900">1,482</h3>
+                    <p class="text-xs text-green-600 mt-2 font-bold"><i class="fas fa-arrow-up"></i> +12% vs expected</p>
+                </div>
+                <!-- KPI 2 -->
+                <div class="liquid-glass-card p-6 relative overflow-hidden">
+                    <i class="fas fa-qrcode absolute top-6 right-6 text-2xl text-green-500/30"></i>
+                    <p class="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-1">Live Check-Ins</p>
+                    <h3 class="text-4xl heading-font text-slate-900">1,105</h3>
+                    <p class="text-xs text-slate-500 mt-2 font-bold">74% Attendance Rate</p>
+                </div>
+                <!-- KPI 3 -->
+                <div class="liquid-glass-card p-6 relative overflow-hidden">
+                    <i class="fas fa-door-open absolute top-6 right-6 text-2xl text-slate-900/10"></i>
+                    <p class="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-1">Pending Arrivals</p>
+                    <h3 class="text-4xl heading-font text-slate-900">377</h3>
+                    <p class="text-xs text-orange-500 mt-2 font-bold">Awaiting QR scan</p>
+                </div>
+                <!-- KPI 4 -->
+                <div class="liquid-glass-card p-6 relative overflow-hidden">
+                    <i class="fas fa-tachometer-alt absolute top-6 right-6 text-2xl text-gold/30"></i>
+                    <p class="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-1">Current Scan Rate</p>
+                    <h3 class="text-4xl heading-font text-slate-900">42 <span class="text-lg text-slate-500">/min</span></h3>
+                    <p class="text-xs text-slate-500 mt-2 font-bold">Queue processing efficiently</p>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Large Chart (Arrival Flow) -->
+                <div class="liquid-glass-card p-6 lg:col-span-2">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h3 class="text-lg heading-font uppercase text-slate-900">Delegate Arrival Flow</h3>
+                            <p class="text-xs text-slate-500">Real-time QR verification pacing (Last 4 hours)</p>
+                        </div>
+                    </div>
+                    <div class="h-64 w-full">
+                        <canvas id="arrivalChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Small Chart (Demographics/Types) -->
+                <div class="liquid-glass-card p-6">
+                    <div class="mb-6">
+                        <h3 class="text-lg heading-font uppercase text-slate-900">Delegate Categories</h3>
+                        <p class="text-xs text-slate-500">Breakdown of checked-in personnel</p>
+                    </div>
+                    <div class="h-56 w-full flex justify-center">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Data Table -->
+            <div class="liquid-glass-card p-0 overflow-hidden">
+                <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                    <h3 class="text-lg heading-font uppercase text-slate-900">Live Verification Feed</h3>
+                    <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider border border-slate-200">Latest 5 Scans</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50/50">
+                                <th class="py-3 px-6 text-[10px] font-bold uppercase tracking-widest text-slate-500 border-b border-slate-100">Time</th>
+                                <th class="py-3 px-6 text-[10px] font-bold uppercase tracking-widest text-slate-500 border-b border-slate-100">Delegate Name</th>
+                                <th class="py-3 px-6 text-[10px] font-bold uppercase tracking-widest text-slate-500 border-b border-slate-100">Organization</th>
+                                <th class="py-3 px-6 text-[10px] font-bold uppercase tracking-widest text-slate-500 border-b border-slate-100">Clearance</th>
+                                <th class="py-3 px-6 text-[10px] font-bold uppercase tracking-widest text-slate-500 border-b border-slate-100">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="hover:bg-white/50 transition">
+                                <td class="py-3 px-6 border-b border-slate-50 font-mono text-xs text-slate-500">08:42:15 AM</td>
+                                <td class="py-3 px-6 border-b border-slate-50 font-bold text-slate-900">Dr. Alex Mercer</td>
+                                <td class="py-3 px-6 border-b border-slate-50 text-slate-600">Dept. Public Works</td>
+                                <td class="py-3 px-6 border-b border-slate-50"><span class="bg-slate-900 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">VIP</span></td>
+                                <td class="py-3 px-6 border-b border-slate-50"><span class="text-green-600 font-bold text-xs"><i class="fas fa-check-circle"></i> Cleared</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/50 transition">
+                                <td class="py-3 px-6 border-b border-slate-50 font-mono text-xs text-slate-500">08:41:59 AM</td>
+                                <td class="py-3 px-6 border-b border-slate-50 font-bold text-slate-900">Sarah Jenkins</td>
+                                <td class="py-3 px-6 border-b border-slate-50 text-slate-600">Media Outlet 24</td>
+                                <td class="py-3 px-6 border-b border-slate-50"><span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase border border-blue-200">Press</span></td>
+                                <td class="py-3 px-6 border-b border-slate-50"><span class="text-green-600 font-bold text-xs"><i class="fas fa-check-circle"></i> Cleared</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/50 transition">
+                                <td class="py-3 px-6 border-b border-slate-50 font-mono text-xs text-slate-500">08:41:32 AM</td>
+                                <td class="py-3 px-6 border-b border-slate-50 font-bold text-slate-900">Musa Dlamini</td>
+                                <td class="py-3 px-6 border-b border-slate-50 text-slate-600">International Trade Org</td>
+                                <td class="py-3 px-6 border-b border-slate-50"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase border border-slate-200">Standard</span></td>
+                                <td class="py-3 px-6 border-b border-slate-50"><span class="text-green-600 font-bold text-xs"><i class="fas fa-check-circle"></i> Cleared</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/50 transition">
+                                <td class="py-3 px-6 border-b border-slate-50 font-mono text-xs text-slate-500">08:40:12 AM</td>
+                                <td class="py-3 px-6 border-b border-slate-50 font-bold text-slate-900">Unknown Profile</td>
+                                <td class="py-3 px-6 border-b border-slate-50 text-slate-600">N/A</td>
+                                <td class="py-3 px-6 border-b border-slate-50"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase border border-red-200">Invalid</span></td>
+                                <td class="py-3 px-6 border-b border-slate-50"><span class="text-red-600 font-bold text-xs"><i class="fas fa-times-circle"></i> Denied</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/50 transition">
+                                <td class="py-3 px-6 font-mono text-xs text-slate-500">08:39:45 AM</td>
+                                <td class="py-3 px-6 font-bold text-slate-900">Johnathan Reed</td>
+                                <td class="py-3 px-6 text-slate-600">Security Detail</td>
+                                <td class="py-3 px-6"><span class="bg-gold/20 text-gold-dark px-2 py-0.5 rounded text-[10px] font-bold uppercase border border-gold/30">Staff</span></td>
+                                <td class="py-3 px-6"><span class="text-green-600 font-bold text-xs"><i class="fas fa-check-circle"></i> Cleared</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Footer Logo Signature -->
+            <div class="mt-8 text-center opacity-50">
+                <p class="text-[9px] uppercase tracking-[0.3em] font-bold text-slate-400">System Engineered by Automania Digital</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Chart.js Configuration Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Set global Chart.js styling to match the premium theme
+            Chart.defaults.font.family = "'Roboto', sans-serif";
+            Chart.defaults.color = '#64748b'; // slate-500
+            
+            // 1. Line Chart (Arrival Flow)
+            const ctxArrival = document.getElementById('arrivalChart').getContext('2d');
+            
+            // Create a gradient fill for the line chart
+            const gradient = ctxArrival.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(184, 155, 94, 0.4)'); // Gold transparent
+            gradient.addColorStop(1, 'rgba(184, 155, 94, 0.0)');
+
+            new Chart(ctxArrival, {
+                type: 'line',
+                data: {
+                    labels: ['06:00', '06:30', '07:00', '07:30', '08:00', '08:30', '09:00', '09:30 (Now)'],
+                    datasets: [{
+                        label: 'Check-Ins per 30 mins',
+                        data: [15, 45, 120, 280, 410, 180, 45, 10],
+                        borderColor: '#b89b5e', // Gold
+                        backgroundColor: gradient,
+                        borderWidth: 3,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#b89b5e',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        fill: true,
+                        tension: 0.4 // Smooth curves
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)', // Slate 900
+                            titleFont: { family: "'Oswald', sans-serif", size: 14 },
+                            padding: 12,
+                            cornerRadius: 8,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(0,0,0,0.05)', drawBorder: false }
+                        },
+                        x: {
+                            grid: { display: false, drawBorder: false }
+                        }
+                    }
+                }
+            });
+
+            // 2. Doughnut Chart (Delegate Categories)
+            const ctxCategory = document.getElementById('categoryChart').getContext('2d');
+            new Chart(ctxCategory, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Standard Delegate', 'VIP / Govt', 'Press / Media', 'Event Staff'],
+                    datasets: [{
+                        data: [65, 15, 10, 10],
+                        backgroundColor: [
+                            '#0f172a', // Slate 900
+                            '#b89b5e', // Gold
+                            '#cbd5e1', // Slate 300
+                            '#f1f5f9'  // Slate 100
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%', // Thin elegant rings
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            bodyFont: { size: 13 },
+                            padding: 10,
+                            cornerRadius: 8
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
