@@ -83,25 +83,15 @@
             border-radius: 50%; z-index: -1; filter: blur(80px);
         }
 
-        /* --- Phone Mockup & QR Scanner --- */
-        .phone-mockup {
-            border: 14px solid #0f172a;
-            border-radius: 48px;
+        /* --- QR Screen Capture Box --- */
+        /* Retains the 9:19 ratio so it fits phone frames perfectly in post-editing */
+        .screen-capture-box {
+            border-radius: 32px;
             background: #f8fafc;
             position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.2);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
             overflow: hidden;
             aspect-ratio: 9/19;
-        }
-        .phone-notch {
-            position: absolute;
-            top: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 120px; height: 25px;
-            background: #0f172a;
-            border-bottom-left-radius: 16px;
-            border-bottom-right-radius: 16px;
-            z-index: 50;
         }
         
         .glass-pass {
@@ -263,7 +253,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between border-b border-slate-200 pb-6 mb-8 gap-4">
                 <div class="flex items-center gap-3">
                     <img src="../sh.JPG" alt="S&H Logo" class="h-8 w-auto mix-blend-multiply">
-                    <span class="text-sm font-bold text-slate-800 uppercase tracking-widest">G20 Summit 2026</span>
+                    <span class="text-sm font-bold text-slate-800 uppercase tracking-widest">ProjectX Summit 2026</span>
                 </div>
                 <div class="flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1.5 rounded-full border border-green-200 text-[10px] font-bold tracking-wider uppercase shadow-sm">
                     <i class="fas fa-lock"></i> POPIA Compliant & Encrypted
@@ -318,7 +308,7 @@
         </div>
     </section>
 
-    <!-- SECTION 2: QR Check-in UI Mockup (Phone Frame) -->
+    <!-- SECTION 2: Clean QR Capture Box (For external screenshots) -->
     <section class="pb-32 px-6 max-w-7xl mx-auto relative z-10 border-t border-slate-200 pt-16">
         
         <div class="text-center mb-16">
@@ -348,19 +338,15 @@
                 </div>
             </div>
 
-            <!-- Right Side Phone Mockup -->
-            <div class="w-full max-w-[320px] phone-mockup order-1 md:order-2 shrink-0 bg-gradient-to-br from-slate-50 to-slate-200">
-                <!-- Phone Notch -->
-                <div class="phone-notch"></div>
+            <!-- Right Side Clean Capture Box (9:19 Ratio) -->
+            <div class="w-full max-w-[320px] screen-capture-box order-1 md:order-2 shrink-0 bg-gradient-to-br from-slate-50 to-slate-200">
                 
-                <!-- Inner Mobile UI -->
-                <div class="h-full w-full flex flex-col pt-8 relative">
-                    
-                    <!-- Mobile Header -->
+                <div class="h-full w-full flex flex-col pt-4 relative">
+                    <!-- Screen Header -->
                     <header class="p-5 flex justify-between items-center relative z-10">
-                        <div class="w-8 h-8 rounded-full bg-white shadow flex items-center justify-center text-slate-600"><i class="fas fa-chevron-left text-xs"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center text-slate-600"><i class="fas fa-chevron-left text-xs"></i></div>
                         <span class="text-[10px] font-bold tracking-widest uppercase text-slate-800">E-Ticket</span>
-                        <div class="w-8 h-8 rounded-full bg-white shadow flex items-center justify-center text-slate-600"><i class="fas fa-ellipsis-v text-xs"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center text-slate-600"><i class="fas fa-ellipsis-v text-xs"></i></div>
                     </header>
 
                     <!-- Digital Pass Card -->
@@ -368,14 +354,13 @@
                         <div class="glass-pass p-5 flex flex-col items-center relative overflow-hidden">
                             
                             <img src="../sh.JPG" alt="Logo" class="h-8 mb-4 mix-blend-multiply">
-                            <h2 class="text-xl heading-font uppercase text-slate-900 mb-0.5 text-center leading-tight">G20 Leadership<br>Summit</h2>
+                            <h2 class="text-xl heading-font uppercase text-slate-900 mb-0.5 text-center leading-tight">ProjectX Leadership<br>Summit</h2>
                             <p class="text-[9px] text-slate-500 font-bold tracking-widest uppercase mb-6">VIP Access Pass</p>
                             
-                            <!-- Improved Realistic QR Code Block -->
+                            <!-- Custom SVG QR Code Block -->
                             <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100 mb-6 relative w-full flex justify-center">
                                 <div class="scan-container rounded-lg border-2 border-dashed border-gold/40 p-2 relative bg-white w-[160px] h-[160px]">
                                     <div class="laser"></div>
-                                    <!-- Custom Realistic SVG QR Code -->
                                     <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                                         <!-- Top Left Eye -->
                                         <rect x="5" y="5" width="20" height="20" class="qr-eye"/>
@@ -387,7 +372,7 @@
                                         <rect x="5" y="75" width="20" height="20" class="qr-eye"/>
                                         <rect x="10" y="80" width="10" height="10" class="qr-rect"/>
                                         
-                                        <!-- Random QR Data Blocks (Simulated) -->
+                                        <!-- Random QR Data Blocks -->
                                         <rect x="35" y="5" width="5" height="5" class="qr-dot"/>
                                         <rect x="45" y="5" width="15" height="5" class="qr-dot"/>
                                         <rect x="30" y="15" width="10" height="5" class="qr-dot"/>
@@ -447,7 +432,7 @@
                         </div>
 
                         <!-- Add to Wallet CTA -->
-                        <button class="mt-4 mx-auto w-full max-w-[240px] bg-slate-900 text-white rounded-full py-3 text-[10px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg hover:bg-gold transition">
+                        <button class="mt-4 mx-auto w-full max-w-[240px] bg-slate-900 text-white rounded-full py-3 text-[10px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-sm hover:shadow-md hover:bg-gold transition">
                             <i class="fab fa-apple text-sm"></i> Add to Wallet
                         </button>
                     </div>
