@@ -24,7 +24,7 @@
     <style>
         body { 
             font-family: 'Roboto', sans-serif; 
-            background-color: #f8fafc; /* Premium Light Slate Background */
+            background-color: #f8fafc;
             color: #0f172a; 
             overflow-x: hidden;
         }
@@ -33,7 +33,6 @@
             letter-spacing: 0.05em; 
         }
         
-        /* --- Automania Premium Liquid Glass UI (Light Mode) --- */
         .liquid-glass-nav {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px);
@@ -47,7 +46,6 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            /* Soft brown/gold shadow behind the edges */
             box-shadow: 0 15px 45px rgba(184, 155, 94, 0.15), 0 5px 15px rgba(184, 155, 94, 0.08);
             border-radius: 1.5rem;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -56,46 +54,41 @@
         .liquid-glass-card:hover {
             border-color: rgba(184, 155, 94, 0.5);
             transform: translateY(-5px);
-            /* Intensified brown/gold shadow on hover */
             box-shadow: 0 25px 60px rgba(184, 155, 94, 0.25), 0 10px 25px rgba(184, 155, 94, 0.1);
             background: rgba(255, 255, 255, 0.85);
         }
 
-        /* Abstract Background Glows for a Premium Aesthetic */
+        .input-field {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(184, 155, 94, 0.2);
+            transition: all 0.3s ease;
+        }
+        .input-field:focus {
+            border-color: #b89b5e;
+            box-shadow: 0 0 0 3px rgba(184, 155, 94, 0.1);
+            outline: none;
+            background: #ffffff;
+        }
+
         .glow-orb-1 {
-            position: absolute;
-            top: -5%;
-            left: -5%;
-            width: 40vw;
-            height: 40vw;
+            position: absolute; top: -5%; left: -5%; width: 40vw; height: 40vw;
             background: radial-gradient(circle, rgba(184,155,94,0.15) 0%, rgba(248,250,252,0) 70%);
-            border-radius: 50%;
-            z-index: -1;
-            filter: blur(60px);
+            border-radius: 50%; z-index: -1; filter: blur(60px);
         }
         .glow-orb-2 {
-            position: absolute;
-            bottom: -10%;
-            right: -5%;
-            width: 50vw;
-            height: 50vw;
+            position: absolute; bottom: -10%; right: -5%; width: 50vw; height: 50vw;
             background: radial-gradient(circle, rgba(15,23,42,0.06) 0%, rgba(248,250,252,0) 70%);
-            border-radius: 50%;
-            z-index: -1;
-            filter: blur(80px);
+            border-radius: 50%; z-index: -1; filter: blur(80px);
         }
     </style>
 </head>
 <body class="antialiased selection:bg-gold selection:text-white relative">
 
-    <!-- Abstract Background Lighting -->
     <div class="glow-orb-1"></div>
     <div class="glow-orb-2"></div>
 
-    <!-- Liquid Glass Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Points to the root directory where index.html and sh.JPG live -->
             <a href="../" class="flex items-center gap-4 cursor-pointer group">
                 <div class="bg-white px-2 py-1 rounded-sm shadow-sm group-hover:shadow-md transition">
                     <img src="../sh.JPG" alt="S&H Logo" class="h-10 w-auto object-contain mix-blend-multiply">
@@ -103,15 +96,12 @@
                 <div class="hidden md:block h-8 w-px bg-gray-200"></div>
                 <span class="hidden md:block text-xs font-bold tracking-widest text-slate-400 uppercase group-hover:text-gold transition">Consulting</span>
             </a>
-            
-            <!-- Updated Button: Solid S&H Gold Fill -->
             <a href="../" class="bg-gold hover:bg-[#a3884e] text-white px-5 py-2.5 rounded text-[10px] md:text-xs font-bold uppercase tracking-wider transition duration-300 flex items-center gap-2 shadow-md hover:shadow-lg">
                 <i class="fas fa-arrow-left"></i> Back to Main
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="relative pt-36 pb-20 px-6 max-w-7xl mx-auto z-10">
         <div class="text-center max-w-3xl mx-auto">
             <div class="inline-flex items-center gap-2 bg-white border border-slate-100 px-4 py-1.5 rounded-full mb-6 shadow-sm">
@@ -127,50 +117,38 @@
         </div>
     </section>
 
-    <!-- Main Content Grid -->
-    <section class="pb-32 px-6 max-w-7xl mx-auto relative z-10">
+    <section class="pb-20 px-6 max-w-7xl mx-auto relative z-10">
         <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             
-            <!-- Digital Platforms Card (With Brown/Gold Shadow Detail) -->
             <div class="liquid-glass-card p-8 md:p-10 flex flex-col h-full relative overflow-hidden group">
                 <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition duration-500 transform group-hover:scale-110 group-hover:rotate-12">
                     <i class="fas fa-network-wired text-8xl text-slate-900"></i>
                 </div>
-                
                 <h2 class="text-3xl heading-font uppercase mb-8 text-slate-900">Digital Platforms</h2>
-                
                 <ul class="space-y-6 flex-1 relative z-10">
                     <li class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-shield-alt text-gold text-sm"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-shield-alt text-gold text-sm"></i></div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-1">POPIA-Compliant RSVP</h4>
                             <p class="text-xs text-slate-600 leading-relaxed">Secure, end-to-end registration platform adhering strictly to data protection regulations.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-paper-plane text-gold text-sm"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-paper-plane text-gold text-sm"></i></div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-1">Automated Communications</h4>
                             <p class="text-xs text-slate-600 leading-relaxed">Triggered email and SMS event communications for delegate updates and confirmations.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-qrcode text-gold text-sm"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-qrcode text-gold text-sm"></i></div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-1">QR-Based Tracking</h4>
                             <p class="text-xs text-slate-600 leading-relaxed">Seamless QR-based check-in protocols and live attendee tracking throughout the venue.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-chart-line text-gold text-sm"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-chart-line text-gold text-sm"></i></div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-1">Real-Time Analytics</h4>
                             <p class="text-xs text-slate-600 leading-relaxed">Live dashboards, advanced analytics, and comprehensive post-event reporting.</p>
@@ -179,46 +157,35 @@
                 </ul>
             </div>
 
-            <!-- Onsite Operations Card (With Brown/Gold Shadow Detail) -->
             <div class="liquid-glass-card p-8 md:p-10 flex flex-col h-full relative overflow-hidden group mt-8 md:mt-0">
                 <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition duration-500 transform group-hover:scale-110 group-hover:-rotate-12">
                     <i class="fas fa-users-cog text-8xl text-slate-900"></i>
                 </div>
-                
                 <h2 class="text-3xl heading-font uppercase mb-8 text-slate-900">Onsite Operations</h2>
-                
                 <ul class="space-y-6 flex-1 relative z-10">
                     <li class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-slate-900 shadow-sm border border-slate-800 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-id-badge text-white text-sm"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-slate-900 shadow-sm border border-slate-800 flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-id-badge text-white text-sm"></i></div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-1">Delegate Management</h4>
                             <p class="text-xs text-slate-600 leading-relaxed">End-to-end onsite registration coordination and high-volume delegate handling.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-slate-900 shadow-sm border border-slate-800 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-building text-white text-sm"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-slate-900 shadow-sm border border-slate-800 flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-building text-white text-sm"></i></div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-1">HSRC-Branded Infrastructure</h4>
                             <p class="text-xs text-slate-600 leading-relaxed">Deployment of fully customized, branded check-in infrastructure tailored to institutional specifications.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-slate-900 shadow-sm border border-slate-800 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-user-tie text-white text-sm"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-slate-900 shadow-sm border border-slate-800 flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-user-tie text-white text-sm"></i></div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-1">Specialist Staff & Equipment</h4>
                             <p class="text-xs text-slate-600 leading-relaxed">Highly trained registration staff equipped with high-speed QR scanning hardware.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-slate-900 shadow-sm border border-slate-800 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-tasks text-white text-sm"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-slate-900 shadow-sm border border-slate-800 flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-tasks text-white text-sm"></i></div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-1">Queue & Data Management</h4>
                             <p class="text-xs text-slate-600 leading-relaxed">Active queue management, onsite troubleshooting, and deployment of post-event survey tools for data extraction.</p>
@@ -226,18 +193,83 @@
                     </li>
                 </ul>
             </div>
-
         </div>
-        
-        <!-- CTA Section -->
-        <div class="mt-16 text-center">
-            <div class="liquid-glass-card inline-block p-8 border-gold/30">
-                <h3 class="text-xl heading-font uppercase text-slate-900 mb-4">Require a System Demonstration?</h3>
-                <p class="text-xs text-slate-500 mb-6 max-w-md mx-auto">Contact the S&H Digital Desk to schedule a walk-through of our POPIA-compliant registration architecture.</p>
-                <a href="../#contact" class="inline-block bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase px-8 py-3 rounded tracking-widest transition duration-300 shadow-md hover:shadow-lg">
-                    Initiate Contact
-                </a>
+    </section>
+
+    <!-- NEW SECTION: Registration Mockup -->
+    <section class="pb-32 px-6 max-w-4xl mx-auto relative z-10">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl heading-font uppercase text-slate-900 mb-2">Delegate Registration Portal</h2>
+            <p class="text-slate-500 text-sm">Live Demonstration of the POPIA-Compliant RSVP System</p>
+        </div>
+
+        <div class="liquid-glass-card p-8 md:p-12">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-6 mb-8">
+                <div class="flex items-center gap-3">
+                    <img src="../sh.JPG" alt="S&H Logo" class="h-8 w-auto mix-blend-multiply">
+                    <span class="text-sm font-bold text-slate-800 uppercase tracking-widest hidden sm:inline-block">2026 Summit</span>
+                </div>
+                <div class="flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full border border-green-200 text-[10px] font-bold tracking-wider uppercase">
+                    <i class="fas fa-lock"></i> POPIA Compliant
+                </div>
             </div>
+
+            <form class="space-y-6" onsubmit="event.preventDefault();">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">First Name</label>
+                        <input type="text" placeholder="Enter first name" class="input-field w-full rounded-lg p-3.5 text-sm text-slate-800 placeholder-slate-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Last Name</label>
+                        <input type="text" placeholder="Enter last name" class="input-field w-full rounded-lg p-3.5 text-sm text-slate-800 placeholder-slate-400">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Email Address</label>
+                        <input type="email" placeholder="work@organization.com" class="input-field w-full rounded-lg p-3.5 text-sm text-slate-800 placeholder-slate-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Organization</label>
+                        <input type="text" placeholder="e.g. Dept of Public Works" class="input-field w-full rounded-lg p-3.5 text-sm text-slate-800 placeholder-slate-400">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Dietary Requirements</label>
+                    <select class="input-field w-full rounded-lg p-3.5 text-sm text-slate-600 appearance-none cursor-pointer">
+                        <option>None</option>
+                        <option>Halaal</option>
+                        <option>Kosher</option>
+                        <option>Vegetarian</option>
+                        <option>Vegan</option>
+                    </select>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 flex items-start gap-3 mt-8">
+                    <input type="checkbox" id="popia" class="mt-1 w-4 h-4 text-gold border-gray-300 rounded focus:ring-gold accent-gold cursor-pointer" required>
+                    <label for="popia" class="text-xs text-slate-600 leading-relaxed cursor-pointer">
+                        <strong>Data Privacy Consent:</strong> I hereby consent to the processing of my personal information by S&H Consulting in accordance with the Protection of Personal Information Act (POPIA). My data will be used solely for the purpose of event registration, communication, and onsite QR tracking.
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-sm uppercase py-4 rounded-lg tracking-widest transition duration-300 shadow-xl hover:shadow-[0_10px_30px_rgba(184,155,94,0.3)] mt-4">
+                    Complete Registration
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="pb-32 px-6 max-w-7xl mx-auto relative z-10 text-center">
+        <div class="liquid-glass-card inline-block p-8 border-gold/30">
+            <h3 class="text-xl heading-font uppercase text-slate-900 mb-4">Require a System Demonstration?</h3>
+            <p class="text-xs text-slate-500 mb-6 max-w-md mx-auto">Contact the S&H Digital Desk to schedule a walk-through of our POPIA-compliant registration architecture.</p>
+            <a href="../#contact" class="inline-block bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase px-8 py-3 rounded tracking-widest transition duration-300 shadow-md hover:shadow-lg">
+                Initiate Contact
+            </a>
         </div>
     </section>
 
