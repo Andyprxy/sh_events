@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    
+    <!-- Primary Meta Tags -->
     <title>S&H Consulting | Turnkey Projects & Logistics</title>
+    <meta name="title" content="S&H Consulting | Turnkey Projects & Logistics">
+    <meta name="description" content="S&H Consulting provides premier turnkey infrastructure, VIP mobility logistics, and elite project management for high-stakes national mandates and events.">
+    <meta name="keywords" content="S&H Consulting, Event Management, VIP Mobility, Infrastructure Hire, Technical Production, Project Management, South Africa, G20 Logistics">
+    <meta name="author" content="S&H Consulting">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://sh-consulting.co.za/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="sh.JPG">
+    <link rel="apple-touch-icon" href="sh.JPG">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sh-consulting.co.za/">
+    <meta property="og:title" content="S&H Consulting | Turnkey Projects & Logistics">
+    <meta property="og:description" content="Integrated Logistics & Elite Productions. Premier infrastructure and logistics partner for high-stakes mandates.">
+    <meta property="og:image" content="https://sh-consulting.co.za/SHero.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sh-consulting.co.za/">
+    <meta property="twitter:title" content="S&H Consulting | Turnkey Projects & Logistics">
+    <meta property="twitter:description" content="Integrated Logistics & Elite Productions. Premier infrastructure and logistics partner for high-stakes mandates.">
+    <meta property="twitter:image" content="https://sh-consulting.co.za/SHero.jpg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Original Brand Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <script>
@@ -23,16 +52,53 @@
 
     <style>
         body { font-family: 'Roboto', sans-serif; background-color: #ffffff; color: #0f172a; }
-        h1, h2, h3, .heading-font { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
+        h1, h2, h3, h4, .heading-font { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
+        
         .glass-nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-        .chat-open { transform: translateY(0) scale(1); opacity: 1; pointer-events: all; }
-        .chat-closed { transform: translateY(20px) scale(0.95); opacity: 0; pointer-events: none; }
+
+        /* --- Premium Text Fixes --- */
+        .text-pop-shadow {
+            text-shadow: 
+                -1px -1px 0 rgba(0,0,0,0.9),  
+                 1px -1px 0 rgba(0,0,0,0.9),
+                -1px  1px 0 rgba(0,0,0,0.9),
+                 1px  1px 0 rgba(0,0,0,0.9),
+                 0 15px 30px rgba(0,0,0,0.95);
+        }
+
+        .flare-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden; 
+            padding-right: 10px; 
+        }
         
+        .flare-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 25%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: diamond-flare 7s infinite ease-in-out;
+            pointer-events: none;
+            mix-blend-mode: color-dodge; 
+        }
+
+        @keyframes diamond-flare {
+            0% { left: -50%; opacity: 0; }
+            10% { opacity: 1; }
+            25% { left: 150%; opacity: 0; }
+            100% { left: 150%; opacity: 0; }
+        }
+
         .glow-hover { transition: all 0.5s ease; }
         .glow-hover:hover { 
             transform: scale(1.02);
@@ -40,26 +106,21 @@
             filter: grayscale(0%);
         }
 
-        /* Prevent auto-zoom on mobile inputs */
-        #user-input { font-size: 16px !important; }
+        input, textarea, select { font-size: 16px !important; }
 
-        /* Mobile Menu Animation */
         #mobile-menu { transition: max-height 0.3s ease-in-out; max-height: 0; overflow: hidden; }
         #mobile-menu.open { max-height: 300px; }
-
-        /* Accordion transition for expanded views */
         .expand-content { transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out; }
 
         /* --- Circular Layout CSS --- */
         :root {
-            --circ-radius-sm: 135px; /* Mobile radius */
-            --circ-radius-md: 240px; /* Desktop radius */
+            --circ-radius-sm: 135px;
+            --circ-radius-md: 240px;
         }
         .circle-item {
             position: absolute;
             top: 50%;
             left: 50%;
-            /* Centers the item, rotates it along the circle, pushes it out, then un-rotates so it stays upright */
             transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--circ-radius-sm)) rotate(calc(var(--angle) * -1));
             width: max-content;
         }
@@ -68,10 +129,37 @@
                 transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--circ-radius-md)) rotate(calc(var(--angle) * -1));
             }
         }
+
+        /* --- Orbiting System Animation --- */
+        .orbit-track { animation: spin 45s linear infinite; }
+        .orbit-item { animation: counter-spin 45s linear infinite; }
+        .orbit-container:hover .orbit-track,
+        .orbit-container:hover .orbit-item {
+            animation-play-state: paused;
+        }
+
+        @keyframes counter-spin {
+            100% { transform: rotate(-360deg); }
+        }
+
+        /* --- Gallery Marquee Animation --- */
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: scroll-left 35s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-slate-500 selection:text-white">
+<body class="antialiased selection:bg-gold selection:text-white relative">
 
+    <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-4 cursor-pointer" onclick="toggleMobileMenu()">
@@ -87,151 +175,162 @@
                 <a href="#divisions" class="hover:text-gold transition duration-300">Our Divisions</a>
                 <a href="#trust" class="hover:text-gold transition duration-300">Mandates</a>
                 <a href="#projects" class="hover:text-gold transition duration-300">Projects</a>
-                <a href="#gallery" onclick="openGalleryFromNav(event)" class="hover:text-gold transition duration-300">Gallery</a>
+                <a href="#gallery" class="hover:text-gold transition duration-300">Gallery</a>
             </div>
             
-            <a href="#contact" class="border-2 border-slate-200 text-slate-700 hover:bg-gold hover:border-gold hover:text-white px-4 md:px-6 py-2 rounded text-[10px] md:text-xs font-bold uppercase tracking-wider transition duration-300 flex items-center gap-2">
-                Submit Mandate <i class="fas fa-arrow-right hidden md:inline"></i>
-            </a>
+            <!-- Controls container: Submit Button + Admin Icon -->
+            <div class="flex items-center gap-3 md:gap-5">
+                <a href="#contact" class="bg-gold text-white hover:bg-slate-900 border-2 border-gold hover:border-slate-900 px-4 md:px-6 py-2 rounded text-[10px] md:text-xs font-bold uppercase tracking-wider transition duration-300 flex items-center gap-2 shadow-sm">
+                    Submit Request <i class="fas fa-arrow-right hidden md:inline"></i>
+                </a>
+                <button onclick="toggleLoginModal()" class="text-slate-500 hover:text-gold transition duration-300 w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100" title="Admin Portal">
+                    <i class="fas fa-user md:text-lg"></i>
+                </button>
+            </div>
         </div>
 
         <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 px-6 space-y-4 py-0 transition-all">
             <a href="#divisions" onclick="toggleMobileMenu()" class="block py-3 text-sm font-bold text-slate-600 uppercase">Our Divisions</a>
             <a href="#trust" onclick="toggleMobileMenu()" class="block py-3 text-sm font-bold text-slate-600 uppercase border-t border-gray-50">Mandates</a>
             <a href="#projects" onclick="toggleMobileMenu()" class="block py-3 text-sm font-bold text-slate-600 uppercase border-t border-gray-50">Projects</a>
-            <a href="#gallery" onclick="openGalleryFromNav(event)" class="block py-3 text-sm font-bold text-slate-600 uppercase border-t border-gray-50">Gallery</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-3 text-sm font-bold text-slate-600 uppercase border-t border-gray-50">Gallery</a>
         </div>
     </nav>
 
-    <section class="relative min-h-[90vh] w-full overflow-hidden flex items-center justify-center pt-24 md:pt-0 bg-white">
+    <!-- Cleaned 3rd Quadrant Hero Section -->
+    <section class="relative min-h-[100svh] w-full flex items-end justify-start pb-16 sm:pb-24 lg:pb-32 pt-32 bg-black overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover grayscale-[20%]">
-            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent"></div>
+            <img src="SHero.jpg" alt="S&H Logistics Infrastructure" class="w-full h-full object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite]">
+            <div class="absolute inset-x-0 bottom-0 h-3/4 md:h-1/2 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
         </div>
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-left">
-                <div class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 px-4 py-1.5 rounded-full mb-8 shadow-sm">
-                    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-                    <span class="text-xs font-bold tracking-widest uppercase text-slate-600">Turnkey Solutions Provider</span>
-                </div>
-                <h1 class="text-4xl md:text-7xl font-medium mb-6 text-slate-900 leading-tight uppercase heading-font">
-                    Orchestrating <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-black">Excellence.</span>
+        
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl text-left flex flex-col items-start">
+                
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-2 md:mb-3 text-white uppercase heading-font text-pop-shadow flare-container">
+                    S&amp;H <span class="text-gold">Consulting.</span>
                 </h1>
-                <p class="text-slate-600 text-base md:text-lg mb-10 font-light max-w-lg leading-relaxed border-l-4 border-gold pl-6">
-                    S&H Events and Project Consulting is an Events Management company providing solutions to its clients through events planning, events management, equipment hire, facility hire and events overall management.
+                
+                <p class="text-gray-100 text-lg md:text-xl mb-6 font-medium tracking-wide drop-shadow-lg uppercase">
+                    Integrated Logistics &amp; Elite Productions
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#divisions" class="px-8 py-3 bg-slate-900 text-white font-bold text-sm uppercase tracking-widest hover:bg-gold transition rounded-sm shadow-xl text-center">View Capabilities</a>
-                    <a href="#contact" class="px-8 py-3 border-2 border-slate-200 text-slate-700 font-bold text-sm uppercase tracking-widest hover:bg-slate-50 rounded-sm transition text-center">Contact HQ</a>
+                
+                <p class="text-gray-200 text-sm md:text-base font-light leading-relaxed mb-8 border-l-2 border-gold pl-4 drop-shadow-md max-w-lg">
+                    S&amp;H Events and Project Consulting is an Events Management company providing solutions to its clients through events planning, events management, equipment hire, facility hire and events overall management.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <a href="#divisions" class="px-8 py-3.5 bg-gold text-white font-bold text-xs md:text-sm uppercase tracking-widest hover:bg-white hover:text-slate-900 transition rounded shadow-lg text-center">View Capabilities</a>
+                    <a href="#contact" class="px-8 py-3.5 bg-black/30 backdrop-blur-sm border border-white/40 text-white font-bold text-xs md:text-sm uppercase tracking-widest hover:border-gold hover:bg-black/50 transition rounded text-center">Contact</a>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="relative w-full h-2 bg-transparent z-20">
-        <div class="h-full w-1/2 bg-slate-900"></div>
+        <div class="h-full w-1/2 bg-gold"></div>
     </div>
 
-    <section id="divisions" class="py-24 px-6 max-w-7xl mx-auto relative bg-slate-50">
-        <div class="text-left mb-16">
-            <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase">Group Structure</span>
-            <h2 class="text-4xl md:text-5xl text-slate-900 mt-2 heading-font">Our Divisions</h2>
+    <!-- Divisions Section -->
+    <section id="divisions" class="py-20 md:py-32 px-6 max-w-7xl mx-auto relative bg-slate-50">
+        <div class="text-left mb-12 md:mb-16">
+            <span class="text-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">Group Structure</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl text-slate-900 mt-2 heading-font uppercase">Our Divisions</h2>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-8 items-start">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-start">
             
-            <div class="group flex flex-col rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max">
-                <div class="h-72 overflow-hidden relative shrink-0">
-                    <img src="mobility.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max">
+                <div class="h-56 sm:h-64 md:h-72 overflow-hidden relative shrink-0">
+                    <img src="mobility.jpg" alt="S&H Mobility Fleet" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
-                <div class="p-8 flex-1 flex flex-col border-t border-slate-100 bg-white">
+                <div class="p-6 md:p-8 flex-1 flex flex-col border-t-2 border-gold bg-white">
                     <div class="mb-6">
-                        <div class="flex items-center gap-3 mb-4"><i class="fas fa-car-side text-2xl text-gold"></i><h3 class="text-xl text-slate-900 heading-font uppercase">S&H Mobility</h3></div>
-                        <p class="text-slate-600 text-sm leading-relaxed">Blue-light brigade ready fleets and VIP shuttles featuring the Hyundai Staria Executive MPV for secure delegation logistics.</p>
+                        <div class="flex items-center gap-3 mb-4"><i class="fas fa-car-side text-xl md:text-2xl text-gold"></i><h3 class="text-lg md:text-xl text-slate-900 heading-font uppercase">S&H Mobility</h3></div>
+                        <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Blue-light brigade ready fleets and VIP shuttles featuring the Hyundai Staria Executive MPV for secure delegation logistics.</p>
                     </div>
                     
                     <div class="flex justify-between items-center w-full">
-                        <button onclick="toggleAccordion('mobility-details', this)" class="text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2">
+                        <button onclick="toggleAccordion('mobility-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2">
                             View Fleet <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
-                        
-                        <a href="handover/" class="text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2">
-                            Handover <i class="fas fa-camera"></i>
+                        <a href="handover/" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2">
+                            Handover <i class="fas fa-external-link-alt text-gold text-[10px]"></i>
                         </a>
                     </div>
 
-                    <div id="mobility-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-4">
-                        <div class="mt-6 flex items-start sm:items-center gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="astria.jpg" alt="Hyundai Staria" class="w-28 h-28 md:w-32 md:h-32 object-cover rounded shadow-sm shrink-0">
+                    <div id="mobility-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-3 md:gap-4">
+                        <div class="mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
+                            <img src="astria.jpg" alt="Hyundai Staria" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
                             <div>
-                                <h4 class="text-sm font-bold text-slate-900 heading-font uppercase">Hyundai Staria</h4>
-                                <p class="text-xs text-slate-600 mt-1">Executive VIP transporter offering premium space and comfort.</p>
+                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Hyundai Staria</h4>
+                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">Executive VIP transporter offering premium space and comfort.</p>
                             </div>
                         </div>
-                        <div class="flex items-start sm:items-center gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="vclass.jpg" alt="Mercedes V-Class" class="w-28 h-28 md:w-32 md:h-32 object-cover rounded shadow-sm shrink-0">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
+                            <img src="vclass.jpg" alt="Mercedes V-Class" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
                             <div>
-                                <h4 class="text-sm font-bold text-slate-900 heading-font uppercase">Mercedes V-Class</h4>
-                                <p class="text-xs text-slate-600 mt-1">The ultimate standard in luxury group travel and executive mobility.</p>
+                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Mercedes V-Class</h4>
+                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">The ultimate standard in luxury group travel and executive mobility.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="group flex flex-col rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max">
-                <div class="h-72 overflow-hidden relative shrink-0">
-                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1924&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max">
+                <div class="h-56 sm:h-64 md:h-72 overflow-hidden relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1924&auto=format&fit=crop" alt="S&H Event Infrastructure" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
-                <div class="p-8 flex-1 flex flex-col border-t border-slate-100 bg-white">
+                <div class="p-6 md:p-8 flex-1 flex flex-col border-t-2 border-gold bg-white">
                     <div class="mb-6">
-                        <div class="flex items-center gap-3 mb-4"><i class="fas fa-layer-group text-2xl text-gold"></i><h3 class="text-xl text-slate-900 heading-font uppercase">S&H Infrastructure</h3></div>
-                        <p class="text-slate-600 text-sm leading-relaxed">Turnkey Temporary Structures and Technical Production for large-scale national Events.</p>
+                        <div class="flex items-center gap-3 mb-4"><i class="fas fa-layer-group text-xl md:text-2xl text-gold"></i><h3 class="text-lg md:text-xl text-slate-900 heading-font uppercase">S&H Infrastructure</h3></div>
+                        <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Turnkey Temporary Structures and Technical Production for large-scale national Events.</p>
                     </div>
                     
-                    <button onclick="toggleAccordion('infrastructure-details', this)" class="text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 self-start hover:text-gold transition flex items-center gap-2">
+                    <button onclick="toggleAccordion('infrastructure-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 self-start hover:text-gold transition flex items-center gap-2">
                         View Equipment <i class="fas fa-chevron-down transition-transform duration-300"></i>
                     </button>
 
-                    <div id="infrastructure-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-4">
-                        <div class="mt-6 flex items-start sm:items-center gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="stage_setup.jpg" alt="Event Stage" class="w-28 h-28 md:w-32 md:h-32 object-cover rounded shadow-sm shrink-0">
+                    <div id="infrastructure-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-3 md:gap-4">
+                        <div class="mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
+                            <img src="stage_setup.jpg" alt="Event Stage" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
                             <div>
-                                <h4 class="text-sm font-bold text-slate-900 heading-font uppercase">Performance Stage</h4>
-                                <p class="text-xs text-slate-600 mt-1">High-end staging, rigging, and AV setups for massive crowds.</p>
+                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Performance Stage</h4>
+                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">High-end staging, rigging, and AV setups for massive crowds.</p>
                             </div>
                         </div>
-                        <div class="flex items-start sm:items-center gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="gala_setup.jpg" alt="Elegant Event" class="w-28 h-28 md:w-32 md:h-32 object-cover rounded shadow-sm shrink-0">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
+                            <img src="gala_setup.jpg" alt="Elegant Event" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
                             <div>
-                                <h4 class="text-sm font-bold text-slate-900 heading-font uppercase">Premium Decor</h4>
-                                <p class="text-xs text-slate-600 mt-1">Bespoke, elegant interior setups for high-profile galas and banquets.</p>
+                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Premium Decor</h4>
+                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">Bespoke, elegant interior setups for high-profile galas and banquets.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="group flex flex-col rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max">
-                <div class="h-72 overflow-hidden relative shrink-0">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max sm:col-span-2 md:col-span-1">
+                <div class="h-56 sm:h-64 md:h-72 overflow-hidden relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Project Management Drone View" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
-                <div class="p-8 flex-1 flex flex-col border-t border-slate-100 bg-white">
+                <div class="p-6 md:p-8 flex-1 flex flex-col border-t-2 border-gold bg-white">
                     <div class="mb-6">
-                        <div class="flex items-center gap-3 mb-4"><i class="fas fa-clipboard-check text-2xl text-gold"></i><h3 class="text-xl text-slate-900 heading-font uppercase">S&H Project Management</h3></div>
-                        <p class="text-slate-600 text-sm leading-relaxed">Institutional strategy, drone-assisted site planning, and flawless project execution.</p>
+                        <div class="flex items-center gap-3 mb-4"><i class="fas fa-clipboard-check text-xl md:text-2xl text-gold"></i><h3 class="text-lg md:text-xl text-slate-900 heading-font uppercase">S&H Project Mngmt</h3></div>
+                        <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Institutional strategy, drone-assisted site planning, and flawless project execution.</p>
                     </div>
                     
-                    <button onclick="toggleAccordion('project-details', this)" class="text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 self-start hover:text-gold transition flex items-center gap-2">
+                    <button onclick="toggleAccordion('project-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 self-start hover:text-gold transition flex items-center gap-2">
                         View Setup <i class="fas fa-chevron-down transition-transform duration-300"></i>
                     </button>
 
-                    <div id="project-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-4">
-                        <div class="mt-6 flex flex-col gap-2 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="tent_project_drone.jpg" alt="Tent Drone View" class="w-full h-40 md:h-48 object-cover rounded shadow-sm shrink-0">
+                    <div id="project-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-3 md:gap-4">
+                        <div class="mt-4 md:mt-6 flex flex-col gap-2 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
+                            <img src="tent_project_drone.jpg" alt="Tent Drone View" class="w-full h-32 md:h-40 object-cover rounded shadow-sm shrink-0">
                             <div>
-                                <h4 class="text-sm font-bold text-slate-900 heading-font uppercase mt-2">Logistical Layout</h4>
-                                <p class="text-xs text-slate-600 mt-1">Meticulously planned large-scale marquee and logistical site layouts, managed from the sky down.</p>
+                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase mt-2">Logistical Layout</h4>
+                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">Meticulously planned large-scale marquee and logistical site layouts.</p>
                             </div>
                         </div>
                     </div>
@@ -241,325 +340,306 @@
         </div>
     </section>
 
-    <section id="trust" class="py-20 bg-white text-slate-900 relative border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 order-2 md:order-1">
-                <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase">National Importance</span>
-                <h2 class="text-4xl md:text-6xl heading-font mt-4 mb-6 uppercase leading-none text-slate-900">When the World <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-black">Is Watching.</span></h2>
-                <p class="text-slate-600 text-lg leading-relaxed mb-8">S&H Events and Projects Consulting had the honour of hosting the first <strong>G20 Summit</strong> on African soil in Johannesburg, South African.</p>
-                <div class="flex gap-4">
-                    <div class="bg-slate-50 px-6 py-4 rounded border-l-4 border-gold shadow-sm"><p class="text-3xl font-bold heading-font">100%</p><p class="text-xs uppercase tracking-wide text-gray-500">Compliance Rate</p></div>
-                    <div class="bg-slate-50 px-6 py-4 rounded border-l-4 border-slate-800 shadow-sm"><p class="text-3xl font-bold heading-font">Level 1</p><p class="text-xs uppercase tracking-wide text-gray-500">B-BBEE Partner</p></div>
+    <!-- Trust Section -->
+    <section id="trust" class="py-16 md:py-24 bg-white text-slate-900 relative border-t border-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div class="w-full lg:w-1/2 order-2 lg:order-1">
+                <span class="text-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">National Importance</span>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl heading-font mt-4 mb-6 uppercase leading-[1.1] text-slate-900">When the World <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-black">Is Watching.</span></h2>
+                <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-8">S&amp;H Events and Projects Consulting had the honour of hosting the first <strong>G20 Summit</strong> on African soil in Johannesburg, South Africa.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="bg-slate-50 px-6 py-5 rounded border-l-4 border-gold shadow-sm flex-1"><p class="text-3xl md:text-4xl font-bold heading-font">100%</p><p class="text-[10px] md:text-xs uppercase tracking-wide text-gray-500 mt-1">Compliance Rate</p></div>
+                    <div class="bg-slate-50 px-6 py-5 rounded border-l-4 border-slate-800 shadow-sm flex-1"><p class="text-3xl md:text-4xl font-bold heading-font">Level 1</p><p class="text-[10px] md:text-xs uppercase tracking-wide text-gray-500 mt-1">B-BBEE Partner</p></div>
                 </div>
             </div>
-            <div class="md:w-1/2 relative order-1 md:order-2">
-                <img src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?q=80&w=2070&auto=format&fit=crop" class="w-full rounded shadow-2xl grayscale glow-hover cursor-pointer">
-                <div class="absolute -bottom-6 -left-6 bg-slate-900 text-white p-6 shadow-xl max-w-xs hidden md:block">
-                    <p class="text-sm font-bold border-l-2 border-gold pl-4 uppercase">G20 Summit Logistics Partner</p>
+            <div class="w-full lg:w-1/2 relative order-1 lg:order-2">
+                <img src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?q=80&w=2070&auto=format&fit=crop" alt="G20 Summit Setup" class="w-full rounded-lg shadow-2xl grayscale-[15%] hover:grayscale-0 transition duration-700 object-cover aspect-[4/3]">
+                <div class="absolute -bottom-6 -left-6 sm:left-4 lg:-left-8 bg-slate-900 text-white p-5 md:p-6 shadow-2xl max-w-[240px] md:max-w-xs">
+                    <p class="text-xs md:text-sm font-bold border-l-2 border-gold pl-3 md:pl-4 uppercase tracking-wide">G20 Summit Logistics Partner</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-32 bg-slate-50 relative z-10 border-t border-slate-200 overflow-hidden">
+    <!-- Past Projects with Orbit System -->
+    <section id="projects" class="pt-24 md:pt-32 pb-0 bg-slate-50 relative z-10 border-t border-slate-200 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase">Track Record</span>
-            <h2 class="text-3xl md:text-4xl text-slate-900 heading-font uppercase mb-24 md:mb-32">Past Projects & Partners</h2>
+            <span class="text-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">Track Record</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl text-slate-900 heading-font uppercase mb-16 md:mb-24">Past Projects & Partners</h2>
             
-            <div class="relative w-[280px] h-[280px] md:w-[480px] md:h-[480px] mx-auto mb-20 md:mb-32">
-                
+            <div class="relative w-[280px] h-[280px] md:w-[480px] md:h-[480px] mx-auto mb-0 scale-90 sm:scale-100 orbit-container">
                 <div class="absolute inset-0 rounded-full border border-dashed border-gold/40 animate-[spin_40s_linear_infinite]"></div>
                 <div class="absolute inset-4 md:inset-8 rounded-full border border-slate-200"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gold rounded-full shadow-[0_0_15px_rgba(184,155,94,0.6)]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 md:w-4 md:h-4 bg-gold rounded-full shadow-[0_0_15px_rgba(184,155,94,0.6)]"></div>
 
-                <div class="circle-item flex flex-col items-center gap-2 md:gap-4 group w-[100px] sm:w-[120px] md:w-[160px] z-20" style="--angle: -90deg;">
-                    <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full bg-white border-[3px] border-gold shadow-[0_0_20px_rgba(184,155,94,0.3)] flex items-center justify-center overflow-hidden hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
-                        <img src="sh.JPG" class="w-full h-full object-contain p-2 sm:p-4" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>S&H Logo</span>'">
+                <div class="absolute inset-0 orbit-track">
+                    
+                    <div class="circle-item" style="--angle: -90deg;">
+                        <div class="flex flex-col items-center gap-2 md:gap-4 group orbit-item">
+                            <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full bg-white border-[3px] border-gold shadow-[0_0_20px_rgba(184,155,94,0.3)] flex items-center justify-center overflow-hidden hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
+                                <img src="sh.JPG" alt="S&H Logo" class="w-full h-full object-contain p-2 sm:p-4" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>S&H Logo</span>'">
+                            </div>
+                            <span class="font-bold text-[10px] sm:text-xs md:text-lg text-slate-900 heading-font uppercase group-hover:text-gold transition text-center leading-tight">S&H Consulting</span>
+                        </div>
                     </div>
-                    <span class="font-bold text-[10px] sm:text-xs md:text-lg text-slate-900 heading-font uppercase group-hover:text-gold transition text-center leading-tight">S&H Consulting</span>
-                </div>
-
-                <div class="circle-item flex flex-col items-center gap-2 md:gap-4 group w-[100px] sm:w-[120px] md:w-[160px] z-10" style="--angle: -30deg;">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
-                        <img src="g20.png" class="w-full h-full object-contain p-3 sm:p-4 md:p-5" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>G20 Logo</span>'">
+                    
+                    <div class="circle-item" style="--angle: -30deg;">
+                        <div class="flex flex-col items-center gap-2 md:gap-4 group orbit-item">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
+                                <img src="g20.png" alt="G20 Logo" class="w-full h-full object-contain p-3 sm:p-4 md:p-5" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>G20 Logo</span>'">
+                            </div>
+                            <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center leading-tight">G20 Summit</span>
+                        </div>
                     </div>
-                    <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center leading-tight">G20 Summit</span>
-                </div>
-
-                <div class="circle-item flex flex-col items-center gap-2 md:gap-4 group w-[100px] sm:w-[120px] md:w-[160px] z-10" style="--angle: 30deg;">
-                     <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
-                        <img src="Dep.jpg" class="w-full h-full object-contain p-3 sm:p-4 md:p-5" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2 text-center\'>Dept Public Works</span>'">
+                    
+                    <div class="circle-item" style="--angle: 30deg;">
+                        <div class="flex flex-col items-center gap-2 md:gap-4 group orbit-item">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
+                                <img src="Dep.jpg" alt="Dept Public Works" class="w-full h-full object-contain p-3 sm:p-4 md:p-5" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2 text-center\'>Dept Public Works</span>'">
+                            </div>
+                            <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center max-w-[90px] md:max-w-[140px] leading-tight">PUBLIC WORKS</span>
+                        </div>
                     </div>
-                    <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center max-w-[90px] md:max-w-[140px] leading-tight">DEPARTMENT OF PUBLIC WORKS</span>
-                </div>
-
-                <div class="circle-item flex flex-col items-center gap-2 md:gap-4 group w-[100px] sm:w-[120px] md:w-[160px] z-10" style="--angle: 90deg;">
-                     <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
-                        <img src="makarapa.png" class="w-full h-full object-contain p-4 sm:p-5 md:p-6" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>Makarapa Day</span>'">
+                    
+                    <div class="circle-item" style="--angle: 90deg;">
+                        <div class="flex flex-col items-center gap-2 md:gap-4 group orbit-item">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
+                                <img src="makarapa.png" alt="Makarapa Day" class="w-full h-full object-contain p-4 sm:p-5 md:p-6" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>Makarapa Day</span>'">
+                            </div>
+                            <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center leading-tight">Makarapa Day</span>
+                        </div>
                     </div>
-                    <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center leading-tight">Makarapa Day</span>
-                </div>
-
-                <div class="circle-item flex flex-col items-center gap-2 md:gap-4 group w-[100px] sm:w-[120px] md:w-[160px] z-10" style="--angle: 150deg;">
-                     <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
-                        <img src="tutkoolestkids.jfif" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>Koolest Kids</span>'">
+                    
+                    <div class="circle-item" style="--angle: 150deg;">
+                        <div class="flex flex-col items-center gap-2 md:gap-4 group orbit-item">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
+                                <img src="tutkoolestkids.jpg" alt="Koolest Kids" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>Koolest Kids</span>'">
+                            </div>
+                            <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center leading-tight">Koolest Kids</span>
+                        </div>
                     </div>
-                    <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center leading-tight">Koolest Kids</span>
-                </div>
-
-                <div class="circle-item flex flex-col items-center gap-2 md:gap-4 group w-[100px] sm:w-[120px] md:w-[160px] z-10" style="--angle: 210deg;">
-                     <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
-                        <img src="cj_students.png" class="w-full h-full object-contain p-3 sm:p-4 md:p-5" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>CJ Students</span>'">
+                    
+                    <div class="circle-item" style="--angle: 210deg;">
+                        <div class="flex flex-col items-center gap-2 md:gap-4 group orbit-item">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-110 transition-all duration-500 cursor-pointer shrink-0">
+                                <img src="cj_students.png" alt="CJ Students" class="w-full h-full object-contain p-3 sm:p-4 md:p-5" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] md:text-xs p-2\'>CJ Students</span>'">
+                            </div>
+                            <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center leading-tight">CJ Students</span>
+                        </div>
                     </div>
-                    <span class="font-bold text-[10px] sm:text-xs md:text-base text-slate-800 heading-font uppercase group-hover:text-gold transition text-center leading-tight">CJ Students</span>
+                    
                 </div>
-                
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="py-24 bg-white relative z-10 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <span class="text-gold text-xs font-bold tracking-[0.2em] uppercase">Visual Archive</span>
-            <h2 class="text-3xl md:text-4xl text-slate-900 heading-font uppercase mb-12">Event Gallery</h2>
+    <!-- Gallery Marquee Section (z-20 & negative margin pulls it up to visually cut the circle in half) -->
+    <section id="gallery" class="py-20 md:py-28 bg-white relative z-20 border-t border-slate-200 overflow-hidden -mt-[140px] md:-mt-[240px]">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-12 md:mb-16">
+            <span class="text-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">Visual Archive</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl text-slate-900 heading-font uppercase">Event Gallery</h2>
+        </div>
 
-            <div class="flex flex-col items-center justify-center">
+        <div class="w-full overflow-hidden relative border-y border-slate-100 py-6 md:py-8 bg-slate-50">
+            <div class="absolute top-0 left-0 h-full w-12 md:w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+            
+            <div class="animate-marquee gap-4 md:gap-6 px-4">
+                <img src="image1.jpg" class="h-40 sm:h-56 md:h-72 aspect-[4/3] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 1">
+                <img src="image2.jpg" class="h-40 sm:h-56 md:h-72 aspect-[3/4] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 2">
+                <img src="image3.jpg" class="h-40 sm:h-56 md:h-72 aspect-[4/3] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 3">
+                <img src="image4.jpg" class="h-40 sm:h-56 md:h-72 aspect-square object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 4">
+                <img src="image5.jpg" class="h-40 sm:h-56 md:h-72 aspect-[4/3] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 5">
+                <img src="image6.jpg" class="h-40 sm:h-56 md:h-72 aspect-square object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 6">
+                <img src="image7.jpg" class="h-40 sm:h-56 md:h-72 aspect-[4/3] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 7">
+                <img src="image8.jpg" class="h-40 sm:h-56 md:h-72 aspect-[3/4] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 8">
+                <img src="image9.jpg" class="h-40 sm:h-56 md:h-72 aspect-square object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 9">
                 
-                <div id="gallery-trigger" class="flex flex-col items-center gap-4 group cursor-pointer" onclick="toggleAccordion('gallery-grid', this)">
-                    <div class="w-24 h-24 rounded-full bg-slate-50 border border-gray-200 shadow-lg flex items-center justify-center overflow-hidden hover:border-gold hover:scale-105 transition-all duration-500">
-                        <img src="gallery.jpg" class="w-full h-full object-cover p-1 rounded-full" onerror="this.parentElement.innerHTML='<i class=\'fas fa-images text-3xl text-gold\'></i>'">
-                    </div>
-                    <button class="text-sm font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2">
-                        View Gallery <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                    </button>
-                </div>
-
-                <div id="gallery-grid" class="expand-content max-h-0 opacity-0 overflow-hidden w-full max-w-4xl mt-8 transition-all">
-                    <div class="grid grid-cols-3 gap-2 md:gap-4 p-2">
-                        <div class="aspect-square rounded overflow-hidden shadow-sm bg-slate-100 border border-slate-200">
-                            <img src="image1.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500 cursor-pointer">
-                        </div>
-                        <div class="aspect-square rounded overflow-hidden shadow-sm bg-slate-100 border border-slate-200">
-                            <img src="image2.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500 cursor-pointer">
-                        </div>
-                        <div class="aspect-square rounded overflow-hidden shadow-sm bg-slate-100 border border-slate-200">
-                            <img src="image3.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500 cursor-pointer">
-                        </div>
-                        <div class="aspect-square rounded overflow-hidden shadow-sm bg-slate-100 border border-slate-200">
-                            <img src="image4.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500 cursor-pointer">
-                        </div>
-                        <div class="aspect-square rounded overflow-hidden shadow-sm bg-slate-100 border border-slate-200">
-                            <img src="image5.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500 cursor-pointer">
-                        </div>
-                        <div class="aspect-square rounded overflow-hidden shadow-sm bg-slate-100 border border-slate-200">
-                            <img src="image6.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500 cursor-pointer">
-                        </div>
-                        <div class="aspect-square rounded overflow-hidden shadow-sm bg-slate-100 border border-slate-200">
-                            <img src="image7.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500 cursor-pointer">
-                        </div>
-                        <div class="aspect-square rounded overflow-hidden shadow-sm bg-slate-100 border border-slate-200">
-                            <img src="image8.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500 cursor-pointer">
-                        </div>
-                        <div class="aspect-square rounded overflow-hidden shadow-sm bg-slate-100 border border-slate-200">
-                            <img src="image9.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500 cursor-pointer">
-                        </div>
-                    </div>
-                </div>
-
+                <img src="image1.jpg" class="h-40 sm:h-56 md:h-72 aspect-[4/3] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 1 loop">
+                <img src="image2.jpg" class="h-40 sm:h-56 md:h-72 aspect-[3/4] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 2 loop">
+                <img src="image3.jpg" class="h-40 sm:h-56 md:h-72 aspect-[4/3] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 3 loop">
+                <img src="image4.jpg" class="h-40 sm:h-56 md:h-72 aspect-square object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 4 loop">
+                <img src="image5.jpg" class="h-40 sm:h-56 md:h-72 aspect-[4/3] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 5 loop">
+                <img src="image6.jpg" class="h-40 sm:h-56 md:h-72 aspect-square object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 6 loop">
+                <img src="image7.jpg" class="h-40 sm:h-56 md:h-72 aspect-[4/3] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 7 loop">
+                <img src="image8.jpg" class="h-40 sm:h-56 md:h-72 aspect-[3/4] object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 8 loop">
+                <img src="image9.jpg" class="h-40 sm:h-56 md:h-72 aspect-square object-cover rounded-md shadow-md border border-slate-200" alt="S&H Setup Image 9 loop">
             </div>
+
+            <div class="absolute top-0 right-0 h-full w-12 md:w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
         </div>
     </section>
 
-    <section id="contact" class="relative py-32 z-10 overflow-hidden bg-transparent border-t border-slate-200">
+    <!-- Contact Form -->
+    <section id="contact" class="relative py-24 md:py-32 z-10 overflow-hidden border-t border-slate-200">
         <div class="absolute inset-0 z-0">
-            <img src="whyy.JPG" class="w-full h-full object-cover grayscale-[30%]">
-            <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-slate-900/75 backdrop-blur-sm"></div>
         </div>
-        <div class="relative z-10 max-w-3xl mx-auto px-6">
-            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl border-t-8 border-gold">
-                <div class="text-center mb-8">
-                    <p class="text-gold text-xs font-bold tracking-widest uppercase mb-2">Official Correspondence</p>
-                    <h3 class="text-3xl text-slate-900 heading-font mb-4 uppercase">Submit Briefing Note</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed max-w-lg mx-auto">For formal government mandates or institutional inquiries, please submit a preliminary briefing note below.</p>
+        
+        <div class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-white/95 backdrop-blur-lg p-6 sm:p-10 md:p-14 rounded-2xl shadow-2xl border-t-8 border-gold">
+                <div class="text-center mb-8 md:mb-10">
+                    <p class="text-gold text-[10px] md:text-xs font-bold tracking-widest uppercase mb-2">Official Correspondence</p>
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl text-slate-900 heading-font mb-3 md:mb-4 uppercase">Submit Briefing Note</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto">For formal government mandates or institutional inquiries, please submit a preliminary briefing note below.</p>
                 </div>
-                <form action="https://formsubmit.co/sylvester@sh-events.co.za" method="POST" class="space-y-6">
-                    <input type="hidden" name="_subject" value="New Mandate Submission - S&H Consulting">
+                <form action="https://formsubmit.co/sylvester@sh-events.co.za" method="POST" class="space-y-5 md:space-y-6">
+                    <input type="hidden" name="_subject" value="New Request - S&H Consulting">
                     <input type="hidden" name="_captcha" value="false">
                     
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <input type="text" name="Organisation" required placeholder="Organisation / Entity" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm">
-                        <input type="email" name="Email" required placeholder="Work Email" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm">
+                    <div class="grid sm:grid-cols-2 gap-5 md:gap-6">
+                        <input type="text" name="Organisation" required placeholder="Organisation / Entity" class="w-full bg-slate-50 border border-slate-200 rounded p-3.5 sm:p-4 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition shadow-sm">
+                        <input type="email" name="Email" required placeholder="Work Email" class="w-full bg-slate-50 border border-slate-200 rounded p-3.5 sm:p-4 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition shadow-sm">
                     </div>
-                    <textarea name="Message" required rows="4" placeholder="Briefly outline objectives and timelines..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none shadow-sm resize-none"></textarea>
-                    <button type="submit" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-sm uppercase py-4 rounded transition shadow-md">Submit Formal Mandate</button>
+                    <textarea name="Message" required rows="5" placeholder="Briefly outline objectives and timelines..." class="w-full bg-slate-50 border border-slate-200 rounded p-3.5 sm:p-4 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition shadow-sm resize-none"></textarea>
+                    
+                    <button type="submit" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs md:text-sm uppercase py-4 md:py-5 rounded transition duration-300 shadow-md">Submit Request</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#050505] text-white py-20 border-t border-gray-800 relative z-20">
+    <!-- Footer -->
+    <footer class="bg-[#050505] text-white py-16 md:py-20 border-t border-gray-800 relative z-20">
         <div class="max-w-7xl mx-auto px-6 text-center md:text-left">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-2">
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
+                <div class="col-span-1 sm:col-span-2">
                     <div class="bg-white inline-block px-3 py-2 rounded-sm mb-6">
-                        <img src="sh.JPG" class="h-12 filter grayscale contrast-150">
+                        <img src="sh.JPG" class="h-10 md:h-12 filter grayscale contrast-150">
                     </div>
-                    <h2 class="heading-font text-2xl uppercase tracking-widest text-white mb-4">S&H Consulting</h2>
-                    <p class="text-gray-400 text-sm max-w-sm leading-relaxed mx-auto md:mx-0">Premier infrastructure and logistics partner for high-stakes mandates. Delivering excellence with military precision.</p>
+                    <h2 class="heading-font text-xl md:text-2xl uppercase tracking-widest text-white mb-3 md:mb-4">S&H Consulting</h2>
+                    <p class="text-gray-400 text-xs md:text-sm max-w-md leading-relaxed mx-auto md:mx-0">Premier infrastructure and logistics partner for high-stakes mandates. Delivering excellence with military precision.</p>
                 </div>
                 <div>
-                    <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-6">Contact Details</h4>
-                    <ul class="text-gray-400 text-sm space-y-4">
+                    <h4 class="text-gold font-bold uppercase text-[10px] md:text-xs tracking-widest mb-5 md:mb-6">Contact Details</h4>
+                    <ul class="text-gray-400 text-xs md:text-sm space-y-3 md:space-y-4">
                         <li><i class="fas fa-phone text-gold mr-2"></i> +27 61 496 4840</li>
                         <li><i class="fas fa-envelope text-gold mr-2"></i> sylvester@sh-events.co.za</li>
                         <li class="pt-2">
                             <a href="https://wa.me/27693937899" target="_blank" class="hover:text-white transition flex items-center justify-center md:justify-start gap-2">
-                                <i class="fab fa-whatsapp text-xl text-green-500"></i> WhatsApp HQ
+                                <i class="fab fa-whatsapp text-lg md:text-xl text-green-500"></i> WhatsApp HQ
                             </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com/sh_events_projects_consulting/" target="_blank" class="hover:text-white transition flex items-center justify-center md:justify-start gap-2">
-                                <i class="fab fa-instagram text-xl text-pink-500"></i> Instagram
+                                <i class="fab fa-instagram text-lg md:text-xl text-pink-500"></i> Instagram
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-gold font-bold uppercase text-xs tracking-widest mb-6">Compliance</h4>
-                    <ul class="text-gray-400 text-sm space-y-4">
+                    <h4 class="text-gold font-bold uppercase text-[10px] md:text-xs tracking-widest mb-5 md:mb-6">Compliance</h4>
+                    <ul class="text-gray-400 text-xs md:text-sm space-y-3 md:space-y-4">
                         <li class="text-white font-bold uppercase">B-BBEE LEVEL 1</li>
                         <li>ISO 9001:2015 Compliant</li>
                         <li>Registration: 2023/XXXXXX/07</li>
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-gray-500 uppercase tracking-[0.2em]">
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] md:text-[10px] text-gray-500 uppercase tracking-[0.2em]">
                 <p>&copy; 2026 S&H Group. All Rights Reserved.</p>
                 <p>Digital Infrastructure by <span class="text-gold font-bold">Automania</span></p>
             </div>
         </div>
     </footer>
 
-    <button onclick="toggleChat()" class="fixed bottom-8 right-8 z-50 bg-gold text-white px-5 h-12 md:h-14 rounded-full shadow-2xl flex items-center justify-center gap-3 hover:scale-105 transition duration-300 ring-4 ring-white/30 group">
-        <i class="fas fa-comment-dots text-base md:text-lg"></i>
-        <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest">Chat Live</span>
-    </button>
-
-    <div id="chat-window" class="fixed bottom-24 right-4 md:right-8 w-[calc(100%-2rem)] md:w-96 bg-slate-900 rounded-lg shadow-2xl z-50 border border-gray-700 transition-all duration-300 chat-closed flex flex-col h-[450px] md:h-[500px] overflow-hidden">
-        <div class="bg-black p-4 flex items-center justify-between border-b border-gray-800">
-            <span class="font-bold tracking-wide text-xs uppercase text-white">S&H Digital Desk</span>
-            <button onclick="toggleChat()" class="text-gray-500 hover:text-white"><i class="fas fa-times"></i></button>
-        </div>
-        <div id="messages" class="flex-1 p-5 overflow-y-auto bg-slate-800/50 space-y-4 text-xs">
-            <div class="flex items-start space-x-2">
-                <div class="w-8 h-8 rounded bg-slate-700 flex items-center justify-center text-gold text-[10px] font-bold">S&H</div>
-                <div class="bg-slate-700 p-3 rounded-lg text-gray-200 border border-slate-600 max-w-[90%]">Welcome to the S&H Digital Desk. How can we help you today?</div>
+    <!-- Admin Login Modal Overlay -->
+    <div id="login-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div class="bg-white w-[90%] max-w-sm rounded-2xl shadow-2xl overflow-hidden border-t-4 border-gold transform scale-95 transition-transform duration-300 relative" id="login-box">
+            <button onclick="toggleLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 transition z-10 w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="p-8">
+                <div class="text-center mb-6 mt-2">
+                    <div class="w-14 h-14 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                        <i class="fas fa-lock text-gold text-xl"></i>
+                    </div>
+                    <h3 class="text-xl text-slate-900 heading-font uppercase">Admin Portal</h3>
+                    <p class="text-xs text-slate-500 mt-1">Authorized personnel only</p>
+                </div>
+                <form onsubmit="handleLogin(event)" class="space-y-5">
+                    <div>
+                        <input type="email" id="admin-email" required placeholder="Admin Email" class="w-full bg-slate-50 border border-slate-200 rounded p-3.5 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition shadow-sm">
+                    </div>
+                    <div>
+                        <input type="password" required placeholder="Password" class="w-full bg-slate-50 border border-slate-200 rounded p-3.5 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition shadow-sm">
+                    </div>
+                    <button type="submit" id="login-btn" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-sm uppercase py-4 rounded transition duration-300 shadow-md mt-2 flex items-center justify-center gap-2">
+                        Sign In
+                    </button>
+                </form>
             </div>
-        </div>
-        <div class="p-4 bg-slate-900 border-t border-gray-800">
-            <form id="chat-form" onsubmit="sendMessage(event)" class="relative">
-                <input type="text" id="user-input" placeholder="Type inquiry..." class="w-full bg-slate-800 text-white rounded border border-gray-700 pl-4 pr-10 py-3 text-xs focus:border-gold outline-none">
-                <button type="submit" class="absolute right-2 top-1.5 text-gold w-8 h-8 flex items-center justify-center transition hover:text-white"><i class="fas fa-paper-plane text-xs"></i></button>
-            </form>
         </div>
     </div>
 
-    <script>
-        // Generate unique Session ID for n8n memory node tracking
-        const sessionId = 'sh-' + Math.random().toString(36).substr(2, 9);
+    <!-- WhatsApp Floating Action Button -->
+    <a href="https://wa.me/27693937899?text=I'm%20from%20your%20website%2C%20and%20I'd%20like%20to..." target="_blank" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 bg-[#25D366] text-white px-4 md:px-5 h-12 md:h-14 rounded-full shadow-2xl flex items-center justify-center gap-2 md:gap-3 hover:scale-105 transition duration-300 ring-4 ring-[#25D366]/30 group">
+        <i class="fab fa-whatsapp text-xl md:text-2xl"></i>
+        <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest">How can we help you?</span>
+    </a>
 
+    <script>
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('open');
             document.getElementById('mobile-menu').classList.toggle('py-4');
         }
 
-        function toggleChat() { 
-            document.getElementById('chat-window').classList.toggle('chat-closed'); 
-            document.getElementById('chat-window').classList.toggle('chat-open'); 
-        }
-
-        // Updated function to handle all accordions including the new gallery
         function toggleAccordion(id, btnElement) {
             const content = document.getElementById(id);
             const icon = btnElement.querySelector('i.fa-chevron-down');
             
             if (content.classList.contains('max-h-0')) {
-                // Expand (Increased max height to 2000px to accommodate the gallery)
                 content.classList.remove('max-h-0', 'opacity-0');
                 content.classList.add('max-h-[2000px]', 'opacity-100');
                 if(icon) icon.classList.add('rotate-180');
             } else {
-                // Collapse
                 content.classList.add('max-h-0', 'opacity-0');
                 content.classList.remove('max-h-[2000px]', 'opacity-100');
                 if(icon) icon.classList.remove('rotate-180');
             }
         }
 
-        // NEW function specifically to trigger gallery directly from the Nav menu
-        function openGalleryFromNav(e) {
-            if (e) e.preventDefault();
+        // Login Modal UI Logic
+        function toggleLoginModal() {
+            const modal = document.getElementById('login-modal');
+            const box = document.getElementById('login-box');
             
-            // Close mobile menu if it's open
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu.classList.contains('open')) {
-                toggleMobileMenu();
-            }
-            
-            // Scroll down to the gallery section smoothly
-            const gallerySection = document.getElementById('gallery');
-            gallerySection.scrollIntoView({ behavior: 'smooth' });
-            
-            // Automatically open the grid if it's currently closed
-            const grid = document.getElementById('gallery-grid');
-            if (grid.classList.contains('max-h-0')) {
-                const triggerBtn = document.getElementById('gallery-trigger');
-                toggleAccordion('gallery-grid', triggerBtn);
+            if (modal.classList.contains('hidden')) {
+                // Open Modal
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    box.classList.remove('scale-95');
+                }, 10);
+            } else {
+                // Close Modal
+                modal.classList.add('opacity-0');
+                box.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    // Reset button state if closed while spinning
+                    document.getElementById('login-btn').innerHTML = 'Sign In';
+                }, 300);
             }
         }
 
-        async function sendMessage(e) {
+        // Handle Admin Login Simulation
+        function handleLogin(e) {
             e.preventDefault();
-            const input = document.getElementById('user-input');
-            const message = input.value;
-            if (!message) return;
+            const email = document.getElementById('admin-email').value;
             
-            const messagesDiv = document.getElementById('messages');
-            messagesDiv.innerHTML += `<div class="flex justify-end"><div class="bg-gold text-white p-3 rounded-lg shadow-md max-w-[90%]">${message}</div></div>`;
-            input.value = '';
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            
-            const loadingId = 'loading-' + Date.now();
-            messagesDiv.innerHTML += `<div id="${loadingId}" class="flex items-start space-x-2"><div class="w-8 h-8 rounded bg-slate-700 flex items-center justify-center text-gold text-[10px] font-bold">...</div><div class="bg-slate-700 p-3 rounded-lg border border-slate-600 text-gray-400 italic">Connecting...</div></div>`;
-            
-            try {
-                // Determine environment: Local/Portfolio site uses Test Webhook, live uses Production
-                const isTestMode = window.location.hostname === 'localhost' || 
-                                 window.location.hostname === '127.0.0.1' || 
-                                 window.location.hostname.includes('github.io') || 
-                                 window.location.hostname.includes('AndileBrian.Online');
+            // HTML5 input type="email" handles basic regex validation natively
+            if(email) {
+                const btn = document.getElementById('login-btn');
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
                 
-                const webhookUrl = isTestMode 
-                    ? 'https://n8n.automania.cloud/webhook-test/SH' 
-                    : 'https://n8n.automania.cloud/webhook/SH';
-
-                const response = await fetch(webhookUrl, { 
-                    method: 'POST', 
-                    headers: { 'Content-Type': 'application/json' }, 
-                    body: JSON.stringify({ 
-                        chatInput: message,
-                        sessionId: sessionId // Required for Window Buffer Memory
-                    }) 
-                });
-                
-                const data = await response.json();
-                document.getElementById(loadingId).remove();
-                messagesDiv.innerHTML += `<div class="flex items-start space-x-2"><div class="w-8 h-8 rounded bg-slate-700 flex items-center justify-center text-gold text-[10px] font-bold">S&H</div><div class="bg-slate-700 p-3 rounded-lg text-gray-200">${data.output || data.text || "Message received."}</div></div>`;
-            } catch (err) {
-                document.getElementById(loadingId).remove();
-                messagesDiv.innerHTML += `<div class="flex items-start space-x-2"><div class="w-8 h-8 rounded bg-red-900 flex items-center justify-center text-white text-[10px] font-bold">!</div><div class="bg-slate-800 p-3 rounded-lg text-red-400 border border-red-900">Desk offline.</div></div>`;
+                // Simulate network request delay before routing
+                setTimeout(() => {
+                    window.location.href = '/admin';
+                }, 800);
             }
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
         }
     </script>
 </body>
