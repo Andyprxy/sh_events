@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     
-    <!-- Primary Meta Tags -->
-    <title>S&H Consulting | Turnkey Projects & Logistics</title>
-    <meta name="title" content="S&H Consulting | Turnkey Projects & Logistics">
-    <meta name="description" content="S&H Consulting provides premier turnkey infrastructure, VIP mobility logistics, and elite project management for high-stakes national mandates and events.">
-    <meta name="keywords" content="S&H Consulting, Event Management, VIP Mobility, Infrastructure Hire, Technical Production, Project Management, South Africa, G20 Logistics">
+    <!-- Primary Meta Tags (Optimized invisibly for Pretoria Search) -->
+    <title>S&H Consulting | Turnkey Projects, VIP Car Hire & Logistics</title>
+    <meta name="title" content="S&H Consulting | Turnkey Projects, VIP Car Hire & Logistics">
+    <meta name="description" content="S&H Consulting provides premier turnkey infrastructure, VIP mobility car rentals, decor hire, and elite project management for high-stakes national mandates across Pretoria and Gauteng.">
+    <meta name="keywords" content="S&H Consulting, Event Management, VIP Car Rental Pretoria, Infrastructure Hire, Technical Production, Project Management, South Africa, Gauteng, Decor Hire">
     <meta name="author" content="S&H Consulting">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://sh-consulting.co.za/">
@@ -30,6 +30,33 @@
     <meta property="twitter:title" content="S&H Consulting | Turnkey Projects & Logistics">
     <meta property="twitter:description" content="Integrated Logistics & Elite Productions. Premier infrastructure and logistics partner for high-stakes mandates.">
     <meta property="twitter:image" content="https://sh-consulting.co.za/SHero.jpg">
+
+    <!-- Local Business Schema for Local SEO (Pretoria & Gauteng) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "S&H Events and Project Consulting",
+      "url": "https://sh-consulting.co.za/",
+      "telephone": "+27614964840",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pretoria",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "areaServed": ["Pretoria", "Centurion", "Johannesburg", "Gauteng"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Consulting & Rental Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "VIP Car Rental & Mobility Fleet" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Event Infrastructure & Decor Rentals" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Project Management & Logistics" } }
+        ]
+      }
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -240,9 +267,10 @@
         
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-start">
             
-            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max">
+            <!-- MOBILITY CARD: Clickable to /car-rental -->
+            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max cursor-pointer" onclick="navigateCard(event, '/car-rental')">
                 <div class="h-56 sm:h-64 md:h-72 overflow-hidden relative shrink-0">
-                    <img src="mobility.jpg" alt="S&H Mobility Fleet" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="mobility.jpg" alt="S&H VIP Car Hire Fleet Pretoria" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
                 <div class="p-6 md:p-8 flex-1 flex flex-col border-t-2 border-gold bg-white">
                     <div class="mb-6">
@@ -251,24 +279,24 @@
                     </div>
                     
                     <div class="flex justify-between items-center w-full">
-                        <button onclick="toggleAccordion('mobility-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2">
+                        <button onclick="toggleAccordion('mobility-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2 relative z-10">
                             View Fleet <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
-                        <a href="handover/" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2">
+                        <a href="handover/" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2 relative z-10">
                             Handover <i class="fas fa-external-link-alt text-gold text-[10px]"></i>
                         </a>
                     </div>
 
                     <div id="mobility-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-3 md:gap-4">
                         <div class="mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="astria.jpg" alt="Hyundai Staria" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
+                            <img src="astria.jpg" alt="Hyundai Staria Rental Pretoria" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
                             <div>
                                 <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Hyundai Staria</h4>
                                 <p class="text-[10px] md:text-xs text-slate-600 mt-1">Executive VIP transporter offering premium space and comfort.</p>
                             </div>
                         </div>
                         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="vclass.jpg" alt="Mercedes V-Class" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
+                            <img src="vclass.jpg" alt="Mercedes V-Class Rental Pretoria" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
                             <div>
                                 <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Mercedes V-Class</h4>
                                 <p class="text-[10px] md:text-xs text-slate-600 mt-1">The ultimate standard in luxury group travel and executive mobility.</p>
@@ -278,9 +306,10 @@
                 </div>
             </div>
 
-            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max">
+            <!-- INFRASTRUCTURE CARD: Clickable to /infrastructure -->
+            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max cursor-pointer" onclick="navigateCard(event, '/infrastructure')">
                 <div class="h-56 sm:h-64 md:h-72 overflow-hidden relative shrink-0">
-                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1924&auto=format&fit=crop" alt="S&H Event Infrastructure" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1924&auto=format&fit=crop" alt="Event Decor and Marquee Infrastructure Hire Pretoria" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
                 <div class="p-6 md:p-8 flex-1 flex flex-col border-t-2 border-gold bg-white">
                     <div class="mb-6">
@@ -288,20 +317,20 @@
                         <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Turnkey Temporary Structures and Technical Production for large-scale national Events.</p>
                     </div>
                     
-                    <button onclick="toggleAccordion('infrastructure-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 self-start hover:text-gold transition flex items-center gap-2">
+                    <button onclick="toggleAccordion('infrastructure-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 self-start hover:text-gold transition flex items-center gap-2 relative z-10">
                         View Equipment <i class="fas fa-chevron-down transition-transform duration-300"></i>
                     </button>
 
                     <div id="infrastructure-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-3 md:gap-4">
                         <div class="mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="stage_setup.jpg" alt="Event Stage" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
+                            <img src="stage_setup.jpg" alt="Event Staging Hire" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
                             <div>
                                 <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Performance Stage</h4>
                                 <p class="text-[10px] md:text-xs text-slate-600 mt-1">High-end staging, rigging, and AV setups for massive crowds.</p>
                             </div>
                         </div>
                         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="gala_setup.jpg" alt="Elegant Event" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
+                            <img src="gala_setup.jpg" alt="Luxury Gala Decor Hire" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
                             <div>
                                 <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Premium Decor</h4>
                                 <p class="text-[10px] md:text-xs text-slate-600 mt-1">Bespoke, elegant interior setups for high-profile galas and banquets.</p>
@@ -311,6 +340,7 @@
                 </div>
             </div>
 
+            <!-- PROJECT MANAGEMENT CARD: No Redirect -->
             <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max sm:col-span-2 md:col-span-1">
                 <div class="h-56 sm:h-64 md:h-72 overflow-hidden relative shrink-0">
                     <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Project Management Drone View" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
@@ -433,7 +463,7 @@
         </div>
     </section>
 
-    <!-- Gallery Marquee Section (z-20 & negative margin pulls it up to visually cut the circle in half) -->
+    <!-- Gallery Marquee Section -->
     <section id="gallery" class="py-20 md:py-28 bg-white relative z-20 border-t border-slate-200 overflow-hidden -mt-[140px] md:-mt-[240px]">
         <div class="max-w-7xl mx-auto px-6 text-center mb-12 md:mb-16">
             <span class="text-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">Visual Archive</span>
@@ -579,6 +609,15 @@
     </a>
 
     <script>
+        // Custom Routing logic for division cards
+        function navigateCard(event, url) {
+            // Prevent redirect if clicking on an interactive element like a button or link
+            if (event.target.closest('button') || event.target.closest('a')) {
+                return;
+            }
+            window.location.href = url;
+        }
+
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('open');
             document.getElementById('mobile-menu').classList.toggle('py-4');
