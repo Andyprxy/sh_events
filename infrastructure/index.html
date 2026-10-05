@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    
+    <title>Event Decor & Infrastructure Hire | S&H Consulting</title>
+    <meta name="description" content="Premium event decor, luxury wedding furniture, high-end staging, and marquee hire for events in Pretoria and Gauteng.">
+    
+    <link rel="icon" type="image/jpeg" href="sh.JPG">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                slate: { 850: '#1e293b', 900: '#0f172a' },
+                gold: { DEFAULT: '#b89b5e', dark: '#a3884e' }
+              }
+            }
+          }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #ffffff; color: #0f172a; overflow-x: hidden; }
+        h1, h2, h3, h4, .heading-font { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Slide-over Panel CSS --- */
+        .slide-over-panel { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slide-over-panel.open { transform: translateX(0); }
+        .slide-over-overlay { opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+        .slide-over-overlay.open { opacity: 1; pointer-events: auto; }
+        
+        /* --- Social App Style File Upload --- */
+        .social-upload-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px 16px;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .social-upload-btn:hover {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            color: #475569;
+            transition: all 0.2s ease;
+        }
+        .social-upload-btn:hover .icon-circle {
+            background-color: #b89b5e;
+            color: #ffffff;
+        }
+
+        /* Mobile specific text truncation if needed */
+        @media (max-width: 768px) {
+            .mobile-clamp {
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition">
+                <div class="bg-white px-2 py-1 rounded-sm">
+                    <img src="sh.JPG" alt="S&H Logo" class="h-10 w-auto object-contain mix-blend-multiply">
+                </div>
+                <div class="h-8 w-px bg-gray-300"></div>
+                <span class="text-xs font-bold tracking-widest text-slate-900 uppercase flex items-center gap-2">
+                    <i class="fas fa-arrow-left text-gold"></i> Back to Hub
+                </span>
+            </a>
+            
+            <div class="hidden md:block">
+                <span class="text-xs font-bold tracking-[0.2em] uppercase text-gold">Infrastructure Division</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-32 pb-12 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl heading-font uppercase text-slate-900 mb-4">Event Decor & Infrastructure</h1>
+            <p class="text-slate-500 font-light text-sm md:text-base leading-relaxed">
+                Turnkey temporary structures, bespoke wedding decor, and elite technical production for large-scale events and galas across Gauteng. Configure your setup below.
+            </p>
+        </div>
+    </section>
+
+    <!-- Catalog (Custom Flex row for strict Left-Text/Right-Image on Mobile) -->
+    <section class="pb-24 px-4 md:px-6 max-w-6xl mx-auto space-y-16 md:space-y-32">
+        
+        <!-- Item 1: Premium Decor -->
+        <div class="fleet-item border-b md:border-none border-slate-100 pb-8 md:pb-0">
+            <h2 class="text-xl md:text-3xl heading-font text-slate-900 uppercase font-medium mb-2 md:mb-0">Premium Event & Wedding Decor</h2>
+            <hr class="hidden md:block border-t border-gray-200 mt-4 mb-12">
+            
+            <div class="flex flex-row items-stretch md:items-center justify-between gap-4 md:gap-16">
+                <!-- Text Left -->
+                <div class="w-[55%] md:w-1/2 flex flex-col justify-center text-left py-2">
+                    <p class="text-slate-600 font-light text-[11px] leading-relaxed sm:text-sm md:text-base md:mb-6 mobile-clamp">
+                        Bespoke, elegant interior furniture and decor setups designed for high-profile galas, weddings, and exclusive corporate banquets. We supply luxury seating, ambient centerpieces, and complete thematic styling.
+                    </p>
+                    <ul class="hidden md:block space-y-3 text-sm text-slate-700 font-light mb-8">
+                        <li><i class="fas fa-check text-gold mr-2"></i> Luxury banquet chairs and tables</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Custom floral and lighting accents</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Complete VIP lounge setups</li>
+                    </ul>
+                    <button onclick="openBookingPanel('Premium Event & Wedding Decor', 'gala_setup.jpg')" class="mt-3 md:mt-0 bg-slate-900 hover:bg-gold text-white font-bold text-[9px] md:text-xs uppercase tracking-widest py-2 md:py-4 px-4 md:px-8 rounded transition duration-300 shadow-md w-fit">
+                        Request Quote
+                    </button>
+                </div>
+                <!-- Image Right -->
+                <div class="w-[45%] md:w-1/2 flex items-center">
+                    <img src="gala_setup.jpg" alt="Luxury Wedding Decor Hire" class="w-full h-32 sm:h-48 md:h-[450px] object-cover rounded shadow-md md:shadow-lg hover:shadow-2xl transition duration-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2: Staging & Rigging -->
+        <div class="fleet-item border-b md:border-none border-slate-100 pb-8 md:pb-0">
+            <h2 class="text-xl md:text-3xl heading-font text-slate-900 uppercase font-medium mb-2 md:mb-0">High-End Staging, Rigging & AV</h2>
+            <hr class="hidden md:block border-t border-gray-200 mt-4 mb-12">
+            
+            <div class="flex flex-row items-stretch md:items-center justify-between gap-4 md:gap-16">
+                <!-- Text Left -->
+                <div class="w-[55%] md:w-1/2 flex flex-col justify-center text-left py-2">
+                    <p class="text-slate-600 font-light text-[11px] leading-relaxed sm:text-sm md:text-base md:mb-6 mobile-clamp">
+                        Engineered staging rentals, safe aerial rigging, and professional audio-visual setups built to handle massive crowds, concerts, and national mandates. Safety and precision are our top priorities.
+                    </p>
+                    <ul class="hidden md:block space-y-3 text-sm text-slate-700 font-light mb-8">
+                        <li><i class="fas fa-check text-gold mr-2"></i> Heavy-duty concert and presentation stages</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Professional sound and lighting trusses</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Certified structural rigging</li>
+                    </ul>
+                    <button onclick="openBookingPanel('High-End Staging, Rigging & AV', 'stage_setup.jpg')" class="mt-3 md:mt-0 bg-slate-900 hover:bg-gold text-white font-bold text-[9px] md:text-xs uppercase tracking-widest py-2 md:py-4 px-4 md:px-8 rounded transition duration-300 shadow-md w-fit">
+                        Request Quote
+                    </button>
+                </div>
+                <!-- Image Right -->
+                <div class="w-[45%] md:w-1/2 flex items-center">
+                    <img src="stage_setup.jpg" alt="High End Event Staging" class="w-full h-32 sm:h-48 md:h-[450px] object-cover rounded shadow-md md:shadow-lg hover:shadow-2xl transition duration-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 3: Marquees & Layouts -->
+        <div class="fleet-item pb-8 md:pb-0">
+            <h2 class="text-xl md:text-3xl heading-font text-slate-900 uppercase font-medium mb-2 md:mb-0">Marquee Tents & Site Layouts</h2>
+            <hr class="hidden md:block border-t border-gray-200 mt-4 mb-12">
+            
+            <div class="flex flex-row items-stretch md:items-center justify-between gap-4 md:gap-16">
+                <!-- Text Left -->
+                <div class="w-[55%] md:w-1/2 flex flex-col justify-center text-left py-2">
+                    <p class="text-slate-600 font-light text-[11px] leading-relaxed sm:text-sm md:text-base md:mb-6 mobile-clamp">
+                        Meticulously planned large-scale marquee structures, stretch tents, and comprehensive logistical site layouts mapped securely via drone technology.
+                    </p>
+                    <ul class="hidden md:block space-y-3 text-sm text-slate-700 font-light mb-8">
+                        <li><i class="fas fa-check text-gold mr-2"></i> Glass and aluminum frame marquees</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Premium stretch tents and flooring</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Complete drone-assisted site planning</li>
+                    </ul>
+                    <button onclick="openBookingPanel('Marquee Tents & Site Layouts', 'tent_project_drone.jpg')" class="mt-3 md:mt-0 bg-slate-900 hover:bg-gold text-white font-bold text-[9px] md:text-xs uppercase tracking-widest py-2 md:py-4 px-4 md:px-8 rounded transition duration-300 shadow-md w-fit">
+                        Request Quote
+                    </button>
+                </div>
+                <!-- Image Right -->
+                <div class="w-[45%] md:w-1/2 flex items-center">
+                    <img src="tent_project_drone.jpg" alt="Drone View Tent Logistics" class="w-full h-32 sm:h-48 md:h-[450px] object-cover rounded shadow-md md:shadow-lg hover:shadow-2xl transition duration-500">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Slide-out Booking Panel Overlay -->
+    <div id="bookingOverlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 slide-over-overlay" onclick="closeBookingPanel()"></div>
+    
+    <!-- Slide-out Booking Panel -->
+    <div id="bookingPanel" class="fixed right-0 top-0 h-full w-full max-w-md bg-white z-50 shadow-2xl slide-over-panel overflow-y-auto flex flex-col border-l border-slate-200">
+        
+        <!-- Header -->
+        <div class="flex justify-between items-center p-5 border-b border-slate-100 bg-slate-50 sticky top-0 z-10">
+            <h2 class="text-lg heading-font text-slate-900 uppercase tracking-wide">Configure & Quote</h2>
+            <button onclick="closeBookingPanel()" class="text-slate-400 hover:text-slate-900 w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-200 transition-colors">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+        </div>
+        
+        <!-- Body -->
+        <div class="p-6 flex-grow">
+            <!-- Selected Service Display -->
+            <div class="relative w-full h-48 rounded overflow-hidden mb-4 shadow-sm border border-slate-100">
+                <img id="panelServiceImage" src="" alt="Selected Setup" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <h3 id="panelServiceName" class="absolute bottom-4 left-4 right-4 text-white text-xl md:text-2xl heading-font uppercase font-bold tracking-wide text-pop-shadow leading-tight">Service Name</h3>
+            </div>
+            
+            <p class="text-xs text-slate-500 mb-8 border-b border-slate-100 pb-4">Please provide your event parameters below. Our project managers will review your specs and contact you with a formal quote.</p>
+            
+            <form id="bookingForm" class="space-y-5">
+                
+                <!-- Client Details -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Client / Organization</label>
+                        <input type="text" required placeholder="John Doe / Acme Corp" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Contact Details</label>
+                        <input type="email" required placeholder="Email Address" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition mb-3">
+                        <input type="tel" required placeholder="Phone Number" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                    </div>
+                </div>
+
+                <hr class="border-slate-100">
+
+                <!-- Event Details -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Event Location / Venue</label>
+                        <input type="text" required placeholder="Physical address or venue name" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Event Date</label>
+                            <input type="date" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Guest Count</label>
+                            <input type="number" required placeholder="e.g. 500" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Additional Requirements</label>
+                        <textarea rows="3" placeholder="Specify colors, staging dimensions, or specific needs..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold resize-none transition"></textarea>
+                    </div>
+                </div>
+
+                <!-- Inspiration / Plan Upload -->
+                <div class="space-y-4 pt-2">
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Inspiration / Floor Plan</label>
+                        
+                        <label class="social-upload-btn w-full">
+                            <input type="file" accept="image/*,.pdf" capture="environment" class="hidden" id="fileUpload" onchange="updateFileName(this)">
+                            <div class="icon-circle">
+                                <i class="fas fa-camera text-sm"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <span class="text-sm font-medium text-slate-700 block">Attach Mood Board or Plan</span>
+                                <span class="text-[10px] text-slate-400 block" id="fileNameDisplay">Take a photo or upload file</span>
+                            </div>
+                            <i class="fas fa-paperclip text-slate-400 text-lg"></i>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer Submit -->
+        <div class="p-6 border-t border-slate-200 bg-white sticky bottom-0 z-10">
+            <button type="submit" form="bookingForm" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 rounded transition duration-300 shadow-md flex items-center justify-center gap-2">
+                Submit Request <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Minimal Footer -->
+    <footer class="bg-[#050505] text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <img src="sh.JPG" alt="S&H Group" class="h-8 filter grayscale contrast-150 mx-auto mb-4">
+            <p class="text-gray-500 text-[10px] uppercase tracking-widest">&copy; 2026 S&H Consulting Infrastructure. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function openBookingPanel(serviceName, imageSrc) {
+            // Update UI elements in the panel
+            document.getElementById('panelServiceName').innerText = serviceName;
+            document.getElementById('panelServiceImage').src = imageSrc;
+            
+            // Open panel
+            document.getElementById('bookingOverlay').classList.add('open');
+            document.getElementById('bookingPanel').classList.add('open');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeBookingPanel() {
+            document.getElementById('bookingOverlay').classList.remove('open');
+            document.getElementById('bookingPanel').classList.remove('open');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        // Display selected file name in the custom upload button
+        function updateFileName(input) {
+            const displaySpan = document.getElementById('fileNameDisplay');
+            if (input.files && input.files.length > 0) {
+                displaySpan.innerText = input.files[0].name;
+                displaySpan.classList.add('text-gold');
+            } else {
+                displaySpan.innerText = "Take a photo or upload file";
+                displaySpan.classList.remove('text-gold');
+            }
+        }
+
+        // Handle Form Submission (Prevent default reload for demo)
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.querySelector('button[form="bookingForm"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Request Sent';
+                btn.classList.replace('bg-slate-900', 'bg-green-600');
+                btn.classList.remove('hover:bg-gold');
+                
+                setTimeout(() => {
+                    closeBookingPanel();
+                    // Reset form
+                    this.reset();
+                    document.getElementById('fileNameDisplay').innerText = "Take a photo or upload file";
+                    document.getElementById('fileNameDisplay').classList.remove('text-gold');
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-green-600', 'bg-slate-900');
+                    btn.classList.add('hover:bg-gold');
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
