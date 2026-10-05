@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    
+    <title>VIP Car Rental | S&H Consulting Mobility</title>
+    <meta name="description" content="Book luxury chauffeur-driven vehicles and VIP transport shuttles including the Hyundai Staria and Mercedes V-Class in Pretoria and Gauteng.">
+    
+    <link rel="icon" type="image/jpeg" href="sh.JPG">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                slate: { 850: '#1e293b', 900: '#0f172a' },
+                gold: { DEFAULT: '#b89b5e', dark: '#a3884e' }
+              }
+            }
+          }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #ffffff; color: #0f172a; overflow-x: hidden; }
+        h1, h2, h3, h4, .heading-font { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Slide-over Panel CSS (Adapted from Magle Setup) --- */
+        .slide-over-panel { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slide-over-panel.open { transform: translateX(0); }
+        .slide-over-overlay { opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+        .slide-over-overlay.open { opacity: 1; pointer-events: auto; }
+        
+        /* --- Social App Style File Upload --- */
+        .social-upload-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px 16px;
+            border-radius: 9999px; /* Pill shape */
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .social-upload-btn:hover {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            color: #475569;
+            transition: all 0.2s ease;
+        }
+        .social-upload-btn:hover .icon-circle {
+            background-color: #b89b5e;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition">
+                <div class="bg-white px-2 py-1 rounded-sm">
+                    <img src="sh.JPG" alt="S&H Logo" class="h-10 w-auto object-contain mix-blend-multiply">
+                </div>
+                <div class="h-8 w-px bg-gray-300"></div>
+                <span class="text-xs font-bold tracking-widest text-slate-900 uppercase flex items-center gap-2">
+                    <i class="fas fa-arrow-left text-gold"></i> Back to Hub
+                </span>
+            </a>
+            
+            <div class="hidden md:block">
+                <span class="text-xs font-bold tracking-[0.2em] uppercase text-gold">Mobility Division</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-32 pb-12 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl heading-font uppercase text-slate-900 mb-4">VIP Car & Luxury Fleet</h1>
+            <p class="text-slate-500 font-light text-sm md:text-base leading-relaxed">
+                Executive transport and blue-light brigade ready fleets designed for secure, premium delegation logistics across Gauteng. Browse our available vehicles below to schedule a booking.
+            </p>
+        </div>
+    </section>
+
+    <!-- Fleet Catalog (Alternating Layout) -->
+    <section class="pb-24 px-6 max-w-6xl mx-auto space-y-24 md:space-y-32">
+        
+        <!-- Item 1: Hyundai Staria (Text Left, Image Right) -->
+        <div class="fleet-item">
+            <h2 class="text-2xl md:text-3xl heading-font text-slate-900 uppercase font-medium">Hyundai Staria Executive</h2>
+            <hr class="border-t border-gray-200 mt-4 mb-8 md:mb-12">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div class="order-2 md:order-1 flex flex-col justify-center">
+                    <p class="text-slate-600 font-light text-sm md:text-base leading-relaxed mb-6">
+                        The Hyundai Staria represents the next generation of premium executive transport. With unmatched cabin space, VIP seating configurations, and advanced climate control, it ensures that your delegation arrives refreshed and ready. Perfect for corporate roadshows and secure airport shuttles.
+                    </p>
+                    <ul class="space-y-3 text-xs md:text-sm text-slate-700 font-light mb-8">
+                        <li><i class="fas fa-check text-gold mr-2"></i> Spacious VIP interior configurations</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Advanced security and privacy tinting</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Chauffeur-driven or self-drive options</li>
+                    </ul>
+                    <button onclick="openBookingPanel('Hyundai Staria Executive', 'astria.jpg')" class="bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 px-8 rounded transition duration-300 shadow-md w-fit">
+                        Schedule Booking
+                    </button>
+                </div>
+                <div class="order-1 md:order-2">
+                    <img src="astria.jpg" alt="Hyundai Staria VIP Rental" class="w-full h-[300px] md:h-[450px] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2: Mercedes V-Class (Image Left, Text Right) -->
+        <div class="fleet-item">
+            <h2 class="text-2xl md:text-3xl heading-font text-slate-900 uppercase font-medium">Mercedes V-Class</h2>
+            <hr class="border-t border-gray-200 mt-4 mb-8 md:mb-12">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div class="order-1">
+                    <img src="vclass.jpg" alt="Mercedes V-Class Rental" class="w-full h-[300px] md:h-[450px] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500">
+                </div>
+                <div class="order-2 flex flex-col justify-center">
+                    <p class="text-slate-600 font-light text-sm md:text-base leading-relaxed mb-6">
+                        The ultimate standard in luxury group travel. The Mercedes V-Class combines unparalleled aesthetic prestige with a first-class cabin experience. Designed for high-stakes mandates, government officials, and VIPs who require discreet, comfortable, and flawlessly executed logistics.
+                    </p>
+                    <ul class="space-y-3 text-xs md:text-sm text-slate-700 font-light mb-8">
+                        <li><i class="fas fa-check text-gold mr-2"></i> Premium leather executive seating</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Conference-style facing seats available</li>
+                        <li><i class="fas fa-check text-gold mr-2"></i> Blue-light convoy compatible</li>
+                    </ul>
+                    <button onclick="openBookingPanel('Mercedes V-Class', 'vclass.jpg')" class="bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 px-8 rounded transition duration-300 shadow-md w-fit">
+                        Schedule Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Slide-out Booking Panel Overlay -->
+    <div id="bookingOverlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 slide-over-overlay" onclick="closeBookingPanel()"></div>
+    
+    <!-- Slide-out Booking Panel -->
+    <div id="bookingPanel" class="fixed right-0 top-0 h-full w-full max-w-md bg-white z-50 shadow-2xl slide-over-panel overflow-y-auto flex flex-col border-l border-slate-200">
+        
+        <!-- Header -->
+        <div class="flex justify-between items-center p-5 border-b border-slate-100 bg-slate-50 sticky top-0 z-10">
+            <h2 class="text-lg heading-font text-slate-900 uppercase tracking-wide">Vehicle Reservation</h2>
+            <button onclick="closeBookingPanel()" class="text-slate-400 hover:text-slate-900 w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-200 transition-colors">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+        </div>
+        
+        <!-- Body -->
+        <div class="p-6 flex-grow">
+            <!-- Selected Car Display -->
+            <div class="relative w-full h-48 rounded overflow-hidden mb-4 shadow-sm border border-slate-100">
+                <img id="panelCarImage" src="" alt="Selected Vehicle" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <h3 id="panelCarName" class="absolute bottom-4 left-4 text-white text-2xl heading-font uppercase font-bold tracking-wide text-pop-shadow">Car Name</h3>
+            </div>
+            
+            <p class="text-xs text-slate-500 mb-8 border-b border-slate-100 pb-4">Please complete the details below to secure your reservation. Our logistics team will contact you to confirm deployment.</p>
+            
+            <form id="bookingForm" class="space-y-5">
+                
+                <!-- Booker Details -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Booked By (Name / Org)</label>
+                        <input type="text" required placeholder="John Doe / Ministry of Works" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Contact Details</label>
+                        <input type="email" required placeholder="Email Address" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition mb-3">
+                        <input type="tel" required placeholder="Phone Number" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                    </div>
+                </div>
+
+                <hr class="border-slate-100">
+
+                <!-- Booking Dates -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Start Date</label>
+                        <input type="date" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">End Date</label>
+                        <input type="date" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
+                    </div>
+                </div>
+
+                <hr class="border-slate-100">
+
+                <!-- Driver & License Upload -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Primary Driver Name</label>
+                        <input type="text" required placeholder="Name of person driving" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                    </div>
+
+                    <!-- Social App Style Upload Button -->
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Identification</label>
+                        
+                        <label class="social-upload-btn w-full">
+                            <input type="file" accept="image/*,.pdf" capture="environment" class="hidden" id="licenseUpload" onchange="updateFileName(this)">
+                            <div class="icon-circle">
+                                <i class="fas fa-camera text-sm"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <span class="text-sm font-medium text-slate-700 block">Attach Driver's License</span>
+                                <span class="text-[10px] text-slate-400 block" id="fileNameDisplay">Take a photo or upload file</span>
+                            </div>
+                            <i class="fas fa-paperclip text-slate-400 text-lg"></i>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer Submit -->
+        <div class="p-6 border-t border-slate-200 bg-white sticky bottom-0 z-10">
+            <button type="submit" form="bookingForm" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 rounded transition duration-300 shadow-md flex items-center justify-center gap-2">
+                Submit Booking <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Minimal Footer -->
+    <footer class="bg-[#050505] text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <img src="sh.JPG" alt="S&H Group" class="h-8 filter grayscale contrast-150 mx-auto mb-4">
+            <p class="text-gray-500 text-[10px] uppercase tracking-widest">&copy; 2026 S&H Consulting Mobility. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function openBookingPanel(carName, imageSrc) {
+            // Update UI elements in the panel
+            document.getElementById('panelCarName').innerText = carName;
+            document.getElementById('panelCarImage').src = imageSrc;
+            
+            // Open panel
+            document.getElementById('bookingOverlay').classList.add('open');
+            document.getElementById('bookingPanel').classList.add('open');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeBookingPanel() {
+            document.getElementById('bookingOverlay').classList.remove('open');
+            document.getElementById('bookingPanel').classList.remove('open');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        // Display selected file name in the custom upload button
+        function updateFileName(input) {
+            const displaySpan = document.getElementById('fileNameDisplay');
+            if (input.files && input.files.length > 0) {
+                displaySpan.innerText = input.files[0].name;
+                displaySpan.classList.add('text-gold');
+            } else {
+                displaySpan.innerText = "Take a photo or upload file";
+                displaySpan.classList.remove('text-gold');
+            }
+        }
+
+        // Handle Form Submission (Prevent default reload for demo)
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.querySelector('button[form="bookingForm"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Request Sent';
+                btn.classList.replace('bg-slate-900', 'bg-green-600');
+                btn.classList.remove('hover:bg-gold');
+                
+                setTimeout(() => {
+                    closeBookingPanel();
+                    // Reset form
+                    this.reset();
+                    document.getElementById('fileNameDisplay').innerText = "Take a photo or upload file";
+                    document.getElementById('fileNameDisplay').classList.remove('text-gold');
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-green-600', 'bg-slate-900');
+                    btn.classList.add('hover:bg-gold');
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
