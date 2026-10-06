@@ -119,8 +119,8 @@
                 
                 <!-- Image Container (Order 1 on Mobile, Order 2 on Desktop) -->
                 <div class="order-1 md:order-2 w-full">
-                    <!-- Aspect ratio enforced based on 960x1280 -->
-                    <img src="astria.jpg" alt="Hyundai Staria VIP Rental" class="w-full aspect-[960/1280] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500">
+                    <!-- Aspect ratio enforced based on 960x643 -->
+                    <img src="astria.jpg" alt="Hyundai Staria VIP Rental" class="w-full aspect-[960/643] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500">
                 </div>
                 
                 <!-- Text Container (Order 2 on Mobile, Order 1 on Desktop) -->
@@ -191,8 +191,8 @@
         <div class="p-6 flex-grow">
             <!-- Selected Car Display -->
             <div class="relative w-full h-48 rounded overflow-hidden mb-4 shadow-sm border border-slate-100 bg-slate-50 flex items-center justify-center">
-                <!-- Using object-contain so we don't awkwardly crop the 960x1280 portrait inside this fixed height box -->
-                <img id="panelCarImage" src="" alt="Selected Vehicle" class="w-full h-full object-contain">
+                <!-- Using object-cover for landscape images inside this fixed height box -->
+                <img id="panelCarImage" src="" alt="Selected Vehicle" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <h3 id="panelCarName" class="absolute bottom-4 left-4 text-white text-xl md:text-2xl heading-font uppercase font-bold tracking-wide text-pop-shadow">Car Name</h3>
             </div>
