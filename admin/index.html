@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>S&H Admin | Mobility Dashboard</title>
+    
+    <title>S&H Admin Portal | Operations Dashboard</title>
+    
+    <link rel="icon" type="image/jpeg" href="sh.JPG">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
           theme: {
             extend: {
               colors: {
-                slate: { 50: '#f8fafc', 100: '#f1f5f9', 850: '#1e293b', 900: '#0f172a' },
+                slate: { 850: '#1e293b', 900: '#0f172a' },
                 gold: { DEFAULT: '#b89b5e', dark: '#a3884e' }
               }
             }
@@ -23,378 +26,480 @@
     </script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #0f172a; }
-        h1, h2, h3, h4, h5, .heading-font { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        h1, h2, h3, h4, .heading-font { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
         
-        /* Custom Scrollbar for the table */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        /* Modal Transitions */
+        .modal-overlay { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .modal-overlay.open { opacity: 1; pointer-events: auto; }
+        .modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
+        .modal-overlay.open .modal-content { transform: scale(1); }
 
-        .glass-modal {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(16px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
+        /* Sidebar Mobile Transitions */
+        #sidebar { transition: transform 0.3s ease; }
+        
+        /* Custom Scrollbar for tables */
+        .table-container::-webkit-scrollbar { height: 6px; }
+        .table-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .table-container::-webkit-scrollbar-track { background: #f1f5f9; }
     </style>
 </head>
-<body class="flex h-screen overflow-hidden antialiased selection:bg-gold selection:text-white">
+<body class="antialiased flex h-screen overflow-hidden">
 
-    <!-- Sidebar (Desktop) -->
-    <aside class="w-64 bg-slate-900 text-white flex-col hidden md:flex h-full shadow-2xl z-20 relative">
-        <div class="h-20 flex items-center px-6 border-b border-white/10">
-            <div class="bg-white px-2 py-1 rounded-sm shadow-sm flex items-center">
-                <img src="sh.JPG" alt="S&H Logo" class="h-8 object-contain filter grayscale contrast-150" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'text-slate-900 font-bold heading-font\'>S&H</span>';">
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/60 z-20 hidden lg:hidden" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-[#050505] text-white w-64 flex-shrink-0 fixed inset-y-0 left-0 transform -translate-x-full lg:relative lg:translate-x-0 z-30 flex flex-col border-r border-gray-800">
+        <div class="p-6 border-b border-gray-800 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-white px-2 py-1 rounded-sm">
+                    <img src="sh.JPG" alt="S&H Logo" class="h-6 w-auto filter grayscale contrast-150">
+                </div>
+                <span class="heading-font text-lg uppercase tracking-widest text-gold">Portal</span>
             </div>
-            <span class="ml-3 font-bold tracking-widest text-xs uppercase text-gold">Admin Desk</span>
+            <button class="lg:hidden text-gray-400 hover:text-white" onclick="toggleSidebar()">
+                <i class="fas fa-times text-xl"></i>
+            </button>
         </div>
 
         <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-            <p class="px-2 text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-2">Divisions</p>
-            <a href="#" class="flex items-center gap-3 px-3 py-2.5 bg-gold/10 text-gold rounded-lg transition border border-gold/20">
-                <i class="fas fa-car-side w-5 text-center"></i>
-                <span class="text-sm font-medium">Mobility Fleet</span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:bg-white/5 hover:text-white rounded-lg transition">
-                <i class="fas fa-layer-group w-5 text-center"></i>
-                <span class="text-sm font-medium">Infrastructure</span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:bg-white/5 hover:text-white rounded-lg transition">
-                <i class="fas fa-clipboard-check w-5 text-center"></i>
-                <span class="text-sm font-medium">Projects</span>
-            </a>
-            
-            <p class="px-2 text-[10px] font-bold tracking-widest uppercase text-slate-500 mt-6 mb-2">Operations</p>
-            <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:bg-white/5 hover:text-white rounded-lg transition">
-                <i class="fas fa-file-signature w-5 text-center"></i>
-                <span class="text-sm font-medium">Handovers</span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:bg-white/5 hover:text-white rounded-lg transition">
-                <i class="fas fa-users w-5 text-center"></i>
-                <span class="text-sm font-medium">Client Directory</span>
-            </a>
+            <button onclick="switchTab('overview')" id="nav-overview" class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded transition bg-gold text-white">
+                <i class="fas fa-chart-pie w-5"></i> Dashboard Overview
+            </button>
+            <button onclick="switchTab('bookings')" id="nav-bookings" class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded transition">
+                <i class="fas fa-calendar-alt w-5"></i> Pending Bookings <span class="ml-auto bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">3</span>
+            </button>
+            <button onclick="switchTab('inspections')" id="nav-inspections" class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded transition">
+                <i class="fas fa-clipboard-check w-5"></i> Pre-Inspections <span class="ml-auto bg-yellow-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">2</span>
+            </button>
+            <button class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded transition">
+                <i class="fas fa-car w-5"></i> Fleet Management
+            </button>
+            <button class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded transition">
+                <i class="fas fa-file-invoice-dollar w-5"></i> Invoices & Billing
+            </button>
         </nav>
 
-        <div class="p-4 border-t border-white/10">
-            <a href="/" class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white transition rounded-lg hover:bg-white/5">
-                <i class="fas fa-sign-out-alt w-5 text-center"></i>
-                <span class="text-sm font-medium">Secure Logout</span>
-            </a>
+        <div class="p-4 border-t border-gray-800">
+            <div class="flex items-center gap-3 px-4 py-2">
+                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center border border-gray-600">
+                    <i class="fas fa-user-shield text-gold text-xs"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-wider">Admin User</p>
+                    <a href="/" class="text-[10px] text-gray-500 hover:text-gold transition">Log Out</a>
+                </div>
+            </div>
         </div>
     </aside>
 
-    <!-- Main Content Area -->
-    <main class="flex-1 flex flex-col h-full relative overflow-hidden">
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-slate-50">
         
-        <!-- Mobile Header -->
-        <header class="md:hidden h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 z-10">
-            <div class="bg-slate-900 px-2 py-1 rounded-sm shadow-sm flex items-center">
-                <span class="text-white font-bold heading-font text-xs">S&H Admin</span>
+        <!-- Header -->
+        <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-6 flex-shrink-0">
+            <div class="flex items-center gap-4">
+                <button class="lg:hidden text-slate-500 hover:text-slate-900" onclick="toggleSidebar()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <h1 id="header-title" class="text-xl heading-font uppercase text-slate-900 tracking-wide">Dashboard Overview</h1>
             </div>
-            <button class="text-slate-600 hover:text-gold">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </header>
-
-        <!-- Topbar (Desktop) -->
-        <header class="hidden md:flex h-20 bg-white border-b border-slate-200 items-center justify-between px-8 z-10 shadow-sm">
-            <div>
-                <h1 class="text-2xl heading-font font-bold text-slate-900 uppercase">Mobility Command Center</h1>
-                <p class="text-xs text-slate-500 tracking-wide mt-0.5"><span id="current-date"></span> • Live Data Feed</p>
-            </div>
-            <div class="flex items-center gap-6">
-                <div class="relative">
-                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" placeholder="Search client or vehicle..." class="pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition w-64">
-                </div>
-                <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-gold shadow-md border-2 border-slate-100 cursor-pointer">
-                    <i class="fas fa-user-shield"></i>
-                </div>
+            <div class="flex items-center gap-4">
+                <button class="text-slate-400 hover:text-gold transition relative">
+                    <i class="fas fa-bell text-lg"></i>
+                    <span class="absolute -top-1 -right-1 bg-red-500 w-2.5 h-2.5 rounded-full"></span>
+                </button>
             </div>
         </header>
 
-        <!-- Dashboard Content -->
+        <!-- Content Area -->
         <div class="flex-1 overflow-y-auto p-4 md:p-8">
             
-            <!-- Quick Stats -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between group hover:border-gold transition">
-                    <div>
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">Active Rentals</p>
-                        <h3 class="text-3xl heading-font font-bold text-slate-900">12</h3>
+            <!-- TAB: OVERVIEW -->
+            <div id="tab-overview" class="tab-content block space-y-6">
+                <!-- KPI Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-xl"><i class="fas fa-calendar-day"></i></div>
+                        <div><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Pending Bookings</p><h3 class="text-2xl heading-font text-slate-900">3</h3></div>
                     </div>
-                    <div class="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:text-gold group-hover:bg-gold/10 transition">
-                        <i class="fas fa-key text-xl"></i>
+                    <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-yellow-50 text-yellow-500 flex items-center justify-center text-xl"><i class="fas fa-clipboard-list"></i></div>
+                        <div><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Pre-Inspections</p><h3 class="text-2xl heading-font text-slate-900">2</h3></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-green-50 text-green-500 flex items-center justify-center text-xl"><i class="fas fa-car-side"></i></div>
+                        <div><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Active Rentals</p><h3 class="text-2xl heading-font text-slate-900">4</h3></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gold/10 text-gold flex items-center justify-center text-xl"><i class="fas fa-wallet"></i></div>
+                        <div><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Est. Monthly Rev</p><h3 class="text-2xl heading-font text-slate-900">R 142k</h3></div>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between group hover:border-gold transition">
-                    <div>
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">Pending Returns</p>
-                        <h3 class="text-3xl heading-font font-bold text-slate-900">03</h3>
-                    </div>
-                    <div class="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:text-gold group-hover:bg-gold/10 transition">
-                        <i class="fas fa-undo text-xl"></i>
-                    </div>
+                <!-- Quick Actions -->
+                <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4">Operational Status</h3>
+                    <p class="text-xs text-slate-500">System running optimally. 2 vehicles scheduled for return today. Please review pending bookings.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between group hover:border-gold transition border-l-4 border-l-gold">
-                    <div>
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-gold mb-1">New Handover Submissions</p>
-                        <h3 class="text-3xl heading-font font-bold text-slate-900">05</h3>
+            </div>
+
+            <!-- TAB: PENDING BOOKINGS -->
+            <div id="tab-bookings" class="tab-content hidden space-y-6">
+                <div class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest">Booking Requests</h3>
+                        <button class="text-slate-400 hover:text-slate-900"><i class="fas fa-sync-alt"></i></button>
                     </div>
-                    <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                        <i class="fas fa-file-contract text-xl"></i>
+                    
+                    <div class="table-container overflow-x-auto w-full">
+                        <table class="w-full text-left border-collapse min-w-[800px]">
+                            <thead>
+                                <tr class="bg-slate-50 text-[10px] uppercase tracking-widest text-slate-500 border-b border-slate-200">
+                                    <th class="p-4 font-bold">Req ID</th>
+                                    <th class="p-4 font-bold">Vehicle</th>
+                                    <th class="p-4 font-bold">Client / Org</th>
+                                    <th class="p-4 font-bold">Requested Dates</th>
+                                    <th class="p-4 font-bold text-center">Details</th>
+                                    <th class="p-4 font-bold text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <!-- Row 1 -->
+                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition">
+                                    <td class="p-4 font-mono text-xs text-slate-500">#BK-1042</td>
+                                    <td class="p-4 font-bold text-slate-900">Hyundai Staria</td>
+                                    <td class="p-4 text-slate-700">Dept of Works <br><span class="text-xs text-slate-400">Sylvester M.</span></td>
+                                    <td class="p-4 text-slate-600">12 Oct 2026<br><span class="text-xs text-slate-400">to 15 Oct 2026</span></td>
+                                    <td class="p-4 text-center">
+                                        <button onclick="openBookingDetails('Dept of Works', 'sylvester@works.gov.za', '082 123 4567', 'Ayanda Pule', 'Valid Code 8')" class="text-xs font-bold text-slate-500 hover:text-gold border border-slate-200 bg-white px-3 py-1.5 rounded transition">
+                                            View Details
+                                        </button>
+                                    </td>
+                                    <td class="p-4 text-right">
+                                        <button onclick="openConfirmModal('BK-1042', 'Hyundai Staria', '2026-10-12', '2026-10-15')" class="text-xs font-bold text-white bg-slate-900 hover:bg-gold px-4 py-2 rounded transition shadow-sm">
+                                            Confirm & Invoice
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition">
+                                    <td class="p-4 font-mono text-xs text-slate-500">#BK-1043</td>
+                                    <td class="p-4 font-bold text-slate-900">Mercedes V-Class</td>
+                                    <td class="p-4 text-slate-700">Private Delegation <br><span class="text-xs text-slate-400">John Doe</span></td>
+                                    <td class="p-4 text-slate-600">20 Oct 2026<br><span class="text-xs text-slate-400">to 21 Oct 2026</span></td>
+                                    <td class="p-4 text-center">
+                                        <button onclick="openBookingDetails('Private Delegation', 'john@private.com', '071 987 6543', 'John Doe', 'Valid Code 10')" class="text-xs font-bold text-slate-500 hover:text-gold border border-slate-200 bg-white px-3 py-1.5 rounded transition">
+                                            View Details
+                                        </button>
+                                    </td>
+                                    <td class="p-4 text-right">
+                                        <button onclick="openConfirmModal('BK-1043', 'Mercedes V-Class', '2026-10-20', '2026-10-21')" class="text-xs font-bold text-white bg-slate-900 hover:bg-gold px-4 py-2 rounded transition shadow-sm">
+                                            Confirm & Invoice
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
-            <!-- Handover Ledger Table -->
-            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white">
-                    <div>
-                        <h2 class="text-lg heading-font font-bold text-slate-900 uppercase">Recent Handovers</h2>
-                        <p class="text-xs text-slate-500">Digital records of vehicle dispatch and condition.</p>
+            <!-- TAB: PRE-INSPECTIONS -->
+            <div id="tab-inspections" class="tab-content hidden space-y-6">
+                <div class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest">Submitted Inspections</h3>
                     </div>
-                    <button class="bg-slate-900 hover:bg-gold text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-wider transition shadow-md flex items-center gap-2">
-                        <i class="fas fa-download"></i> Export CSV
-                    </button>
-                </div>
-                
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-50 border-b border-slate-200 text-[10px] uppercase tracking-wider text-slate-500 font-bold">
-                                <th class="p-4 pl-6">Client / Delegate</th>
-                                <th class="p-4">Vehicle Allocated</th>
-                                <th class="p-4">Dispatch Date</th>
-                                <th class="p-4">License Status</th>
-                                <th class="p-4">Condition</th>
-                                <th class="p-4 text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-sm text-slate-700 divide-y divide-slate-100">
-                            <!-- Row 1 -->
-                            <tr class="hover:bg-slate-50 transition group">
-                                <td class="p-4 pl-6">
-                                    <p class="font-bold text-slate-900">Thabo Mokoena</p>
-                                    <p class="text-xs text-slate-500">082 555 1234 • thabo@gov.za</p>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex items-center gap-2">
-                                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                                        <span class="font-medium">Hyundai Staria (VIP)</span>
-                                    </div>
-                                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">REG: SH 01 GP</p>
-                                </td>
-                                <td class="p-4 font-medium">Oct 12, 2026</td>
-                                <td class="p-4">
-                                    <span class="bg-green-100 text-green-700 border border-green-200 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide">Verified</span>
-                                </td>
-                                <td class="p-4">
-                                    <span class="text-slate-600 font-medium text-xs"><i class="fas fa-check-circle text-green-500 mr-1"></i> Excellent</span>
-                                </td>
-                                <td class="p-4 text-center">
-                                    <button onclick="openHandoverModal('Thabo Mokoena', 'Hyundai Staria', 'Excellent', 'None')" class="text-xs font-bold text-gold border border-gold hover:bg-gold hover:text-white px-3 py-1.5 rounded transition">View Record</button>
-                                </td>
-                            </tr>
-                            
-                            <!-- Row 2 -->
-                            <tr class="hover:bg-slate-50 transition group">
-                                <td class="p-4 pl-6">
-                                    <p class="font-bold text-slate-900">Sarah Jenkins</p>
-                                    <p class="text-xs text-slate-500">071 444 9876 • s.jenkins@corp.com</p>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex items-center gap-2">
-                                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                                        <span class="font-medium">Mercedes V-Class</span>
-                                    </div>
-                                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">REG: SH 04 GP</p>
-                                </td>
-                                <td class="p-4 font-medium">Oct 11, 2026</td>
-                                <td class="p-4">
-                                    <span class="bg-green-100 text-green-700 border border-green-200 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide">Verified</span>
-                                </td>
-                                <td class="p-4">
-                                    <span class="text-slate-600 font-medium text-xs"><i class="fas fa-exclamation-triangle text-amber-500 mr-1"></i> Noted Damage</span>
-                                </td>
-                                <td class="p-4 text-center">
-                                    <button onclick="openHandoverModal('Sarah Jenkins', 'Mercedes V-Class', 'Noted', 'Minor scuff on rear left bumper.')" class="text-xs font-bold text-gold border border-gold hover:bg-gold hover:text-white px-3 py-1.5 rounded transition">View Record</button>
-                                </td>
-                            </tr>
-
-                            <!-- Row 3 -->
-                            <tr class="hover:bg-slate-50 transition group">
-                                <td class="p-4 pl-6">
-                                    <p class="font-bold text-slate-900">Sipho Ndlovu</p>
-                                    <p class="text-xs text-slate-500">060 222 3344 • sipho@embassy.org</p>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex items-center gap-2">
-                                        <span class="w-2 h-2 rounded-full bg-slate-300"></span>
-                                        <span class="font-medium">Hyundai Staria</span>
-                                    </div>
-                                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">REG: SH 02 GP</p>
-                                </td>
-                                <td class="p-4 font-medium text-slate-400">Oct 09, 2026</td>
-                                <td class="p-4">
-                                    <span class="bg-slate-100 text-slate-600 border border-slate-200 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide">Archived</span>
-                                </td>
-                                <td class="p-4">
-                                    <span class="text-slate-600 font-medium text-xs"><i class="fas fa-check-circle text-slate-400 mr-1"></i> Returned Clear</span>
-                                </td>
-                                <td class="p-4 text-center">
-                                    <button class="text-xs font-bold text-slate-400 border border-slate-200 hover:bg-slate-100 hover:text-slate-700 px-3 py-1.5 rounded transition">Archived</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    
+                    <div class="table-container overflow-x-auto w-full">
+                        <table class="w-full text-left border-collapse min-w-[800px]">
+                            <thead>
+                                <tr class="bg-slate-50 text-[10px] uppercase tracking-widest text-slate-500 border-b border-slate-200">
+                                    <th class="p-4 font-bold">Insp ID</th>
+                                    <th class="p-4 font-bold">Vehicle</th>
+                                    <th class="p-4 font-bold">Booked By</th>
+                                    <th class="p-4 font-bold">Driver Name</th>
+                                    <th class="p-4 font-bold">Status</th>
+                                    <th class="p-4 font-bold text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <!-- Row 1 -->
+                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition">
+                                    <td class="p-4 font-mono text-xs text-slate-500">#INSP-088</td>
+                                    <td class="p-4 font-bold text-slate-900">Mercedes V-Class</td>
+                                    <td class="p-4 text-slate-700">Makarapa Events</td>
+                                    <td class="p-4 text-slate-600">Thabo M.</td>
+                                    <td class="p-4"><span class="bg-yellow-100 text-yellow-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Pending Review</span></td>
+                                    <td class="p-4 text-right">
+                                        <button onclick="openInspectionModal('Mercedes V-Class', 'Thabo M.', '4/5', '3/4 Tank', 'Small scratch on rear left bumper rim.')" class="text-xs font-bold text-white bg-slate-900 hover:bg-gold px-4 py-2 rounded transition shadow-sm flex items-center justify-center gap-2 ml-auto">
+                                            <i class="fas fa-images"></i> View Report
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            
-            <p class="text-center text-[10px] text-slate-400 uppercase tracking-widest mt-8 mb-4 font-bold">End of Records • Powered by Automania</p>
 
         </div>
     </main>
 
-    <!-- Handover Digital Clipboard Modal -->
-    <div id="handover-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 px-4">
-        <div class="glass-modal w-full max-w-3xl rounded-xl border-t-8 border-gold transform scale-95 transition-transform duration-300 relative overflow-hidden flex flex-col max-h-[90vh]" id="handover-box">
-            
-            <!-- Header -->
-            <div class="p-6 border-b border-slate-200 flex justify-between items-center bg-white/50">
-                <div>
-                    <h3 class="text-xl text-slate-900 heading-font uppercase font-bold">Digital Handover Report</h3>
-                    <p class="text-xs text-slate-500 font-mono mt-1">REF: <span id="modal-ref">SH-HND-9921</span> • Dispatch Copy</p>
-                </div>
-                <button onclick="closeHandoverModal()" class="text-slate-400 hover:text-slate-900 transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 bg-white shadow-sm border border-slate-200">
-                    <i class="fas fa-times"></i>
-                </button>
+    <!-- ================= MODALS ================= -->
+
+    <!-- 1. Booking Details Modal -->
+    <div id="detailsModal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center modal-overlay p-4">
+        <div class="bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden modal-content border-t-4 border-slate-900 flex flex-col max-h-[90vh]">
+            <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h3 class="heading-font text-lg uppercase tracking-wide text-slate-900">Client Details</h3>
+                <button onclick="closeModal('detailsModal')" class="text-slate-400 hover:text-slate-900"><i class="fas fa-times text-lg"></i></button>
             </div>
-
-            <!-- Body -->
-            <div class="p-6 overflow-y-auto bg-slate-50/50 flex-1">
-                <div class="grid md:grid-cols-2 gap-6">
-                    
-                    <!-- Left Col: Client & Vehicle -->
-                    <div class="space-y-6">
-                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
-                            <h4 class="text-[10px] font-bold uppercase tracking-widest text-gold mb-3 border-b border-slate-100 pb-2">Client Details</h4>
-                            <p class="text-lg font-bold text-slate-900 heading-font" id="modal-client-name">John Doe</p>
-                            <div class="mt-2 space-y-1 text-sm text-slate-600">
-                                <p><i class="fas fa-envelope text-slate-400 w-5"></i> client@email.com</p>
-                                <p><i class="fas fa-phone text-slate-400 w-5"></i> +27 XX XXX XXXX</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
-                            <h4 class="text-[10px] font-bold uppercase tracking-widest text-gold mb-3 border-b border-slate-100 pb-2">Driving License Verification</h4>
-                            <!-- Mock ID Upload Box -->
-                            <div class="w-full h-32 bg-slate-100 rounded border-2 border-dashed border-slate-300 flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer hover:border-gold transition">
-                                <i class="fas fa-id-card text-3xl text-slate-300 group-hover:text-gold transition mb-2"></i>
-                                <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">License_Front.jpg</span>
-                                <div class="absolute inset-0 bg-slate-900/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                                    <span class="text-white text-xs font-bold uppercase tracking-widest"><i class="fas fa-eye mr-1"></i> View Document</span>
-                                </div>
-                            </div>
-                        </div>
+            <div class="p-6 space-y-4 overflow-y-auto">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                        <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Organization</p>
+                        <p id="det-org" class="text-sm font-medium text-slate-800">-</p>
                     </div>
-
-                    <!-- Right Col: Condition -->
-                    <div class="space-y-6">
-                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm h-full">
-                            <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-gold">Vehicle Condition Report</h4>
-                                <span id="modal-condition-badge" class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase">Excellent</span>
-                            </div>
-                            
-                            <p class="text-lg font-bold text-slate-900 heading-font mb-4" id="modal-vehicle">Vehicle Name</p>
-
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="text-xs font-bold text-slate-500 uppercase mb-1">Pre-Handover Notes:</p>
-                                    <div class="bg-slate-50 p-3 rounded border border-slate-100 text-sm text-slate-700 italic font-medium" id="modal-notes">
-                                        No damages noted. Full tank. Clean interior.
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <p class="text-xs font-bold text-slate-500 uppercase mb-2">Condition Imagery:</p>
-                                    <div class="grid grid-cols-2 gap-2">
-                                        <!-- Mock Car Photos -->
-                                        <div class="aspect-video bg-slate-200 rounded overflow-hidden relative group cursor-pointer">
-                                            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition">
-                                            <div class="absolute bottom-1 right-1 bg-black/60 px-1.5 rounded text-[8px] text-white">Front Left</div>
-                                        </div>
-                                        <div class="aspect-video bg-slate-200 rounded overflow-hidden relative group cursor-pointer">
-                                            <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition">
-                                            <div class="absolute bottom-1 right-1 bg-black/60 px-1.5 rounded text-[8px] text-white">Rear Bumper</div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                        <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Driver Name</p>
+                        <p id="det-driver" class="text-sm font-medium text-slate-800">-</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                        <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Email</p>
+                        <p id="det-email" class="text-sm font-medium text-slate-800 truncate">-</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                        <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Phone</p>
+                        <p id="det-phone" class="text-sm font-medium text-slate-800">-</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 pt-4 border-t border-slate-100">
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Driver's License Attachment</p>
+                    <div class="flex items-center justify-between bg-slate-50 border border-slate-200 p-3 rounded">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-file-pdf text-red-500 text-2xl"></i>
+                            <div>
+                                <p class="text-xs font-bold text-slate-700">license_scan.pdf</p>
+                                <p id="det-license-status" class="text-[10px] text-green-600 font-bold uppercase">Uploaded</p>
                             </div>
                         </div>
+                        <button class="text-xs font-bold text-slate-500 hover:text-gold uppercase tracking-wider"><i class="fas fa-download"></i> View</button>
                     </div>
-
                 </div>
             </div>
-
-            <!-- Footer Actions -->
-            <div class="p-4 border-t border-slate-200 bg-white flex justify-end gap-3">
-                <button onclick="closeHandoverModal()" class="px-5 py-2 border border-slate-200 text-slate-600 rounded text-xs font-bold uppercase tracking-wider hover:bg-slate-50 transition">Close</button>
-                <button class="px-5 py-2 bg-slate-900 text-white rounded text-xs font-bold uppercase tracking-wider hover:bg-gold transition shadow-md"><i class="fas fa-print mr-1"></i> Print Gate Pass</button>
+            <div class="p-4 border-t border-slate-100 bg-slate-50 text-right">
+                <button onclick="closeModal('detailsModal')" class="text-xs font-bold text-slate-500 hover:text-slate-900 uppercase tracking-widest px-4 py-2 transition">Close</button>
             </div>
         </div>
     </div>
 
+    <!-- 2. Confirm & Generate Invoice Modal -->
+    <div id="confirmModal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center modal-overlay p-4">
+        <div class="bg-white w-full max-w-md rounded-xl shadow-2xl overflow-hidden modal-content border-t-4 border-gold flex flex-col max-h-[90vh]">
+            <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h3 class="heading-font text-lg uppercase tracking-wide text-slate-900">Confirm Booking</h3>
+                <button onclick="closeModal('confirmModal')" class="text-slate-400 hover:text-slate-900"><i class="fas fa-times text-lg"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto">
+                <p class="text-xs text-slate-500 mb-4">Set the final pricing and adjust dates if necessary before generating the formal invoice for <strong id="conf-car" class="text-slate-800"></strong> (Req: <span id="conf-id"></span>).</p>
+                
+                <form id="invoiceForm" class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Total Price Tag (ZAR)</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-slate-400 text-sm font-bold">R</span>
+                            <input type="number" required placeholder="0.00" class="w-full bg-slate-50 border border-slate-200 rounded p-3 pl-8 text-sm font-bold text-slate-900 focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Confirmed Start</label>
+                            <input type="date" id="conf-start" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm text-slate-700 focus:border-gold outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Confirmed End</label>
+                            <input type="date" id="conf-end" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm text-slate-700 focus:border-gold outline-none">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="p-4 border-t border-slate-100 bg-slate-50">
+                <button type="submit" form="invoiceForm" id="btn-generate" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-3 rounded transition shadow-md flex items-center justify-center gap-2">
+                    <i class="fas fa-file-invoice"></i> Generate Invoice
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Pre-Inspection Report Modal -->
+    <div id="inspectionModal" class="fixed inset-0 bg-slate-900/60 z-[60] flex items-center justify-center modal-overlay p-4">
+        <div class="bg-white w-full max-w-3xl rounded-xl shadow-2xl overflow-hidden modal-content border-t-4 border-blue-500 flex flex-col max-h-[95vh]">
+            <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50 flex-shrink-0">
+                <h3 class="heading-font text-lg uppercase tracking-wide text-slate-900">Vehicle Pre-Inspection Report</h3>
+                <button onclick="closeModal('inspectionModal')" class="text-slate-400 hover:text-slate-900"><i class="fas fa-times text-lg"></i></button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto p-6">
+                <!-- Meta Info -->
+                <div class="flex flex-wrap gap-4 mb-6 border-b border-slate-100 pb-6">
+                    <div class="bg-slate-50 px-4 py-2 rounded border border-slate-200 flex-1 min-w-[140px]">
+                        <p class="text-[9px] uppercase font-bold text-slate-400 mb-1">Vehicle</p>
+                        <p id="insp-car" class="text-sm font-bold text-slate-800">-</p>
+                    </div>
+                    <div class="bg-slate-50 px-4 py-2 rounded border border-slate-200 flex-1 min-w-[140px]">
+                        <p class="text-[9px] uppercase font-bold text-slate-400 mb-1">Driver Handover</p>
+                        <p id="insp-driver" class="text-sm font-bold text-slate-800">-</p>
+                    </div>
+                    <div class="bg-slate-50 px-4 py-2 rounded border border-slate-200 flex-1 min-w-[140px]">
+                        <p class="text-[9px] uppercase font-bold text-slate-400 mb-1">Cleanliness</p>
+                        <p id="insp-clean" class="text-sm font-bold text-slate-800">-</p>
+                    </div>
+                    <div class="bg-slate-50 px-4 py-2 rounded border border-slate-200 flex-1 min-w-[140px]">
+                        <p class="text-[9px] uppercase font-bold text-slate-400 mb-1">Fuel Level</p>
+                        <p id="insp-fuel" class="text-sm font-bold text-slate-800">-</p>
+                    </div>
+                </div>
+
+                <!-- Photo Attachments Grid -->
+                <p class="text-[10px] uppercase font-bold text-slate-500 mb-3 tracking-widest">Client Image Attachments</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                    <div class="relative group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&q=80" class="w-full h-24 object-cover rounded border border-slate-200">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded"><span class="text-white text-[10px] font-bold uppercase">Front</span></div>
+                    </div>
+                    <div class="relative group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&q=80" class="w-full h-24 object-cover rounded border border-slate-200">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded"><span class="text-white text-[10px] font-bold uppercase">Side</span></div>
+                    </div>
+                    <div class="relative group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=400&q=80" class="w-full h-24 object-cover rounded border border-slate-200">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded"><span class="text-white text-[10px] font-bold uppercase">Back</span></div>
+                    </div>
+                    <div class="relative group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?w=400&q=80" class="w-full h-24 object-cover rounded border border-slate-200">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded"><span class="text-white text-[10px] font-bold uppercase">Dashboard</span></div>
+                    </div>
+                </div>
+
+                <!-- Comments -->
+                <p class="text-[10px] uppercase font-bold text-slate-500 mb-2 tracking-widest">Client Comments & Condition Notes</p>
+                <div class="bg-yellow-50 border border-yellow-200 rounded p-4 text-sm text-slate-700 italic">
+                    "<span id="insp-comments"></span>"
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-end gap-3 flex-shrink-0">
+                <button onclick="closeModal('inspectionModal')" class="text-xs font-bold text-slate-500 hover:text-slate-900 uppercase px-4 py-2 transition">Close</button>
+                <button class="text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 uppercase px-6 py-2 rounded shadow transition flex items-center gap-2">
+                    <i class="fas fa-check"></i> Mark Reviewed
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
-        // Set dynamic date in header
-        const dateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-ZA', dateOptions);
-
-        // Modal Logic
-        function openHandoverModal(clientName, vehicle, condition, notes) {
-            const modal = document.getElementById('handover-modal');
-            const box = document.getElementById('handover-box');
-            
-            // Populate Data
-            document.getElementById('modal-client-name').innerText = clientName;
-            document.getElementById('modal-vehicle').innerText = vehicle;
-            document.getElementById('modal-notes').innerText = notes !== 'None' ? notes : 'No damages noted. Full tank. Clean interior.';
-            
-            const badge = document.getElementById('modal-condition-badge');
-            if(condition === 'Excellent') {
-                badge.className = 'bg-green-100 text-green-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase';
-                badge.innerText = 'Excellent';
+        // Sidebar Toggle for Mobile
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
             } else {
-                badge.className = 'bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase';
-                badge.innerText = 'Noted Damage';
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
             }
-
-            // Generate random ref
-            document.getElementById('modal-ref').innerText = 'SH-HND-' + Math.floor(1000 + Math.random() * 9000);
-
-            // Animate In
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                box.classList.remove('scale-95');
-            }, 10);
         }
 
-        function closeHandoverModal() {
-            const modal = document.getElementById('handover-modal');
-            const box = document.getElementById('handover-box');
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+            // Reset nav styles
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('bg-gold', 'text-white');
+                btn.classList.add('text-gray-400', 'hover:bg-gray-800');
+            });
+
+            // Show selected tab
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
             
-            // Animate Out
-            modal.classList.add('opacity-0');
-            box.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }, 300);
+            // Highlight selected nav
+            const activeBtn = document.getElementById('nav-' + tabId);
+            activeBtn.classList.remove('text-gray-400', 'hover:bg-gray-800');
+            activeBtn.classList.add('bg-gold', 'text-white');
+
+            // Update Header Title
+            const titles = {
+                'overview': 'Dashboard Overview',
+                'bookings': 'Pending Bookings',
+                'inspections': 'Pre-Inspections'
+            };
+            document.getElementById('header-title').innerText = titles[tabId];
+
+            // Close sidebar on mobile after clicking
+            if(window.innerWidth < 1024) toggleSidebar();
         }
+
+        // Modal Controls
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('open');
+        }
+
+        function openBookingDetails(org, email, phone, driver, licenseStatus) {
+            document.getElementById('det-org').innerText = org;
+            document.getElementById('det-email').innerText = email;
+            document.getElementById('det-phone').innerText = phone;
+            document.getElementById('det-driver').innerText = driver;
+            document.getElementById('detailsModal').classList.add('open');
+        }
+
+        function openConfirmModal(id, car, startDate, endDate) {
+            document.getElementById('conf-id').innerText = id;
+            document.getElementById('conf-car').innerText = car;
+            document.getElementById('conf-start').value = startDate;
+            document.getElementById('conf-end').value = endDate;
+            document.getElementById('confirmModal').classList.add('open');
+        }
+
+        function openInspectionModal(car, driver, clean, fuel, comments) {
+            document.getElementById('insp-car').innerText = car;
+            document.getElementById('insp-driver').innerText = driver;
+            document.getElementById('insp-clean').innerText = clean;
+            document.getElementById('insp-fuel').innerText = fuel;
+            document.getElementById('insp-comments').innerText = comments;
+            document.getElementById('inspectionModal').classList.add('open');
+        }
+
+        // Form Submit Simulation (Generate Invoice)
+        document.getElementById('invoiceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-generate');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Invoice Sent via n8n';
+                btn.classList.replace('bg-slate-900', 'bg-green-600');
+                btn.classList.replace('hover:bg-gold', 'hover:bg-green-700');
+                
+                setTimeout(() => {
+                    closeModal('confirmModal');
+                    // Reset Button
+                    setTimeout(() => {
+                        btn.innerHTML = '<i class="fas fa-file-invoice"></i> Generate Invoice';
+                        btn.classList.replace('bg-green-600', 'bg-slate-900');
+                        btn.classList.replace('hover:bg-green-700', 'hover:bg-gold');
+                        btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                        this.reset();
+                    }, 300);
+                }, 1500);
+            }, 1500);
+        });
     </script>
 </body>
 </html>
