@@ -137,7 +137,20 @@
 
         #mobile-menu { transition: max-height 0.3s ease-in-out; max-height: 0; overflow: hidden; }
         #mobile-menu.open { max-height: 300px; }
-        .expand-content { transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out; }
+
+        /* --- Sponsor Ribbon Animation (Left to Right) --- */
+        @keyframes scroll-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        .animate-marquee-right {
+            display: flex;
+            width: max-content;
+            animation: scroll-right 40s linear infinite;
+        }
+        .animate-marquee-right:hover {
+            animation-play-state: paused;
+        }
 
         /* --- Circular Layout CSS --- */
         :root {
@@ -224,7 +237,7 @@
         </div>
     </nav>
 
-    <!-- Cleaned 3rd Quadrant Hero Section -->
+    <!-- Cleaned Hero Section -->
     <section class="relative min-h-[100svh] w-full flex items-end justify-start pb-16 sm:pb-24 lg:pb-32 pt-32 bg-black overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="SHero.jpg" alt="S&H Logistics Infrastructure" class="w-full h-full object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite]">
@@ -254,8 +267,43 @@
         </div>
     </section>
 
+    <!-- Gold Accent Divider -->
     <div class="relative w-full h-2 bg-transparent z-20">
         <div class="h-full w-1/2 bg-gold"></div>
+    </div>
+
+    <!-- NEW Sponsor Ribbon (Left to Right Marquee) -->
+    <div class="w-full bg-white py-8 border-b border-gray-100 relative z-20 overflow-hidden">
+        <div class="absolute top-0 left-0 h-full w-12 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        
+        <div class="animate-marquee-right gap-12 md:gap-24 px-6 items-center flex">
+            <!-- Quadrupled image set to ensure perfect 50% left-to-right looping on all screen sizes -->
+            <img src="g20.png" alt="G20 Logo" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="Dep.jpg" alt="Dept Public Works" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="makarapa.png" alt="Makarapa Day" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="tutkoolestkids.jpg" alt="Koolest Kids" class="h-8 md:h-12 object-cover rounded filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="cj_students.png" alt="CJ Students" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            
+            <img src="g20.png" alt="G20 Logo" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="Dep.jpg" alt="Dept Public Works" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="makarapa.png" alt="Makarapa Day" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="tutkoolestkids.jpg" alt="Koolest Kids" class="h-8 md:h-12 object-cover rounded filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="cj_students.png" alt="CJ Students" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            
+            <img src="g20.png" alt="G20 Logo" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="Dep.jpg" alt="Dept Public Works" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="makarapa.png" alt="Makarapa Day" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="tutkoolestkids.jpg" alt="Koolest Kids" class="h-8 md:h-12 object-cover rounded filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="cj_students.png" alt="CJ Students" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+
+            <img src="g20.png" alt="G20 Logo" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="Dep.jpg" alt="Dept Public Works" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="makarapa.png" alt="Makarapa Day" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="tutkoolestkids.jpg" alt="Koolest Kids" class="h-8 md:h-12 object-cover rounded filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+            <img src="cj_students.png" alt="CJ Students" class="h-8 md:h-12 object-contain filter grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-300">
+        </div>
+
+        <div class="absolute top-0 right-0 h-full w-12 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
     </div>
 
     <!-- Divisions Section -->
@@ -265,104 +313,64 @@
             <h2 class="text-3xl sm:text-4xl md:text-5xl text-slate-900 mt-2 heading-font uppercase">Our Divisions</h2>
         </div>
         
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-start">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
             
             <!-- MOBILITY CARD: Clickable to /car-rental -->
-            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max cursor-pointer" onclick="navigateCard(event, '/car-rental')">
+            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer" onclick="navigateCard(event, '/car-rental')">
                 <div class="h-56 sm:h-64 md:h-72 overflow-hidden relative shrink-0">
                     <img src="mobility.jpg" alt="S&H VIP Car Hire Fleet Pretoria" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
                 <div class="p-6 md:p-8 flex-1 flex flex-col border-t-2 border-gold bg-white">
-                    <div class="mb-6">
+                    <div class="mb-6 flex-grow">
                         <div class="flex items-center gap-3 mb-4"><i class="fas fa-car-side text-xl md:text-2xl text-gold"></i><h3 class="text-lg md:text-xl text-slate-900 heading-font uppercase">S&H Mobility</h3></div>
                         <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Blue-light brigade ready fleets and VIP shuttles featuring the Hyundai Staria Executive MPV for secure delegation logistics.</p>
                     </div>
                     
-                    <div class="flex justify-between items-center w-full">
-                        <button onclick="toggleAccordion('mobility-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2 relative z-10">
-                            View Fleet <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                        </button>
-                        <a href="handover/" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2 relative z-10">
-                            Handover <i class="fas fa-external-link-alt text-gold text-[10px]"></i>
+                    <div class="flex justify-between items-center w-full mt-auto pt-5 border-t border-slate-100">
+                        <a href="/car-rental" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2 relative z-10 group-hover:text-gold">
+                            Explore <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
                         </a>
-                    </div>
-
-                    <div id="mobility-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-3 md:gap-4">
-                        <div class="mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="astria.jpg" alt="Hyundai Staria Rental Pretoria" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
-                            <div>
-                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Hyundai Staria</h4>
-                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">Executive VIP transporter offering premium space and comfort.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="vclass.jpg" alt="Mercedes V-Class Rental Pretoria" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
-                            <div>
-                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Mercedes V-Class</h4>
-                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">The ultimate standard in luxury group travel and executive mobility.</p>
-                            </div>
-                        </div>
+                        <a href="handover/" class="text-[10px] md:text-xs font-bold text-slate-500 uppercase border-b-2 border-transparent pb-1 hover:text-gold hover:border-gold transition flex items-center gap-2 relative z-10">
+                            Handover <i class="fas fa-external-link-alt text-[10px]"></i>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- INFRASTRUCTURE CARD: Clickable to /infrastructure -->
-            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max cursor-pointer" onclick="navigateCard(event, '/infrastructure')">
+            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer" onclick="navigateCard(event, '/infrastructure')">
                 <div class="h-56 sm:h-64 md:h-72 overflow-hidden relative shrink-0">
                     <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1924&auto=format&fit=crop" alt="Event Decor and Marquee Infrastructure Hire Pretoria" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
                 <div class="p-6 md:p-8 flex-1 flex flex-col border-t-2 border-gold bg-white">
-                    <div class="mb-6">
+                    <div class="mb-6 flex-grow">
                         <div class="flex items-center gap-3 mb-4"><i class="fas fa-layer-group text-xl md:text-2xl text-gold"></i><h3 class="text-lg md:text-xl text-slate-900 heading-font uppercase">S&H Infrastructure</h3></div>
                         <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Turnkey Temporary Structures and Technical Production for large-scale national Events.</p>
                     </div>
                     
-                    <button onclick="toggleAccordion('infrastructure-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 self-start hover:text-gold transition flex items-center gap-2 relative z-10">
-                        View Equipment <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                    </button>
-
-                    <div id="infrastructure-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-3 md:gap-4">
-                        <div class="mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="stage_setup.jpg" alt="Event Staging Hire" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
-                            <div>
-                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Performance Stage</h4>
-                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">High-end staging, rigging, and AV setups for massive crowds.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="gala_setup.jpg" alt="Luxury Gala Decor Hire" class="w-full sm:w-24 md:w-28 h-32 sm:h-24 md:h-28 object-cover rounded shadow-sm shrink-0">
-                            <div>
-                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase">Premium Decor</h4>
-                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">Bespoke, elegant interior setups for high-profile galas and banquets.</p>
-                            </div>
-                        </div>
+                    <div class="flex justify-start items-center w-full mt-auto pt-5 border-t border-slate-100">
+                        <a href="/infrastructure" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2 relative z-10 group-hover:text-gold">
+                            Explore <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- PROJECT MANAGEMENT CARD: No Redirect -->
-            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-max sm:col-span-2 md:col-span-1">
+            <!-- PROJECT MANAGEMENT CARD: Links down to Projects section -->
+            <div class="group flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 sm:col-span-2 md:col-span-1 cursor-pointer" onclick="navigateCard(event, '#projects')">
                 <div class="h-56 sm:h-64 md:h-72 overflow-hidden relative shrink-0">
                     <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Project Management Drone View" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
                 <div class="p-6 md:p-8 flex-1 flex flex-col border-t-2 border-gold bg-white">
-                    <div class="mb-6">
+                    <div class="mb-6 flex-grow">
                         <div class="flex items-center gap-3 mb-4"><i class="fas fa-clipboard-check text-xl md:text-2xl text-gold"></i><h3 class="text-lg md:text-xl text-slate-900 heading-font uppercase">S&H Project Mngmt</h3></div>
                         <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Institutional strategy, drone-assisted site planning, and flawless project execution.</p>
                     </div>
                     
-                    <button onclick="toggleAccordion('project-details', this)" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 self-start hover:text-gold transition flex items-center gap-2">
-                        View Setup <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                    </button>
-
-                    <div id="project-details" class="expand-content max-h-0 opacity-0 overflow-hidden flex flex-col gap-3 md:gap-4">
-                        <div class="mt-4 md:mt-6 flex flex-col gap-2 bg-slate-50 border border-slate-100 p-3 rounded-lg hover:border-gold transition">
-                            <img src="tent_project_drone.jpg" alt="Tent Drone View" class="w-full h-32 md:h-40 object-cover rounded shadow-sm shrink-0">
-                            <div>
-                                <h4 class="text-xs md:text-sm font-bold text-slate-900 heading-font uppercase mt-2">Logistical Layout</h4>
-                                <p class="text-[10px] md:text-xs text-slate-600 mt-1">Meticulously planned large-scale marquee and logistical site layouts.</p>
-                            </div>
-                        </div>
+                    <div class="flex justify-start items-center w-full mt-auto pt-5 border-t border-slate-100">
+                        <a href="#projects" class="text-[10px] md:text-xs font-bold text-slate-900 uppercase border-b-2 border-gold pb-1 hover:text-gold transition flex items-center gap-2 relative z-10 group-hover:text-gold">
+                            Explore <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -621,21 +629,6 @@
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('open');
             document.getElementById('mobile-menu').classList.toggle('py-4');
-        }
-
-        function toggleAccordion(id, btnElement) {
-            const content = document.getElementById(id);
-            const icon = btnElement.querySelector('i.fa-chevron-down');
-            
-            if (content.classList.contains('max-h-0')) {
-                content.classList.remove('max-h-0', 'opacity-0');
-                content.classList.add('max-h-[2000px]', 'opacity-100');
-                if(icon) icon.classList.add('rotate-180');
-            } else {
-                content.classList.add('max-h-0', 'opacity-0');
-                content.classList.remove('max-h-[2000px]', 'opacity-100');
-                if(icon) icon.classList.remove('rotate-180');
-            }
         }
 
         // Login Modal UI Logic
