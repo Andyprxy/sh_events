@@ -114,16 +114,11 @@
             <h2 class="text-2xl md:text-3xl heading-font text-slate-900 uppercase font-medium">Hyundai Staria Executive</h2>
             <hr class="border-t border-gray-200 mt-4 mb-6 md:mb-12">
             
-            <!-- Mobile: Image stacks on top. Desktop: Side-by-side -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start md:items-center">
-                
-                <!-- Image Container (Order 1 on Mobile, Order 2 on Desktop) -->
                 <div class="order-1 md:order-2 w-full">
-                    <!-- Aspect ratio enforced based on 960x643 -->
                     <img src="astria.jpg" alt="Hyundai Staria VIP Rental" class="w-full aspect-[960/643] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500">
                 </div>
                 
-                <!-- Text Container (Order 2 on Mobile, Order 1 on Desktop) -->
                 <div class="order-2 md:order-1 flex flex-col justify-center text-left">
                     <p class="text-slate-600 font-light text-sm md:text-base leading-relaxed mb-6">
                         The Hyundai Staria represents the next generation of premium executive transport. With unmatched cabin space, VIP seating configurations, and advanced climate control, it ensures that your delegation arrives refreshed and ready. Perfect for corporate roadshows and secure airport shuttles.
@@ -145,16 +140,11 @@
             <h2 class="text-2xl md:text-3xl heading-font text-slate-900 uppercase font-medium">Mercedes V-Class</h2>
             <hr class="border-t border-gray-200 mt-4 mb-6 md:mb-12">
             
-            <!-- Mobile: Image stacks on top. Desktop: Side-by-side -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start md:items-center">
-                
-                <!-- Image Container (Order 1 everywhere) -->
                 <div class="order-1 w-full">
-                    <!-- Aspect ratio enforced based on 1024x628 -->
                     <img src="vclass.jpg" alt="Mercedes V-Class Rental" class="w-full aspect-[1024/628] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500">
                 </div>
                 
-                <!-- Text Container (Order 2 everywhere) -->
                 <div class="order-2 flex flex-col justify-center text-left">
                     <p class="text-slate-600 font-light text-sm md:text-base leading-relaxed mb-6">
                         The ultimate standard in luxury group travel. The Mercedes V-Class combines unparalleled aesthetic prestige with a first-class cabin experience. Designed for high-stakes mandates, government officials, and VIPs who require discreet, comfortable, and flawlessly executed logistics.
@@ -191,7 +181,6 @@
         <div class="p-6 flex-grow">
             <!-- Selected Car Display -->
             <div class="relative w-full h-48 rounded overflow-hidden mb-4 shadow-sm border border-slate-100 bg-slate-50 flex items-center justify-center">
-                <!-- Using object-cover for landscape images inside this fixed height box -->
                 <img id="panelCarImage" src="" alt="Selected Vehicle" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <h3 id="panelCarName" class="absolute bottom-4 left-4 text-white text-xl md:text-2xl heading-font uppercase font-bold tracking-wide text-pop-shadow">Car Name</h3>
@@ -200,17 +189,19 @@
             <p class="text-xs text-slate-500 mb-8 border-b border-slate-100 pb-4 text-left">Please complete the details below to secure your reservation. Our logistics team will contact you to confirm deployment.</p>
             
             <form id="bookingForm" class="space-y-5 text-left">
+                <!-- Hidden input for dynamic Car Name -->
+                <input type="hidden" name="carName" id="hiddenCarName">
                 
                 <!-- Booker Details -->
                 <div class="space-y-4">
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Booked By (Name / Org)</label>
-                        <input type="text" required placeholder="John Doe / Ministry of Works" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                        <input type="text" name="bookedBy" required placeholder="John Doe / Ministry of Works" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
                     </div>
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Contact Details</label>
-                        <input type="email" required placeholder="Email Address" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition mb-3">
-                        <input type="tel" required placeholder="Phone Number" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                        <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition mb-3">
+                        <input type="tel" name="phone" required placeholder="Phone Number" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
                     </div>
                 </div>
 
@@ -220,11 +211,11 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Start Date</label>
-                        <input type="date" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
+                        <input type="date" name="startDate" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
                     </div>
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">End Date</label>
-                        <input type="date" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
+                        <input type="date" name="endDate" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
                     </div>
                 </div>
 
@@ -234,7 +225,7 @@
                 <div class="space-y-4">
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Primary Driver Name</label>
-                        <input type="text" required placeholder="Name of person driving" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                        <input type="text" name="driverName" required placeholder="Name of person driving" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
                     </div>
 
                     <!-- Social App Style Upload Button -->
@@ -242,11 +233,11 @@
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Identification</label>
                         
                         <label class="social-upload-btn w-full">
-                            <input type="file" accept="image/*,.pdf" capture="environment" class="hidden" id="licenseUpload" onchange="updateFileName(this)">
+                            <input type="file" name="licenseFile" accept="image/*,.pdf" capture="environment" class="hidden" id="licenseUpload" onchange="updateFileName(this)">
                             <div class="icon-circle">
                                 <i class="fas fa-camera text-sm"></i>
                             </div>
-                            <div class="flex-grow text-left">
+                            <div class="flex-grow text-left overflow-hidden">
                                 <span class="text-sm font-medium text-slate-700 block">Attach Driver's License</span>
                                 <span class="text-[10px] text-slate-400 block truncate" id="fileNameDisplay">Take a photo or upload file</span>
                             </div>
@@ -259,7 +250,7 @@
 
         <!-- Footer Submit -->
         <div class="p-6 border-t border-slate-200 bg-white sticky bottom-0 z-10">
-            <button type="submit" form="bookingForm" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 rounded transition duration-300 shadow-md flex items-center justify-center gap-2">
+            <button type="submit" form="bookingForm" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 rounded transition duration-300 shadow-md flex items-center justify-center gap-2 disabled:opacity-70">
                 Submit Booking <i class="fas fa-arrow-right"></i>
             </button>
         </div>
@@ -278,6 +269,9 @@
         function openBookingPanel(carName, imageSrc) {
             document.getElementById('panelCarName').innerText = carName;
             document.getElementById('panelCarImage').src = imageSrc;
+            
+            // Set hidden input value for the form submission
+            document.getElementById('hiddenCarName').value = carName;
             
             document.getElementById('bookingOverlay').classList.add('open');
             document.getElementById('bookingPanel').classList.add('open');
@@ -301,28 +295,61 @@
             }
         }
 
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
             const btn = document.querySelector('button[form="bookingForm"]');
             const originalText = btn.innerHTML;
             
+            // Set loading state
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> Request Sent';
-                btn.classList.replace('bg-slate-900', 'bg-green-600');
-                btn.classList.remove('hover:bg-gold');
+            btn.disabled = true;
+
+            // Package the form data (includes text fields, hidden carName, and the file)
+            const formData = new FormData(this);
+
+            try {
+                // Post to n8n Webhook
+                const response = await fetch('https://n8n.automania.cloud/webhook-test/fetch-bookings', {
+                    method: 'POST',
+                    body: formData // Fetch API automatically sets correct boundaries for multipart/form-data
+                });
+
+                if (response.ok) {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Request Sent';
+                    btn.classList.replace('bg-slate-900', 'bg-green-600');
+                    btn.classList.remove('hover:bg-gold');
+                    
+                    // Reset UI after 2 seconds
+                    setTimeout(() => {
+                        closeBookingPanel();
+                        this.reset();
+                        document.getElementById('fileNameDisplay').innerText = "Take a photo or upload file";
+                        document.getElementById('fileNameDisplay').classList.remove('text-gold');
+                        btn.innerHTML = originalText;
+                        btn.classList.replace('bg-green-600', 'bg-slate-900');
+                        btn.classList.add('hover:bg-gold');
+                        btn.disabled = false;
+                    }, 2000);
+                } else {
+                    throw new Error('Network error from webhook');
+                }
+            } catch (error) {
+                console.error('Error submitting booking:', error);
                 
+                // Show error state
+                btn.innerHTML = '<i class="fas fa-times"></i> Error. Try Again.';
+                btn.classList.replace('bg-slate-900', 'bg-red-600');
+                btn.classList.remove('hover:bg-gold');
+
+                // Revert after 3 seconds
                 setTimeout(() => {
-                    closeBookingPanel();
-                    this.reset();
-                    document.getElementById('fileNameDisplay').innerText = "Take a photo or upload file";
-                    document.getElementById('fileNameDisplay').classList.remove('text-gold');
                     btn.innerHTML = originalText;
-                    btn.classList.replace('bg-green-600', 'bg-slate-900');
+                    btn.classList.replace('bg-red-600', 'bg-slate-900');
                     btn.classList.add('hover:bg-gold');
-                }, 2000);
-            }, 1500);
+                    btn.disabled = false;
+                }, 3000);
+            }
         });
     </script>
 </body>
