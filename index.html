@@ -138,7 +138,7 @@
     <!-- Hero Section -->
     <section class="relative min-h-[100svh] w-full flex items-end justify-start pb-16 sm:pb-24 lg:pb-32 pt-32 bg-black overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <!-- Priority High assigned to prevent LCP (Largest Contentful Paint) delays -->
+            <!-- Priority High assigned to prevent LCP delays -->
             <img src="SHero.jpg" alt="S&H Logistics Infrastructure" fetchpriority="high" class="w-full h-full object-cover object-center scale-105 animate-pulse-slow">
             <div class="absolute inset-x-0 bottom-0 h-3/4 md:h-1/2 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
         </div>
@@ -198,117 +198,115 @@
         <div class="absolute top-0 right-0 h-full w-12 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
     </div>
 
-    <!-- STRUCTURED DIVISIONS SECTION -->
-    <section id="divisions" class="py-20 md:py-32 bg-slate-50 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-12 md:mb-16 text-left">
-            <span class="text-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase border-l-2 border-gold pl-3">Group Structure</span>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl text-slate-900 mt-3 heading-font uppercase">Our Divisions</h2>
+    <!-- STRUCTURED DIVISIONS SECTION (Locked to Left-Right Split on all devices) -->
+    <section id="divisions" class="py-16 md:py-32 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-8 md:mb-16 text-left">
+            <span class="text-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase border-l-2 border-gold pl-2 md:pl-3">Group Structure</span>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl text-slate-900 mt-2 md:mt-3 heading-font uppercase">Our Divisions</h2>
         </div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-8 md:space-y-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-6 md:space-y-12">
             
-            <!-- 1. MOBILITY -->
-            <div class="bg-white rounded-2xl p-5 md:p-8 lg:p-10 shadow-lg border border-slate-100 flex flex-row items-stretch gap-5 md:gap-12 hover:border-gold/30 hover:shadow-2xl transition-all duration-500 group">
+            <!-- 1. MOBILITY (Image Right) -->
+            <div class="bg-white rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg border border-slate-100 flex flex-row items-stretch gap-3 md:gap-12 hover:border-gold/30 hover:shadow-2xl transition-all duration-500 group">
                 
-                <!-- Text Container (Left) -->
-                <div class="w-[55%] md:w-1/2 flex flex-col justify-start pt-0">
-                    <div class="flex items-center gap-2 md:gap-4 mb-3 md:mb-6">
-                        <div class="w-8 h-8 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-car-side text-[10px] md:text-lg text-gold"></i>
+                <div class="w-[55%] flex flex-col justify-start pt-0">
+                    <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-6">
+                        <div class="w-6 h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-car-side text-[8px] sm:text-sm md:text-lg text-gold"></i>
                         </div>
-                        <h3 class="text-sm sm:text-xl md:text-3xl text-slate-900 heading-font uppercase leading-tight">S&H Mobility</h3>
+                        <h3 class="text-[13px] sm:text-xl md:text-3xl text-slate-900 heading-font uppercase leading-tight">S&H Mobility</h3>
                     </div>
                     
-                    <p class="text-slate-600 leading-relaxed text-[10px] sm:text-sm md:text-base font-light">
+                    <p class="text-slate-600 leading-relaxed text-[9px] sm:text-sm md:text-base font-light">
                         Blue-light brigade ready fleets and VIP shuttles featuring the Hyundai Staria Executive MPV for secure delegation logistics across Pretoria and Gauteng.
                     </p>
                     
-                    <div class="mt-auto pt-4 flex gap-2 md:gap-4 flex-wrap">
-                        <a href="/car-rental" class="px-4 md:px-8 py-2 md:py-3.5 bg-slate-900 text-white font-bold text-[8px] md:text-xs uppercase tracking-widest hover:bg-gold transition rounded shadow-md text-center">Explore</a>
-                        <a href="/handover/" class="hidden sm:inline-block px-4 md:px-8 py-2 md:py-3.5 bg-slate-50 text-slate-600 border border-slate-200 font-bold text-[8px] md:text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition rounded text-center">Handover</a>
+                    <div class="mt-auto pt-3 md:pt-4 flex gap-2 md:gap-4 flex-wrap">
+                        <a href="/car-rental" class="px-3 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-3.5 bg-slate-900 text-white font-bold text-[7px] sm:text-[10px] md:text-xs uppercase tracking-widest hover:bg-gold transition rounded shadow-md text-center">Explore</a>
+                        <a href="/handover/" class="hidden sm:inline-block px-3 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-3.5 bg-slate-50 text-slate-600 border border-slate-200 font-bold text-[7px] sm:text-[10px] md:text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition rounded text-center">Handover</a>
                     </div>
                 </div>
 
-                <!-- Image Container (Right) -->
-                <div class="w-[45%] md:w-1/2 relative rounded-lg md:rounded-xl overflow-hidden shadow-sm shrink-0 aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9]">
+                <div class="w-[45%] relative rounded-lg md:rounded-xl overflow-hidden shadow-sm shrink-0 aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9]">
                     <img src="mobility.jpg" alt="S&H Mobility" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 </div>
 
             </div>
 
-            <!-- 2. FACILITY MANAGEMENT -->
-            <div class="bg-white rounded-2xl p-5 md:p-8 lg:p-10 shadow-lg border border-slate-100 flex flex-row items-stretch gap-5 md:gap-12 hover:border-gold/30 hover:shadow-2xl transition-all duration-500 group">
+            <!-- 2. FACILITY MANAGEMENT (Image Left) -->
+            <div class="bg-white rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg border border-slate-100 flex flex-row-reverse items-stretch gap-3 md:gap-12 hover:border-gold/30 hover:shadow-2xl transition-all duration-500 group">
                 
-                <div class="w-[55%] md:w-1/2 flex flex-col justify-start pt-0">
-                    <div class="flex items-center gap-2 md:gap-4 mb-3 md:mb-6">
-                        <div class="w-8 h-8 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-building text-[10px] md:text-lg text-gold"></i>
+                <div class="w-[55%] flex flex-col justify-start pt-0">
+                    <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-6">
+                        <div class="w-6 h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-building text-[8px] sm:text-sm md:text-lg text-gold"></i>
                         </div>
-                        <h3 class="text-sm sm:text-xl md:text-3xl text-slate-900 heading-font uppercase leading-tight">Facility Management</h3>
+                        <h3 class="text-[13px] sm:text-xl md:text-3xl text-slate-900 heading-font uppercase leading-tight">Facility Mngmt</h3>
                     </div>
                     
-                    <p class="text-slate-600 leading-relaxed text-[10px] sm:text-sm md:text-base font-light">
-                        One intelligent platform for student residence accommodation and secure allowance disbursement. Empowering higher education institutions to manage the complete student support lifecycle through secure digital workflows and real-time visibility.
+                    <p class="text-slate-600 leading-relaxed text-[9px] sm:text-sm md:text-base font-light">
+                        One intelligent platform for student residence accommodation and secure allowance disbursement. Empowering higher education institutions to manage the complete student support lifecycle through secure digital workflows.
                     </p>
                     
-                    <div class="mt-auto pt-4 flex gap-2 md:gap-4 flex-wrap">
-                        <a href="/facility" class="px-4 md:px-8 py-2 md:py-3.5 bg-slate-900 text-white font-bold text-[8px] md:text-xs uppercase tracking-widest hover:bg-gold transition rounded shadow-md text-center">Learn More</a>
+                    <div class="mt-auto pt-3 md:pt-4 flex gap-2 md:gap-4 flex-wrap">
+                        <a href="/facility" class="px-3 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-3.5 bg-slate-900 text-white font-bold text-[7px] sm:text-[10px] md:text-xs uppercase tracking-widest hover:bg-gold transition rounded shadow-md text-center">Learn More</a>
                     </div>
                 </div>
 
-                <div class="w-[45%] md:w-1/2 relative rounded-lg md:rounded-xl overflow-hidden shadow-sm shrink-0 aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9]">
+                <div class="w-[45%] relative rounded-lg md:rounded-xl overflow-hidden shadow-sm shrink-0 aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9]">
                     <img src="facility.jpg" alt="Facility Management" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 </div>
 
             </div>
 
-            <!-- 3. INFRASTRUCTURE -->
-            <div class="bg-white rounded-2xl p-5 md:p-8 lg:p-10 shadow-lg border border-slate-100 flex flex-row items-stretch gap-5 md:gap-12 hover:border-gold/30 hover:shadow-2xl transition-all duration-500 group">
+            <!-- 3. INFRASTRUCTURE (Image Right) -->
+            <div class="bg-white rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg border border-slate-100 flex flex-row items-stretch gap-3 md:gap-12 hover:border-gold/30 hover:shadow-2xl transition-all duration-500 group">
                 
-                <div class="w-[55%] md:w-1/2 flex flex-col justify-start pt-0">
-                    <div class="flex items-center gap-2 md:gap-4 mb-3 md:mb-6">
-                        <div class="w-8 h-8 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-layer-group text-[10px] md:text-lg text-gold"></i>
+                <div class="w-[55%] flex flex-col justify-start pt-0">
+                    <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-6">
+                        <div class="w-6 h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-layer-group text-[8px] sm:text-sm md:text-lg text-gold"></i>
                         </div>
-                        <h3 class="text-sm sm:text-xl md:text-3xl text-slate-900 heading-font uppercase leading-tight">S&H Infrastructure</h3>
+                        <h3 class="text-[13px] sm:text-xl md:text-3xl text-slate-900 heading-font uppercase leading-tight">Infrastructure</h3>
                     </div>
                     
-                    <p class="text-slate-600 leading-relaxed text-[10px] sm:text-sm md:text-base font-light">
+                    <p class="text-slate-600 leading-relaxed text-[9px] sm:text-sm md:text-base font-light">
                         Turnkey temporary structures, elite decor rentals, and seamless technical production designed exclusively for high-stakes national events and corporate mandates.
                     </p>
                     
-                    <div class="mt-auto pt-4 flex gap-2 md:gap-4 flex-wrap">
-                        <a href="/infrastructure" class="px-4 md:px-8 py-2 md:py-3.5 bg-slate-900 text-white font-bold text-[8px] md:text-xs uppercase tracking-widest hover:bg-gold transition rounded shadow-md text-center">Explore</a>
+                    <div class="mt-auto pt-3 md:pt-4 flex gap-2 md:gap-4 flex-wrap">
+                        <a href="/infrastructure" class="px-3 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-3.5 bg-slate-900 text-white font-bold text-[7px] sm:text-[10px] md:text-xs uppercase tracking-widest hover:bg-gold transition rounded shadow-md text-center">Explore</a>
                     </div>
                 </div>
 
-                <div class="w-[45%] md:w-1/2 relative rounded-lg md:rounded-xl overflow-hidden shadow-sm shrink-0 aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9]">
+                <div class="w-[45%] relative rounded-lg md:rounded-xl overflow-hidden shadow-sm shrink-0 aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9]">
                     <img src="infrastructure.jpg" alt="Infrastructure" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 </div>
 
             </div>
 
-            <!-- 4. PROJECT MANAGEMENT -->
-            <div class="bg-white rounded-2xl p-5 md:p-8 lg:p-10 shadow-lg border border-slate-100 flex flex-row items-stretch gap-5 md:gap-12 hover:border-gold/30 hover:shadow-2xl transition-all duration-500 group">
+            <!-- 4. PROJECT MANAGEMENT (Image Left) -->
+            <div class="bg-white rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg border border-slate-100 flex flex-row-reverse items-stretch gap-3 md:gap-12 hover:border-gold/30 hover:shadow-2xl transition-all duration-500 group">
                 
-                <div class="w-[55%] md:w-1/2 flex flex-col justify-start pt-0">
-                    <div class="flex items-center gap-2 md:gap-4 mb-3 md:mb-6">
-                        <div class="w-8 h-8 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-clipboard-check text-[10px] md:text-lg text-gold"></i>
+                <div class="w-[55%] flex flex-col justify-start pt-0">
+                    <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-6">
+                        <div class="w-6 h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-clipboard-check text-[8px] sm:text-sm md:text-lg text-gold"></i>
                         </div>
-                        <h3 class="text-sm sm:text-xl md:text-3xl text-slate-900 heading-font uppercase leading-tight">S&H Project Mngmt</h3>
+                        <h3 class="text-[13px] sm:text-xl md:text-3xl text-slate-900 heading-font uppercase leading-tight">Project Mngmt</h3>
                     </div>
                     
-                    <p class="text-slate-600 leading-relaxed text-[10px] sm:text-sm md:text-base font-light">
+                    <p class="text-slate-600 leading-relaxed text-[9px] sm:text-sm md:text-base font-light">
                         Comprehensive institutional strategy, drone-assisted site planning, and flawless logistical execution to ensure your mandate is delivered with absolute precision.
                     </p>
                     
-                    <div class="mt-auto pt-4 flex gap-2 md:gap-4 flex-wrap">
-                        <a href="#projects" class="px-4 md:px-8 py-2 md:py-3.5 bg-slate-900 text-white font-bold text-[8px] md:text-xs uppercase tracking-widest hover:bg-gold transition rounded shadow-md text-center">Explore</a>
+                    <div class="mt-auto pt-3 md:pt-4 flex gap-2 md:gap-4 flex-wrap">
+                        <a href="/projects" class="px-3 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-3.5 bg-slate-900 text-white font-bold text-[7px] sm:text-[10px] md:text-xs uppercase tracking-widest hover:bg-gold transition rounded shadow-md text-center">Explore</a>
                     </div>
                 </div>
 
-                <div class="w-[45%] md:w-1/2 relative rounded-lg md:rounded-xl overflow-hidden shadow-sm shrink-0 aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9]">
+                <div class="w-[45%] relative rounded-lg md:rounded-xl overflow-hidden shadow-sm shrink-0 aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9]">
                     <img src="project_management.jpg" alt="Project Management" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 </div>
 
@@ -317,24 +315,37 @@
         </div>
     </section>
 
-    <!-- Trust Section -->
+    <!-- Trust Section (Locked to Text Left, Image Right) -->
     <section id="trust" class="py-16 md:py-24 bg-slate-50 text-slate-900 relative border-t border-slate-100 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <div class="w-full lg:w-1/2 order-2 lg:order-1">
-                <span class="text-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">National Importance</span>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl heading-font mt-4 mb-6 uppercase leading-[1.1] text-slate-900">When the World <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-black">Is Watching.</span></h2>
-                <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-8">S&H Events and Projects Consulting had the honour of hosting the first <strong>G20 Summit</strong> on African soil in Johannesburg, South Africa.</p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <div class="bg-white px-6 py-5 rounded border-l-4 border-gold shadow-sm flex-1"><p class="text-3xl md:text-4xl font-bold heading-font">100%</p><p class="text-[10px] md:text-xs uppercase tracking-wide text-gray-500 mt-1">Compliance Rate</p></div>
-                    <div class="bg-white px-6 py-5 rounded border-l-4 border-slate-800 shadow-sm flex-1"><p class="text-3xl md:text-4xl font-bold heading-font">Level 1</p><p class="text-[10px] md:text-xs uppercase tracking-wide text-gray-500 mt-1">B-BBEE Partner</p></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-row items-center gap-4 sm:gap-8 md:gap-12 lg:gap-16">
+            
+            <div class="w-1/2 order-1 flex flex-col justify-center">
+                <span class="text-gold text-[8px] sm:text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">National Importance</span>
+                <h2 class="text-[16px] sm:text-3xl md:text-5xl lg:text-6xl heading-font mt-2 sm:mt-4 mb-3 sm:mb-6 uppercase leading-[1.1] text-slate-900">
+                    When the World <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-black">Is Watching.</span>
+                </h2>
+                <p class="text-slate-600 text-[9px] sm:text-sm md:text-lg leading-relaxed mb-4 sm:mb-8">
+                    S&H Events and Projects Consulting had the honour of hosting the first <strong>G20 Summit</strong> on African soil in Johannesburg.
+                </p>
+                <div class="flex flex-col xl:flex-row gap-2 sm:gap-4">
+                    <div class="bg-white p-2 sm:p-4 lg:py-5 lg:px-6 rounded border-l-2 sm:border-l-4 border-gold shadow-sm flex-1">
+                        <p class="text-sm sm:text-2xl md:text-3xl lg:text-4xl font-bold heading-font">100%</p>
+                        <p class="text-[7px] sm:text-[9px] md:text-xs uppercase tracking-wide text-gray-500 mt-0.5 sm:mt-1">Compliance Rate</p>
+                    </div>
+                    <div class="bg-white p-2 sm:p-4 lg:py-5 lg:px-6 rounded border-l-2 sm:border-l-4 border-slate-800 shadow-sm flex-1">
+                        <p class="text-sm sm:text-2xl md:text-3xl lg:text-4xl font-bold heading-font">Level 1</p>
+                        <p class="text-[7px] sm:text-[9px] md:text-xs uppercase tracking-wide text-gray-500 mt-0.5 sm:mt-1">B-BBEE Partner</p>
+                    </div>
                 </div>
             </div>
-            <div class="w-full lg:w-1/2 relative order-1 lg:order-2">
-                <img src="photo-1512758017271-d7b84c2113f1" alt="G20 Summit Setup" loading="lazy" decoding="async" class="w-full rounded-lg shadow-2xl grayscale-[15%] hover:grayscale-0 transition duration-700 object-cover aspect-[4/3]">
-                <div class="absolute -bottom-6 -left-6 sm:left-4 lg:-left-8 bg-slate-900 text-white p-5 md:p-6 shadow-2xl max-w-[240px] md:max-w-xs">
-                    <p class="text-xs md:text-sm font-bold border-l-2 border-gold pl-3 md:pl-4 uppercase tracking-wide">G20 Summit Logistics Partner</p>
+            
+            <div class="w-1/2 relative order-2">
+                <img src="g20_setup.jpg" alt="G20 Summit Setup" loading="lazy" decoding="async" class="w-full rounded-lg shadow-xl grayscale-[15%] hover:grayscale-0 transition duration-700 object-cover aspect-[4/3] sm:aspect-[16/9] lg:aspect-[4/3]">
+                <div class="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 lg:-left-8 bg-slate-900 text-white p-2 sm:p-4 md:p-6 shadow-2xl max-w-[120px] sm:max-w-[200px] md:max-w-xs">
+                    <p class="text-[7px] sm:text-[10px] md:text-sm font-bold border-l-2 border-gold pl-2 sm:pl-3 md:pl-4 uppercase tracking-wide">G20 Summit Logistics Partner</p>
                 </div>
             </div>
+
         </div>
     </section>
 
