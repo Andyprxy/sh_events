@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     
     <title>Student Residence Management | S&H Facilities</title>
-    <meta name="description" content="One intelligent platform for student accommodation and secure allowance disbursement.">
+    <meta name="description" content="One intelligent platform for student accommodation and day-to-day facility operations.">
     
     <link rel="icon" type="image/jpeg" href="../sh.JPG">
     
@@ -41,7 +41,7 @@
         
         .clean-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f0f0f0; }
 
-        /* --- Slide-over Panel CSS --- */
+        /* Slide-over Panel CSS */
         .slide-over-panel { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .slide-over-panel.open { transform: translateX(0); }
         .slide-over-overlay { opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
@@ -61,261 +61,244 @@
 </head>
 <body class="antialiased">
 
-    <!-- Navigation -->
+    <!-- Navigation (Refined) -->
     <nav class="fixed top-0 left-0 right-0 z-40 clean-nav">
-        <div class="max-w-[1080px] mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="../" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition">
-                <img src="../sh.JPG" alt="S&H Logo" class="h-10 w-auto object-contain mix-blend-multiply">
+        <div class="max-w-[1080px] mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 sm:gap-4">
+                <img src="../sh.JPG" alt="S&H Logo" class="h-8 sm:h-10 w-auto object-contain mix-blend-multiply">
                 <div class="h-6 w-px bg-gray-300"></div>
-                <span class="text-sm font-bold text-slate-900 font-heading">Facilities</span>
-            </a>
-            
-            <div class="hidden md:flex gap-6 items-center">
-                <a href="#" class="text-[15px] font-medium text-[#1a70b7] hover:text-accent transition">Housing Provider</a>
-                <a href="#" class="text-[15px] font-medium text-[#1a70b7] hover:text-accent transition">Student Portal</a>
-                <button onclick="openPanel()" class="text-[15px] font-medium text-white bg-slate-900 hover:bg-slate-800 transition px-5 py-2 rounded">Contact us</button>
+                <span class="text-xs sm:text-sm font-bold text-slate-900 font-heading">Facilities</span>
             </div>
             
-            <button class="md:hidden text-slate-600 hover:text-accent" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-4 shadow-lg absolute w-full">
-            <a href="#" class="block text-[15px] font-medium text-[#1a70b7]">Housing Provider</a>
-            <a href="#" class="block text-[15px] font-medium text-[#1a70b7]">Student Portal</a>
-            <button onclick="openPanel()" class="block text-[15px] font-medium text-slate-900">Contact us</button>
+            <div class="flex gap-4 sm:gap-6 items-center">
+                <a href="../index.html" class="text-[13px] sm:text-[15px] font-medium text-[#1a70b7] hover:text-accent transition flex items-center gap-1.5">
+                    <i class="fas fa-arrow-left text-[10px] sm:text-xs"></i> Back Home
+                </a>
+                <button onclick="openPanel()" class="text-[13px] sm:text-[15px] font-medium text-white bg-slate-900 hover:bg-slate-800 transition px-4 sm:px-5 py-1.5 sm:py-2 rounded">
+                    Contact us
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section (Crystal Clear with Text Pushed Above Heads) -->
-    <section class="relative min-h-[90vh] flex flex-col justify-start pt-36 md:pt-48 text-center px-6 bg-[#1a334b] bg-cover bg-[center_bottom] bg-no-repeat" style="background-image: url('01_hero_bg.jpg');">
+    <!-- Hero Section (Mobile Optimized Text & Spacing) -->
+    <section class="relative min-h-[70vh] md:min-h-[90vh] flex flex-col justify-start pt-32 md:pt-48 text-center px-4 sm:px-6 bg-[#1a334b] bg-cover bg-[center_bottom] bg-no-repeat" style="background-image: url('01_hero_bg.jpg');">
         
         <div class="absolute inset-0 bg-slate-900/40 z-0"></div>
 
-        <div class="relative z-10 max-w-[1080px] mx-auto pb-48">
-            <h1 class="text-white text-[34px] md:text-[52px] font-heading font-bold mb-4 drop-shadow-md leading-tight">
+        <!-- pb-12 on mobile ensures text doesn't sink into the bottom 45% of the screen -->
+        <div class="relative z-10 max-w-[1080px] mx-auto pb-12 md:pb-48 w-full">
+            <h1 class="text-white text-[28px] sm:text-[34px] md:text-[52px] font-heading font-bold mb-3 md:mb-4 drop-shadow-md leading-tight">
                 Where students come home
             </h1>
-            <h4 class="text-white text-[18px] md:text-[20px] font-heading font-medium mb-6 drop-shadow-md">
-                One Intelligent platform for student accommodation and secure allowance disbursement.
+            <h4 class="text-white text-[15px] sm:text-[18px] md:text-[20px] font-heading font-medium mb-4 md:mb-6 drop-shadow-md max-w-2xl mx-auto leading-snug">
+                One intelligent platform for student accommodation and day-to-day facility operations.
             </h4>
-            <p class="text-gray-100 text-[15px] font-body mb-8 max-w-3xl mx-auto leading-[1.7em] drop-shadow-md">
-                Empowering higher education institutions to manage the complete student support lifecycle through secure digital workflows, real-time visibility and automated governance.
+            <p class="text-gray-100 text-[12px] sm:text-[14px] md:text-[15px] font-body mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md hidden sm:block">
+                Empowering higher education institutions to manage the complete student accommodation lifecycle through secure digital workflows, real-time visibility and automated governance.
             </p>
-            <button onclick="openPanel()" class="bg-accent text-white font-medium text-[16px] px-8 py-[12px] rounded hover:bg-white hover:text-[#1a334b] transition duration-300 shadow-md">
+            <button onclick="openPanel()" class="bg-accent text-white font-medium text-[14px] md:text-[16px] px-6 md:px-8 py-[10px] md:py-[12px] rounded hover:bg-white hover:text-[#1a334b] transition duration-300 shadow-md">
                 Learn more
             </button>
         </div>
     </section>
 
-    <!-- What is S&H Facilities Section -->
-    <section class="py-20 md:py-24 px-6 max-w-[1080px] mx-auto bg-white">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <!-- What is S&H Facilities Section (Locked Left-Right Layout) -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 max-w-[1080px] mx-auto bg-white">
+        <div class="flex flex-row items-center gap-4 md:gap-12">
             
-            <div class="order-2 md:order-1">
-                <h2 class="text-[29px] md:text-[34px] font-heading font-semibold mb-2 text-slate-900">What is S&H Facilities?</h2>
-                <h4 class="text-[20px] font-heading font-semibold text-slate-900 mb-6">One Platform.<br>Every Step of the Student Journey.</h4>
+            <div class="w-[55%] md:w-1/2 text-left flex flex-col justify-center">
+                <h2 class="text-[18px] sm:text-[26px] md:text-[34px] font-heading font-semibold mb-2 text-slate-900 leading-tight">What is S&H Facilities?</h2>
+                <h4 class="text-[12px] sm:text-[16px] md:text-[20px] font-heading font-semibold text-slate-900 mb-3 md:mb-6 leading-snug">One Platform.<br>Every Step of the Journey.</h4>
                 
-                <div class="space-y-4 text-[#333333] text-[15px] font-body leading-[1.7em] mb-8">
-                    <p>S&H Facilities is an end-to-end student accommodation and allowance administration platform designed specifically for higher education institutions.</p>
-                    <p>From onboarding and identity verification through to accommodation allocation, digital inspections, allowance administration and secure fund disbursements, we connect every stakeholder through one secure cloud platform.</p>
-                    <p>Instead of managing multiple systems, institutions gain complete visibility across the entire student support lifecycle.</p>
+                <div class="space-y-2 md:space-y-4 text-[#333333] text-[10px] sm:text-[13px] md:text-[15px] font-body leading-relaxed mb-4 md:mb-8">
+                    <p>S&H Facilities is an end-to-end student accommodation and facility administration platform designed specifically for higher education institutions.</p>
+                    <p>From marketing and onboarding through to accommodation allocation, digital inspections, and day-to-day maintenance, we connect every stakeholder through one secure cloud platform.</p>
                 </div>
 
-                <div class="flex flex-wrap gap-4">
-                    <button onclick="openPanel()" class="bg-accent text-white font-medium text-[16px] px-8 py-[12px] rounded hover:bg-slate-900 transition duration-300">Find out more</button>
-                    <a href="#" class="bg-gray-100 text-slate-900 font-medium text-[16px] px-8 py-[12px] rounded hover:bg-gray-200 transition duration-300">FAQs</a>
+                <div class="flex flex-wrap gap-2 md:gap-4">
+                    <button onclick="openPanel()" class="bg-accent text-white font-medium text-[10px] sm:text-[14px] md:text-[16px] px-4 md:px-8 py-2 md:py-[12px] rounded hover:bg-slate-900 transition duration-300">Find out more</button>
                 </div>
             </div>
 
-            <div class="order-1 md:order-2 flex justify-center">
-                <img src="02_about_image.jpg" alt="Student Reading" class="w-full max-w-[480px] aspect-square object-cover rounded shadow-md bg-gray-100">
+            <div class="w-[45%] md:w-1/2 relative flex justify-end">
+                <img src="02_about_image.jpg" alt="Student Facility Management" class="w-full aspect-[4/5] md:aspect-square object-cover rounded-lg shadow-md bg-gray-100">
             </div>
 
         </div>
     </section>
 
-    <!-- Who uses Platform? (4-Column Dark Section) -->
-    <section class="py-20 md:py-24 bg-slate-900 text-white text-center">
-        <div class="max-w-[1080px] mx-auto px-6">
-            <h2 class="text-[29px] md:text-[34px] font-heading font-semibold mb-12 text-white">Who uses our platform?</h2>
+    <!-- Who uses Platform? (Mobile Optimized Grid) -->
+    <section class="py-16 md:py-24 bg-slate-900 text-white text-center">
+        <div class="max-w-[1080px] mx-auto px-4 sm:px-6">
+            <h2 class="text-[22px] sm:text-[29px] md:text-[34px] font-heading font-semibold mb-10 md:mb-12 text-white">Who uses our platform?</h2>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- 1. Higher Education Institutions -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8">
+                
                 <div class="flex flex-col items-center">
-                    <img src="https://dula.co.za/wp-content/uploads/2026/07/Ico-Higher-Education-Inst.png" alt="Institutions" class="w-24 h-24 mb-4 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'#fd2f3c\'/></svg>'">
-                    <h4 class="font-heading font-semibold text-[18px] mb-3 text-white">Higher Education Institutions</h4>
-                    <p class="font-body text-[15px] text-gray-300 leading-[1.7em]">Manage the complete student funding lifecycle.</p>
+                    <img src="https://dula.co.za/wp-content/uploads/2026/07/Ico-Higher-Education-Inst.png" alt="Institutions" class="w-14 h-14 md:w-24 md:h-24 mb-3 md:mb-4 object-contain">
+                    <h4 class="font-heading font-semibold text-[13px] md:text-[18px] mb-1.5 md:mb-3 text-white leading-tight">Higher Education</h4>
+                    <p class="font-body text-[11px] md:text-[15px] text-gray-300 leading-relaxed">Manage the complete accommodation lifecycle.</p>
                 </div>
                 
-                <!-- 2. Accommodation Providers -->
                 <div class="flex flex-col items-center">
-                    <img src="https://dula.co.za/wp-content/uploads/2026/07/Ico-Providers-1.png" alt="Providers" class="w-24 h-24 mb-4 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'#fd2f3c\'/></svg>'">
-                    <h4 class="font-heading font-semibold text-[18px] mb-3 text-white">Accommodation Providers</h4>
-                    <p class="font-body text-[15px] text-gray-300 leading-[1.7em]">Manage vacancies, compliance and accreditation.</p>
+                    <img src="https://dula.co.za/wp-content/uploads/2026/07/Ico-Students.png" alt="Students" class="w-14 h-14 md:w-24 md:h-24 mb-3 md:mb-4 object-contain">
+                    <h4 class="font-heading font-semibold text-[13px] md:text-[18px] mb-1.5 md:mb-3 text-white leading-tight">Students</h4>
+                    <p class="font-body text-[11px] md:text-[15px] text-gray-300 leading-relaxed">Access housing, report issues, and manage their stay.</p>
                 </div>
                 
-                <!-- 3. Administrators -->
                 <div class="flex flex-col items-center">
-                    <img src="https://dula.co.za/wp-content/uploads/2026/07/Ico-Administrators-1.png" alt="Administrators" class="w-24 h-24 mb-4 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'#fd2f3c\'/></svg>'">
-                    <h4 class="font-heading font-semibold text-[18px] mb-3 text-white">Administrators</h4>
-                    <p class="font-body text-[15px] text-gray-300 leading-[1.7em]">Monitor workflows, reporting and governance.</p>
+                    <img src="https://dula.co.za/wp-content/uploads/2026/07/Ico-Providers-1.png" alt="Providers" class="w-14 h-14 md:w-24 md:h-24 mb-3 md:mb-4 object-contain">
+                    <h4 class="font-heading font-semibold text-[13px] md:text-[18px] mb-1.5 md:mb-3 text-white leading-tight">Property Providers</h4>
+                    <p class="font-body text-[11px] md:text-[15px] text-gray-300 leading-relaxed">Manage vacancies, compliance, and maintenance.</p>
                 </div>
-
-                <!-- 4. Inspectors -->
+                
                 <div class="flex flex-col items-center">
-                    <img src="https://dula.co.za/wp-content/uploads/2026/07/Ico-Inspectors-1.png" alt="Inspectors" class="w-24 h-24 mb-4 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'#fd2f3c\'/></svg>'">
-                    <h4 class="font-heading font-semibold text-[18px] mb-3 text-white">Inspectors</h4>
-                    <p class="font-body text-[15px] text-gray-300 leading-[1.7em]">Perform digital inspections and compliance reporting.</p>
+                    <img src="https://dula.co.za/wp-content/uploads/2026/07/Ico-Inspectors-1.png" alt="Inspectors" class="w-14 h-14 md:w-24 md:h-24 mb-3 md:mb-4 object-contain">
+                    <h4 class="font-heading font-semibold text-[13px] md:text-[18px] mb-1.5 md:mb-3 text-white leading-tight">Inspectors</h4>
+                    <p class="font-body text-[11px] md:text-[15px] text-gray-300 leading-relaxed">Perform digital inspections and compliance reporting.</p>
+                </div>
+                
+                <!-- Centers perfectly on mobile 2-col grid -->
+                <div class="flex flex-col items-center col-span-2 sm:col-span-1 md:col-span-1">
+                    <img src="https://dula.co.za/wp-content/uploads/2026/07/Ico-Administrators-1.png" alt="Administrators" class="w-14 h-14 md:w-24 md:h-24 mb-3 md:mb-4 object-contain">
+                    <h4 class="font-heading font-semibold text-[13px] md:text-[18px] mb-1.5 md:mb-3 text-white leading-tight">Administrators</h4>
+                    <p class="font-body text-[11px] md:text-[15px] text-gray-300 leading-relaxed">Monitor workflows, operations, and governance.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Platform Overview (Text Grid) -->
-    <section class="py-20 md:py-24 px-6 max-w-[1080px] mx-auto bg-white">
-        <div class="text-left mb-12">
-            <h2 class="text-[29px] md:text-[34px] font-heading font-semibold text-slate-900 mb-2">Platform Overview</h2>
-            <h4 class="text-[20px] font-heading font-semibold text-slate-900">Everything You Need. One Intelligent Platform.</h4>
+    <!-- Facility Services (Renamed from Platform Overview) -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 max-w-[1080px] mx-auto bg-white">
+        <div class="text-left mb-10 md:mb-12">
+            <h2 class="text-[22px] sm:text-[29px] md:text-[34px] font-heading font-semibold text-slate-900 mb-2">Facility Services</h2>
+            <h4 class="text-[15px] md:text-[20px] font-heading font-semibold text-slate-900">Everything You Need. One Intelligent Platform.</h4>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 md:gap-y-12">
             
             <div>
-                <h4 class="text-[18px] font-heading font-semibold text-slate-900 mb-3">Student Allowances</h4>
-                <ul class="space-y-1 text-[15px] text-[#333333] font-body list-disc pl-5">
-                    <li>Living allowances</li>
-                    <li>Meal allowances</li>
-                    <li>Book allowances</li>
-                    <li>Travel allowances</li>
-                    <li>Accommodation allowances</li>
-                    <li>Approval workflows</li>
-                    <li>Financial reporting</li>
+                <h4 class="text-[16px] md:text-[18px] font-heading font-semibold text-slate-900 mb-3 border-b-2 border-accent pb-1 inline-block">Student Accommodation</h4>
+                <ul class="space-y-1.5 text-[14px] md:text-[15px] text-[#333333] font-body list-none">
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Applications & Vetting</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Student placements</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Occupancy management</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Accreditation</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Compliance</li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-[18px] font-heading font-semibold text-slate-900 mb-3">Student Accommodation</h4>
-                <ul class="space-y-1 text-[15px] text-[#333333] font-body list-disc pl-5">
-                    <li>Applications</li>
-                    <li>Student placements</li>
-                    <li>Occupancy management</li>
-                    <li>Accreditation</li>
-                    <li>Compliance</li>
+                <h4 class="text-[16px] md:text-[18px] font-heading font-semibold text-slate-900 mb-3 border-b-2 border-accent pb-1 inline-block">Day-to-Day Operations</h4>
+                <ul class="space-y-1.5 text-[14px] md:text-[15px] text-[#333333] font-body list-none">
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Marketing & Leasing</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Resident Onboarding</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Maintenance Requests</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Cleaning Services</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Issue Ticketing</li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-[18px] font-heading font-semibold text-slate-900 mb-3">Digital Wallet</h4>
-                <ul class="space-y-1 text-[15px] text-[#333333] font-body list-disc pl-5">
-                    <li>Secure payments</li>
-                    <li>Real-time balances</li>
-                    <li>Transaction history</li>
-                    <li>Payment notifications</li>
-                    <li>Audit trails</li>
+                <h4 class="text-[16px] md:text-[18px] font-heading font-semibold text-slate-900 mb-3 border-b-2 border-accent pb-1 inline-block">Provider Management</h4>
+                <ul class="space-y-1.5 text-[14px] md:text-[15px] text-[#333333] font-body list-none">
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Provider onboarding</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Documentation vaults</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Property management</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Occupancy reporting</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Regulatory Compliance</li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-[18px] font-heading font-semibold text-slate-900 mb-3">Provider Management</h4>
-                <ul class="space-y-1 text-[15px] text-[#333333] font-body list-disc pl-5">
-                    <li>Provider onboarding</li>
-                    <li>Documentation</li>
-                    <li>Property management</li>
-                    <li>Occupancy reporting</li>
-                    <li>Compliance</li>
+                <h4 class="text-[16px] md:text-[18px] font-heading font-semibold text-slate-900 mb-3 border-b-2 border-accent pb-1 inline-block">Digital Inspections</h4>
+                <ul class="space-y-1.5 text-[14px] md:text-[15px] text-[#333333] font-body list-none">
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Inspection scheduling</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Compliance reports</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Corrective actions</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Facility scoring</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Audit history</li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-[18px] font-heading font-semibold text-slate-900 mb-3">Digital Inspections</h4>
-                <ul class="space-y-1 text-[15px] text-[#333333] font-body list-disc pl-5">
-                    <li>Inspection scheduling</li>
-                    <li>Compliance reports</li>
-                    <li>Corrective actions</li>
-                    <li>Audit history</li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-[18px] font-heading font-semibold text-slate-900 mb-3">Reporting & Analytics</h4>
-                <ul class="space-y-1 text-[15px] text-[#333333] font-body list-disc pl-5">
-                    <li>Live dashboards</li>
-                    <li>Institution reporting</li>
-                    <li>Funding reports</li>
-                    <li>Payment tracking</li>
-                    <li>Compliance reporting</li>
+                <h4 class="text-[16px] md:text-[18px] font-heading font-semibold text-slate-900 mb-3 border-b-2 border-accent pb-1 inline-block">Reporting & Analytics</h4>
+                <ul class="space-y-1.5 text-[14px] md:text-[15px] text-[#333333] font-body list-none">
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Live dashboards</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Institution reporting</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Facility utilization</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Maintenance tracking</li>
+                    <li><i class="fas fa-check text-accent text-[10px] mr-2"></i>Compliance reporting</li>
                 </ul>
             </div>
 
         </div>
     </section>
 
-    <!-- Why Institutions Choose Us -->
-    <section class="py-20 md:py-24 px-6 max-w-[1080px] mx-auto bg-white border-t border-slate-100">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <!-- Why Institutions Choose Us (Locked Left-Right Layout) -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 max-w-[1080px] mx-auto bg-white border-t border-slate-100">
+        <div class="flex flex-row items-center gap-4 md:gap-12">
             
-            <div class="order-2 md:order-1">
-                <h2 class="text-[29px] md:text-[34px] font-heading font-semibold mb-8 text-slate-900">Why Institutions Choose Us?</h2>
+            <div class="w-[55%] md:w-1/2 text-left">
+                <h2 class="text-[18px] sm:text-[26px] md:text-[34px] font-heading font-semibold mb-6 md:mb-10 text-slate-900 leading-tight">Why Institutions Choose Us?</h2>
                 
-                <div class="space-y-6">
-                    <div class="flex items-start gap-4">
-                        <img src="https://dula.co.za/wp-content/uploads/2026/07/icons-why1.png" alt="Icon" class="w-12 h-12 flex-shrink-0 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'#f0f0f0\'/></svg>'">
+                <div class="space-y-4 md:space-y-8">
+                    <div class="flex items-start gap-2 md:gap-4">
+                        <div class="w-6 h-6 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-eye text-[10px] md:text-xl text-accent"></i>
+                        </div>
                         <div>
-                            <h4 class="font-heading font-semibold text-[18px] text-slate-900 mb-1">Complete Visibility</h4>
-                            <p class="font-body text-[15px] text-[#333333] leading-[1.7em]">Know exactly where every student, payment and accommodation allocation stands.</p>
+                            <h4 class="font-heading font-semibold text-[12px] sm:text-[16px] md:text-[18px] text-slate-900 mb-0.5 md:mb-1">Complete Visibility</h4>
+                            <p class="font-body text-[9px] sm:text-[13px] md:text-[15px] text-[#333333] leading-relaxed">Know exactly where every student, application, and accommodation allocation stands.</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start gap-4">
-                        <img src="https://dula.co.za/wp-content/uploads/2026/07/icons-why2.png" alt="Icon" class="w-12 h-12 flex-shrink-0 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'#f0f0f0\'/></svg>'">
+                    <div class="flex items-start gap-2 md:gap-4">
+                        <div class="w-6 h-6 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield-alt text-[10px] md:text-xl text-accent"></i>
+                        </div>
                         <div>
-                            <h4 class="font-heading font-semibold text-[18px] text-slate-900 mb-1">Stronger Governance</h4>
-                            <p class="font-body text-[15px] text-[#333333] leading-[1.7em]">Improve compliance through automated workflows, audit trails and digital approvals.</p>
+                            <h4 class="font-heading font-semibold text-[12px] sm:text-[16px] md:text-[18px] text-slate-900 mb-0.5 md:mb-1">Stronger Governance</h4>
+                            <p class="font-body text-[9px] sm:text-[13px] md:text-[15px] text-[#333333] leading-relaxed">Improve compliance through automated workflows, audit trails and digital approvals.</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start gap-4">
-                        <img src="https://dula.co.za/wp-content/uploads/2026/07/icons-why3.png" alt="Icon" class="w-12 h-12 flex-shrink-0 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'#f0f0f0\'/></svg>'">
+                    <div class="flex items-start gap-2 md:gap-4">
+                        <div class="w-6 h-6 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bolt text-[10px] md:text-xl text-accent"></i>
+                        </div>
                         <div>
-                            <h4 class="font-heading font-semibold text-[18px] text-slate-900 mb-1">Operational Efficiency</h4>
-                            <p class="font-body text-[15px] text-[#333333] leading-[1.7em]">Reduce manual administration while improving turnaround times.</p>
+                            <h4 class="font-heading font-semibold text-[12px] sm:text-[16px] md:text-[18px] text-slate-900 mb-0.5 md:mb-1">Operational Efficiency</h4>
+                            <p class="font-body text-[9px] sm:text-[13px] md:text-[15px] text-[#333333] leading-relaxed">Reduce manual administration while improving turnaround times for onboarding and upkeep.</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start gap-4">
-                        <img src="https://dula.co.za/wp-content/uploads/2026/07/icons-why4.png" alt="Icon" class="w-12 h-12 flex-shrink-0 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'#f0f0f0\'/></svg>'">
-                        <div>
-                            <h4 class="font-heading font-semibold text-[18px] text-slate-900 mb-1">Secure Payments</h4>
-                            <p class="font-body text-[15px] text-[#333333] leading-[1.7em]">Distribute approved allowances through an integrated digital wallet.</p>
+                    <div class="flex items-start gap-2 md:gap-4">
+                        <div class="w-6 h-6 md:w-12 md:h-12 bg-slate-50 border border-slate-100 rounded flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-tools text-[10px] md:text-xl text-accent"></i>
                         </div>
-                    </div>
-
-                    <div class="flex items-start gap-4">
-                        <img src="https://dula.co.za/wp-content/uploads/2026/07/icons-why5.png" alt="Icon" class="w-12 h-12 flex-shrink-0 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'#f0f0f0\'/></svg>'">
                         <div>
-                            <h4 class="font-heading font-semibold text-[18px] text-slate-900 mb-1">Better Student Experience</h4>
-                            <p class="font-body text-[15px] text-[#333333] leading-[1.7em]">Support students faster through connected digital services.</p>
+                            <h4 class="font-heading font-semibold text-[12px] sm:text-[16px] md:text-[18px] text-slate-900 mb-0.5 md:mb-1">Centralized Maintenance</h4>
+                            <p class="font-body text-[9px] sm:text-[13px] md:text-[15px] text-[#333333] leading-relaxed">Streamline cleaning services, fault reporting, and proactive facility maintenance.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="order-1 md:order-2 flex justify-center">
-                <img src="13_why_us_image.jpg" alt="Student Studying" class="w-full max-w-[480px] aspect-square object-cover rounded shadow-md bg-gray-100">
+            <div class="w-[45%] md:w-1/2 relative flex justify-end">
+                <img src="13_why_us_image.jpg" alt="Facility Operations" class="w-full aspect-[4/5] md:aspect-square object-cover rounded-lg shadow-md bg-gray-100">
             </div>
 
         </div>
     </section>
 
     <!-- Bottom CTA -->
-    <section class="py-20 md:py-24 bg-slate-900 text-center">
-        <div class="max-w-[1080px] mx-auto px-6">
-            <h2 class="text-[29px] md:text-[34px] font-heading font-semibold text-white mb-6">Ready to transform your student accommodation and allowance management?</h2>
-            <p class="text-gray-300 font-body mb-8 text-[15px] leading-[1.7em]">See how we simplify student allowances, accommodation management and secure fund disbursement from one intelligent platform.</p>
-            <button onclick="openPanel()" class="bg-accent text-white font-medium text-[16px] px-8 py-[12px] rounded hover:bg-white hover:text-slate-900 transition duration-300">
+    <section class="py-20 md:py-24 bg-slate-900 text-center px-4 sm:px-6">
+        <div class="max-w-[1080px] mx-auto">
+            <h2 class="text-[22px] sm:text-[29px] md:text-[34px] font-heading font-semibold text-white mb-4 md:mb-6 leading-tight">Ready to transform your facility management?</h2>
+            <p class="text-gray-300 font-body mb-8 text-[13px] md:text-[15px] leading-[1.7em] max-w-2xl mx-auto">See how we simplify student housing, daily operations, and facility maintenance from one intelligent platform.</p>
+            <button onclick="openPanel()" class="bg-accent text-white font-medium text-[14px] md:text-[16px] px-8 py-[12px] rounded hover:bg-white hover:text-slate-900 transition duration-300">
                 Contact us
             </button>
         </div>
@@ -336,18 +319,18 @@
         
         <div class="p-6 flex-grow font-body">
             <h3 class="text-2xl font-heading font-bold text-slate-900 mb-2">Transform Your Management</h3>
-            <p class="text-[15px] text-slate-600 mb-8 border-b border-slate-100 pb-4 text-left leading-[1.7em]">Connect with our institutional systems architects to explore how our platform can streamline your accommodation and allowance pipelines.</p>
+            <p class="text-[15px] text-slate-600 mb-8 border-b border-slate-100 pb-4 text-left leading-[1.7em]">Connect with our institutional systems architects to explore how our platform can streamline your accommodation and maintenance pipelines.</p>
             
             <form id="demoForm" class="space-y-5 text-left">
                 
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Institution Name</label>
-                        <input type="text" name="institution" required placeholder="University / College Name" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-accent outline-none focus:ring-1 focus:ring-accent transition">
+                        <input type="text" name="institution" required placeholder="University / Property Name" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-accent outline-none focus:ring-1 focus:ring-accent transition">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Your Name & Title</label>
-                        <input type="text" name="contactName" required placeholder="e.g., Director of Student Affairs" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-accent outline-none focus:ring-1 focus:ring-accent transition">
+                        <input type="text" name="contactName" required placeholder="e.g., Director of Facilities" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-accent outline-none focus:ring-1 focus:ring-accent transition">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Contact Details</label>
@@ -361,13 +344,11 @@
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Current Challenges / Areas of Interest</label>
-                        <textarea name="comments" rows="3" placeholder="e.g., Struggling with manual allowance payouts..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-accent outline-none focus:ring-1 focus:ring-accent transition resize-none"></textarea>
+                        <textarea name="comments" rows="3" placeholder="e.g., Struggling with manual occupancy tracking and maintenance requests..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-accent outline-none focus:ring-1 focus:ring-accent transition resize-none"></textarea>
                     </div>
 
-                    <!-- Social App Style Upload Button -->
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Attach Requirements (Optional)</label>
-                        
                         <label class="social-upload-btn w-full">
                             <input type="file" name="rfpFile" accept=".pdf,.doc,.docx" class="hidden" id="rfpUpload" onchange="updateFileName(this)">
                             <div class="icon-circle">
@@ -391,11 +372,27 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 py-10 text-center font-body border-t border-slate-800">
-        <div class="max-w-[1080px] mx-auto px-6">
-            <img src="../sh.JPG" alt="S&H Group" class="h-8 mx-auto mb-4 grayscale mix-blend-screen">
-            <p class="text-gray-400 text-[13px] tracking-wide">&copy; 2026 S&H Consulting Facilities Management. All Rights Reserved.</p>
+    <!-- Footer (Refined & Modernized) -->
+    <footer class="bg-slate-900 py-10 md:py-16 border-t border-slate-800 text-center md:text-left">
+        <div class="max-w-[1080px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <div class="flex items-center gap-3 sm:gap-4">
+                <img src="../sh.JPG" alt="S&H Group" class="h-8 sm:h-10 grayscale mix-blend-screen opacity-80">
+                <div class="text-left border-l border-slate-700 pl-3 sm:pl-4">
+                    <h4 class="text-white font-heading font-bold text-[14px] sm:text-[16px] tracking-wide uppercase">S&H Facilities</h4>
+                    <p class="text-gray-400 text-[10px] sm:text-[12px]">Intelligent Residence Management</p>
+                </div>
+            </div>
+            
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="../index.html" class="text-gray-400 hover:text-accent font-medium text-[13px] sm:text-[14px] transition">Back to Main Site</a>
+                <button onclick="openPanel()" class="text-gray-400 hover:text-accent font-medium text-[13px] sm:text-[14px] transition">Request Demo</button>
+            </div>
+            
+        </div>
+        
+        <div class="max-w-[1080px] mx-auto px-6 mt-10 pt-6 border-t border-slate-800">
+            <p class="text-gray-500 text-[11px] sm:text-[12px]">&copy; 2026 S&H Consulting. All Rights Reserved.</p>
         </div>
     </footer>
 
