@@ -64,14 +64,14 @@
 'use strict';
 
 // ==========================================
-// CONFIGURATION: API ENDPOINTS
+// CONFIGURATION: PRODUCTION API ENDPOINTS
 // ==========================================
-const WEBHOOK_GET_BOOKINGS           = 'https://n8n.automania.cloud/webhook-test/sh-get-bookings';
-const WEBHOOK_POST_BOOKING           = 'https://n8n.automania.cloud/webhook-test/sh-new-booking';
-const WEBHOOK_GET_INSPECTIONS        = 'https://n8n.automania.cloud/webhook-test/sh-get-inspections';
-const WEBHOOK_POST_APPROVE           = 'https://n8n.automania.cloud/webhook-test/sh-approve-booking';
-const WEBHOOK_POST_INVOICE           = 'https://n8n.automania.cloud/webhook-test/sh-send-invoice';
-const WEBHOOK_POST_INSPECTION_REVIEW = 'https://n8n.automania.cloud/webhook-test/sh-review-inspection';
+const WEBHOOK_GET_BOOKINGS           = 'https://n8n.automania.cloud/webhook/sh-get-bookings';
+const WEBHOOK_POST_BOOKING           = 'https://n8n.automania.cloud/webhook/sh-new-booking';
+const WEBHOOK_GET_INSPECTIONS        = 'https://n8n.automania.cloud/webhook/sh-get-inspections';
+const WEBHOOK_POST_APPROVE           = 'https://n8n.automania.cloud/webhook/sh-approve-booking';
+const WEBHOOK_POST_INVOICE           = 'https://n8n.automania.cloud/webhook/sh-send-invoice';
+const WEBHOOK_POST_INSPECTION_REVIEW = 'https://n8n.automania.cloud/webhook/sh-review-inspection';
 
 // SVG Icons
 const paths={grid:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',car:'M5 17H3V9l2-5h14l2 5v8h-2 M5 17h14 M5 9h14 M7 13h.01 M17 13h.01 M5 17v3 M19 17v3',check:'m5 12 4 4L19 6',clipboard:'M9 4H5v17h14V4h-4 M9 2h6v5H9z M8 12l2 2 5-5 M8 18h7',calendar:'M4 5h16v16H4z M4 10h16 M8 2v6 M16 2v6 M8 14h2 M14 14h2 M8 17h2',search:'M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15 M16 16l5 5',plus:'M12 5v14 M5 12h14',arrow:'M4 12h16 m-6-6 6 6-6 6',close:'m6 6 12 12 M6 18 18 6',menu:'M4 6h16 M4 12h16 M4 18h16',users:'M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M2 21v-3a7 7 0 0 1 14 0v3 M17 3a4 4 0 0 1 0 8 M19 15a6 6 0 0 1 3 6',pin:'M12 22S4 14 4 9a8 8 0 0 1 16 0c0 5-8 13-8 13z M12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6',image:'M3 3h18v18H3z m0 15 6-6 5 5 3-3 4 4 M15 7h.01',layers:'m12 3 10 5-10 5L2 8z M2 12l10 5 10-5 M2 16l10 5 10-5',folder:'M3 6h6l2 2h10v12H3z M3 6V4h6l2 2',invoice:'M5 3h14v19l-3-2-4 2-4-2-3 2z M8 8h8 M8 12h8 M8 16h5',print:'M6 9V3h12v6 M6 18H3V9h18v9h-3 M6 14h12v8H6z',mail:'M3 5h18v14H3z m0 0 9 8 9-8',chevron:'m9 5 7 7-7 7',refresh:'M20 8a8 8 0 1 0 0 8 M20 3v5h-5'};
