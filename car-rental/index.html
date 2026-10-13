@@ -1,439 +1,557 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en-ZA">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    
-    <title>VIP Car Rental | S&H Consulting Mobility</title>
-    <meta name="description" content="Book luxury chauffeur-driven vehicles and VIP transport shuttles including the Hyundai Staria and Mercedes V-Class in Pretoria and Gauteng.">
-    
-    <link rel="icon" type="image/jpeg" href="sh.JPG">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#142622">
+<meta name="description" content="S&H Operations portal — car bookings, inspections, events and projects.">
+<title>S&H | Operations Portal</title>
+<style>
+/* Core Styles */
+:root{--ink:#182b32;--nav:#14282e;--muted:#77838a;--gold:#b5985e;--gold-light:#f4ecd9;--line:#e5e9e7;--bg:#f6f7f4;--green:#28745b;--red:#b95249;--shadow:0 12px 45px #18322b0c}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;color:var(--ink);line-height:1.5}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button{color:inherit}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b5985e88;outline-offset:3px}button{transition:background .16s,transform .16s}button:hover:not(:disabled){filter:brightness(.97)}h1,h2,h3,p{margin:0}h1{font-size:30px;letter-spacing:-1px;font-weight:650}h2{font-size:17px;letter-spacing:-.3px;font-weight:650}h3{font-size:15px}small,.muted{color:var(--muted)}svg{width:19px;height:19px;flex:none;stroke:currentColor;stroke-width:1.65;fill:none;stroke-linecap:round;stroke-linejoin:round}.side{width:234px;position:fixed;inset:0 auto 0 0;background:var(--nav);color:#d5dedd;display:flex;flex-direction:column;padding:28px 17px 18px;z-index:30}.brand{display:flex;align-items:center;gap:12px;padding:0 13px 29px}.monogram{font-family:Georgia,serif;font-style:italic;font-size:29px;line-height:1;color:var(--gold);border:1px solid #b5985e66;width:49px;height:49px;display:grid;place-items:center;border-radius:8px;letter-spacing:-4px;padding-right:4px}.brand strong{font-size:13px;letter-spacing:1.6px;color:#fff}.brand small{display:block;font-size:10px;letter-spacing:2px;margin-top:5px;color:#8fa4a8}.nav-label{font-size:9px;letter-spacing:1.8px;color:#7d999e;text-transform:uppercase;padding:22px 15px 8px}.nav-item{display:flex;align-items:center;width:100%;gap:12px;border:0;background:none;color:#adc0c2;min-height:44px;border-radius:7px;padding:11px 13px;font-size:12px;text-align:left;margin-bottom:4px}.nav-item.active{background:#b5985e1f;color:#ddc18a;box-shadow:inset 2px 0 #ccb077}.nav-item:hover{background:#ffffff0b}.count{margin-left:auto;background:#ffffff10;border-radius:4px;padding:1px 6px;font-size:10px}.side nav{overflow-y:auto;min-height:0;scrollbar-width:thin}.side-bottom{margin-top:auto;padding-top:25px}.workspace-tag{padding:12px;border:1px solid #ffffff14;border-radius:8px;margin-bottom:17px;font-size:11px;display:flex;align-items:center;gap:9px}.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}.profile{display:flex;align-items:center;gap:10px;padding:9px 8px;border-top:1px solid #ffffff13}.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#eee8d9;color:#7e673d;font-size:11px;font-weight:700;flex:none}.profile strong{font-size:11px;color:#e5edec}.profile small{display:block;font-size:10px}.main{margin-left:234px;min-width:0}.topbar{height:77px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 34px}.breadcrumb{font-size:11px;color:var(--muted)}.breadcrumb b{font-weight:500;color:var(--ink)}.top-actions{display:flex;align-items:center;gap:13px}.searchbox{display:flex;align-items:center;gap:9px;max-width:260px}.searchbox svg{width:16px;color:var(--muted)}.searchbox input{border:0;background:transparent;width:190px;font-size:11px;outline:none}.icon-btn{width:40px;height:40px;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:7px;background:#fff;position:relative;cursor:pointer}.mobile-menu{display:none}.content{padding:30px 34px;max-width:1630px;margin:auto}.page-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.eyebrow{font-size:9px;letter-spacing:1.8px;color:#8a784e;font-weight:700;text-transform:uppercase;margin-bottom:8px}.subtitle{font-size:12px;color:var(--muted);margin-top:5px}.btn{display:inline-flex;gap:8px;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;min-height:40px;padding:10px 15px;border-radius:7px;font-size:11px;font-weight:600;white-space:nowrap}.btn svg{width:15px;height:15px}.primary{background:var(--ink);border-color:var(--ink);color:white}.danger{color:var(--red);border-color:#e8cecb}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.dashboard-grid{display:grid;grid-template-columns:minmax(0,1fr) 287px;gap:22px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 3px 8px #15302902;margin-bottom:22px}.panel-head{padding:20px 21px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-head p{font-size:10px;color:var(--muted);margin-top:4px}.tabs{display:flex;gap:23px;padding:0 22px;border-bottom:1px solid var(--line);overflow:auto}.tab{padding:12px 0;border:0;border-bottom:2px solid transparent;background:none;font-size:11px;color:var(--muted);white-space:nowrap}.tab.active{color:var(--ink);border-bottom-color:var(--gold);font-weight:650}.tab span{font-size:9px;padding:2px 5px;border-radius:4px;background:#f2f3ef;margin-left:5px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}th{background:#fafbf8;color:#8b9595;font-size:9px;letter-spacing:.6px;text-transform:uppercase;font-weight:550;padding:12px 18px;white-space:nowrap}td{padding:17px 18px;border-top:1px solid #eef0ed;vertical-align:middle}td small{display:block;font-size:9px;margin-top:3px}td strong{font-size:11px;font-weight:600}.client-cell{display:flex;align-items:center;gap:10px}.client-cell .avatar{border-radius:8px;width:31px;height:33px;font-size:9px}.client-cell .blue{background:#eaf0f3;color:#5d7a8c}.client-cell .green{background:#e9f0e9;color:#638269}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:5px;padding:4px 7px;font-size:9px;white-space:nowrap;font-weight:550}.badge:before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor}.pending{color:#a17e37;background:#f8f1df}.approved,.reviewed{color:#398066;background:#eaf4ee}.declined,.flagged{color:#b45c52;background:#faece9}.row-button{border:1px solid #dfe5e1;padding:7px 10px;border-radius:5px;font-size:10px;background:#fff;min-height:34px;display:inline-flex;gap:5px;align-items:center}.focus-card{background:var(--nav);border-radius:10px;padding:22px;color:#fff;margin-bottom:21px;position:relative;overflow:hidden}.focus-card .eyebrow{color:#d1b57a}.focus-card h2{font-size:19px;max-width:200px;margin-top:14px;line-height:1.45}.focus-card p{font-size:11px;color:#a6babb;margin-top:9px;line-height:1.7}.toolbar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}.toolbar input,.toolbar select{border:1px solid var(--line);background:#fff;border-radius:6px;padding:9px 11px;font-size:11px;min-height:39px}.toolbar input{min-width:190px}.page-empty{padding:50px 20px;text-align:center}.page-empty svg{width:30px;height:30px;color:var(--gold)}.page-empty h3{margin:12px 0 5px}.page-empty p{font-size:12px;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.request-card{padding:21px;background:#fff;border:1px solid var(--line);border-radius:10px}.request-card h3{font-size:16px;margin:17px 0 7px}.request-card p{font-size:12px;color:var(--muted);min-height:38px}.request-card .meta{font-size:11px;padding:16px 0;margin-top:8px;display:grid;gap:9px}.request-card .meta span{display:flex;gap:8px;align-items:center}.request-card .meta svg{width:14px;color:var(--gold)}.request-card .actions{padding-top:15px;border-top:1px solid var(--line)}.request-card .actions .btn{flex:1}.info-box{background:#f6f7f3;border:1px solid var(--line);border-radius:7px;padding:13px;font-size:11px;color:#697870;line-height:1.7}.drawer-dialog{border:0;padding:0;border-radius:13px;width:min(820px,calc(100% - 30px));max-height:calc(100dvh - 40px);color:var(--ink);box-shadow:0 30px 120px #00191540;background:#fff}.drawer-dialog::backdrop{background:#10232888;backdrop-filter:blur(4px)}.dialog-head{padding:23px 25px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px}.dialog-head h2{font-size:20px}.dialog-body{padding:24px 25px}.dialog-foot{padding:17px 25px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;background:#fbfcfa}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field{display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:550}.field input,.field select,.field textarea{border:1px solid #dfe5df;border-radius:6px;padding:11px 12px;min-height:42px;width:100%;color:var(--ink);background:white}.field textarea{min-height:80px;resize:vertical}.full{grid-column:1/-1}.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 25px;margin:20px 0 24px}.detail small{display:block;font-size:10px;margin-bottom:5px}.detail strong{font-size:12px;font-weight:550;overflow-wrap:anywhere}.booking-summary{display:flex;align-items:center;gap:14px;background:#f5f6f2;padding:15px;border-radius:8px}.booking-summary .summary-icon{background:#e9ebdf;border-radius:9px;width:43px;height:43px;display:grid;place-items:center;color:#8c7b50}.booking-summary .badge{margin-left:auto}.booking-summary h3{font-size:14px}.section-title{font-size:10px;letter-spacing:1px;text-transform:uppercase;margin:23px 0 12px;color:#8a7952}.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.photo-placeholder{position:relative;background:#f5f6f2;border:1px dashed #d9dfd6;border-radius:7px;text-align:center;font-size:10px;color:var(--muted);overflow:hidden;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center}.photo-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;transition:transform 0.2s}.photo-preview:hover{transform:scale(1.05)}.toast{position:fixed;bottom:25px;left:calc(50% + 100px);transform:translateX(-50%);max-width:calc(100% - 32px);width:max-content;background:#1b3236;color:#fff;border-radius:9px;padding:14px 20px;font-size:12px;box-shadow:0 8px 40px #0002;z-index:100;display:none}.toast.show{display:block}.month-nav{display:flex;align-items:center;gap:13px}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}.day-name{font-size:10px;text-align:center;padding:14px;background:#fafbf8;color:var(--muted)}.day{min-height:105px;border-top:1px solid var(--line);border-right:1px solid var(--line);padding:9px;font-size:11px}.day.today{background:#f6f0e1}.calendar-event{display:block;text-align:left;width:100%;font-size:9px;background:#e9f1ec;border:0;border-left:2px solid #7f9c87;padding:5px;margin-top:5px;border-radius:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;color:var(--ink)}.day.empty{background:#fafbf8}.car-image-box{width:100%;border-radius:8px;margin-top:15px;overflow:hidden;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center}.car-image-box img{width:100%;height:auto;display:block}
 
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                slate: { 850: '#1e293b', 900: '#0f172a' },
-                gold: { DEFAULT: '#b89b5e', dark: '#a3884e' }
-              }
-            }
-          }
-        }
-    </script>
+/* Invoice Specific Styles */
+.invoice-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.invoice-paper{border:1px solid var(--line);padding:24px;border-radius:8px;background:#fdfefa}
+.invoice-paper .brand{padding:0 0 22px}
+.invoice-paper .brand strong{color:var(--ink);font-size:10px}
+.invoice-paper h2{font-size:24px}
+.invoice-meta{display:flex;justify-content:space-between;margin:19px 0;font-size:10px;gap:15px}
+.invoice-line{border-top:1px solid var(--line);padding:14px 0;font-size:11px;display:flex;justify-content:space-between;gap:10px}
+.invoice-total{background:var(--nav);color:#fff;border-radius:6px;padding:13px;display:flex;justify-content:space-between;gap:10px;font-size:13px}
+.invoice-paper small{font-size:9px}
+.invoice-paper .watermark{margin-top:22px;text-align:center;font-size:9px;letter-spacing:2px;color:#9d9175}
 
-    <style>
-        body { font-family: 'Roboto', sans-serif; background-color: #ffffff; color: #0f172a; overflow-x: hidden; }
-        h1, h2, h3, h4, .heading-font { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
-        
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
+/* Loading Spin Animation */
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.spin { animation: spin 1s linear infinite; }
 
-        /* --- Slide-over Panel CSS --- */
-        .slide-over-panel { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .slide-over-panel.open { transform: translateX(0); }
-        .slide-over-overlay { opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
-        .slide-over-overlay.open { opacity: 1; pointer-events: auto; }
-        
-        /* --- Social App Style File Upload --- */
-        .social-upload-btn {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 12px 16px;
-            border-radius: 9999px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .social-upload-btn:hover {
-            background-color: #f1f5f9;
-            border-color: #cbd5e1;
-        }
-        .icon-circle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background-color: #e2e8f0;
-            border-radius: 50%;
-            color: #475569;
-            transition: all 0.2s ease;
-        }
-        .social-upload-btn:hover .icon-circle {
-            background-color: #b89b5e;
-            color: #ffffff;
-        }
-
-        /* --- Toast Notification --- */
-        .toast {
-            position: fixed;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #0f172a;
-            color: #fff;
-            padding: 14px 24px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            z-index: 100;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-    </style>
+@media print{body>*:not(dialog){display:none!important}dialog{position:static!important;display:block!important;width:100%!important;max-height:none!important;overflow:visible!important;box-shadow:none!important}dialog::backdrop{display:none}.dialog-head,.dialog-foot,.invoice-editor,.no-print{display:none!important}.dialog-body{padding:0}.invoice-layout{display:block}.invoice-paper{border:0;padding:20px}.invoice-total{color:#000;border:1px solid #aaa;background:white}}
+@media(max-width:760px){.invoice-layout{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}}
+</style>
 </head>
-<body class="antialiased selection:bg-gold selection:text-white">
+<body>
+<button id="menu-overlay" class="menu-backdrop" aria-label="Close navigation"></button>
+<aside class="side" id="sidebar">
+    <a class="brand" href="#overview">
+        <span class="monogram">S&H</span>
+        <span><strong>S&H CONSULTING</strong><small>OPERATIONS PORTAL</small></span>
+    </a>
+    <nav id="nav"></nav>
+    <div class="side-bottom">
+        <div class="workspace-tag"><span class="dot"></span><span>n8n connected<small style="display:block;font-size:9px">Live test webhook integration</small></span></div>
+        <div class="profile"><span class="avatar">BM</span><span><strong>Brian Maphumulo</strong><small>Operations Admin</small></span></div>
+    </div>
+</aside>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-40 glass-nav">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition">
-                <div class="bg-white px-2 py-1 rounded-sm">
-                    <img src="sh.JPG" alt="S&H Logo" class="h-10 w-auto object-contain mix-blend-multiply">
-                </div>
-                <div class="h-8 w-px bg-gray-300"></div>
-                <span class="text-xs font-bold tracking-widest text-slate-900 uppercase flex items-center gap-2">
-                    <i class="fas fa-arrow-left text-gold"></i> Back to Hub
-                </span>
-            </a>
+<div class="main">
+    <header class="topbar">
+        <button class="icon-btn mobile-menu" id="menu-btn"><span data-icon="menu"></span></button>
+        <div class="breadcrumb">Workspace <span style="margin:0 10px;color:#c0c8c6">/</span> <b id="crumb">Overview</b></div>
+        <div class="top-actions">
+            <label class="searchbox"><span data-icon="search"></span><input id="global-search" placeholder="Search operations…"><small>↵</small></label>
+            <button class="icon-btn" id="refresh-btn" title="Sync Latest Data"><span data-icon="refresh"></span></button>
+            <span class="avatar">BM</span>
+        </div>
+    </header>
+    <main class="content" id="main-content" tabindex="-1"></main>
+</div>
+
+<dialog class="drawer-dialog" id="dialog"></dialog>
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+
+// ==========================================
+// CONFIGURATION: N8N TEST WEBHOOK URLS
+// ==========================================
+const WEBHOOK_GET_BOOKINGS           = 'https://n8n.automania.cloud/webhook-test/sh-get-bookings';
+const WEBHOOK_POST_BOOKING           = 'https://n8n.automania.cloud/webhook-test/sh-new-booking';
+const WEBHOOK_GET_INSPECTIONS        = 'https://n8n.automania.cloud/webhook-test/sh-get-inspections';
+const WEBHOOK_POST_APPROVE           = 'https://n8n.automania.cloud/webhook-test/sh-approve-booking';
+const WEBHOOK_POST_INVOICE           = 'https://n8n.automania.cloud/webhook-test/sh-send-invoice';
+const WEBHOOK_POST_INSPECTION_REVIEW = 'https://n8n.automania.cloud/webhook-test/sh-review-inspection';
+
+// SVG Icons
+const paths={grid:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',car:'M5 17H3V9l2-5h14l2 5v8h-2 M5 17h14 M5 9h14 M7 13h.01 M17 13h.01 M5 17v3 M19 17v3',check:'m5 12 4 4L19 6',clipboard:'M9 4H5v17h14V4h-4 M9 2h6v5H9z M8 12l2 2 5-5 M8 18h7',calendar:'M4 5h16v16H4z M4 10h16 M8 2v6 M16 2v6 M8 14h2 M14 14h2 M8 17h2',search:'M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15 M16 16l5 5',plus:'M12 5v14 M5 12h14',arrow:'M4 12h16 m-6-6 6 6-6 6',close:'m6 6 12 12 M6 18 18 6',menu:'M4 6h16 M4 12h16 M4 18h16',users:'M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M2 21v-3a7 7 0 0 1 14 0v3 M17 3a4 4 0 0 1 0 8 M19 15a6 6 0 0 1 3 6',pin:'M12 22S4 14 4 9a8 8 0 0 1 16 0c0 5-8 13-8 13z M12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6',image:'M3 3h18v18H3z m0 15 6-6 5 5 3-3 4 4 M15 7h.01',layers:'m12 3 10 5-10 5L2 8z M2 12l10 5 10-5 M2 16l10 5 10-5',folder:'M3 6h6l2 2h10v12H3z M3 6V4h6l2 2',invoice:'M5 3h14v19l-3-2-4 2-4-2-3 2z M8 8h8 M8 12h8 M8 16h5',print:'M6 9V3h12v6 M6 18H3V9h18v9h-3 M6 14h12v8H6z',mail:'M3 5h18v14H3z m0 0 9 8 9-8',chevron:'m9 5 7 7-7 7',refresh:'M20 8a8 8 0 1 0 0 8 M20 3v5h-5'};
+function icon(n){return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${paths[n]||paths.grid}"/></svg>`}
+function icons(){document.querySelectorAll('[data-icon]').forEach(x=>{x.innerHTML=icon(x.dataset.icon)})}
+
+const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => new Intl.NumberFormat('en-ZA',{style:'currency',currency:'ZAR',maximumFractionDigits:2}).format(Number(n)||0);
+const date = s => new Date(s+'T12:00:00').toLocaleDateString('en-ZA',{day:'numeric',month:'short'});
+const fullDate = s => new Date(s+'T12:00:00').toLocaleDateString('en-ZA',{day:'numeric',month:'short',year:'numeric'});
+
+// Local image map
+const carImageName = name => String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.jpg';
+
+// Local State
+let state = { bookings: [], inspections: [], invoices: [], infrastructure: [], briefs: [] };
+let page = 'overview', filter = 'All', query = '', calendarMonth = 9, calendarYear = 2026, toastTimer;
+
+const titles = {
+    overview: ['Overview', 'A clear view of your operations.'],
+    calendar: ['Operations calendar', 'Your approved deployments, in one place.'],
+    bookings: ['Car Bookings', 'Review requests, confirm details and manage deployments.'],
+    inspections: ['Pre-inspections', 'View customer-submitted vehicle condition reports.'],
+    infrastructure: ['Events & Setup', 'Manage event infrastructure and staging (Placeholder).'],
+    briefs: ['Project Briefs', 'Turn incoming briefs into well-managed projects (Placeholder).']
+};
+
+function toast(s) {
+    const t = document.getElementById('toast');
+    t.textContent = s; t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 5000);
+}
+
+function badge(s) {
+    let c = /Pending|New/.test(s) ? 'pending' : /Approved|Reviewed/.test(s) ? 'approved' : /Declined|Flagged/.test(s) ? 'declined' : 'draft';
+    return `<span class="badge ${c}">${esc(s)}</span>`
+}
+
+// ---------------------------------------------------------
+// DATA FETCHING (n8n Integration)
+// ---------------------------------------------------------
+async function loadData(manualRefresh = false) {
+    try {
+        // Fetch Bookings
+        const resBookings = await fetch(WEBHOOK_GET_BOOKINGS);
+        if(resBookings.ok) {
+            const rawData = await resBookings.json();
+            // Handle both object {} and array [{}] structures from n8n
+            const data = Array.isArray(rawData) ? rawData[0] : rawData;
+            const fetchedBookings = data.bookings || [];
             
-            <div class="hidden md:block">
-                <span class="text-xs font-bold tracking-[0.2em] uppercase text-gold">Mobility Division</span>
-            </div>
-        </div>
-    </nav>
+            // Map status fallback to handle empty strings from n8n safely
+            state.bookings = fetchedBookings.map(b => ({...b, status: b.status || 'Pending'}));
+        } else throw new Error('Fallback bookings');
 
-    <!-- Header Section -->
-    <section class="pt-32 pb-10 md:pb-12 px-6 max-w-7xl mx-auto">
-        <div class="text-left md:text-center max-w-3xl mx-auto">
-            <h1 class="text-4xl md:text-5xl heading-font uppercase text-slate-900 mb-4">VIP Car & Luxury Fleet</h1>
-            <p class="text-slate-500 font-light text-sm md:text-base leading-relaxed">
-                Executive transport and blue-light brigade ready fleets designed for secure, premium delegation logistics across Gauteng. Browse our available vehicles below to schedule a booking.
-            </p>
-        </div>
-    </section>
+        // Fetch Inspections
+        const resInspections = await fetch(WEBHOOK_GET_INSPECTIONS);
+        if(resInspections.ok) {
+            const rawIData = await resInspections.json();
+            // Handle both object {} and array [{}] structures from n8n
+            const iData = Array.isArray(rawIData) ? rawIData[0] : rawIData;
+            const fetchedInspections = iData.inspections || [];
+            
+            state.inspections = fetchedInspections.map(i => ({...i, status: i.status || 'Pending review'}));
+        } else throw new Error('Fallback inspections');
 
-    <!-- Fleet Catalog -->
-    <section class="pb-24 px-6 max-w-6xl mx-auto space-y-20 md:space-y-32">
+        if(manualRefresh) toast('Workspace synchronized.');
+
+    } catch (e) {
+        // Fallback data
+        state.bookings = [
+            {id:'BK-1042', client:'Department of Works', contact:'Sylvester M.', email:'sylvester@example.com', service:'Hyundai Staria', start:'2026-10-14', end:'2026-10-16', status:'Pending', amount:7500, driver:'Sylvester M.', location:'Pretoria → Johannesburg', notes:'Executive airport transfers.'},
+            {id:'BK-1040', client:'Summit Partners', contact:'Naledi S.', email:'summit@example.com', service:'Mercedes V-Class', start:'2026-10-12', end:'2026-10-13', status:'Approved', amount:8600, driver:'Assigned chauffeur', location:'OR Tambo → Pretoria', notes:'Return transfer and full-day executive transport.'}
+        ];
+        state.invoices = [{id:'INV-2026-040', bookingId:'BK-1040', amount:8600, tax:0, deposit:100, due:'2026-10-13', notes:'Executive transport package.', status:'Draft'}];
         
-        <!-- Item 1: Hyundai Staria -->
-        <div class="fleet-item">
-            <h2 class="text-2xl md:text-3xl heading-font text-slate-900 uppercase font-medium">Hyundai Staria Executive</h2>
-            <hr class="border-t border-gray-200 mt-4 mb-6 md:mb-12">
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start md:items-center">
-                <div class="order-1 md:order-2 w-full">
-                    <img src="astria.jpg" alt="Hyundai Staria VIP Rental" class="w-full aspect-[960/643] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500" onerror="this.src='https://via.placeholder.com/960x643?text=Hyundai+Staria'">
-                </div>
-                
-                <div class="order-2 md:order-1 flex flex-col justify-center text-left">
-                    <p class="text-slate-600 font-light text-sm md:text-base leading-relaxed mb-6">
-                        The Hyundai Staria represents the next generation of premium executive transport. With unmatched cabin space, VIP seating configurations, and advanced climate control, it ensures that your delegation arrives refreshed and ready. Perfect for corporate roadshows and secure airport shuttles.
-                    </p>
-                    <ul class="space-y-3 text-sm text-slate-700 font-light mb-8">
-                        <li><i class="fas fa-check text-gold mr-3"></i> Spacious VIP interior configurations</li>
-                        <li><i class="fas fa-check text-gold mr-3"></i> Advanced security and privacy tinting</li>
-                        <li><i class="fas fa-check text-gold mr-3"></i> Chauffeur-driven or self-drive options</li>
-                    </ul>
-                    <button onclick="openBookingPanel('Hyundai Staria Executive', 'astria.jpg')" class="bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 px-8 rounded transition duration-300 shadow-md w-full md:w-fit text-center">
-                        Schedule Booking
-                    </button>
-                </div>
-            </div>
-        </div>
+        state.inspections = [{id:'INSP-088', bookingId:'BK-1040', title:'Mercedes V-Class', client:'Summit Partners', driver:'Assigned chauffeur', clean:'4 / 5', fuel:'¾ tank', odometer:'42,180 km', status:'Pending review', notes:'Small scratch on rear bumper.', photoFront: '', photoRear: '', photoLeft: '', photoRight: ''}];
+        state.infrastructure = [ {id:'EVT-001', title:'VIP Lounge Setup', client:'Northside Collective', location:'Centurion', date:'2026-10-16', status:'Approved'} ];
+        state.briefs = [ {id:'PRJ-014', title:'Year-end summit', client:'Summit Partners', location:'Johannesburg', date:'2026-11-12', status:'New'} ];
+        
+        if(manualRefresh) toast('Network error. Loaded offline fallback data.');
+        console.log("Using local fallback data.");
+    }
+    render();
+}
 
-        <!-- Item 2: Mercedes V-Class -->
-        <div class="fleet-item">
-            <h2 class="text-2xl md:text-3xl heading-font text-slate-900 uppercase font-medium">Mercedes V-Class</h2>
-            <hr class="border-t border-gray-200 mt-4 mb-6 md:mb-12">
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start md:items-center">
-                <div class="order-1 w-full">
-                    <img src="vclass.jpg" alt="Mercedes V-Class Rental" class="w-full aspect-[1024/628] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500" onerror="this.src='https://via.placeholder.com/1024x628?text=Mercedes+V-Class'">
-                </div>
-                
-                <div class="order-2 flex flex-col justify-center text-left">
-                    <p class="text-slate-600 font-light text-sm md:text-base leading-relaxed mb-6">
-                        The ultimate standard in luxury group travel. The Mercedes V-Class combines unparalleled aesthetic prestige with a first-class cabin experience. Designed for high-stakes mandates, government officials, and VIPs who require discreet, comfortable, and flawlessly executed logistics.
-                    </p>
-                    <ul class="space-y-3 text-sm text-slate-700 font-light mb-8">
-                        <li><i class="fas fa-check text-gold mr-3"></i> Premium leather executive seating</li>
-                        <li><i class="fas fa-check text-gold mr-3"></i> Conference-style facing seats available</li>
-                        <li><i class="fas fa-check text-gold mr-3"></i> Blue-light convoy compatible</li>
-                    </ul>
-                    <button onclick="openBookingPanel('Mercedes V-Class', 'vclass.jpg')" class="bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 px-8 rounded transition duration-300 shadow-md w-full md:w-fit text-center">
-                        Schedule Booking
-                    </button>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Slide-out Booking Panel Overlay -->
-    <div id="bookingOverlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 slide-over-overlay" onclick="closeBookingPanel()"></div>
+// Event Listeners for Fetching
+document.getElementById('refresh-btn').onclick = async () => {
+    const svg = document.querySelector('#refresh-btn span svg');
+    if(svg) svg.classList.add('spin');
     
-    <!-- Slide-out Booking Panel -->
-    <div id="bookingPanel" class="fixed right-0 top-0 h-full w-full max-w-md bg-white z-50 shadow-2xl slide-over-panel overflow-y-auto flex flex-col border-l border-slate-200">
-        
-        <!-- Header -->
-        <div class="flex justify-between items-center p-5 border-b border-slate-100 bg-slate-50 sticky top-0 z-10">
-            <h2 class="text-lg heading-font text-slate-900 uppercase tracking-wide">Vehicle Reservation</h2>
-            <button onclick="closeBookingPanel()" class="text-slate-400 hover:text-slate-900 w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-200 transition-colors">
-                <i class="fas fa-times text-lg"></i>
-            </button>
+    toast('Syncing with database...');
+    await loadData(true);
+    
+    if(svg) svg.classList.remove('spin');
+};
+
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        // Silently fetch data in background when tab becomes active
+        loadData(false);
+    }
+});
+
+// ---------------------------------------------------------
+// UI RENDERING
+// ---------------------------------------------------------
+function nav() {
+    const pending = state.bookings.filter(x => x.status === 'Pending').length;
+    const item = (id, label, ic, count = '') => `<button class="nav-item ${page === id ? 'active' : ''}" data-nav="${id}">${icon(ic)}<span>${label}</span>${count !== '' ? `<span class="count">${count}</span>` : ''}</button>`;
+    document.getElementById('nav').innerHTML = `
+        <div class="nav-label">Workspace</div>
+        ${item('overview', 'Overview', 'grid')}
+        ${item('calendar', 'Calendar', 'calendar')}
+        <div class="nav-label">Mobility</div>
+        ${item('bookings', 'Car Bookings', 'car', pending)}
+        ${item('inspections', 'Pre-inspections', 'clipboard')}
+        <div class="nav-label">Other Services</div>
+        ${item('infrastructure', 'Events & Setup', 'layers')}
+        ${item('briefs', 'Project Briefs', 'folder')}
+    `;
+}
+
+function setPage(p) {
+    if (!titles[p]) p = 'overview';
+    page = p; filter = 'All'; query = '';
+    render(); window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function bookingRows(list) {
+    if (!list.length) return `<div class="page-empty">${icon('search')}<h3>No matching records</h3></div>`;
+    return `<div class="table-wrap responsive"><table><thead><tr><th>Client / request</th><th>Vehicle</th><th class="date-column">Booking dates</th><th>Status</th><th style="text-align:right">Action</th></tr></thead><tbody>
+    ${list.map((b, i) => `<tr>
+        <td><div class="client-cell"><span class="avatar ${['', 'blue', 'green'][i % 3]}">${esc(b.client.charAt(0))}</span><div><strong>${esc(b.client)}</strong><small>${esc(b.id)} ·${esc(b.contact)}</small></div></div></td>
+        <td><strong>${esc(b.service)}</strong></td>
+        <td class="date-column">${date(b.start)} – ${date(b.end)}<small>${esc(b.start.slice(0, 4))}</small></td>
+        <td>${badge(b.status)}</td>
+        <td style="text-align:right">
+            ${b.status === 'Approved' 
+                ? `<button class="row-button" data-action="invoice" data-id="${b.id}">${icon('invoice')}Invoice</button>`
+                : `<button class="row-button" data-action="booking" data-id="${b.id}">View${icon('chevron')}</button>`}
+        </td>
+    </tr>`).join('')}</tbody></table></div>`;
+}
+
+function bookingPanel() {
+    const list = state.bookings.filter(b => (filter === 'All' || b.status === filter) && `${b.id} ${b.client} ${b.contact} ${b.service}`.toLowerCase().includes(query.toLowerCase()));
+    return `<section class="panel">
+        <div class="panel-head"><div><h2>Car Booking Requests</h2><p>Review and approve vehicle deployments based on ROI.</p></div></div>
+        <div class="tabs">
+            ${['All', 'Pending', 'Approved'].map(f => `<button class="tab ${filter === f ? 'active' : ''}" data-filter="${f}">${f}</button>`).join('')}
         </div>
-        
-        <!-- Body -->
-        <div class="p-6 flex-grow">
-            <!-- Selected Car Display -->
-            <div class="relative w-full h-48 rounded overflow-hidden mb-4 shadow-sm border border-slate-100 bg-slate-50 flex items-center justify-center">
-                <img id="panelCarImage" src="" alt="Selected Vehicle" class="w-full h-full object-cover" onerror="this.style.display='none'">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <h3 id="panelCarName" class="absolute bottom-4 left-4 text-white text-xl md:text-2xl heading-font uppercase font-bold tracking-wide text-pop-shadow">Car Name</h3>
+        <div class="toolbar">
+            <label class="searchbox">${icon('search')}<input id="booking-search" placeholder="Search clients or vehicles…" value="${esc(query)}"></label>
+        </div>
+        <div id="booking-results">${bookingRows(list)}</div>
+    </section>`;
+}
+
+function overview() {
+    return `<div class="dashboard-grid"><div>${bookingPanel()}</div><aside class="dashboard-aside"><section class="focus-card"><div class="eyebrow">PRIORITY</div><h2>Keep operations moving.</h2><p>Always price based on value provided to the client.</p></section></aside></div>`;
+}
+
+function inspections() {
+    return `<div class="cards">${state.inspections.map(i => `
+        <article class="request-card">
+            <div style="display:flex;justify-content:space-between"><span class="eyebrow">${i.id}</span>${badge(i.status)}</div>
+            <h3>${esc(i.title)}</h3><p>${esc(i.client)}</p>
+            <div class="meta"><span>${icon('users')}${esc(i.driver)}</span><span>${icon('car')}${esc(i.odometer)} ·${esc(i.fuel)}</span></div>
+            <div class="actions"><button class="btn primary" data-action="inspection" data-id="${i.id}">Review Submission ${icon('arrow')}</button></div>
+        </article>`).join('')}
+    </div>`;
+}
+
+function calendar() {
+    let first = new Date(calendarYear, calendarMonth, 1), days = new Date(calendarYear, calendarMonth + 1, 0).getDate(), offset = (first.getDay() + 6) % 7;
+    return `<section class="panel"><div class="panel-head"><h2>Vehicle Schedule</h2><div class="month-nav"><button class="icon-btn" data-action="month-prev">‹</button><strong>${first.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' })}</strong><button class="icon-btn" data-action="month-next">›</button></div></div>
+    <div class="calendar-wrap"><div class="calendar">${['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => `<div class="day-name">${d}</div>`).join('')}${Array.from({ length: offset }, () => '<div class="day empty"></div>').join('')}${Array.from({ length: days }, (_, j) => {
+        const d = `${calendarYear}-${String(calendarMonth + 1).padStart(2, '0')}-${String(j + 1).padStart(2, '0')}`;
+        return `<div class="day ${d === '2026-10-13' ? 'today' : ''}"><span>${j + 1}</span>${state.bookings.filter(b => b.start <= d && b.end >= d && b.status === 'Approved').map(b => `<button class="calendar-event" data-action="booking" data-id="${b.id}">${esc(b.service)}</button>`).join('')}
+        </div>`
+    }).join('')}</div></div><div class="panel-foot">Only approved bookings are mapped to the calendar.</div></section>`;
+}
+
+function placeholders(type) {
+    if(!state[type] || !state[type].length) return `<div class="page-empty">${icon('layers')}<h3>No records found</h3><p>This module is currently a placeholder.</p></div>`;
+    return `<div class="cards">${state[type].map(r=>`<article class="request-card"><div style="display:flex;justify-content:space-between"><span class="eyebrow">${r.id}</span>${badge(r.status)}</div><h3>${esc(r.title)}</h3><p>${esc(r.client)}</p><div class="meta"><span>${icon('pin')}${esc(r.location)}</span><span>${icon('calendar')}${date(r.date)}</span></div><div class="actions"><button class="btn ghost" disabled>UI Placeholder</button></div></article>`).join('')}</div>`;
+}
+
+function render() {
+    nav();
+    document.getElementById('crumb').textContent = titles[page][0];
+    document.getElementById('main-content').innerHTML = `
+        <div class="page-head">
+            <div><div class="eyebrow">S&H WORKSPACE</div><h1>${titles[page][0]}</h1><p class="subtitle">${titles[page][1]}</p></div>
+            <div class="actions">${page === 'bookings' || page === 'overview' ? `<button class="btn primary" data-action="new">${icon('plus')}New Booking</button>` : ''}</div>
+        </div>
+        ${({ overview, bookings: () => bookingPanel(), inspections, calendar, infrastructure: () => placeholders('infrastructure'), briefs: () => placeholders('briefs') })[page]()}
+        <footer class="footer"><span>© 2026 S&H Consulting · Powered by Automania workflows</span></footer>
+    `;
+    icons();
+}
+
+// ---------------------------------------------------------
+// DIALOGS & FORMS
+// ---------------------------------------------------------
+function openDialog(title, sub, body, foot = '') {
+    const d = document.getElementById('dialog');
+    d.innerHTML = `<div class="dialog-head"><div><h2>${title}</h2><small>${sub}</small></div><button class="icon-btn" data-action="close">${icon('close')}</button></div><div class="dialog-body">${body}</div>${foot ? `<div class="dialog-foot">${foot}</div>` : ''}`;
+    if (!d.open) d.showModal(); d.scrollTop = 0;
+}
+function closeDialog() { document.getElementById('dialog').close(); }
+const booking = id => state.bookings.find(b => b.id === id);
+
+// View Booking
+function viewBooking(id) {
+    const b = booking(id);
+    const carImg = carImageName(b.service);
+
+    openDialog('Booking details', `${b.id}`, `
+        <div class="booking-summary"><span class="summary-icon">${icon('car')}</span><div><h3>${esc(b.service)}</h3><p>${esc(b.client)}</p></div>${badge(b.status)}</div>
+        <div class="car-image-box">
+            <img src="${carImg}" alt="${esc(b.service)}" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+        </div>
+        <div class="details-grid">
+            ${[['Client contact', b.contact], ['Email', b.email], ['Dates', `${fullDate(b.start)} –${fullDate(b.end)}`], ['Location', b.location], ['Driver', b.driver], ['Projected Value', money(b.amount)]].map(([k, v]) => `<div class="detail"><small>${k}</small><strong>${esc(v)}</strong></div>`).join('')}
+        </div>
+        <h3 class="section-title">Operations note</h3><div class="info-box">${esc(b.notes)}</div>
+    `, `<button class="btn" data-action="close">Close</button>
+        ${b.status === 'Pending' ? `<button class="btn primary" data-action="approval" data-id="${id}">${icon('check')}Approve & Invoice</button>` : ''}
+        ${b.status === 'Approved' ? `<button class="btn primary" data-action="invoice" data-id="${id}">${icon('invoice')}Manage Invoice</button>` : ''}`);
+}
+
+// Full Approval Flow triggering Test Webhook & Invoice View
+function approval(id) {
+    const b = booking(id);
+    if (b.status !== 'Pending') return viewBooking(id);
+    openDialog('Approve booking', `${b.id} · ${esc(b.client)}`, `
+        <form id="approval-form">
+            <div class="booking-summary"><span class="summary-icon">${icon('car')}</span><div><h3>${esc(b.service)}</h3><p>Confirm the final details and value before approval.</p></div></div>
+            <div class="form-grid section-space">
+                <label class="field full">Confirmed value (ZAR, before tax)<input type="number" name="amount" min="0.01" step="0.01" value="${b.amount}" required></label>
+                <label class="field">Start date<input name="start" type="date" value="${b.start}" required></label>
+                <label class="field">End date<input name="end" type="date" value="${b.end}" required></label>
+                <label class="field full">Operations note<textarea name="notes">${esc(b.notes)}</textarea></label>
             </div>
-            
-            <p class="text-xs text-slate-500 mb-8 border-b border-slate-100 pb-4 text-left">Please complete the details below to secure your reservation. Our logistics team will contact you to confirm deployment.</p>
-            
-            <form id="bookingForm" class="space-y-5 text-left">
-                <!-- Hidden inputs for n8n payload -->
-                <input type="hidden" name="service" id="hiddenCarName">
-                <input type="hidden" name="source" value="Customer Portal">
-                
-                <!-- Booker Details -->
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Booked By (Name / Org)</label>
-                        <input type="text" name="client" required placeholder="John Doe / Ministry of Works" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Contact Details</label>
-                        <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition mb-3">
-                        <input type="tel" name="phone" required placeholder="Phone Number" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Route / Location</label>
-                        <input type="text" name="location" required placeholder="e.g., OR Tambo to Sandton" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
-                    </div>
+            <div class="info-box section-space">Approving this will log the data to Google Sheets via the n8n test webhook and transition to invoice preparation.</div>
+            <p id="approval-error" class="error" role="alert"></p>
+        </form>
+    `, `<button class="btn" data-action="booking" data-id="${id}">Back</button><button class="btn primary" type="submit" form="approval-form" id="approve-submit">${icon('check')}Approve Booking</button>`);
+    
+    document.getElementById('approval-form').onsubmit = async e => {
+        e.preventDefault();
+        const f = new FormData(e.target);
+        const start = f.get('start'), end = f.get('end'), amount = Number(f.get('amount'));
+        if (end < start) { document.getElementById('approval-error').textContent = 'End date must be on or after the start date.'; return; }
+        
+        Object.assign(b, { start, end, amount, notes: f.get('notes'), status: 'Approved' });
+        
+        const btn = document.getElementById('approve-submit');
+        btn.innerHTML = 'Sending...'; btn.disabled = true;
+
+        try {
+            await fetch(WEBHOOK_POST_APPROVE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
+            toast('Booking approved via webhook. Preparing invoice.');
+            render();
+            invoice(id); 
+        } catch (err) {
+            toast('Warning: Could not reach n8n approval test webhook.');
+            btn.innerHTML = 'Error'; btn.disabled = false;
+        }
+    }
+}
+
+// Generate Invoice Helper
+function nextInvoiceId(){const n=Math.max(40,...state.invoices.map(i=>Number(i.id.split('-').at(-1))))+1;return 'INV-2026-'+String(n).padStart(3,'0')}
+
+// Manage and Send Invoice View
+function invoice(id) {
+    const b = booking(id);
+    if (b.status !== 'Approved') { toast('Approve this booking before preparing an invoice.'); return viewBooking(id); }
+    
+    const existing = state.invoices.find(i => i.bookingId === id);
+    const draft = existing ? structuredClone(existing) : { id: nextInvoiceId(), bookingId: id, amount: b.amount, tax: 0, deposit: 50, due: b.start, notes: '', status: 'Draft' };
+    
+    openDialog('Prepare invoice', `${draft.id} · ${esc(b.client)}`, `
+        <div class="invoice-layout">
+            <form class="invoice-editor" id="invoice-form">
+                <div class="form-grid">
+                    <label class="field full">Recipient email<input name="email" type="email" required value="${esc(b.email)}"></label>
+                    <label class="field full">Service amount (ZAR)<input name="amount" type="number" step="0.01" required value="${draft.amount}"></label>
+                    <label class="field">Tax rate (%)<input name="tax" type="number" min="0" max="100" step="0.01" value="${draft.tax}" required></label>
+                    <label class="field">Deposit (%)<input name="deposit" type="number" min="0" max="100" value="${draft.deposit}" required></label>
+                    <label class="field full">Payment due date<input name="due" type="date" required value="${draft.due}"></label>
+                    <label class="field full">Invoice notes<textarea name="notes" placeholder="Payment terms or service notes…">${esc(draft.notes)}</textarea></label>
                 </div>
-
-                <hr class="border-slate-100">
-
-                <!-- Booking Dates -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Start Date</label>
-                        <input type="date" name="start" id="startDate" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">End Date</label>
-                        <input type="date" name="end" id="endDate" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
-                    </div>
-                </div>
-
-                <hr class="border-slate-100">
-
-                <!-- Driver & License Upload -->
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Primary Driver Name</label>
-                        <input type="text" name="driver" required placeholder="Name of person driving" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
-                    </div>
-
-                    <!-- Social App Style Upload Button -->
-                    <div>
-                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Identification</label>
-                        
-                        <label class="social-upload-btn w-full">
-                            <input type="file" name="licenseFile" accept="image/*,.pdf" capture="environment" class="hidden" id="licenseUpload" onchange="updateFileName(this)">
-                            <div class="icon-circle">
-                                <i class="fas fa-camera text-sm"></i>
-                            </div>
-                            <div class="flex-grow text-left overflow-hidden">
-                                <span class="text-sm font-medium text-slate-700 block">Attach Driver's License</span>
-                                <span class="text-[10px] text-slate-400 block truncate" id="fileNameDisplay">Take a photo or upload file</span>
-                            </div>
-                            <i class="fas fa-paperclip text-slate-400 text-lg"></i>
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Additional Notes</label>
-                        <textarea name="notes" placeholder="Special requirements..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition min-h-[80px]"></textarea>
-                    </div>
-                </div>
+                <div class="info-box section-space">Sending this invoice triggers the n8n test webhook. Ensure n8n is actively listening.</div>
             </form>
+            <div class="invoice-paper" id="invoice-paper"></div>
         </div>
+    `, `<button class="btn" data-action="close">Close</button><button class="btn" id="print-invoice">${icon('print')}Print / PDF</button><button class="btn primary" id="send-invoice">${icon('mail')}Send via n8n</button>`);
+    
+    const form = document.getElementById('invoice-form');
+    const read = () => { const f = new FormData(form); return { ...draft, amount: Number(f.get('amount')), tax: Number(f.get('tax')), deposit: Number(f.get('deposit')), due: f.get('due'), notes: f.get('notes'), email: f.get('email') }};
+    
+    function preview() {
+        const i = read(), total = i.amount * (1 + i.tax / 100);
+        document.getElementById('invoice-paper').innerHTML = `
+            <div class="brand"><span class="monogram">S&H</span><span><strong>S&H CONSULTING</strong><small>MOBILITY PORTAL</small></span></div>
+            <div class="eyebrow">INVOICE PREVIEW</div><h2>${i.id}</h2>
+            <div class="invoice-meta"><div><small>BILL TO</small><br><strong>${esc(b.client)}</strong><br>${esc(i.email)}</div><div><small>BOOKING</small><br>${b.id}<br>Due ${i.due ? date(i.due) : '—'}</div></div>
+            <div class="invoice-line"><span>${esc(b.service)}<br><small>${fullDate(b.start)} – ${fullDate(b.end)}</small></span><b>${money(i.amount)}</b></div>
+            <div class="invoice-line"><span>Tax (${i.tax||0}%)</span><span>${money(i.amount * i.tax / 100)}</span></div>
+            <div class="invoice-total"><b>Total</b><b>${money(total)}</b></div>
+            <div class="invoice-line"><span>Deposit (${i.deposit||0}%)</span><b>${money(total * i.deposit / 100)}</b></div>
+            <div class="invoice-line"><span>Remaining balance</span><span>${money(total * (1 - i.deposit / 100))}</span></div>
+            <small style="display:block;white-space:pre-wrap;overflow-wrap:anywhere">${esc(i.notes) || 'Thank you for choosing S&H Consulting.'}</small>
+            <div class="watermark">${i.status === 'Sent' ? 'SENT' : 'DRAFT · NOT SENT'}</div>
+        `;
+    }
+    
+    function persist() {
+        if(!form.reportValidity()) return null;
+        const i = read();
+        const index = state.invoices.findIndex(x => x.bookingId === id);
+        if(index < 0) state.invoices.unshift(i); else state.invoices[index] = i;
+        b.email = i.email;
+        return i;
+    }
+    
+    form.addEventListener('input', preview); 
+    preview();
+    
+    document.getElementById('print-invoice').onclick = () => { if(persist()){ preview(); window.print(); }};
+    
+    document.getElementById('send-invoice').onclick = async () => {
+        const i = persist();
+        if(!i) return;
+        const btn = document.getElementById('send-invoice');
+        btn.innerHTML = 'Sending...'; btn.disabled = true;
+        
+        try {
+            await fetch(WEBHOOK_POST_INVOICE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ invoice: i, booking: b, recipient: i.email }) });
+            toast('Invoice successfully routed to n8n test webhook.');
+            i.status = 'Sent';
+            preview();
+        } catch (err) {
+            toast('Warning: Could not reach n8n invoice test webhook.');
+        } finally {
+            btn.innerHTML = `${icon('mail')}Send via n8n`; btn.disabled = false;
+        }
+    };
+}
 
-        <!-- Footer Submit -->
-        <div class="p-6 border-t border-slate-200 bg-white sticky bottom-0 z-10">
-            <button type="submit" form="bookingForm" id="submitBtn" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 rounded transition duration-300 shadow-md flex items-center justify-center gap-2 disabled:opacity-70">
-                Submit Booking <i class="fas fa-arrow-right"></i>
-            </button>
+// New Booking
+function newBooking() {
+    openDialog('Create car booking', 'Send request to n8n webhook.', `
+        <form id="new-form">
+            <div class="form-grid">
+                <label class="field">Client / organisation<input name="client" required></label>
+                <label class="field">Contact person<input name="contact" required></label>
+                <label class="field">Email address<input name="email" type="email" required></label>
+                <label class="field">Vehicle requested<input name="service" required placeholder="e.g. Mercedes V-Class"></label>
+                <label class="field">Start date<input name="start" type="date" required></label>
+                <label class="field">End date<input name="end" type="date" required></label>
+                <label class="field">Value based pricing (ZAR)<input name="amount" type="number" step="0.01" required></label>
+                <label class="field">Route / Location<input name="location" required></label>
+                <label class="field full">Request notes<textarea name="notes"></textarea></label>
+            </div>
+        </form>
+    `, `<button class="btn" data-action="close">Cancel</button><button class="btn primary" id="btn-submit-booking" form="new-form" type="submit">${icon('plus')}Send to n8n</button>`);
+    
+    document.getElementById('new-form').onsubmit = async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('btn-submit-booking');
+        btn.innerHTML = 'Sending...'; btn.disabled = true;
+
+        const f = Object.fromEntries(new FormData(e.target));
+        const n = Math.max(...state.bookings.map(b => Number(b.id.split('-')[1])), 1044) + 1;
+        const b = { ...f, amount: Number(f.amount), id: 'BK-' + n, status: 'Pending', driver: 'Pending' };
+        
+        try {
+            await fetch(WEBHOOK_POST_BOOKING, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
+            state.bookings.unshift(b);
+            closeDialog(); setPage('bookings'); 
+            toast('Successfully saved to Google Sheets via n8n test webhook.');
+        } catch (err) {
+            toast('Network error: Test webhook not reached.');
+            btn.innerHTML = `${icon('plus')}Send to n8n`; btn.disabled = false;
+        }
+    };
+}
+
+// View Pre-inspection Admin Logic
+function viewInspection(id) {
+    const r = state.inspections.find(i => i.id === id);
+    
+    const renderPhoto = (url, label) => url ? 
+        `<div class="photo-placeholder" style="border:none"><a href="${url}" target="_blank" title="Click to view full image"><img src="${url}" class="photo-preview" alt="${label}"></a></div>` : 
+        `<div class="photo-placeholder">${icon('image')}<span style="margin-top:5px;font-weight:600">${label}</span><small>No image submitted</small></div>`;
+
+    openDialog('Review pre-inspection', `${id} · Submitted by customer/driver`, `
+        <div class="booking-summary"><span class="summary-icon">${icon('car')}</span><div><h3>${esc(r.title)}</h3><p>${esc(r.client)}</p></div>${badge(r.status)}</div>
+        <div class="details-grid">
+            <div class="detail"><small>Odometer (km)</small><strong>${esc(r.odometer)}</strong></div>
+            <div class="detail"><small>Fuel Level</small><strong>${esc(r.fuel)}</strong></div>
+            <div class="detail"><small>Cleanliness</small><strong>${esc(r.clean)}</strong></div>
         </div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="toast">
-        <i class="fas fa-check-circle text-green-400"></i>
-        <span id="toastMessage">Booking request sent successfully.</span>
-    </div>
-
-    <!-- Minimal Footer -->
-    <footer class="bg-[#050505] text-white py-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <img src="sh.JPG" alt="S&H Group" class="h-8 filter grayscale contrast-150 mx-auto mb-4">
-            <p class="text-gray-500 text-[10px] uppercase tracking-widest">&copy; 2026 S&H Consulting Mobility. All Rights Reserved.</p>
+        
+        <h3 class="section-title">Submitted Condition Photos</h3>
+        <div class="photo-grid">
+            ${renderPhoto(r.photoFront, 'Front')}
+            ${renderPhoto(r.photoRear, 'Rear')}
+            ${renderPhoto(r.photoLeft, 'Left Side')}
+            ${renderPhoto(r.photoRight, 'Right Side')}
         </div>
-    </footer>
+        <h3 class="section-title">Notes</h3>
+        <div class="info-box">${esc(r.notes)}</div>
+    `, `<button class="btn" data-action="close">Close</button>
+        ${r.status === 'Pending review' ? `<button class="btn primary" id="btn-mark-reviewed" data-action="mark-reviewed" data-id="${id}">${icon('check')}Mark Reviewed</button>` : ''}`);
+}
 
-    <!-- Interactive Scripts -->
-    <script>
-        // Set dynamic minimum dates for the date pickers
-        document.addEventListener('DOMContentLoaded', () => {
-            const today = new Date().toISOString().split('T')[0];
-            const startDateInput = document.getElementById('startDate');
-            const endDateInput = document.getElementById('endDate');
-            
-            startDateInput.min = today;
-            endDateInput.min = today;
-
-            // Ensure end date cannot be before start date
-            startDateInput.addEventListener('change', function() {
-                endDateInput.min = this.value;
-                if(endDateInput.value && endDateInput.value < this.value) {
-                    endDateInput.value = this.value;
-                }
-            });
-        });
-
-        function showToast(message, isError = false) {
-            const toast = document.getElementById('toast');
-            const icon = toast.querySelector('i');
-            document.getElementById('toastMessage').innerText = message;
-            
-            if(isError) {
-                icon.className = 'fas fa-exclamation-circle text-red-400';
-            } else {
-                icon.className = 'fas fa-check-circle text-green-400';
-            }
-
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4000);
-        }
-
-        function openBookingPanel(carName, imageSrc) {
-            document.getElementById('panelCarName').innerText = carName;
-            
-            const imgElement = document.getElementById('panelCarImage');
-            imgElement.src = imageSrc;
-            imgElement.style.display = 'block';
-            
-            // Set hidden input value for the form submission
-            document.getElementById('hiddenCarName').value = carName;
-            
-            document.getElementById('bookingOverlay').classList.add('open');
-            document.getElementById('bookingPanel').classList.add('open');
-            document.body.style.overflow = 'hidden'; 
-        }
-
-        function closeBookingPanel() {
-            document.getElementById('bookingOverlay').classList.remove('open');
-            document.getElementById('bookingPanel').classList.remove('open');
-            document.body.style.overflow = 'auto'; 
-        }
-
-        function updateFileName(input) {
-            const displaySpan = document.getElementById('fileNameDisplay');
-            if (input.files && input.files.length > 0) {
-                displaySpan.innerText = input.files[0].name;
-                displaySpan.classList.add('text-gold');
-            } else {
-                displaySpan.innerText = "Take a photo or upload file";
-                displaySpan.classList.remove('text-gold');
-            }
-        }
-
-        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById('submitBtn');
-            const originalText = btn.innerHTML;
-            
-            // Set loading state
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            btn.disabled = true;
-
-            // Package the form data (handles the file and all text inputs cleanly)
-            const formData = new FormData(this);
-
-            try {
-                // Post to n8n Webhook
-                const response = await fetch('https://n8n.automania.cloud/webhook-test/customer-booking', {
-                    method: 'POST',
-                    body: formData 
-                });
-
-                if (response.ok) {
-                    btn.innerHTML = '<i class="fas fa-check"></i> Request Sent';
-                    btn.classList.replace('bg-slate-900', 'bg-green-600');
-                    btn.classList.remove('hover:bg-gold');
-                    
-                    showToast('Booking request routed successfully to S&H operations.');
-
-                    // Reset UI after 2 seconds
-                    setTimeout(() => {
-                        closeBookingPanel();
-                        this.reset();
-                        document.getElementById('fileNameDisplay').innerText = "Take a photo or upload file";
-                        document.getElementById('fileNameDisplay').classList.remove('text-gold');
-                        btn.innerHTML = originalText;
-                        btn.classList.replace('bg-green-600', 'bg-slate-900');
-                        btn.classList.add('hover:bg-gold');
-                        btn.disabled = false;
-                    }, 2000);
-                } else {
-                    throw new Error('Network error from webhook');
-                }
-            } catch (error) {
-                console.error('Error submitting booking:', error);
+// ---------------------------------------------------------
+// EVENT DELEGATION
+// ---------------------------------------------------------
+document.addEventListener('click', e => {
+    const n = e.target.closest('[data-nav]');
+    if (n) { setPage(n.dataset.nav); return; }
+    
+    const ft = e.target.closest('[data-filter]');
+    if (ft) { filter = ft.dataset.filter; render(); return; }
+    
+    const el = e.target.closest('[data-action]');
+    if (!el) return;
+    
+    const a = el.dataset.action, id = el.dataset.id;
+    switch (a) {
+        case 'close': closeDialog(); break;
+        case 'new': newBooking(); break;
+        case 'booking': viewBooking(id); break;
+        case 'approval': approval(id); break;
+        case 'invoice': invoice(id); break;
+        case 'inspection': viewInspection(id); break;
+        case 'mark-reviewed':
+            let i = state.inspections.find(x => x.id === id);
+            if(i) {
+                const btn = document.getElementById('btn-mark-reviewed');
+                if(btn) { btn.innerHTML = 'Updating...'; btn.disabled = true; }
                 
-                showToast('Connection error. Please try submitting again.', true);
-
-                // Show error state
-                btn.innerHTML = '<i class="fas fa-times"></i> Error. Try Again.';
-                btn.classList.replace('bg-slate-900', 'bg-red-600');
-                btn.classList.remove('hover:bg-gold');
-
-                // Revert after 3 seconds
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.classList.replace('bg-red-600', 'bg-slate-900');
-                    btn.classList.add('hover:bg-gold');
-                    btn.disabled = false;
-                }, 3000);
+                fetch(WEBHOOK_POST_INSPECTION_REVIEW, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify({ inspectionId: id, status: 'Reviewed' }) 
+                })
+                .then(() => {
+                    i.status = 'Reviewed';
+                    closeDialog(); render(); toast('Inspection marked as reviewed.');
+                })
+                .catch(err => {
+                    toast('Warning: Could not reach n8n test webhook.');
+                    if(btn) { btn.innerHTML = `${icon('check')}Mark Reviewed`; btn.disabled = false; }
+                });
             }
-        });
-    </script>
+            break;
+        case 'month-prev': case 'month-next':
+            calendarMonth += a === 'month-next' ? 1 : -1;
+            if (calendarMonth > 11) { calendarMonth = 0; calendarYear++ }
+            if (calendarMonth < 0) { calendarMonth = 11; calendarYear-- }
+            render(); break;
+    }
+});
+
+document.addEventListener('input', e => {
+    if (e.target.id === 'booking-search') { query = e.target.value; render(); }
+});
+
+// INITIALIZE
+loadData();
+
+</script>
 </body>
 </html>
