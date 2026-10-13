@@ -1,611 +1,497 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en-ZA">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    
-    <title>S&H Admin Portal | Operations Dashboard</title>
-    
-    <link rel="icon" type="image/jpeg" href="sh.JPG">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#142622">
+<meta name="description" content="S&H Operations portal — car bookings, inspections, events and projects.">
+<title>S&H | Operations Portal</title>
+<style>
+/* Core Styles */
+:root{--ink:#182b32;--nav:#14282e;--muted:#77838a;--gold:#b5985e;--gold-light:#f4ecd9;--line:#e5e9e7;--bg:#f6f7f4;--green:#28745b;--red:#b95249;--shadow:0 12px 45px #18322b0c}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;color:var(--ink);line-height:1.5}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button{color:inherit}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b5985e88;outline-offset:3px}button{transition:background .16s,transform .16s}button:hover:not(:disabled){filter:brightness(.97)}h1,h2,h3,p{margin:0}h1{font-size:30px;letter-spacing:-1px;font-weight:650}h2{font-size:17px;letter-spacing:-.3px;font-weight:650}h3{font-size:15px}small,.muted{color:var(--muted)}svg{width:19px;height:19px;flex:none;stroke:currentColor;stroke-width:1.65;fill:none;stroke-linecap:round;stroke-linejoin:round}.side{width:234px;position:fixed;inset:0 auto 0 0;background:var(--nav);color:#d5dedd;display:flex;flex-direction:column;padding:28px 17px 18px;z-index:30}.brand{display:flex;align-items:center;gap:12px;padding:0 13px 29px}.monogram{font-family:Georgia,serif;font-style:italic;font-size:29px;line-height:1;color:var(--gold);border:1px solid #b5985e66;width:49px;height:49px;display:grid;place-items:center;border-radius:8px;letter-spacing:-4px;padding-right:4px}.brand strong{font-size:13px;letter-spacing:1.6px;color:#fff}.brand small{display:block;font-size:10px;letter-spacing:2px;margin-top:5px;color:#8fa4a8}.nav-label{font-size:9px;letter-spacing:1.8px;color:#7d999e;text-transform:uppercase;padding:22px 15px 8px}.nav-item{display:flex;align-items:center;width:100%;gap:12px;border:0;background:none;color:#adc0c2;min-height:44px;border-radius:7px;padding:11px 13px;font-size:12px;text-align:left;margin-bottom:4px}.nav-item.active{background:#b5985e1f;color:#ddc18a;box-shadow:inset 2px 0 #ccb077}.nav-item:hover{background:#ffffff0b}.count{margin-left:auto;background:#ffffff10;border-radius:4px;padding:1px 6px;font-size:10px}.side nav{overflow-y:auto;min-height:0;scrollbar-width:thin}.side-bottom{margin-top:auto;padding-top:25px}.workspace-tag{padding:12px;border:1px solid #ffffff14;border-radius:8px;margin-bottom:17px;font-size:11px;display:flex;align-items:center;gap:9px}.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}.profile{display:flex;align-items:center;gap:10px;padding:9px 8px;border-top:1px solid #ffffff13}.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#eee8d9;color:#7e673d;font-size:11px;font-weight:700;flex:none}.profile strong{font-size:11px;color:#e5edec}.profile small{display:block;font-size:10px}.main{margin-left:234px;min-width:0}.topbar{height:77px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 34px}.breadcrumb{font-size:11px;color:var(--muted)}.breadcrumb b{font-weight:500;color:var(--ink)}.top-actions{display:flex;align-items:center;gap:13px}.searchbox{display:flex;align-items:center;gap:9px;max-width:260px}.searchbox svg{width:16px;color:var(--muted)}.searchbox input{border:0;background:transparent;width:190px;font-size:11px;outline:none}.icon-btn{width:40px;height:40px;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:7px;background:#fff;position:relative}.mobile-menu{display:none}.content{padding:30px 34px;max-width:1630px;margin:auto}.page-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.eyebrow{font-size:9px;letter-spacing:1.8px;color:#8a784e;font-weight:700;text-transform:uppercase;margin-bottom:8px}.subtitle{font-size:12px;color:var(--muted);margin-top:5px}.btn{display:inline-flex;gap:8px;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;min-height:40px;padding:10px 15px;border-radius:7px;font-size:11px;font-weight:600;white-space:nowrap}.btn svg{width:15px;height:15px}.primary{background:var(--ink);border-color:var(--ink);color:white}.danger{color:var(--red);border-color:#e8cecb}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.preview-strip{display:flex;align-items:center;gap:9px;font-size:10px;color:#89754c;background:#f1ede3;border:1px solid #e7dfcc;border-radius:7px;padding:10px 13px;margin-bottom:24px}.dashboard-grid{display:grid;grid-template-columns:minmax(0,1fr) 287px;gap:22px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 3px 8px #15302902;margin-bottom:22px}.panel-head{padding:20px 21px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-head p{font-size:10px;color:var(--muted);margin-top:4px}.tabs{display:flex;gap:23px;padding:0 22px;border-bottom:1px solid var(--line);overflow:auto}.tab{padding:12px 0;border:0;border-bottom:2px solid transparent;background:none;font-size:11px;color:var(--muted);white-space:nowrap}.tab.active{color:var(--ink);border-bottom-color:var(--gold);font-weight:650}.tab span{font-size:9px;padding:2px 5px;border-radius:4px;background:#f2f3ef;margin-left:5px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}th{background:#fafbf8;color:#8b9595;font-size:9px;letter-spacing:.6px;text-transform:uppercase;font-weight:550;padding:12px 18px;white-space:nowrap}td{padding:17px 18px;border-top:1px solid #eef0ed;vertical-align:middle}td small{display:block;font-size:9px;margin-top:3px}td strong{font-size:11px;font-weight:600}.client-cell{display:flex;align-items:center;gap:10px}.client-cell .avatar{border-radius:8px;width:31px;height:33px;font-size:9px}.client-cell .blue{background:#eaf0f3;color:#5d7a8c}.client-cell .green{background:#e9f0e9;color:#638269}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:5px;padding:4px 7px;font-size:9px;white-space:nowrap;font-weight:550}.badge:before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor}.pending{color:#a17e37;background:#f8f1df}.approved,.reviewed{color:#398066;background:#eaf4ee}.declined,.flagged{color:#b45c52;background:#faece9}.row-button{border:1px solid #dfe5e1;padding:7px 10px;border-radius:5px;font-size:10px;background:#fff;min-height:34px;display:inline-flex;gap:5px;align-items:center}.focus-card{background:var(--nav);border-radius:10px;padding:22px;color:#fff;margin-bottom:21px;position:relative;overflow:hidden}.focus-card .eyebrow{color:#d1b57a}.focus-card h2{font-size:19px;max-width:200px;margin-top:14px;line-height:1.45}.focus-card p{font-size:11px;color:#a6babb;margin-top:9px;line-height:1.7}.toolbar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}.toolbar input,.toolbar select{border:1px solid var(--line);background:#fff;border-radius:6px;padding:9px 11px;font-size:11px;min-height:39px}.toolbar input{min-width:190px}.page-empty{padding:50px 20px;text-align:center}.page-empty svg{width:30px;height:30px;color:var(--gold)}.page-empty h3{margin:12px 0 5px}.page-empty p{font-size:12px;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.request-card{padding:21px;background:#fff;border:1px solid var(--line);border-radius:10px}.request-card h3{font-size:16px;margin:17px 0 7px}.request-card p{font-size:12px;color:var(--muted);min-height:38px}.request-card .meta{font-size:11px;padding:16px 0;margin-top:8px;display:grid;gap:9px}.request-card .meta span{display:flex;gap:8px;align-items:center}.request-card .meta svg{width:14px;color:var(--gold)}.request-card .actions{padding-top:15px;border-top:1px solid var(--line)}.request-card .actions .btn{flex:1}.info-box{background:#f6f7f3;border:1px solid var(--line);border-radius:7px;padding:13px;font-size:11px;color:#697870;line-height:1.7}.drawer-dialog{border:0;padding:0;border-radius:13px;width:min(820px,calc(100% - 30px));max-height:calc(100dvh - 40px);color:var(--ink);box-shadow:0 30px 120px #00191540;background:#fff}.drawer-dialog::backdrop{background:#10232888;backdrop-filter:blur(4px)}.dialog-head{padding:23px 25px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px}.dialog-head h2{font-size:20px}.dialog-body{padding:24px 25px}.dialog-foot{padding:17px 25px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;background:#fbfcfa}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field{display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:550}.field input,.field select,.field textarea{border:1px solid #dfe5df;border-radius:6px;padding:11px 12px;min-height:42px;width:100%;color:var(--ink);background:white}.field textarea{min-height:80px;resize:vertical}.full{grid-column:1/-1}.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 25px;margin:20px 0 24px}.detail small{display:block;font-size:10px;margin-bottom:5px}.detail strong{font-size:12px;font-weight:550;overflow-wrap:anywhere}.booking-summary{display:flex;align-items:center;gap:14px;background:#f5f6f2;padding:15px;border-radius:8px}.booking-summary .summary-icon{background:#e9ebdf;border-radius:9px;width:43px;height:43px;display:grid;place-items:center;color:#8c7b50}.booking-summary .badge{margin-left:auto}.booking-summary h3{font-size:14px}.section-title{font-size:10px;letter-spacing:1px;text-transform:uppercase;margin:23px 0 12px;color:#8a7952}.photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.photo-placeholder{position:relative;background:#f5f6f2;border:1px dashed #d9dfd6;border-radius:7px;text-align:center;font-size:10px;color:var(--muted);overflow:hidden;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center}.photo-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}.toast{position:fixed;bottom:25px;left:calc(50% + 100px);transform:translateX(-50%);max-width:calc(100% - 32px);width:max-content;background:#1b3236;color:#fff;border-radius:9px;padding:14px 20px;font-size:12px;box-shadow:0 8px 40px #0002;z-index:100;display:none}.toast.show{display:block}.month-nav{display:flex;align-items:center;gap:13px}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}.day-name{font-size:10px;text-align:center;padding:14px;background:#fafbf8;color:var(--muted)}.day{min-height:105px;border-top:1px solid var(--line);border-right:1px solid var(--line);padding:9px;font-size:11px}.day.today{background:#f6f0e1}.calendar-event{display:block;text-align:left;width:100%;font-size:9px;background:#e9f1ec;border:0;border-left:2px solid #7f9c87;padding:5px;margin-top:5px;border-radius:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;color:var(--ink)}.day.empty{background:#fafbf8}.car-image-box{width:100%;border-radius:8px;margin-top:15px;overflow:hidden;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center}.car-image-box img{width:100%;height:auto;display:block}
 
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                slate: { 850: '#1e293b', 900: '#0f172a' },
-                gold: { DEFAULT: '#b89b5e', dark: '#a3884e' }
-              }
-            }
-          }
-        }
-    </script>
+/* Invoice Specific Styles restored from original */
+.invoice-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.invoice-paper{border:1px solid var(--line);padding:24px;border-radius:8px;background:#fdfefa}
+.invoice-paper .brand{padding:0 0 22px}
+.invoice-paper .brand strong{color:var(--ink);font-size:10px}
+.invoice-paper h2{font-size:24px}
+.invoice-meta{display:flex;justify-content:space-between;margin:19px 0;font-size:10px;gap:15px}
+.invoice-line{border-top:1px solid var(--line);padding:14px 0;font-size:11px;display:flex;justify-content:space-between;gap:10px}
+.invoice-total{background:var(--nav);color:#fff;border-radius:6px;padding:13px;display:flex;justify-content:space-between;gap:10px;font-size:13px}
+.invoice-paper small{font-size:9px}
+.invoice-paper .watermark{margin-top:22px;text-align:center;font-size:9px;letter-spacing:2px;color:#9d9175}
+.error{font-size:11px;color:var(--red);margin-top:10px}
 
-    <style>
-        body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #0f172a; }
-        h1, h2, h3, h4, .heading-font { font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
-        
-        /* Modal Transitions */
-        .modal-overlay { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-        .modal-overlay.open { opacity: 1; pointer-events: auto; }
-        .modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
-        .modal-overlay.open .modal-content { transform: scale(1); }
-
-        /* Sidebar Mobile Transitions */
-        #sidebar { transition: transform 0.3s ease; }
-        
-        /* Custom Scrollbar for tables */
-        .table-container::-webkit-scrollbar { height: 6px; }
-        .table-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .table-container::-webkit-scrollbar-track { background: #f1f5f9; }
-
-        /* Smooth Expand for Rows */
-        .expand-row { transition: all 0.3s ease-in-out; }
-    </style>
+@media print{body>*:not(dialog){display:none!important}dialog{position:static!important;display:block!important;width:100%!important;max-height:none!important;overflow:visible!important;box-shadow:none!important}dialog::backdrop{display:none}.dialog-head,.dialog-foot,.invoice-editor,.no-print{display:none!important}.dialog-body{padding:0}.invoice-layout{display:block}.invoice-paper{border:0;padding:20px}.invoice-total{color:#000;border:1px solid #aaa;background:white}}
+@media(max-width:760px){.invoice-layout{grid-template-columns:1fr}}
+</style>
 </head>
-<body class="antialiased flex h-screen overflow-hidden">
+<body>
+<button id="menu-overlay" class="menu-backdrop" aria-label="Close navigation"></button>
+<aside class="side" id="sidebar">
+    <a class="brand" href="#overview">
+        <span class="monogram">S&H</span>
+        <span><strong>S&H CONSULTING</strong><small>OPERATIONS PORTAL</small></span>
+    </a>
+    <nav id="nav"></nav>
+    <div class="side-bottom">
+        <div class="workspace-tag"><span class="dot"></span><span>n8n connected<small style="display:block;font-size:9px">Live webhook integration</small></span></div>
+        <div class="profile"><span class="avatar">BM</span><span><strong>Brian Maphumulo</strong><small>Operations Admin</small></span></div>
+    </div>
+</aside>
 
-    <!-- Mobile Sidebar Overlay -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/60 z-20 hidden lg:hidden" onclick="toggleSidebar()"></div>
-
-    <!-- Sidebar -->
-    <aside id="sidebar" class="bg-[#050505] text-white w-64 flex-shrink-0 fixed inset-y-0 left-0 transform -translate-x-full lg:relative lg:translate-x-0 z-30 flex flex-col border-r border-gray-800">
-        <div class="p-6 border-b border-gray-800 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-white px-2 py-1 rounded-sm">
-                    <img src="sh.JPG" alt="S&H Logo" class="h-6 w-auto filter grayscale contrast-150">
-                </div>
-                <span class="heading-font text-lg uppercase tracking-widest text-gold">Portal</span>
-            </div>
-            <button class="lg:hidden text-gray-400 hover:text-white" onclick="toggleSidebar()">
-                <i class="fas fa-times text-xl"></i>
-            </button>
+<div class="main">
+    <header class="topbar">
+        <button class="icon-btn mobile-menu" id="menu-btn"><span data-icon="menu"></span></button>
+        <div class="breadcrumb">Workspace <span style="margin:0 10px;color:#c0c8c6">/</span> <b id="crumb">Overview</b></div>
+        <div class="top-actions">
+            <label class="searchbox"><span data-icon="search"></span><input id="global-search" placeholder="Search operations…"><small>↵</small></label>
+            <span class="avatar">BM</span>
         </div>
+    </header>
+    <main class="content" id="main-content" tabindex="-1"></main>
+</div>
 
-        <nav class="flex-1 px-4 py-6 space-y-6 overflow-y-auto">
-            
-            <!-- Dashboard Overview -->
-            <div>
-                <button onclick="switchTab('overview')" id="nav-overview" class="nav-btn w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded transition bg-gold text-white">
-                    <i class="fas fa-chart-pie w-5"></i> Dashboard Overview
-                </button>
-            </div>
+<dialog class="drawer-dialog" id="dialog"></dialog>
+<div class="toast" id="toast"></div>
 
-            <!-- Department: Fleet Management -->
-            <div>
-                <p class="px-4 text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">Fleet Management</p>
-                <div class="space-y-1">
-                    <button onclick="switchTab('fleet-bookings')" id="nav-fleet-bookings" class="nav-btn w-full flex items-center gap-3 px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded transition">
-                        <i class="fas fa-calendar-alt w-5"></i> Pending Bookings <span class="ml-auto bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">3</span>
-                    </button>
-                    <button onclick="switchTab('inspections')" id="nav-inspections" class="nav-btn w-full flex items-center gap-3 px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded transition">
-                        <i class="fas fa-clipboard-check w-5"></i> Pre-Inspections
-                    </button>
-                </div>
-            </div>
+<script>
+'use strict';
 
-            <!-- Department: Infrastructure -->
-            <div>
-                <p class="px-4 text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">Infrastructure</p>
-                <div class="space-y-1">
-                    <button onclick="switchTab('infra-requests')" id="nav-infra-requests" class="nav-btn w-full flex items-center gap-3 px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded transition">
-                        <i class="fas fa-layer-group w-5"></i> Decor & Setup Req
-                    </button>
-                    <button onclick="switchTab('infra-condition')" id="nav-infra-condition" class="nav-btn w-full flex items-center gap-3 px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded transition">
-                        <i class="fas fa-tasks w-5"></i> Post-Event Audits
-                    </button>
-                </div>
-            </div>
+// ==========================================
+// CONFIGURATION: N8N WEBHOOK URLS
+// ==========================================
+const WEBHOOK_GET_BOOKINGS = 'https://n8n.automania.cloud/webhook/sh-get-bookings';
+const WEBHOOK_POST_BOOKING = 'https://n8n.automania.cloud/webhook/sh-new-booking';
+const WEBHOOK_GET_INSPECTIONS = 'https://n8n.automania.cloud/webhook/sh-get-inspections';
+const WEBHOOK_POST_APPROVE = 'https://n8n.automania.cloud/webhook/sh-approve-booking';
+const WEBHOOK_POST_INVOICE = 'https://n8n.automania.cloud/webhook/sh-send-invoice';
 
-            <!-- Department: Project Management -->
-            <div>
-                <p class="px-4 text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">Project Management</p>
-                <div class="space-y-1">
-                    <button onclick="switchTab('pm-briefs')" id="nav-pm-briefs" class="nav-btn w-full flex items-center gap-3 px-4 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded transition">
-                        <i class="fas fa-folder-open w-5"></i> Briefing Notes
-                    </button>
-                </div>
-            </div>
+// SVG Icons[cite: 2]
+const paths={grid:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',car:'M5 17H3V9l2-5h14l2 5v8h-2 M5 17h14 M5 9h14 M7 13h.01 M17 13h.01 M5 17v3 M19 17v3',check:'m5 12 4 4L19 6',clipboard:'M9 4H5v17h14V4h-4 M9 2h6v5H9z M8 12l2 2 5-5 M8 18h7',calendar:'M4 5h16v16H4z M4 10h16 M8 2v6 M16 2v6 M8 14h2 M14 14h2 M8 17h2',search:'M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15 M16 16l5 5',plus:'M12 5v14 M5 12h14',arrow:'M4 12h16 m-6-6 6 6-6 6',close:'m6 6 12 12 M6 18 18 6',menu:'M4 6h16 M4 12h16 M4 18h16',users:'M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M2 21v-3a7 7 0 0 1 14 0v3 M17 3a4 4 0 0 1 0 8 M19 15a6 6 0 0 1 3 6',pin:'M12 22S4 14 4 9a8 8 0 0 1 16 0c0 5-8 13-8 13z M12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6',image:'M3 3h18v18H3z m0 15 6-6 5 5 3-3 4 4 M15 7h.01',layers:'m12 3 10 5-10 5L2 8z M2 12l10 5 10-5 M2 16l10 5 10-5',folder:'M3 6h6l2 2h10v12H3z M3 6V4h6l2 2',invoice:'M5 3h14v19l-3-2-4 2-4-2-3 2z M8 8h8 M8 12h8 M8 16h5',print:'M6 9V3h12v6 M6 18H3V9h18v9h-3 M6 14h12v8H6z',mail:'M3 5h18v14H3z m0 0 9 8 9-8',chevron:'m9 5 7 7-7 7'};
+function icon(n){return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${paths[n]||paths.grid}"/></svg>`}
+function icons(){document.querySelectorAll('[data-icon]').forEach(x=>{x.innerHTML=icon(x.dataset.icon)})}
 
-        </nav>
+const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => new Intl.NumberFormat('en-ZA',{style:'currency',currency:'ZAR',maximumFractionDigits:2}).format(Number(n)||0);
+const date = s => new Date(s+'T12:00:00').toLocaleDateString('en-ZA',{day:'numeric',month:'short'});
+const fullDate = s => new Date(s+'T12:00:00').toLocaleDateString('en-ZA',{day:'numeric',month:'short',year:'numeric'});
 
-        <!-- Footer / Billing -->
-        <div class="p-4 border-t border-gray-800 space-y-4">
-            <button onclick="switchTab('billing')" id="nav-billing" class="nav-btn w-full flex items-center gap-3 px-4 py-2 text-sm font-bold text-gray-300 hover:text-gold rounded transition border border-gray-700 hover:border-gold">
-                <i class="fas fa-file-invoice-dollar w-5"></i> Invoices & Billing
-            </button>
-            <div class="flex items-center gap-3 px-4 pt-2">
-                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center border border-gray-600">
-                    <i class="fas fa-user-shield text-gold text-xs"></i>
-                </div>
-                <div>
-                    <p class="text-xs font-bold uppercase tracking-wider">Admin User</p>
-                    <a href="/" class="text-[10px] text-gray-500 hover:text-gold transition">Log Out</a>
-                </div>
-            </div>
+// Local image map
+const carImageName = name => String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.jpg';
+
+// Local State
+let state = { bookings: [], inspections: [], invoices: [], infrastructure: [], briefs: [] };
+let page = 'overview', filter = 'All', query = '', calendarMonth = 9, calendarYear = 2026, toastTimer;
+
+const titles = {
+    overview: ['Overview', 'A clear view of your operations.'],
+    calendar: ['Operations calendar', 'Your approved deployments, in one place.'],
+    bookings: ['Car Bookings', 'Review requests, confirm details and manage deployments.'],
+    inspections: ['Pre-inspections', 'View customer-submitted vehicle condition reports.'],
+    infrastructure: ['Events & Setup', 'Manage event infrastructure and staging (Placeholder).'],
+    briefs: ['Project Briefs', 'Turn incoming briefs into well-managed projects (Placeholder).']
+};
+
+function toast(s) {
+    const t = document.getElementById('toast');
+    t.textContent = s; t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 5000);
+}
+
+function badge(s) {
+    let c = /Pending|New/.test(s) ? 'pending' : /Approved|Reviewed/.test(s) ? 'approved' : /Declined|Flagged/.test(s) ? 'declined' : 'draft';
+    return `<span class="badge ${c}">${esc(s)}</span>`
+}
+
+// ---------------------------------------------------------
+// DATA FETCHING (n8n Integration)
+// ---------------------------------------------------------
+async function loadData() {
+    try {
+        const resBookings = await fetch(WEBHOOK_GET_BOOKINGS);
+        if(resBookings.ok) {
+            const data = await resBookings.json();
+            state.bookings = data.bookings || [];
+            // Preserve invoices if returned from sheet, otherwise rely on local drafts
+        } else throw new Error('Fallback bookings');
+
+        const resInspections = await fetch(WEBHOOK_GET_INSPECTIONS);
+        if(resInspections.ok) {
+            const iData = await resInspections.json();
+            state.inspections = iData.inspections || [];
+        } else throw new Error('Fallback inspections');
+
+    } catch (e) {
+        // Fallback data
+        state.bookings = [
+            {id:'BK-1042', client:'Department of Works', contact:'Sylvester M.', email:'sylvester@example.com', service:'Hyundai Staria', start:'2026-10-14', end:'2026-10-16', status:'Pending', amount:7500, driver:'Sylvester M.', location:'Pretoria → Johannesburg', notes:'Executive airport transfers.'},
+            {id:'BK-1040', client:'Summit Partners', contact:'Naledi S.', email:'summit@example.com', service:'Mercedes V-Class', start:'2026-10-12', end:'2026-10-13', status:'Approved', amount:8600, driver:'Assigned chauffeur', location:'OR Tambo → Pretoria', notes:'Return transfer and full-day executive transport.'}
+        ];
+        state.invoices = [{id:'INV-2026-040', bookingId:'BK-1040', amount:8600, tax:0, deposit:100, due:'2026-10-13', notes:'Executive transport package.', status:'Draft'}];
+        state.inspections = [{id:'INSP-088', bookingId:'BK-1040', title:'Mercedes V-Class', client:'Summit Partners (Submitted by Driver)', driver:'Assigned chauffeur', clean:'4 / 5', fuel:'¾ tank', odometer:'42,180 km', status:'Pending review', notes:'Small scratch on rear bumper.', photoFront: '', photoRear: ''}];
+        state.infrastructure = [ {id:'EVT-001', title:'VIP Lounge Setup', client:'Northside Collective', location:'Centurion', date:'2026-10-16', status:'Approved'} ];
+        state.briefs = [ {id:'PRJ-014', title:'Year-end summit', client:'Summit Partners', location:'Johannesburg', date:'2026-11-12', status:'New'} ];
+        console.log("Using local fallback data.");
+    }
+    render();
+}
+
+// ---------------------------------------------------------
+// UI RENDERING
+// ---------------------------------------------------------
+function nav() {
+    const pending = state.bookings.filter(x => x.status === 'Pending').length;
+    const item = (id, label, ic, count = '') => `<button class="nav-item ${page === id ? 'active' : ''}" data-nav="${id}">${icon(ic)}<span>${label}</span>${count !== '' ? `<span class="count">${count}</span>` : ''}</button>`;
+    document.getElementById('nav').innerHTML = `
+        <div class="nav-label">Workspace</div>
+        ${item('overview', 'Overview', 'grid')}
+        ${item('calendar', 'Calendar', 'calendar')}
+        <div class="nav-label">Mobility</div>
+        ${item('bookings', 'Car Bookings', 'car', pending)}
+        ${item('inspections', 'Pre-inspections', 'clipboard')}
+        <div class="nav-label">Other Services</div>
+        ${item('infrastructure', 'Events & Setup', 'layers')}
+        ${item('briefs', 'Project Briefs', 'folder')}
+    `;
+}
+
+function setPage(p) {
+    if (!titles[p]) p = 'overview';
+    page = p; filter = 'All'; query = '';
+    render(); window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function bookingRows(list) {
+    if (!list.length) return `<div class="page-empty">${icon('search')}<h3>No matching records</h3></div>`;
+    return `<div class="table-wrap responsive"><table><thead><tr><th>Client / request</th><th>Vehicle</th><th class="date-column">Booking dates</th><th>Status</th><th style="text-align:right">Action</th></tr></thead><tbody>
+    ${list.map((b, i) => `<tr>
+        <td><div class="client-cell"><span class="avatar ${['', 'blue', 'green'][i % 3]}">${esc(b.client.charAt(0))}</span><div><strong>${esc(b.client)}</strong><small>${esc(b.id)} ·${esc(b.contact)}</small></div></div></td>
+        <td><strong>${esc(b.service)}</strong></td>
+        <td class="date-column">${date(b.start)} – ${date(b.end)}<small>${esc(b.start.slice(0, 4))}</small></td>
+        <td>${badge(b.status)}</td>
+        <td style="text-align:right">
+            ${b.status === 'Approved' 
+                ? `<button class="row-button" data-action="invoice" data-id="${b.id}">${icon('invoice')}Invoice</button>`
+                : `<button class="row-button" data-action="booking" data-id="${b.id}">View${icon('chevron')}</button>`}
+        </td>
+    </tr>`).join('')}</tbody></table></div>`;
+}
+
+function bookingPanel() {
+    const list = state.bookings.filter(b => (filter === 'All' || b.status === filter) && `${b.id} ${b.client} ${b.contact} ${b.service}`.toLowerCase().includes(query.toLowerCase()));
+    return `<section class="panel">
+        <div class="panel-head"><div><h2>Car Booking Requests</h2><p>Review and approve vehicle deployments based on ROI.</p></div></div>
+        <div class="tabs">
+            ${['All', 'Pending', 'Approved'].map(f => `<button class="tab ${filter === f ? 'active' : ''}" data-filter="${f}">${f}</button>`).join('')}
         </div>
-    </aside>
+        <div class="toolbar">
+            <label class="searchbox">${icon('search')}<input id="booking-search" placeholder="Search clients or vehicles…" value="${esc(query)}"></label>
+        </div>
+        <div id="booking-results">${bookingRows(list)}</div>
+    </section>`;
+}
 
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-slate-50">
+function overview() {
+    return `<div class="dashboard-grid"><div>${bookingPanel()}</div><aside class="dashboard-aside"><section class="focus-card"><div class="eyebrow">PRIORITY</div><h2>Keep operations moving.</h2><p>Always price based on value provided to the client.</p></section></aside></div>`;
+}
+
+function inspections() {
+    return `<div class="cards">${state.inspections.map(i => `
+        <article class="request-card">
+            <div style="display:flex;justify-content:space-between"><span class="eyebrow">${i.id}</span>${badge(i.status)}</div>
+            <h3>${esc(i.title)}</h3><p>${esc(i.client)}</p>
+            <div class="meta"><span>${icon('users')}${esc(i.driver)}</span><span>${icon('car')}${esc(i.odometer)} ·${esc(i.fuel)}</span></div>
+            <div class="actions"><button class="btn primary" data-action="inspection" data-id="${i.id}">Review Submission ${icon('arrow')}</button></div>
+        </article>`).join('')}
+    </div>`;
+}
+
+function calendar() {
+    let first = new Date(calendarYear, calendarMonth, 1), days = new Date(calendarYear, calendarMonth + 1, 0).getDate(), offset = (first.getDay() + 6) % 7;
+    return `<section class="panel"><div class="panel-head"><h2>Vehicle Schedule</h2><div class="month-nav"><button class="icon-btn" data-action="month-prev">‹</button><strong>${first.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' })}</strong><button class="icon-btn" data-action="month-next">›</button></div></div>
+    <div class="calendar-wrap"><div class="calendar">${['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => `<div class="day-name">${d}</div>`).join('')}${Array.from({ length: offset }, () => '<div class="day empty"></div>').join('')}${Array.from({ length: days }, (_, j) => {
+        const d = `${calendarYear}-${String(calendarMonth + 1).padStart(2, '0')}-${String(j + 1).padStart(2, '0')}`;
+        return `<div class="day ${d === '2026-10-13' ? 'today' : ''}"><span>${j + 1}</span>${state.bookings.filter(b => b.start <= d && b.end >= d && b.status === 'Approved').map(b => `<button class="calendar-event" data-action="booking" data-id="${b.id}">${esc(b.service)}</button>`).join('')}
+        </div>`
+    }).join('')}</div></div><div class="panel-foot">Only approved bookings are mapped to the calendar.</div></section>`;
+}
+
+function placeholders(type) {
+    if(!state[type] || !state[type].length) return `<div class="page-empty">${icon('layers')}<h3>No records found</h3><p>This module is currently a placeholder.</p></div>`;
+    return `<div class="cards">${state[type].map(r=>`<article class="request-card"><div style="display:flex;justify-content:space-between"><span class="eyebrow">${r.id}</span>${badge(r.status)}</div><h3>${esc(r.title)}</h3><p>${esc(r.client)}</p><div class="meta"><span>${icon('pin')}${esc(r.location)}</span><span>${icon('calendar')}${date(r.date)}</span></div><div class="actions"><button class="btn ghost" disabled>UI Placeholder</button></div></article>`).join('')}</div>`;
+}
+
+function render() {
+    nav();
+    document.getElementById('crumb').textContent = titles[page][0];
+    document.getElementById('main-content').innerHTML = `
+        <div class="page-head">
+            <div><div class="eyebrow">S&H WORKSPACE</div><h1>${titles[page][0]}</h1><p class="subtitle">${titles[page][1]}</p></div>
+            <div class="actions">${page === 'bookings' || page === 'overview' ? `<button class="btn primary" data-action="new">${icon('plus')}New Booking</button>` : ''}</div>
+        </div>
+        ${({ overview, bookings: () => bookingPanel(), inspections, calendar, infrastructure: () => placeholders('infrastructure'), briefs: () => placeholders('briefs') })[page]()}
+        <footer class="footer"><span>© 2026 S&H Consulting · Powered by Automania workflows</span></footer>
+    `;
+    icons();
+}
+
+// ---------------------------------------------------------
+// DIALOGS & FORMS
+// ---------------------------------------------------------
+function openDialog(title, sub, body, foot = '') {
+    const d = document.getElementById('dialog');
+    d.innerHTML = `<div class="dialog-head"><div><h2>${title}</h2><small>${sub}</small></div><button class="icon-btn" data-action="close">${icon('close')}</button></div><div class="dialog-body">${body}</div>${foot ? `<div class="dialog-foot">${foot}</div>` : ''}`;
+    if (!d.open) d.showModal(); d.scrollTop = 0;
+}
+function closeDialog() { document.getElementById('dialog').close(); }
+const booking = id => state.bookings.find(b => b.id === id);
+
+// View Booking
+function viewBooking(id) {
+    const b = booking(id);
+    const carImg = carImageName(b.service);
+
+    openDialog('Booking details', `${b.id}`, `
+        <div class="booking-summary"><span class="summary-icon">${icon('car')}</span><div><h3>${esc(b.service)}</h3><p>${esc(b.client)}</p></div>${badge(b.status)}</div>
+        <div class="car-image-box">
+            <img src="${carImg}" alt="${esc(b.service)}" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+        </div>
+        <div class="details-grid">
+            ${[['Client contact', b.contact], ['Email', b.email], ['Dates', `${fullDate(b.start)} –${fullDate(b.end)}`], ['Location', b.location], ['Driver', b.driver], ['Projected Value', money(b.amount)]].map(([k, v]) => `<div class="detail"><small>${k}</small><strong>${esc(v)}</strong></div>`).join('')}
+        </div>
+        <h3 class="section-title">Operations note</h3><div class="info-box">${esc(b.notes)}</div>
+    `, `<button class="btn" data-action="close">Close</button>
+        ${b.status === 'Pending' ? `<button class="btn primary" data-action="approval" data-id="${id}">${icon('check')}Approve & Invoice</button>` : ''}
+        ${b.status === 'Approved' ? `<button class="btn primary" data-action="invoice" data-id="${id}">${icon('invoice')}Manage Invoice</button>` : ''}`);
+}
+
+// Full Approval Flow triggering Webhook & Invoice View[cite: 2]
+function approval(id) {
+    const b = booking(id);
+    if (b.status !== 'Pending') return viewBooking(id);
+    openDialog('Approve booking', `${b.id} · ${esc(b.client)}`, `
+        <form id="approval-form">
+            <div class="booking-summary"><span class="summary-icon">${icon('car')}</span><div><h3>${esc(b.service)}</h3><p>Confirm the final details and value before approval.</p></div></div>
+            <div class="form-grid section-space">
+                <label class="field full">Confirmed value (ZAR, before tax)<input type="number" name="amount" min="0.01" step="0.01" value="${b.amount}" required></label>
+                <label class="field">Start date<input name="start" type="date" value="${b.start}" required></label>
+                <label class="field">End date<input name="end" type="date" value="${b.end}" required></label>
+                <label class="field full">Operations note<textarea name="notes">${esc(b.notes)}</textarea></label>
+            </div>
+            <div class="info-box section-space">Approving this will log the data to Google Sheets via n8n and immediately begin invoice preparation.</div>
+            <p id="approval-error" class="error" role="alert"></p>
+        </form>
+    `, `<button class="btn" data-action="booking" data-id="${id}">Back</button><button class="btn primary" type="submit" form="approval-form" id="approve-submit">${icon('check')}Approve Booking</button>`);
+    
+    document.getElementById('approval-form').onsubmit = async e => {
+        e.preventDefault();
+        const f = new FormData(e.target);
+        const start = f.get('start'), end = f.get('end'), amount = Number(f.get('amount'));
+        if (end < start) { document.getElementById('approval-error').textContent = 'End date must be on or after the start date.'; return; }
         
-        <!-- Header -->
-        <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-6 flex-shrink-0">
-            <div class="flex items-center gap-4">
-                <button class="lg:hidden text-slate-500 hover:text-slate-900" onclick="toggleSidebar()">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-                <h1 id="header-title" class="text-xl heading-font uppercase text-slate-900 tracking-wide">Dashboard Overview</h1>
-            </div>
-            <div class="flex items-center gap-4">
-                <button class="text-slate-400 hover:text-gold transition relative">
-                    <i class="fas fa-bell text-lg"></i>
-                    <span class="absolute -top-1 -right-1 bg-red-500 w-2.5 h-2.5 rounded-full"></span>
-                </button>
-            </div>
-        </header>
+        Object.assign(b, { start, end, amount, notes: f.get('notes'), status: 'Approved' });
+        
+        const btn = document.getElementById('approve-submit');
+        btn.innerHTML = 'Sending...'; btn.disabled = true;
 
-        <!-- Content Area -->
-        <div class="flex-1 overflow-y-auto p-4 md:p-8">
-            
-            <!-- TAB: OVERVIEW -->
-            <div id="tab-overview" class="tab-content block space-y-6">
-                <!-- KPI Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-xl"><i class="fas fa-calendar-day"></i></div>
-                        <div><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Pending Bookings</p><h3 class="text-2xl heading-font text-slate-900">3</h3></div>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-yellow-50 text-yellow-500 flex items-center justify-center text-xl"><i class="fas fa-clipboard-list"></i></div>
-                        <div><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Pre-Inspections</p><h3 class="text-2xl heading-font text-slate-900">2</h3></div>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-green-50 text-green-500 flex items-center justify-center text-xl"><i class="fas fa-layer-group"></i></div>
-                        <div><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Active Infra Setups</p><h3 class="text-2xl heading-font text-slate-900">1</h3></div>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-gold/10 text-gold flex items-center justify-center text-xl"><i class="fas fa-wallet"></i></div>
-                        <div><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Est. Monthly Rev</p><h3 class="text-2xl heading-font text-slate-900">R 142k</h3></div>
-                    </div>
+        try {
+            await fetch(WEBHOOK_POST_APPROVE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
+            toast('Booking approved in Sheets. Preparing invoice.');
+            render();
+            invoice(id); // Chain directly to the invoice screen[cite: 2]
+        } catch (err) {
+            toast('Warning: Could not reach n8n approval webhook.');
+            btn.innerHTML = 'Error'; btn.disabled = false;
+        }
+    }
+}
+
+// Generate Invoice Helper
+function nextInvoiceId(){const n=Math.max(40,...state.invoices.map(i=>Number(i.id.split('-').at(-1))))+1;return 'INV-2026-'+String(n).padStart(3,'0')}
+
+// Manage and Send Invoice View[cite: 2]
+function invoice(id) {
+    const b = booking(id);
+    if (b.status !== 'Approved') { toast('Approve this booking before preparing an invoice.'); return viewBooking(id); }
+    
+    const existing = state.invoices.find(i => i.bookingId === id);
+    const draft = existing ? structuredClone(existing) : { id: nextInvoiceId(), bookingId: id, amount: b.amount, tax: 0, deposit: 50, due: b.start, notes: '', status: 'Draft' };
+    
+    openDialog('Prepare invoice', `${draft.id} · ${esc(b.client)}`, `
+        <div class="invoice-layout">
+            <form class="invoice-editor" id="invoice-form">
+                <div class="form-grid">
+                    <label class="field full">Recipient email<input name="email" type="email" required value="${esc(b.email)}"></label>
+                    <label class="field full">Service amount (ZAR)<input name="amount" type="number" step="0.01" required value="${draft.amount}"></label>
+                    <label class="field">Tax rate (%)<input name="tax" type="number" min="0" max="100" step="0.01" value="${draft.tax}" required></label>
+                    <label class="field">Deposit (%)<input name="deposit" type="number" min="0" max="100" value="${draft.deposit}" required></label>
+                    <label class="field full">Payment due date<input name="due" type="date" required value="${draft.due}"></label>
+                    <label class="field full">Invoice notes<textarea name="notes" placeholder="Payment terms or service notes…">${esc(draft.notes)}</textarea></label>
                 </div>
-            </div>
-
-            <!-- TAB: FLEET PENDING BOOKINGS -->
-            <div id="tab-fleet-bookings" class="tab-content hidden space-y-6">
-                <div class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
-                    <div class="p-6 border-b border-slate-100 flex justify-between items-center">
-                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest">Mobility Booking Requests</h3>
-                        <button class="text-slate-400 hover:text-slate-900"><i class="fas fa-sync-alt"></i></button>
-                    </div>
-                    
-                    <div class="table-container overflow-x-auto w-full">
-                        <table class="w-full text-left border-collapse min-w-[850px]">
-                            <thead>
-                                <tr class="bg-slate-50 text-[10px] uppercase tracking-widest text-slate-500 border-b border-slate-200">
-                                    <th class="p-4 font-bold">Req ID</th>
-                                    <th class="p-4 font-bold">Vehicle</th>
-                                    <th class="p-4 font-bold">Client / Org</th>
-                                    <th class="p-4 font-bold">Requested Dates</th>
-                                    <th class="p-4 font-bold text-center">Details</th>
-                                    <th class="p-4 font-bold text-right">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm">
-                                <!-- Row 1 -->
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition" id="row-BK-1042">
-                                    <td class="p-4 font-mono text-xs text-slate-500">#BK-1042</td>
-                                    <td class="p-4 font-bold text-slate-900">Hyundai Staria</td>
-                                    <td class="p-4 text-slate-700">Dept of Works <br><span class="text-xs text-slate-400">Sylvester M.</span></td>
-                                    <td class="p-4 text-slate-600">12 Oct 2026<br><span class="text-xs text-slate-400">to 15 Oct 2026</span></td>
-                                    <td class="p-4 text-center">
-                                        <button onclick="openBookingDetails('Dept of Works', 'sylvester@works.gov.za', '082 123 4567', 'Ayanda Pule', 'Valid Code 8')" class="text-xs font-bold text-slate-500 hover:text-gold border border-slate-200 bg-white px-3 py-1.5 rounded transition">
-                                            View Details
-                                        </button>
-                                    </td>
-                                    <td class="p-4 text-right">
-                                        <button onclick="toggleInlineExpand('BK-1042')" class="text-[11px] font-bold text-white bg-slate-900 hover:bg-gold px-4 py-2 rounded transition shadow-sm inline-flex items-center gap-2">
-                                            Confirm Booking <i id="icon-BK-1042" class="fas fa-chevron-down"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <!-- Row 1 Expanded (Hidden by default) -->
-                                <tr id="expand-BK-1042" class="hidden bg-slate-100/50 border-b-2 border-slate-200 expand-row">
-                                    <td colspan="6" class="p-4 px-6">
-                                        <form onsubmit="generateInlineInvoice(event, 'BK-1042')" class="flex flex-wrap md:flex-nowrap items-end gap-4 p-5 bg-white rounded-lg shadow-sm border border-slate-200">
-                                            <div class="flex-1 min-w-[150px]">
-                                                <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-1 uppercase">Price Tag (ZAR)</label>
-                                                <div class="relative">
-                                                    <span class="absolute left-3 top-2.5 text-slate-400 text-sm font-bold">R</span>
-                                                    <input type="number" required placeholder="0.00" class="w-full bg-slate-50 border border-slate-200 rounded p-2 pl-8 text-sm font-bold text-slate-900 focus:border-gold outline-none">
-                                                </div>
-                                            </div>
-                                            <div class="flex-1 min-w-[130px]">
-                                                <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-1 uppercase">Start Date</label>
-                                                <input type="date" value="2026-10-12" required class="w-full bg-slate-50 border border-slate-200 rounded p-2 text-sm text-slate-700 focus:border-gold outline-none">
-                                            </div>
-                                            <div class="flex-1 min-w-[130px]">
-                                                <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-1 uppercase">End Date</label>
-                                                <input type="date" value="2026-10-15" required class="w-full bg-slate-50 border border-slate-200 rounded p-2 text-sm text-slate-700 focus:border-gold outline-none">
-                                            </div>
-                                            <div class="w-full md:w-auto mt-2 md:mt-0">
-                                                <button type="submit" id="btn-gen-BK-1042" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-2.5 px-6 rounded transition shadow-md flex items-center justify-center gap-2 h-[38px]">
-                                                    <i class="fas fa-file-invoice"></i> Generate Invoice
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </td>
-                                </tr>
-
-                                <!-- Row 2 -->
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition" id="row-BK-1043">
-                                    <td class="p-4 font-mono text-xs text-slate-500">#BK-1043</td>
-                                    <td class="p-4 font-bold text-slate-900">Mercedes V-Class</td>
-                                    <td class="p-4 text-slate-700">Private Delegation <br><span class="text-xs text-slate-400">John Doe</span></td>
-                                    <td class="p-4 text-slate-600">20 Oct 2026<br><span class="text-xs text-slate-400">to 21 Oct 2026</span></td>
-                                    <td class="p-4 text-center">
-                                        <button onclick="openBookingDetails('Private Delegation', 'john@private.com', '071 987 6543', 'John Doe', 'Valid Code 10')" class="text-xs font-bold text-slate-500 hover:text-gold border border-slate-200 bg-white px-3 py-1.5 rounded transition">
-                                            View Details
-                                        </button>
-                                    </td>
-                                    <td class="p-4 text-right">
-                                        <button onclick="toggleInlineExpand('BK-1043')" class="text-[11px] font-bold text-white bg-slate-900 hover:bg-gold px-4 py-2 rounded transition shadow-sm inline-flex items-center gap-2">
-                                            Confirm Booking <i id="icon-BK-1043" class="fas fa-chevron-down"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <!-- Row 2 Expanded -->
-                                <tr id="expand-BK-1043" class="hidden bg-slate-100/50 border-b-2 border-slate-200 expand-row">
-                                    <td colspan="6" class="p-4 px-6">
-                                        <form onsubmit="generateInlineInvoice(event, 'BK-1043')" class="flex flex-wrap md:flex-nowrap items-end gap-4 p-5 bg-white rounded-lg shadow-sm border border-slate-200">
-                                            <div class="flex-1 min-w-[150px]">
-                                                <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-1 uppercase">Price Tag (ZAR)</label>
-                                                <div class="relative">
-                                                    <span class="absolute left-3 top-2.5 text-slate-400 text-sm font-bold">R</span>
-                                                    <input type="number" required placeholder="0.00" class="w-full bg-slate-50 border border-slate-200 rounded p-2 pl-8 text-sm font-bold text-slate-900 focus:border-gold outline-none">
-                                                </div>
-                                            </div>
-                                            <div class="flex-1 min-w-[130px]">
-                                                <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-1 uppercase">Start Date</label>
-                                                <input type="date" value="2026-10-20" required class="w-full bg-slate-50 border border-slate-200 rounded p-2 text-sm text-slate-700 focus:border-gold outline-none">
-                                            </div>
-                                            <div class="flex-1 min-w-[130px]">
-                                                <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-1 uppercase">End Date</label>
-                                                <input type="date" value="2026-10-21" required class="w-full bg-slate-50 border border-slate-200 rounded p-2 text-sm text-slate-700 focus:border-gold outline-none">
-                                            </div>
-                                            <div class="w-full md:w-auto mt-2 md:mt-0">
-                                                <button type="submit" id="btn-gen-BK-1043" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-2.5 px-6 rounded transition shadow-md flex items-center justify-center gap-2 h-[38px]">
-                                                    <i class="fas fa-file-invoice"></i> Generate Invoice
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB: PRE-INSPECTIONS -->
-            <div id="tab-inspections" class="tab-content hidden space-y-6">
-                <div class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
-                    <div class="p-6 border-b border-slate-100 flex justify-between items-center">
-                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest">Submitted Inspections</h3>
-                    </div>
-                    
-                    <div class="table-container overflow-x-auto w-full">
-                        <table class="w-full text-left border-collapse min-w-[800px]">
-                            <thead>
-                                <tr class="bg-slate-50 text-[10px] uppercase tracking-widest text-slate-500 border-b border-slate-200">
-                                    <th class="p-4 font-bold">Insp ID</th>
-                                    <th class="p-4 font-bold">Vehicle</th>
-                                    <th class="p-4 font-bold">Booked By</th>
-                                    <th class="p-4 font-bold">Driver Name</th>
-                                    <th class="p-4 font-bold">Status</th>
-                                    <th class="p-4 font-bold text-right">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm">
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition">
-                                    <td class="p-4 font-mono text-xs text-slate-500">#INSP-088</td>
-                                    <td class="p-4 font-bold text-slate-900">Mercedes V-Class</td>
-                                    <td class="p-4 text-slate-700">Makarapa Events</td>
-                                    <td class="p-4 text-slate-600">Thabo M.</td>
-                                    <td class="p-4"><span class="bg-yellow-100 text-yellow-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Pending Review</span></td>
-                                    <td class="p-4 text-right">
-                                        <button onclick="openInspectionModal('Mercedes V-Class', 'Thabo M.', '4/5', '3/4 Tank', 'Small scratch on rear left bumper rim.')" class="text-[11px] font-bold text-white bg-slate-900 hover:bg-gold px-4 py-2 rounded transition shadow-sm flex items-center justify-center gap-2 ml-auto">
-                                            <i class="fas fa-images"></i> View Report
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB PLACEHOLDERS (Infrastructure, PM, Billing) -->
-            <div id="tab-infra-requests" class="tab-content hidden h-full">
-                <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-10 text-center">
-                    <i class="fas fa-layer-group text-4xl text-slate-300 mb-4"></i>
-                    <h3 class="text-lg heading-font uppercase text-slate-900">Decor & Setup Requests</h3>
-                    <p class="text-sm text-slate-500 mt-2">No pending infrastructure requests at this time.</p>
-                </div>
-            </div>
-            
-            <div id="tab-infra-condition" class="tab-content hidden h-full">
-                <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-10 text-center">
-                    <i class="fas fa-tasks text-4xl text-slate-300 mb-4"></i>
-                    <h3 class="text-lg heading-font uppercase text-slate-900">Post-Event Audits</h3>
-                    <p class="text-sm text-slate-500 mt-2">All equipment has been successfully audited and returned.</p>
-                </div>
-            </div>
-
-            <div id="tab-pm-briefs" class="tab-content hidden h-full">
-                <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-10 text-center">
-                    <i class="fas fa-folder-open text-4xl text-slate-300 mb-4"></i>
-                    <h3 class="text-lg heading-font uppercase text-slate-900">Project Briefing Notes</h3>
-                    <p class="text-sm text-slate-500 mt-2">No new project briefs received today.</p>
-                </div>
-            </div>
-
-            <div id="tab-billing" class="tab-content hidden h-full">
-                <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-10 text-center">
-                    <i class="fas fa-file-invoice-dollar text-4xl text-slate-300 mb-4"></i>
-                    <h3 class="text-lg heading-font uppercase text-slate-900">Invoices & Billing</h3>
-                    <p class="text-sm text-slate-500 mt-2">Financial overview and invoice history module.</p>
-                </div>
-            </div>
-
+                <div class="info-box section-space">Tax defaults to 0%. Sending this invoice triggers the n8n webhook.</div>
+            </form>
+            <div class="invoice-paper" id="invoice-paper"></div>
         </div>
-    </main>
+    `, `<button class="btn" data-action="close">Close</button><button class="btn" id="print-invoice">${icon('print')}Print / PDF</button><button class="btn primary" id="send-invoice">${icon('mail')}Send via n8n</button>`);
+    
+    const form = document.getElementById('invoice-form');
+    const read = () => { const f = new FormData(form); return { ...draft, amount: Number(f.get('amount')), tax: Number(f.get('tax')), deposit: Number(f.get('deposit')), due: f.get('due'), notes: f.get('notes'), email: f.get('email') }};
+    
+    function preview() {
+        const i = read(), total = i.amount * (1 + i.tax / 100);
+        document.getElementById('invoice-paper').innerHTML = `
+            <div class="brand"><span class="monogram">S&H</span><span><strong>S&H CONSULTING</strong><small>MOBILITY PORTAL</small></span></div>
+            <div class="eyebrow">INVOICE PREVIEW</div><h2>${i.id}</h2>
+            <div class="invoice-meta"><div><small>BILL TO</small><br><strong>${esc(b.client)}</strong><br>${esc(i.email)}</div><div><small>BOOKING</small><br>${b.id}<br>Due ${i.due ? date(i.due) : '—'}</div></div>
+            <div class="invoice-line"><span>${esc(b.service)}<br><small>${fullDate(b.start)} – ${fullDate(b.end)}</small></span><b>${money(i.amount)}</b></div>
+            <div class="invoice-line"><span>Tax (${i.tax||0}%)</span><span>${money(i.amount * i.tax / 100)}</span></div>
+            <div class="invoice-total"><b>Total</b><b>${money(total)}</b></div>
+            <div class="invoice-line"><span>Deposit (${i.deposit||0}%)</span><b>${money(total * i.deposit / 100)}</b></div>
+            <div class="invoice-line"><span>Remaining balance</span><span>${money(total * (1 - i.deposit / 100))}</span></div>
+            <small style="display:block;white-space:pre-wrap;overflow-wrap:anywhere">${esc(i.notes) || 'Thank you for choosing S&H Consulting.'}</small>
+            <div class="watermark">${i.status === 'Sent' ? 'SENT' : 'DRAFT · NOT SENT'}</div>
+        `;
+    }
+    
+    function persist() {
+        if(!form.reportValidity()) return null;
+        const i = read();
+        const index = state.invoices.findIndex(x => x.bookingId === id);
+        if(index < 0) state.invoices.unshift(i); else state.invoices[index] = i;
+        b.email = i.email;
+        return i;
+    }
+    
+    form.addEventListener('input', preview); 
+    preview();
+    
+    document.getElementById('print-invoice').onclick = () => { if(persist()){ preview(); window.print(); }};
+    
+    document.getElementById('send-invoice').onclick = async () => {
+        const i = persist();
+        if(!i) return;
+        const btn = document.getElementById('send-invoice');
+        btn.innerHTML = 'Sending...'; btn.disabled = true;
+        
+        try {
+            await fetch(WEBHOOK_POST_INVOICE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ invoice: i, booking: b, recipient: i.email }) });
+            toast('Invoice successfully routed to n8n webhook.');
+            i.status = 'Sent';
+            preview();
+        } catch (err) {
+            toast('Warning: Could not reach n8n invoice webhook.');
+        } finally {
+            btn.innerHTML = `${icon('mail')}Send via n8n`; btn.disabled = false;
+        }
+    };
+}
 
-    <!-- ================= MODALS ================= -->
+// New Booking[cite: 2]
+function newBooking() {
+    openDialog('Create car booking', 'Send request to n8n webhook.', `
+        <form id="new-form">
+            <div class="form-grid">
+                <label class="field">Client / organisation<input name="client" required></label>
+                <label class="field">Contact person<input name="contact" required></label>
+                <label class="field">Email address<input name="email" type="email" required></label>
+                <label class="field">Vehicle requested<input name="service" required placeholder="e.g. Mercedes V-Class"></label>
+                <label class="field">Start date<input name="start" type="date" required></label>
+                <label class="field">End date<input name="end" type="date" required></label>
+                <label class="field">Value based pricing (ZAR)<input name="amount" type="number" step="0.01" required></label>
+                <label class="field">Route / Location<input name="location" required></label>
+                <label class="field full">Request notes<textarea name="notes"></textarea></label>
+            </div>
+        </form>
+    `, `<button class="btn" data-action="close">Cancel</button><button class="btn primary" form="new-form" type="submit">${icon('plus')}Send to n8n</button>`);
+    
+    document.getElementById('new-form').onsubmit = async (e) => {
+        e.preventDefault();
+        const f = Object.fromEntries(new FormData(e.target));
+        
+        const n = Math.max(...state.bookings.map(b => Number(b.id.split('-')[1])), 1044) + 1;
+        const b = { ...f, amount: Number(f.amount), id: 'BK-' + n, status: 'Pending', driver: 'Pending' };
+        state.bookings.unshift(b);
+        closeDialog(); setPage('bookings'); toast('Sending to n8n webhook...');
+        
+        try {
+            await fetch(WEBHOOK_POST_BOOKING, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
+            toast('Successfully saved to Google Sheets via n8n.');
+        } catch (err) {
+            toast('Network error: Webhook not reached.');
+        }
+    };
+}
 
-    <!-- 1. Booking Details Modal (Kept for viewing Driver Info / Attachments) -->
-    <div id="detailsModal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center modal-overlay p-4">
-        <div class="bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden modal-content border-t-4 border-slate-900 flex flex-col max-h-[90vh]">
-            <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                <h3 class="heading-font text-lg uppercase tracking-wide text-slate-900">Client Details</h3>
-                <button onclick="closeModal('detailsModal')" class="text-slate-400 hover:text-slate-900"><i class="fas fa-times text-lg"></i></button>
-            </div>
-            <div class="p-6 space-y-4 overflow-y-auto">
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                        <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Organization</p>
-                        <p id="det-org" class="text-sm font-medium text-slate-800">-</p>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                        <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Driver Name</p>
-                        <p id="det-driver" class="text-sm font-medium text-slate-800">-</p>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                        <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Email</p>
-                        <p id="det-email" class="text-sm font-medium text-slate-800 truncate">-</p>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                        <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Phone</p>
-                        <p id="det-phone" class="text-sm font-medium text-slate-800">-</p>
-                    </div>
-                </div>
-                
-                <div class="mt-4 pt-4 border-t border-slate-100">
-                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Driver's License Attachment</p>
-                    <div class="flex items-center justify-between bg-slate-50 border border-slate-200 p-3 rounded">
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-file-pdf text-red-500 text-2xl"></i>
-                            <div>
-                                <p class="text-xs font-bold text-slate-700">license_scan.pdf</p>
-                                <p id="det-license-status" class="text-[10px] text-green-600 font-bold uppercase">Uploaded</p>
-                            </div>
-                        </div>
-                        <button class="text-xs font-bold text-slate-500 hover:text-gold uppercase tracking-wider"><i class="fas fa-download"></i> View</button>
-                    </div>
-                </div>
-            </div>
-            <div class="p-4 border-t border-slate-100 bg-slate-50 text-right">
-                <button onclick="closeModal('detailsModal')" class="text-xs font-bold text-slate-500 hover:text-slate-900 uppercase tracking-widest px-4 py-2 transition">Close</button>
-            </div>
+// View Pre-inspection Admin Logic
+function viewInspection(id) {
+    const r = state.inspections.find(i => i.id === id);
+    const renderPhoto = (url, label) => url ? 
+        `<div class="photo-placeholder" style="border:none"><img src="${url}" class="photo-preview" alt="${label}"></div>` : 
+        `<div class="photo-placeholder">${icon('image')}<span style="margin-top:5px;font-weight:600">${label}</span><small>No image submitted</small></div>`;
+
+    openDialog('Review pre-inspection', `${id} · Submitted by customer/driver`, `
+        <div class="booking-summary"><span class="summary-icon">${icon('car')}</span><div><h3>${esc(r.title)}</h3><p>${esc(r.client)}</p></div>${badge(r.status)}</div>
+        <div class="details-grid">
+            <div class="detail"><small>Odometer (km)</small><strong>${esc(r.odometer)}</strong></div>
+            <div class="detail"><small>Fuel Level</small><strong>${esc(r.fuel)}</strong></div>
+            <div class="detail"><small>Cleanliness</small><strong>${esc(r.clean)}</strong></div>
         </div>
-    </div>
-
-    <!-- 2. Pre-Inspection Report Modal (For Users already confirmed/invoiced) -->
-    <div id="inspectionModal" class="fixed inset-0 bg-slate-900/60 z-[60] flex items-center justify-center modal-overlay p-4">
-        <div class="bg-white w-full max-w-3xl rounded-xl shadow-2xl overflow-hidden modal-content border-t-4 border-blue-500 flex flex-col max-h-[95vh]">
-            <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50 flex-shrink-0">
-                <h3 class="heading-font text-lg uppercase tracking-wide text-slate-900">Vehicle Pre-Inspection Report</h3>
-                <button onclick="closeModal('inspectionModal')" class="text-slate-400 hover:text-slate-900"><i class="fas fa-times text-lg"></i></button>
-            </div>
-            
-            <div class="flex-1 overflow-y-auto p-6">
-                <!-- Meta Info -->
-                <div class="flex flex-wrap gap-4 mb-6 border-b border-slate-100 pb-6">
-                    <div class="bg-slate-50 px-4 py-2 rounded border border-slate-200 flex-1 min-w-[140px]">
-                        <p class="text-[9px] uppercase font-bold text-slate-400 mb-1">Vehicle</p>
-                        <p id="insp-car" class="text-sm font-bold text-slate-800">-</p>
-                    </div>
-                    <div class="bg-slate-50 px-4 py-2 rounded border border-slate-200 flex-1 min-w-[140px]">
-                        <p class="text-[9px] uppercase font-bold text-slate-400 mb-1">Driver Handover</p>
-                        <p id="insp-driver" class="text-sm font-bold text-slate-800">-</p>
-                    </div>
-                    <div class="bg-slate-50 px-4 py-2 rounded border border-slate-200 flex-1 min-w-[140px]">
-                        <p class="text-[9px] uppercase font-bold text-slate-400 mb-1">Cleanliness</p>
-                        <p id="insp-clean" class="text-sm font-bold text-slate-800">-</p>
-                    </div>
-                    <div class="bg-slate-50 px-4 py-2 rounded border border-slate-200 flex-1 min-w-[140px]">
-                        <p class="text-[9px] uppercase font-bold text-slate-400 mb-1">Fuel Level</p>
-                        <p id="insp-fuel" class="text-sm font-bold text-slate-800">-</p>
-                    </div>
-                </div>
-
-                <!-- Photo Attachments Grid -->
-                <p class="text-[10px] uppercase font-bold text-slate-500 mb-3 tracking-widest">Client Image Attachments</p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                    <div class="relative group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&q=80" class="w-full h-24 object-cover rounded border border-slate-200">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded"><span class="text-white text-[10px] font-bold uppercase">Front</span></div>
-                    </div>
-                    <div class="relative group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&q=80" class="w-full h-24 object-cover rounded border border-slate-200">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded"><span class="text-white text-[10px] font-bold uppercase">Side</span></div>
-                    </div>
-                    <div class="relative group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=400&q=80" class="w-full h-24 object-cover rounded border border-slate-200">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded"><span class="text-white text-[10px] font-bold uppercase">Back</span></div>
-                    </div>
-                    <div class="relative group cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?w=400&q=80" class="w-full h-24 object-cover rounded border border-slate-200">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded"><span class="text-white text-[10px] font-bold uppercase">Dashboard</span></div>
-                    </div>
-                </div>
-
-                <!-- Comments -->
-                <p class="text-[10px] uppercase font-bold text-slate-500 mb-2 tracking-widest">Client Comments & Condition Notes</p>
-                <div class="bg-yellow-50 border border-yellow-200 rounded p-4 text-sm text-slate-700 italic">
-                    "<span id="insp-comments"></span>"
-                </div>
-            </div>
-
-            <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-end gap-3 flex-shrink-0">
-                <button onclick="closeModal('inspectionModal')" class="text-xs font-bold text-slate-500 hover:text-slate-900 uppercase px-4 py-2 transition">Close</button>
-                <button class="text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 uppercase px-6 py-2 rounded shadow transition flex items-center gap-2">
-                    <i class="fas fa-check"></i> Mark Reviewed
-                </button>
-            </div>
+        
+        <h3 class="section-title">Submitted Condition Photos</h3>
+        <div class="photo-grid">
+            ${renderPhoto(r.photoFront, 'Front View')}
+            ${renderPhoto(r.photoRear, 'Rear View')}
         </div>
-    </div>
+        <h3 class="section-title">Notes</h3>
+        <div class="info-box">${esc(r.notes)}</div>
+    `, `<button class="btn" data-action="close">Close</button>
+        ${r.status === 'Pending review' ? `<button class="btn primary" data-action="mark-reviewed" data-id="${id}">${icon('check')}Mark Reviewed</button>` : ''}`);
+}
 
-    <!-- Scripts -->
-    <script>
-        // Sidebar Toggle for Mobile
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebar-overlay');
-            if (sidebar.classList.contains('-translate-x-full')) {
-                sidebar.classList.remove('-translate-x-full');
-                overlay.classList.remove('hidden');
-            } else {
-                sidebar.classList.add('-translate-x-full');
-                overlay.classList.add('hidden');
-            }
-        }
+// ---------------------------------------------------------
+// EVENT DELEGATION
+// ---------------------------------------------------------
+document.addEventListener('click', e => {
+    const n = e.target.closest('[data-nav]');
+    if (n) { setPage(n.dataset.nav); return; }
+    
+    const ft = e.target.closest('[data-filter]');
+    if (ft) { filter = ft.dataset.filter; render(); return; }
+    
+    const el = e.target.closest('[data-action]');
+    if (!el) return;
+    
+    const a = el.dataset.action, id = el.dataset.id;
+    switch (a) {
+        case 'close': closeDialog(); break;
+        case 'new': newBooking(); break;
+        case 'booking': viewBooking(id); break;
+        case 'approval': approval(id); break;
+        case 'invoice': invoice(id); break;
+        case 'inspection': viewInspection(id); break;
+        case 'mark-reviewed':
+            let i = state.inspections.find(x => x.id === id);
+            if(i) i.status = 'Reviewed';
+            closeDialog(); render(); toast('Inspection marked as reviewed.');
+            break;
+        case 'month-prev': case 'month-next':
+            calendarMonth += a === 'month-next' ? 1 : -1;
+            if (calendarMonth > 11) { calendarMonth = 0; calendarYear++ }
+            if (calendarMonth < 0) { calendarMonth = 11; calendarYear-- }
+            render(); break;
+    }
+});
 
-        // Tab Switching Logic
-        function switchTab(tabId) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
-            
-            // Reset nav button styles
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                if(btn.id === 'nav-billing') {
-                    btn.classList.remove('bg-gold', 'text-white', 'border-gold');
-                    btn.classList.add('text-gray-300', 'border-gray-700');
-                } else {
-                    btn.classList.remove('bg-gold', 'text-white');
-                    btn.classList.add('text-gray-400', 'hover:bg-gray-800');
-                }
-            });
+document.addEventListener('input', e => {
+    if (e.target.id === 'booking-search') { query = e.target.value; render(); }
+});
 
-            // Show selected tab
-            document.getElementById('tab-' + tabId).classList.remove('hidden');
-            
-            // Highlight selected nav
-            const activeBtn = document.getElementById('nav-' + tabId);
-            if(tabId === 'billing') {
-                activeBtn.classList.remove('text-gray-300', 'border-gray-700');
-                activeBtn.classList.add('bg-gold', 'text-white', 'border-gold');
-            } else {
-                activeBtn.classList.remove('text-gray-400', 'hover:bg-gray-800');
-                activeBtn.classList.add('bg-gold', 'text-white');
-            }
+// INITIALIZE
+loadData();
 
-            // Update Header Title Map
-            const titles = {
-                'overview': 'Dashboard Overview',
-                'fleet-bookings': 'Pending Bookings (Fleet)',
-                'inspections': 'Pre-Inspections (Fleet)',
-                'infra-requests': 'Decor & Setup Requests',
-                'infra-condition': 'Post-Event Audits',
-                'pm-briefs': 'Project Briefing Notes',
-                'billing': 'Invoices & Billing'
-            };
-            document.getElementById('header-title').innerText = titles[tabId];
-
-            // Close sidebar on mobile after clicking
-            if(window.innerWidth < 1024) toggleSidebar();
-        }
-
-        // --- Inline Expand Logic for Booking Confirmation ---
-        function toggleInlineExpand(bookingId) {
-            const expandRow = document.getElementById('expand-' + bookingId);
-            const parentRow = document.getElementById('row-' + bookingId);
-            const icon = document.getElementById('icon-' + bookingId);
-            
-            if (expandRow.classList.contains('hidden')) {
-                // Open
-                expandRow.classList.remove('hidden');
-                parentRow.classList.remove('border-b'); // Merge visual border
-                icon.classList.add('rotate-180');
-            } else {
-                // Close
-                expandRow.classList.add('hidden');
-                parentRow.classList.add('border-b');
-                icon.classList.remove('rotate-180');
-            }
-        }
-
-        // Inline Form Submit Simulation
-        function generateInlineInvoice(e, bookingId) {
-            e.preventDefault();
-            const btn = document.getElementById('btn-gen-' + bookingId);
-            const originalText = btn.innerHTML;
-            
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-            btn.classList.add('opacity-80', 'cursor-not-allowed');
-            
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> Invoice Sent';
-                btn.classList.replace('bg-slate-900', 'bg-green-600');
-                btn.classList.replace('hover:bg-gold', 'hover:bg-green-700');
-                
-                setTimeout(() => {
-                    // Hide the row after success
-                    const parentRow = document.getElementById('row-' + bookingId);
-                    const expandRow = document.getElementById('expand-' + bookingId);
-                    
-                    parentRow.style.display = 'none';
-                    expandRow.style.display = 'none';
-                    
-                }, 1500);
-            }, 1500);
-        }
-
-        // Modal Controls
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('open');
-        }
-
-        function openBookingDetails(org, email, phone, driver, licenseStatus) {
-            document.getElementById('det-org').innerText = org;
-            document.getElementById('det-email').innerText = email;
-            document.getElementById('det-phone').innerText = phone;
-            document.getElementById('det-driver').innerText = driver;
-            document.getElementById('detailsModal').classList.add('open');
-        }
-
-        function openInspectionModal(car, driver, clean, fuel, comments) {
-            document.getElementById('insp-car').innerText = car;
-            document.getElementById('insp-driver').innerText = driver;
-            document.getElementById('insp-clean').innerText = clean;
-            document.getElementById('insp-fuel').innerText = fuel;
-            document.getElementById('insp-comments').innerText = comments;
-            document.getElementById('inspectionModal').classList.add('open');
-        }
-    </script>
+</script>
 </body>
 </html>
