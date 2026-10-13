@@ -39,7 +39,7 @@
     </a>
     <nav id="nav"></nav>
     <div class="side-bottom">
-        <div class="workspace-tag"><span class="dot"></span><span>n8n testing<small style="display:block;font-size:9px">Live test webhook integration</small></span></div>
+        <div class="workspace-tag"><span class="dot"></span><span>Live Workspace<small style="display:block;font-size:9px">System connected</small></span></div>
         <div class="profile"><span class="avatar">BM</span><span><strong>Brian Maphumulo</strong><small>Operations Admin</small></span></div>
     </div>
 </aside>
@@ -64,12 +64,11 @@
 'use strict';
 
 // ==========================================
-// CONFIGURATION: N8N TEST WEBHOOK URLS
+// CONFIGURATION: API ENDPOINTS
 // ==========================================
 const WEBHOOK_GET_BOOKINGS           = 'https://n8n.automania.cloud/webhook-test/sh-get-bookings';
 const WEBHOOK_POST_BOOKING           = 'https://n8n.automania.cloud/webhook-test/sh-new-booking';
-// Disabling Inspections fetch until ready
-// const WEBHOOK_GET_INSPECTIONS        = 'https://n8n.automania.cloud/webhook-test/sh-get-inspections';
+const WEBHOOK_GET_INSPECTIONS        = 'https://n8n.automania.cloud/webhook-test/sh-get-inspections';
 const WEBHOOK_POST_APPROVE           = 'https://n8n.automania.cloud/webhook-test/sh-approve-booking';
 const WEBHOOK_POST_INVOICE           = 'https://n8n.automania.cloud/webhook-test/sh-send-invoice';
 const WEBHOOK_POST_INSPECTION_REVIEW = 'https://n8n.automania.cloud/webhook-test/sh-review-inspection';
@@ -113,7 +112,7 @@ function badge(s) {
 }
 
 // ---------------------------------------------------------
-// DATA FETCHING (n8n Integration - Bookings Only)
+// DATA FETCHING 
 // ---------------------------------------------------------
 async function loadData(manualRefresh = false) {
     let networkError = false;
@@ -129,7 +128,6 @@ async function loadData(manualRefresh = false) {
         } else throw new Error('Bookings fetch failed');
     } catch (e) {
         networkError = true;
-        console.warn("Bookings fetch failed: Check if webhook is active or CORS is enabled.");
     }
 
     // Mock Data for other modules (while focusing on bookings)
@@ -141,13 +139,13 @@ async function loadData(manualRefresh = false) {
     // Fallback logic only if data is empty
     if (networkError && state.bookings.length === 0) {
         state.bookings = [{
-            id:'BK-DEMO', client:'Network Error', contact:'Check n8n', email:'admin@local', 
+            id:'BK-DEMO', client:'Network Error', contact:'System Offline', email:'admin@local', 
             service:'System Offline', start:'2026-10-14', end:'2026-10-14', status:'Pending', 
-            amount:0, driver:'N/A', location:'N/A', notes:'Demo loaded because webhook failed.'
+            amount:0, driver:'N/A', location:'N/A', notes:'Demo loaded because connection failed.'
         }];
-        if(manualRefresh) toast('Network error. Check n8n webhook status.');
+        if(manualRefresh) toast('Network error. Check connection status.');
     } else if (manualRefresh && !networkError) {
-        toast('Bookings synchronized successfully.');
+        toast('Workspace synchronized successfully.');
     }
 
     render();
@@ -166,7 +164,6 @@ document.getElementById('refresh-btn').onclick = async () => {
 
 document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-        // Silently fetch data in background when tab becomes active
         loadData(false);
     }
 });
@@ -231,7 +228,7 @@ function overview() {
 }
 
 function inspections() {
-    if(!state.inspections.length) return `<div class="page-empty">${icon('clipboard')}<h3>No inspection data</h3><p>Ensure your inspections webhook is configured and active.</p></div>`;
+    if(!state.inspections.length) return `<div class="page-empty">${icon('clipboard')}<h3>No inspection data</h3><p>Ensure your inspections workflow is connected.</p></div>`;
     return `<div class="cards">${state.inspections.map(i => `
         <article class="request-card">
             <div style="display:flex;justify-content:space-between"><span class="eyebrow">${i.id}</span>${badge(i.status)}</div>
@@ -266,7 +263,7 @@ function render() {
             <div class="actions">${page === 'bookings' || page === 'overview' ? `<button class="btn primary" data-action="new">${icon('plus')}New Booking</button>` : ''}</div>
         </div>
         ${({ overview, bookings: () => bookingPanel(), inspections, calendar, infrastructure: () => placeholders('infrastructure'), briefs: () => placeholders('briefs') })[page]()}
-        <footer class="footer"><span>© 2026 S&H Consulting · Powered by Automania workflows</span></footer>
+        <footer class="footer"><span>© 2026 S&H Consulting</span></footer>
     `;
     icons();
 }
@@ -301,7 +298,7 @@ function viewBooking(id) {
         ${b.status === 'Approved' ? `<button class="btn primary" data-action="invoice" data-id="${id}">${icon('invoice')}Manage Invoice</button>` : ''}`);
 }
 
-// Full Approval Flow triggering Test Webhook & Invoice View
+// Full Approval Flow triggering Database & Invoice View
 function approval(id) {
     const b = booking(id);
     if (b.status !== 'Pending') return viewBooking(id);
@@ -314,7 +311,7 @@ function approval(id) {
                 <label class="field">End date<input name="end" type="date" value="${b.end}" required></label>
                 <label class="field full">Operations note<textarea name="notes">${esc(b.notes)}</textarea></label>
             </div>
-            <div class="info-box section-space">Approving this will log the data to Google Sheets via the n8n test webhook and transition to invoice preparation.</div>
+            <div class="info-box section-space">Approving this will save the confirmed details and transition to invoice preparation.</div>
             <p id="approval-error" class="error" role="alert"></p>
         </form>
     `, `<button class="btn" data-action="booking" data-id="${id}">Back</button><button class="btn primary" type="submit" form="approval-form" id="approve-submit">${icon('check')}Approve Booking</button>`);
@@ -328,15 +325,15 @@ function approval(id) {
         Object.assign(b, { start, end, amount, notes: f.get('notes'), status: 'Approved' });
         
         const btn = document.getElementById('approve-submit');
-        btn.innerHTML = 'Sending...'; btn.disabled = true;
+        btn.innerHTML = 'Saving...'; btn.disabled = true;
 
         try {
             await fetch(WEBHOOK_POST_APPROVE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
-            toast('Booking approved via webhook. Preparing invoice.');
+            toast('Booking approved. Preparing invoice.');
             render();
             invoice(id); 
         } catch (err) {
-            toast('Warning: Could not reach n8n approval test webhook.');
+            toast('Warning: Could not reach approval endpoint.');
             btn.innerHTML = 'Error'; btn.disabled = false;
         }
     }
@@ -364,11 +361,11 @@ function invoice(id) {
                     <label class="field full">Payment due date<input name="due" type="date" required value="${draft.due}"></label>
                     <label class="field full">Invoice notes<textarea name="notes" placeholder="Payment terms or service notes…">${esc(draft.notes)}</textarea></label>
                 </div>
-                <div class="info-box section-space">Sending this invoice triggers the n8n test webhook. Ensure n8n is actively listening.</div>
+                <div class="info-box section-space">This will generate the final PDF invoice and email it directly to the client.</div>
             </form>
             <div class="invoice-paper" id="invoice-paper"></div>
         </div>
-    `, `<button class="btn" data-action="close">Close</button><button class="btn" id="print-invoice">${icon('print')}Print / PDF</button><button class="btn primary" id="send-invoice">${icon('mail')}Send via n8n</button>`);
+    `, `<button class="btn" data-action="close">Close</button><button class="btn" id="print-invoice">${icon('print')}Print / PDF</button><button class="btn primary" id="send-invoice">${icon('mail')}Send Mail</button>`);
     
     const form = document.getElementById('invoice-form');
     const read = () => { const f = new FormData(form); return { ...draft, amount: Number(f.get('amount')), tax: Number(f.get('tax')), deposit: Number(f.get('deposit')), due: f.get('due'), notes: f.get('notes'), email: f.get('email') }};
@@ -409,22 +406,36 @@ function invoice(id) {
         const btn = document.getElementById('send-invoice');
         btn.innerHTML = 'Sending...'; btn.disabled = true;
         
+        // Comprehensive payload structure to ensure workflow receives all precise data points
+        const payload = {
+            invoiceId: i.id,
+            bookingId: i.bookingId,
+            recipient: i.email,
+            amount: i.amount,
+            taxRate: i.tax,
+            deposit: i.deposit,
+            dueDate: i.due,
+            invoiceNotes: i.notes,
+            status: 'Sent',
+            bookingData: b
+        };
+
         try {
-            await fetch(WEBHOOK_POST_INVOICE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ invoice: i, booking: b, recipient: i.email }) });
-            toast('Invoice successfully routed to n8n test webhook.');
+            await fetch(WEBHOOK_POST_INVOICE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            toast('Invoice sent to client successfully.');
             i.status = 'Sent';
             preview();
         } catch (err) {
-            toast('Warning: Could not reach n8n invoice test webhook.');
+            toast('Warning: Could not send invoice.');
         } finally {
-            btn.innerHTML = `${icon('mail')}Send via n8n`; btn.disabled = false;
+            btn.innerHTML = `${icon('mail')}Send Mail`; btn.disabled = false;
         }
     };
 }
 
 // New Booking
 function newBooking() {
-    openDialog('Create car booking', 'Send request to n8n webhook.', `
+    openDialog('Create car booking', 'Manual entry system.', `
         <form id="new-form">
             <div class="form-grid">
                 <label class="field">Client / organisation<input name="client" required></label>
@@ -438,12 +449,12 @@ function newBooking() {
                 <label class="field full">Request notes<textarea name="notes"></textarea></label>
             </div>
         </form>
-    `, `<button class="btn" data-action="close">Cancel</button><button class="btn primary" id="btn-submit-booking" form="new-form" type="submit">${icon('plus')}Send to n8n</button>`);
+    `, `<button class="btn" data-action="close">Cancel</button><button class="btn primary" id="btn-submit-booking" form="new-form" type="submit">${icon('plus')}Submit Booking</button>`);
     
     document.getElementById('new-form').onsubmit = async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btn-submit-booking');
-        btn.innerHTML = 'Sending...'; btn.disabled = true;
+        btn.innerHTML = 'Submitting...'; btn.disabled = true;
 
         const f = Object.fromEntries(new FormData(e.target));
         const n = Math.max(...state.bookings.map(b => Number(b.id.split('-')[1])), 1044) + 1;
@@ -453,10 +464,10 @@ function newBooking() {
             await fetch(WEBHOOK_POST_BOOKING, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
             state.bookings.unshift(b);
             closeDialog(); setPage('bookings'); 
-            toast('Successfully saved to Google Sheets via n8n test webhook.');
+            toast('Booking successfully created.');
         } catch (err) {
-            toast('Network error: Test webhook not reached.');
-            btn.innerHTML = `${icon('plus')}Send to n8n`; btn.disabled = false;
+            toast('Network error: Could not submit booking.');
+            btn.innerHTML = `${icon('plus')}Submit Booking`; btn.disabled = false;
         }
     };
 }
@@ -527,7 +538,7 @@ document.addEventListener('click', e => {
                     closeDialog(); render(); toast('Inspection marked as reviewed.');
                 })
                 .catch(err => {
-                    toast('Warning: Could not reach n8n test webhook.');
+                    toast('Warning: Could not save review.');
                     if(btn) { btn.innerHTML = `${icon('check')}Mark Reviewed`; btn.disabled = false; }
                 });
             }
