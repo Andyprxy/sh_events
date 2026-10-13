@@ -117,9 +117,12 @@ function badge(s) {
 async function loadData(manualRefresh = false) {
     let networkError = false;
 
+    // Cache-busting timestamp ensures the browser always fetches fresh data on refresh
+    const freshTimestamp = new Date().getTime();
+
     // Fetch Bookings (Active)
     try {
-        const resBookings = await fetch(WEBHOOK_GET_BOOKINGS);
+        const resBookings = await fetch(`${WEBHOOK_GET_BOOKINGS}?t=${freshTimestamp}`, { cache: 'no-store' });
         if(resBookings.ok) {
             const rawData = await resBookings.json();
             const data = Array.isArray(rawData) ? rawData[0] : rawData;
