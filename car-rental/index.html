@@ -73,6 +73,31 @@
             background-color: #b89b5e;
             color: #ffffff;
         }
+
+        /* --- Toast Notification --- */
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #0f172a;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 100;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-gold selection:text-white">
@@ -116,7 +141,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start md:items-center">
                 <div class="order-1 md:order-2 w-full">
-                    <img src="astria.jpg" alt="Hyundai Staria VIP Rental" class="w-full aspect-[960/643] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500">
+                    <img src="astria.jpg" alt="Hyundai Staria VIP Rental" class="w-full aspect-[960/643] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500" onerror="this.src='https://via.placeholder.com/960x643?text=Hyundai+Staria'">
                 </div>
                 
                 <div class="order-2 md:order-1 flex flex-col justify-center text-left">
@@ -142,7 +167,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start md:items-center">
                 <div class="order-1 w-full">
-                    <img src="vclass.jpg" alt="Mercedes V-Class Rental" class="w-full aspect-[1024/628] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500">
+                    <img src="vclass.jpg" alt="Mercedes V-Class Rental" class="w-full aspect-[1024/628] object-cover rounded shadow-lg hover:shadow-2xl transition duration-500" onerror="this.src='https://via.placeholder.com/1024x628?text=Mercedes+V-Class'">
                 </div>
                 
                 <div class="order-2 flex flex-col justify-center text-left">
@@ -181,7 +206,7 @@
         <div class="p-6 flex-grow">
             <!-- Selected Car Display -->
             <div class="relative w-full h-48 rounded overflow-hidden mb-4 shadow-sm border border-slate-100 bg-slate-50 flex items-center justify-center">
-                <img id="panelCarImage" src="" alt="Selected Vehicle" class="w-full h-full object-cover">
+                <img id="panelCarImage" src="" alt="Selected Vehicle" class="w-full h-full object-cover" onerror="this.style.display='none'">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <h3 id="panelCarName" class="absolute bottom-4 left-4 text-white text-xl md:text-2xl heading-font uppercase font-bold tracking-wide text-pop-shadow">Car Name</h3>
             </div>
@@ -189,19 +214,24 @@
             <p class="text-xs text-slate-500 mb-8 border-b border-slate-100 pb-4 text-left">Please complete the details below to secure your reservation. Our logistics team will contact you to confirm deployment.</p>
             
             <form id="bookingForm" class="space-y-5 text-left">
-                <!-- Hidden input for dynamic Car Name -->
-                <input type="hidden" name="carName" id="hiddenCarName">
+                <!-- Hidden inputs for n8n payload -->
+                <input type="hidden" name="service" id="hiddenCarName">
+                <input type="hidden" name="source" value="Customer Portal">
                 
                 <!-- Booker Details -->
                 <div class="space-y-4">
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Booked By (Name / Org)</label>
-                        <input type="text" name="bookedBy" required placeholder="John Doe / Ministry of Works" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                        <input type="text" name="client" required placeholder="John Doe / Ministry of Works" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
                     </div>
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Contact Details</label>
                         <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition mb-3">
                         <input type="tel" name="phone" required placeholder="Phone Number" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Route / Location</label>
+                        <input type="text" name="location" required placeholder="e.g., OR Tambo to Sandton" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
                     </div>
                 </div>
 
@@ -211,11 +241,11 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Start Date</label>
-                        <input type="date" name="startDate" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
+                        <input type="date" name="start" id="startDate" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
                     </div>
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">End Date</label>
-                        <input type="date" name="endDate" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
+                        <input type="date" name="end" id="endDate" required class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition text-slate-700">
                     </div>
                 </div>
 
@@ -225,7 +255,7 @@
                 <div class="space-y-4">
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Primary Driver Name</label>
-                        <input type="text" name="driverName" required placeholder="Name of person driving" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                        <input type="text" name="driver" required placeholder="Name of person driving" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
                     </div>
 
                     <!-- Social App Style Upload Button -->
@@ -244,16 +274,27 @@
                             <i class="fas fa-paperclip text-slate-400 text-lg"></i>
                         </label>
                     </div>
+                    
+                    <div>
+                        <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Additional Notes</label>
+                        <textarea name="notes" placeholder="Special requirements..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition min-h-[80px]"></textarea>
+                    </div>
                 </div>
             </form>
         </div>
 
         <!-- Footer Submit -->
         <div class="p-6 border-t border-slate-200 bg-white sticky bottom-0 z-10">
-            <button type="submit" form="bookingForm" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 rounded transition duration-300 shadow-md flex items-center justify-center gap-2 disabled:opacity-70">
+            <button type="submit" form="bookingForm" id="submitBtn" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 rounded transition duration-300 shadow-md flex items-center justify-center gap-2 disabled:opacity-70">
                 Submit Booking <i class="fas fa-arrow-right"></i>
             </button>
         </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle text-green-400"></i>
+        <span id="toastMessage">Booking request sent successfully.</span>
     </div>
 
     <!-- Minimal Footer -->
@@ -266,9 +307,47 @@
 
     <!-- Interactive Scripts -->
     <script>
+        // Set dynamic minimum dates for the date pickers
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().split('T')[0];
+            const startDateInput = document.getElementById('startDate');
+            const endDateInput = document.getElementById('endDate');
+            
+            startDateInput.min = today;
+            endDateInput.min = today;
+
+            // Ensure end date cannot be before start date
+            startDateInput.addEventListener('change', function() {
+                endDateInput.min = this.value;
+                if(endDateInput.value && endDateInput.value < this.value) {
+                    endDateInput.value = this.value;
+                }
+            });
+        });
+
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const icon = toast.querySelector('i');
+            document.getElementById('toastMessage').innerText = message;
+            
+            if(isError) {
+                icon.className = 'fas fa-exclamation-circle text-red-400';
+            } else {
+                icon.className = 'fas fa-check-circle text-green-400';
+            }
+
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
         function openBookingPanel(carName, imageSrc) {
             document.getElementById('panelCarName').innerText = carName;
-            document.getElementById('panelCarImage').src = imageSrc;
+            
+            const imgElement = document.getElementById('panelCarImage');
+            imgElement.src = imageSrc;
+            imgElement.style.display = 'block';
             
             // Set hidden input value for the form submission
             document.getElementById('hiddenCarName').value = carName;
@@ -298,21 +377,21 @@
         document.getElementById('bookingForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const btn = document.querySelector('button[form="bookingForm"]');
+            const btn = document.getElementById('submitBtn');
             const originalText = btn.innerHTML;
             
             // Set loading state
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
             btn.disabled = true;
 
-            // Package the form data (includes text fields, hidden carName, and the file)
+            // Package the form data (handles the file and all text inputs cleanly)
             const formData = new FormData(this);
 
             try {
                 // Post to n8n Webhook
-                const response = await fetch('https://n8n.automania.cloud/webhook-test/fetch-bookings', {
+                const response = await fetch('https://n8n.automania.cloud/webhook-test/customer-booking', {
                     method: 'POST',
-                    body: formData // Fetch API automatically sets correct boundaries for multipart/form-data
+                    body: formData 
                 });
 
                 if (response.ok) {
@@ -320,6 +399,8 @@
                     btn.classList.replace('bg-slate-900', 'bg-green-600');
                     btn.classList.remove('hover:bg-gold');
                     
+                    showToast('Booking request routed successfully to S&H operations.');
+
                     // Reset UI after 2 seconds
                     setTimeout(() => {
                         closeBookingPanel();
@@ -337,6 +418,8 @@
             } catch (error) {
                 console.error('Error submitting booking:', error);
                 
+                showToast('Connection error. Please try submitting again.', true);
+
                 // Show error state
                 btn.innerHTML = '<i class="fas fa-times"></i> Error. Try Again.';
                 btn.classList.replace('bg-slate-900', 'bg-red-600');
