@@ -39,7 +39,7 @@
     </a>
     <nav id="nav"></nav>
     <div class="side-bottom">
-        <div class="workspace-tag"><span class="dot"></span><span>n8n connected<small style="display:block;font-size:9px">Live test webhook integration</small></span></div>
+        <div class="workspace-tag"><span class="dot"></span><span>n8n testing<small style="display:block;font-size:9px">Live test webhook integration</small></span></div>
         <div class="profile"><span class="avatar">BM</span><span><strong>Brian Maphumulo</strong><small>Operations Admin</small></span></div>
     </div>
 </aside>
@@ -68,7 +68,8 @@
 // ==========================================
 const WEBHOOK_GET_BOOKINGS           = 'https://n8n.automania.cloud/webhook-test/sh-get-bookings';
 const WEBHOOK_POST_BOOKING           = 'https://n8n.automania.cloud/webhook-test/sh-new-booking';
-const WEBHOOK_GET_INSPECTIONS        = 'https://n8n.automania.cloud/webhook-test/sh-get-inspections';
+// Disabling Inspections fetch until ready
+// const WEBHOOK_GET_INSPECTIONS        = 'https://n8n.automania.cloud/webhook-test/sh-get-inspections';
 const WEBHOOK_POST_APPROVE           = 'https://n8n.automania.cloud/webhook-test/sh-approve-booking';
 const WEBHOOK_POST_INVOICE           = 'https://n8n.automania.cloud/webhook-test/sh-send-invoice';
 const WEBHOOK_POST_INSPECTION_REVIEW = 'https://n8n.automania.cloud/webhook-test/sh-review-inspection';
@@ -112,50 +113,43 @@ function badge(s) {
 }
 
 // ---------------------------------------------------------
-// DATA FETCHING (n8n Integration)
+// DATA FETCHING (n8n Integration - Bookings Only)
 // ---------------------------------------------------------
 async function loadData(manualRefresh = false) {
+    let networkError = false;
+
+    // Fetch Bookings (Active)
     try {
-        // Fetch Bookings
         const resBookings = await fetch(WEBHOOK_GET_BOOKINGS);
         if(resBookings.ok) {
             const rawData = await resBookings.json();
-            // Handle both object {} and array [{}] structures from n8n
             const data = Array.isArray(rawData) ? rawData[0] : rawData;
             const fetchedBookings = data.bookings || [];
-            
-            // Map status fallback to handle empty strings from n8n safely
             state.bookings = fetchedBookings.map(b => ({...b, status: b.status || 'Pending'}));
-        } else throw new Error('Fallback bookings');
-
-        // Fetch Inspections
-        const resInspections = await fetch(WEBHOOK_GET_INSPECTIONS);
-        if(resInspections.ok) {
-            const rawIData = await resInspections.json();
-            // Handle both object {} and array [{}] structures from n8n
-            const iData = Array.isArray(rawIData) ? rawIData[0] : rawIData;
-            const fetchedInspections = iData.inspections || [];
-            
-            state.inspections = fetchedInspections.map(i => ({...i, status: i.status || 'Pending review'}));
-        } else throw new Error('Fallback inspections');
-
-        if(manualRefresh) toast('Workspace synchronized.');
-
+        } else throw new Error('Bookings fetch failed');
     } catch (e) {
-        // Fallback data
-        state.bookings = [
-            {id:'BK-1042', client:'Department of Works', contact:'Sylvester M.', email:'sylvester@example.com', service:'Hyundai Staria', start:'2026-10-14', end:'2026-10-16', status:'Pending', amount:7500, driver:'Sylvester M.', location:'Pretoria → Johannesburg', notes:'Executive airport transfers.'},
-            {id:'BK-1040', client:'Summit Partners', contact:'Naledi S.', email:'summit@example.com', service:'Mercedes V-Class', start:'2026-10-12', end:'2026-10-13', status:'Approved', amount:8600, driver:'Assigned chauffeur', location:'OR Tambo → Pretoria', notes:'Return transfer and full-day executive transport.'}
-        ];
-        state.invoices = [{id:'INV-2026-040', bookingId:'BK-1040', amount:8600, tax:0, deposit:100, due:'2026-10-13', notes:'Executive transport package.', status:'Draft'}];
-        
-        state.inspections = [{id:'INSP-088', bookingId:'BK-1040', title:'Mercedes V-Class', client:'Summit Partners', driver:'Assigned chauffeur', clean:'4 / 5', fuel:'¾ tank', odometer:'42,180 km', status:'Pending review', notes:'Small scratch on rear bumper.', photoFront: '', photoRear: '', photoLeft: '', photoRight: ''}];
-        state.infrastructure = [ {id:'EVT-001', title:'VIP Lounge Setup', client:'Northside Collective', location:'Centurion', date:'2026-10-16', status:'Approved'} ];
-        state.briefs = [ {id:'PRJ-014', title:'Year-end summit', client:'Summit Partners', location:'Johannesburg', date:'2026-11-12', status:'New'} ];
-        
-        if(manualRefresh) toast('Network error. Loaded offline fallback data.');
-        console.log("Using local fallback data.");
+        networkError = true;
+        console.warn("Bookings fetch failed: Check if webhook is active or CORS is enabled.");
     }
+
+    // Mock Data for other modules (while focusing on bookings)
+    state.inspections = []; 
+    state.invoices = [];
+    state.infrastructure = [];
+    state.briefs = [];
+
+    // Fallback logic only if data is empty
+    if (networkError && state.bookings.length === 0) {
+        state.bookings = [{
+            id:'BK-DEMO', client:'Network Error', contact:'Check n8n', email:'admin@local', 
+            service:'System Offline', start:'2026-10-14', end:'2026-10-14', status:'Pending', 
+            amount:0, driver:'N/A', location:'N/A', notes:'Demo loaded because webhook failed.'
+        }];
+        if(manualRefresh) toast('Network error. Check n8n webhook status.');
+    } else if (manualRefresh && !networkError) {
+        toast('Bookings synchronized successfully.');
+    }
+
     render();
 }
 
@@ -237,6 +231,7 @@ function overview() {
 }
 
 function inspections() {
+    if(!state.inspections.length) return `<div class="page-empty">${icon('clipboard')}<h3>No inspection data</h3><p>Ensure your inspections webhook is configured and active.</p></div>`;
     return `<div class="cards">${state.inspections.map(i => `
         <article class="request-card">
             <div style="display:flex;justify-content:space-between"><span class="eyebrow">${i.id}</span>${badge(i.status)}</div>
@@ -555,5 +550,3 @@ loadData();
 </script>
 </body>
 </html>
-
-
