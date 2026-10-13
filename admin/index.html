@@ -39,7 +39,7 @@
     </a>
     <nav id="nav"></nav>
     <div class="side-bottom">
-        <div class="workspace-tag"><span class="dot"></span><span>n8n connected<small style="display:block;font-size:9px">Live webhook integration</small></span></div>
+        <div class="workspace-tag"><span class="dot"></span><span>n8n connected<small style="display:block;font-size:9px">Live test webhook integration</small></span></div>
         <div class="profile"><span class="avatar">BM</span><span><strong>Brian Maphumulo</strong><small>Operations Admin</small></span></div>
     </div>
 </aside>
@@ -116,16 +116,27 @@ function badge(s) {
 // ---------------------------------------------------------
 async function loadData(manualRefresh = false) {
     try {
+        // Fetch Bookings
         const resBookings = await fetch(WEBHOOK_GET_BOOKINGS);
         if(resBookings.ok) {
-            const data = await resBookings.json();
-            state.bookings = data.bookings || [];
+            const rawData = await resBookings.json();
+            // Handle both object {} and array [{}] structures from n8n
+            const data = Array.isArray(rawData) ? rawData[0] : rawData;
+            const fetchedBookings = data.bookings || [];
+            
+            // Map status fallback to handle empty strings from n8n safely
+            state.bookings = fetchedBookings.map(b => ({...b, status: b.status || 'Pending'}));
         } else throw new Error('Fallback bookings');
 
+        // Fetch Inspections
         const resInspections = await fetch(WEBHOOK_GET_INSPECTIONS);
         if(resInspections.ok) {
-            const iData = await resInspections.json();
-            state.inspections = iData.inspections || [];
+            const rawIData = await resInspections.json();
+            // Handle both object {} and array [{}] structures from n8n
+            const iData = Array.isArray(rawIData) ? rawIData[0] : rawIData;
+            const fetchedInspections = iData.inspections || [];
+            
+            state.inspections = fetchedInspections.map(i => ({...i, status: i.status || 'Pending review'}));
         } else throw new Error('Fallback inspections');
 
         if(manualRefresh) toast('Workspace synchronized.');
