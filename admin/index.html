@@ -6,6 +6,8 @@
 <meta name="theme-color" content="#142622">
 <meta name="description" content="S&H Operations portal — car bookings, inspections, events and projects.">
 <title>S&H | Operations Portal</title>
+<link rel="preconnect" href="https://n8n.automania.cloud" crossorigin>
+<link rel="preconnect" href="https://i.ibb.co" crossorigin>
 <style>
 /* Core Styles */
 :root{
@@ -25,7 +27,7 @@ body{margin:0;background:var(--bg);font-family:Inter,-apple-system,BlinkMacSyste
 button,input,select,textarea{font:inherit}
 button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
 button,a{touch-action:manipulation}
-button{cursor:pointer;color:inherit;transition:background .16s,transform .16s,border-color .16s}
+button{cursor:pointer;color:inherit;transition:background .15s,transform .15s,border-color .15s}
 button:disabled{cursor:not-allowed;opacity:.45}
 button:hover:not(:disabled){filter:brightness(.97)}
 a{color:inherit;text-decoration:none}
@@ -51,7 +53,7 @@ svg{width:19px;height:19px;flex:none;stroke:currentColor;stroke-width:1.65;fill:
 .side nav{overflow-y:auto;min-height:0;scrollbar-width:thin}
 .side-bottom{margin-top:auto;padding-top:25px}
 .workspace-tag{padding:12px;border:1px solid #ffffff14;border-radius:8px;margin-bottom:17px;font-size:11px;display:flex;align-items:center;gap:9px}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;flex:none}
 .profile{display:flex;align-items:center;gap:10px;padding:9px 8px;border-top:1px solid #ffffff13}
 .avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#eee8d9;color:#7e673d;font-size:11px;font-weight:700;flex:none}
 .profile strong{font-size:11px;color:#e5edec}
@@ -88,11 +90,11 @@ svg{width:19px;height:19px;flex:none;stroke:currentColor;stroke-width:1.65;fill:
 .kpi-card span{display:inline-block;font-size:10px;color:var(--muted);margin-top:4px}
 
 /* Panels & Tables */
-.dashboard-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:start}
+.dashboard-grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:22px;align-items:start}
 .panel{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 3px 8px #15302902;margin-bottom:22px}
 .panel-head{padding:20px 21px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .panel-head p{font-size:11px;color:var(--muted);margin-top:4px}
-.panel-foot{padding:12px 21px;background:#fafbf8;border-top:1px solid var(--line);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.panel-foot{padding:12px 21px;background:#fafbf8;border-top:1px solid var(--line);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .tabs{display:flex;gap:23px;padding:0 22px;border-bottom:1px solid var(--line);overflow:auto}
 .tab{padding:12px 0;border:0;border-bottom:2px solid transparent;background:none;font-size:11px;color:var(--muted);white-space:nowrap}
 .tab.active{color:var(--ink);border-bottom-color:var(--gold);font-weight:650}
@@ -100,7 +102,7 @@ svg{width:19px;height:19px;flex:none;stroke:currentColor;stroke-width:1.65;fill:
 .table-wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}
 th{background:#fafbf8;color:#8b9595;font-size:9px;letter-spacing:.6px;text-transform:uppercase;font-weight:600;padding:12px 18px;white-space:nowrap}
-td{padding:16px 18px;border-top:1px solid #eef0ed;vertical-align:middle}
+td{padding:15px 18px;border-top:1px solid #eef0ed;vertical-align:middle}
 td small{display:block;font-size:10px;margin-top:3px;color:var(--muted)}
 td strong{font-size:11px;font-weight:600}
 .client-cell{display:flex;align-items:center;gap:10px}
@@ -119,10 +121,10 @@ td strong{font-size:11px;font-weight:600}
 
 /* Pre-Inspection Specific Table Elements */
 .id-pill{display:inline-block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;font-size:11px;background:#f2f4f1;border:1px solid #dfe4e0;padding:3px 7px;border-radius:5px;color:var(--ink)}
-.condition-list{display:flex;flex-wrap:wrap;gap:5px;max-width:270px}
+.condition-list{display:flex;flex-wrap:wrap;gap:5px;max-width:280px}
 .cond-tag{font-size:9.5px;padding:3px 7px;border-radius:4px;background:#f4f6f3;border:1px solid #e3e8e4;color:#415258;white-space:nowrap}
 .cond-tag b{color:var(--ink);font-weight:600}
-.file-pills{display:flex;flex-wrap:wrap;gap:5px;max-width:310px}
+.file-pills{display:flex;flex-wrap:wrap;gap:5px;max-width:320px}
 .view-file-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;border-radius:5px;border:1px solid #dfd7c4;background:#fbf8f1;color:#685630;font-size:9.5px;font-weight:600;cursor:pointer;white-space:nowrap}
 .view-file-btn:hover{background:#f3ebd9;border-color:var(--gold)}
 .view-file-btn svg{width:12px;height:12px;color:var(--gold)}
@@ -132,10 +134,10 @@ td strong{font-size:11px;font-weight:600}
 /* Focus & Aside Cards */
 .focus-card{background:var(--nav);border-radius:10px;padding:22px;color:#fff;margin-bottom:21px;position:relative;overflow:hidden}
 .focus-card .eyebrow{color:#d1b57a}
-.focus-card h2{font-size:19px;max-width:220px;margin-top:10px;line-height:1.4}
+.focus-card h2{font-size:19px;max-width:240px;margin-top:10px;line-height:1.4}
 .focus-card p{font-size:11px;color:#a6babb;margin-top:9px;line-height:1.7}
-.aside-list{padding:6px 18px 18px;display:grid;gap:12px}
-.aside-item{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fafbf9;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.aside-list{padding:6px 18px 18px;display:grid;gap:10px}
+.aside-item{border:1px solid var(--line);border-radius:8px;padding:11px 12px;background:#fafbf9;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .aside-item strong{font-size:11px;display:block}
 .aside-item small{font-size:10px;color:var(--muted)}
 
@@ -148,8 +150,12 @@ td strong{font-size:11px;font-weight:600}
 .request-card{padding:21px;background:#fff;border:1px solid var(--line);border-radius:10px}
 .info-box{background:#f6f7f3;border:1px solid var(--line);border-radius:7px;padding:13px;font-size:11px;color:#526159;line-height:1.7}
 
+/* Skeleton Loader */
+@keyframes pulseBg { 0%,100%{opacity:.55} 50%{opacity:1} }
+.skeleton-row{height:48px;background:#f2f4f1;border-radius:6px;margin:10px 18px;animation:pulseBg 1.2s ease-in-out infinite}
+
 /* Dialogs & Modals */
-.drawer-dialog{border:0;padding:0;border-radius:13px;width:min(900px,calc(100% - 28px));max-height:calc(100dvh - 36px);color:var(--ink);box-shadow:0 30px 120px #00191550;background:#fff}
+.drawer-dialog{border:0;padding:0;border-radius:13px;width:min(920px,calc(100% - 28px));max-height:calc(100dvh - 36px);color:var(--ink);box-shadow:0 30px 120px #00191550;background:#fff}
 .drawer-dialog::backdrop{background:#10232888;backdrop-filter:blur(4px)}
 .dialog-head{padding:20px 25px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px;position:sticky;top:0;background:#fff;z-index:5}
 .dialog-head h2{font-size:19px}
@@ -160,7 +166,7 @@ td strong{font-size:11px;font-weight:600}
 .field input,.field select,.field textarea{border:1px solid #dfe5df;border-radius:6px;padding:10px 12px;min-height:40px;width:100%;color:var(--ink);background:white}
 .field textarea{min-height:80px;resize:vertical}
 .full{grid-column:1/-1}
-.details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 22px;margin:18px 0 22px}
+.details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 18px;margin:18px 0 22px}
 .detail{background:#fafbf8;border:1px solid var(--line);padding:11px 13px;border-radius:7px}
 .detail small{display:block;font-size:9.5px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;color:var(--muted)}
 .detail strong{font-size:12px;font-weight:600;overflow-wrap:anywhere}
@@ -186,7 +192,7 @@ td strong{font-size:11px;font-weight:600}
 .lightbox-stage{background:#101d21;border-radius:9px;min-height:380px;max-height:62vh;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;padding:12px}
 .lightbox-stage img{max-width:100%;max-height:58vh;object-fit:contain;border-radius:6px;box-shadow:0 12px 35px #0006}
 .lightbox-strip{display:flex;gap:8px;overflow-x:auto;padding-top:14px;margin-top:12px;border-top:1px solid var(--line)}
-.strip-thumb{border:2px solid transparent;border-radius:6px;padding:4px 9px;background:#f4f5f2;font-size:10px;font-weight:600;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.strip-thumb{border:2px solid transparent;border-radius:6px;padding:5px 10px;background:#f4f5f2;font-size:10px;font-weight:600;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
 .strip-thumb.active{border-color:var(--gold);background:var(--gold-light);color:#5e4c26}
 
 /* Calendar */
@@ -217,10 +223,10 @@ td strong{font-size:11px;font-weight:600}
 
 .toast{position:fixed;bottom:25px;left:calc(50% + 100px);transform:translateX(-50%);max-width:calc(100% - 32px);width:max-content;background:#1b3236;color:#fff;border-radius:9px;padding:13px 20px;font-size:12px;box-shadow:0 8px 40px #0003;z-index:100;display:none}
 .toast.show{display:block}
-.footer{padding:20px 0 10px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between}
+.footer{padding:20px 0 10px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 @keyframes spin { 100% { transform: rotate(360deg); } }
-.spin { animation: spin 1s linear infinite; }
+.spin { animation: spin 0.8s linear infinite; }
 
 @media print{
     body>*:not(dialog){display:none!important}
@@ -261,7 +267,7 @@ td strong{font-size:11px;font-weight:600}
     </a>
     <nav id="nav"></nav>
     <div class="side-bottom">
-        <div class="workspace-tag"><span class="dot" id="sync-dot"></span><span>Live Workspace<small id="sync-status" style="display:block;font-size:9px">System connected</small></span></div>
+        <div class="workspace-tag"><span class="dot" id="sync-dot"></span><span>Live Workspace<small id="sync-status" style="display:block;font-size:9px">Connecting to webhook…</small></span></div>
         <div class="profile"><span class="avatar">BM</span><span><strong>Brian Maphumulo</strong><small>Operations Admin</small></span></div>
     </div>
 </aside>
@@ -292,44 +298,12 @@ td strong{font-size:11px;font-weight:600}
 // ==========================================
 const WEBHOOK_GET_BOOKINGS           = 'https://n8n.automania.cloud/webhook/sh-get-bookings';
 const WEBHOOK_POST_BOOKING           = 'https://n8n.automania.cloud/webhook/sh-new-booking';
-const WEBHOOK_GET_INSPECTIONS        = 'https://n8n.automania.cloud/webhook/sh-get-inspections';
 const WEBHOOK_POST_APPROVE           = 'https://n8n.automania.cloud/webhook/sh-approve-booking';
 const WEBHOOK_POST_INVOICE           = 'https://n8n.automania.cloud/webhook/sh-send-invoice';
 const WEBHOOK_POST_INSPECTION_REVIEW = 'https://n8n.automania.cloud/webhook/sh-review-inspection';
 
-// Fallback / Seed Record matching exact Google Sheets Webhook Payload
-const FALLBACK_WEBHOOK_PAYLOAD = [
-    {
-        "row_number": 2,
-        "booking_id": "BK-1042",
-        "timestamp": "2026-10-12 12:07:04",
-        "client": "Department of Works",
-        "contact": "Sylvester M.",
-        "email": "sylvester@example.com",
-        "service": "Hyundai Staria",
-        "start_date": "2026-10-14",
-        "end_date": "2026-10-16",
-        "amount": 7500,
-        "location": "Pretoria → Johannesburg",
-        "notes": "Executive airport transfers.",
-        "status": "Approved",
-        "driver": "Sylvester M.",
-        "fuel_level": "full",
-        "handover_location": "Pretoria",
-        "interior_status": "clean",
-        "exterior_status": "no_visible_damage",
-        "handover_notes": "none",
-        "photo_front": "https://i.ibb.co/Gv0HGg4d/left.jpg",
-        "photo_rear": "https://i.ibb.co/Gv0HGg4d/left.jpg",
-        "photo_left": "https://i.ibb.co/Gv0HGg4d/left.jpg",
-        "photo_right": "https://i.ibb.co/Gv0HGg4d/left.jpg",
-        "photo_interior": "https://i.ibb.co/mrhr2X3f/interior.jpg",
-        "photo_dashboard": "https://i.ibb.co/27PYysKN/dashboard.jpg",
-        "photo_damage": "https://i.ibb.co/Gv0HGg4d/left.jpg",
-        "handover_date": "2026-10-16 15:39",
-        "driver_licence": "https://ibb.co/hSrGHr1"
-    }
-];
+const STORAGE_CACHE_KEY = 'sh_live_bookings_cache_v2';
+const IMG_CACHE_KEY     = 'sh_resolved_img_cache_v2';
 
 // SVG Icons
 const paths = {
@@ -364,9 +338,22 @@ const money = n => new Intl.NumberFormat('en-ZA',{style:'currency',currency:'ZAR
 
 function parseSafeDate(s) {
     if (!s) return null;
-    const clean = String(s).trim().slice(0, 10);
-    const d = new Date(clean + 'T12:00:00');
+    const str = String(s).trim();
+    const isoMatch = str.match(/^(\d{4}-\d{2}-\d{2})/);
+    if (isoMatch) {
+        const d = new Date(isoMatch[1] + 'T12:00:00');
+        if (!isNaN(d.getTime())) return d;
+    }
+    const d = new Date(str);
     return isNaN(d.getTime()) ? null : d;
+}
+function toYMD(s) {
+    const d = parseSafeDate(s);
+    if (!d) return '';
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
 }
 const date = s => {
     const d = parseSafeDate(s);
@@ -377,34 +364,34 @@ const fullDate = s => {
     return d ? d.toLocaleDateString('en-ZA',{day:'numeric',month:'short',year:'numeric'}) : esc(s || '—');
 };
 const humanize = s => {
-    if (s === undefined || s === null || s === '') return '—';
+    if (s === undefined || s === null || String(s).trim() === '') return '—';
     return String(s).replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 };
 
-// Cache for resolved ibb.co viewer URLs -> direct i.ibb.co image URLs
-const resolvedImageCache = {};
+// Persistent cache for resolved ibb.co viewer links (0ms lookup on repeat visits)
+let resolvedImageCache = {};
+try {
+    resolvedImageCache = JSON.parse(localStorage.getItem(IMG_CACHE_KEY) || '{}');
+} catch (_) {}
 
+// Lazy, on-demand resolver ONLY triggered if an ibb.co viewer link is clicked or fails direct <img> load
 async function resolveImgBBUrl(url) {
     if (!url) return '';
     const trimmed = String(url).trim();
     if (resolvedImageCache[trimmed]) return resolvedImageCache[trimmed];
-    // Already a direct image link
     if (/^https?:\/\/i\.ibb\.co\//i.test(trimmed) || /\.(jpg|jpeg|png|webp|gif|svg)(\?.*)?$/i.test(trimmed)) {
-        resolvedImageCache[trimmed] = trimmed;
         return trimmed;
     }
-    // If it's an ibb.co short viewer URL like https://ibb.co/hSrGHr1, resolve og:image
     if (/^https?:\/\/(www\.)?ibb\.co\/[A-Za-z0-9]+/i.test(trimmed)) {
         try {
-            const resp = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(trimmed)}`);
+            const resp = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(trimmed)}`);
             if (resp.ok) {
-                const data = await resp.json();
-                const match = data.contents && data.contents.match(/property=["']og:image["']\s+content=["']([^"']+)["']/i);
+                const html = await resp.text();
+                const match = html.match(/property=["']og:image["']\s+content=["']([^"']+)["']/i) ||
+                              html.match(/content=["']([^"']+i\.ibb\.co[^"']+)["']/i);
                 if (match && match[1]) {
                     resolvedImageCache[trimmed] = match[1];
-                    document.querySelectorAll(`img[data-raw-url="${CSS.escape(trimmed)}"]`).forEach(img => {
-                        img.src = match[1];
-                    });
+                    try { localStorage.setItem(IMG_CACHE_KEY, JSON.stringify(resolvedImageCache)); } catch (_) {}
                     return match[1];
                 }
             }
@@ -413,13 +400,32 @@ async function resolveImgBBUrl(url) {
     return trimmed;
 }
 
-// Local State
+// On-error handler for thumbnails that might be ibb.co page links instead of direct i.ibb.co links
+window.handleImgError = async function(imgEl) {
+    if (!imgEl || imgEl.dataset.retried) {
+        if (imgEl) imgEl.style.display = 'none';
+        return;
+    }
+    imgEl.dataset.retried = '1';
+    const raw = imgEl.dataset.rawUrl || imgEl.getAttribute('src');
+    const resolved = await resolveImgBBUrl(raw);
+    if (resolved && resolved !== raw) {
+        imgEl.src = resolved;
+        imgEl.style.display = '';
+    } else {
+        imgEl.style.display = 'none';
+    }
+};
+
+// Application State
 let state = { bookings: [], inspections: [], invoices: [], infrastructure: [], briefs: [] };
-let page = 'overview', filter = 'All', query = '', calendarMonth = 9, calendarYear = 2026, showAllCalendar = true, toastTimer;
+let isLoading = true;
+let lastSyncError = null;
+let page = 'overview', filter = 'All', inspFilter = 'All', query = '', calendarMonth = new Date().getMonth(), calendarYear = new Date().getFullYear(), showAllCalendar = true, toastTimer;
 
 const titles = {
-    overview: ['Overview', 'Live operational feed across bookings, vehicle handovers, and pre-inspections.'],
-    calendar: ['Operations calendar', 'Scheduled deployments mapped across your fleet timeline.'],
+    overview: ['Overview', 'Live operational feed synced directly from your Google Sheets webhook.'],
+    calendar: ['Operations calendar', 'Scheduled vehicle deployments mapped from live start and end dates.'],
     bookings: ['Car Bookings', 'Review requests, confirm details and manage deployments.'],
     inspections: ['Pre-inspections', 'Customer and driver handover condition reports, licences, and attached vehicle photos.'],
     infrastructure: ['Events & Setup', 'Manage event infrastructure and staging (Placeholder).'],
@@ -430,83 +436,119 @@ function toast(s) {
     const t = document.getElementById('toast');
     t.textContent = s; t.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => t.classList.remove('show'), 4500);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 4000);
 }
 
 function badge(s) {
-    let c = /Pending|New/i.test(s) ? 'pending' : /Approved|Reviewed|Submitted|Complete/i.test(s) ? 'approved' : /Declined|Flagged|Damage/i.test(s) ? 'declined' : 'draft';
-    return `<span class="badge ${c}">${esc(s)}</span>`;
+    const val = String(s || 'Pending').trim();
+    let c = /Pending|New/i.test(val) ? 'pending' : /Approved|Reviewed|Complete|Active/i.test(val) ? 'approved' : /Declined|Flagged|Rejected/i.test(val) ? 'declined' : 'draft';
+    return `<span class="badge ${c}">${esc(val)}</span>`;
 }
 
 // ==========================================
-// NORMALIZATION OF N8N GOOGLE SHEETS WEBHOOK
+// UNIVERSAL WEBHOOK PAYLOAD UNPACKER
 // ==========================================
 function extractRows(rawData) {
     if (!rawData) return [];
+
+    // 1. Direct Array of ~9 items: [ {...}, {...}, ... ] or [ { json: {...} }, ... ]
     if (Array.isArray(rawData)) {
-        if (rawData.length === 1 && rawData[0] && Array.isArray(rawData[0].bookings)) return rawData[0].bookings;
-        if (rawData.length === 1 && rawData[0] && Array.isArray(rawData[0].data)) return rawData[0].data;
-        return rawData.map(item => (item && item.json ? item.json : item)).filter(x => x && typeof x === 'object');
+        // Check if n8n returned a single wrapper object inside an array: [ { bookings: [...] } ]
+        if (rawData.length === 1 && rawData[0] && typeof rawData[0] === 'object') {
+            const first = rawData[0].json ? rawData[0].json : rawData[0];
+            for (const k of ['bookings', 'data', 'rows', 'items', 'records', 'result']) {
+                if (Array.isArray(first[k])) return extractRows(first[k]);
+            }
+        }
+        // Unwrap each item in the array
+        const flat = [];
+        for (const item of rawData) {
+            if (!item || typeof item !== 'object') continue;
+            const unwrapped = (item.json && typeof item.json === 'object') ? item.json : item;
+            if (Array.isArray(unwrapped)) {
+                flat.push(...extractRows(unwrapped));
+            } else {
+                flat.push(unwrapped);
+            }
+        }
+        return flat.filter(r => r && typeof r === 'object' && Object.keys(r).length > 0);
     }
+
+    // 2. Object wrapper: { bookings: [...] }, { data: [...] }, { rows: [...] }, etc.
     if (typeof rawData === 'object') {
-        if (Array.isArray(rawData.bookings)) return rawData.bookings;
-        if (Array.isArray(rawData.data)) return rawData.data;
-        if (Array.isArray(rawData.rows)) return rawData.rows;
-        if (rawData.booking_id || rawData.id || rawData.client || rawData.service) return [rawData];
+        for (const k of ['bookings', 'data', 'rows', 'items', 'records', 'result']) {
+            if (Array.isArray(rawData[k])) return extractRows(rawData[k]);
+        }
+        // Check if any property on the object is an array of objects
+        for (const val of Object.values(rawData)) {
+            if (Array.isArray(val) && val.length > 0 && typeof val[0] === 'object') {
+                return extractRows(val);
+            }
+        }
+        // Single row object
+        if (rawData.booking_id || rawData.id || rawData.client || rawData.service || rawData.row_number) {
+            return [rawData];
+        }
     }
+
     return [];
 }
 
 function normalizeRow(raw, idx = 0) {
-    const bookingId = String(raw.booking_id || raw.id || `BK-${1040 + idx}`).trim();
-    const startDate = String(raw.start_date || raw.start || '').trim().slice(0, 10);
-    const endDate = String(raw.end_date || raw.end || startDate || '').trim().slice(0, 10);
+    const bookingId = String(raw.booking_id || raw.id || `ROW-${raw.row_number || (idx + 1)}`).trim();
+    const startDate = toYMD(raw.start_date || raw.start);
+    const endDate   = toYMD(raw.end_date || raw.end || startDate);
+
+    const cleanUrl = u => {
+        const s = String(u ?? '').trim();
+        return (/^https?:\/\//i.test(s)) ? s : '';
+    };
 
     const photoFields = [
-        { key: 'photo_front',     short: 'Front',     label: 'Front View',           url: String(raw.photo_front || raw.photoFront || '').trim() },
-        { key: 'photo_rear',      short: 'Rear',      label: 'Rear View',            url: String(raw.photo_rear || raw.photoRear || '').trim() },
-        { key: 'photo_left',      short: 'Left',      label: 'Left Side',            url: String(raw.photo_left || raw.photoLeft || '').trim() },
-        { key: 'photo_right',     short: 'Right',     label: 'Right Side',           url: String(raw.photo_right || raw.photoRight || '').trim() },
-        { key: 'photo_interior',  short: 'Interior',  label: 'Interior Cabin',       url: String(raw.photo_interior || raw.photoInterior || '').trim() },
-        { key: 'photo_dashboard', short: 'Dashboard', label: 'Dashboard / Odometer', url: String(raw.photo_dashboard || raw.photoDashboard || '').trim() },
-        { key: 'photo_damage',    short: 'Damage',    label: 'Damage / Exterior',    url: String(raw.photo_damage || raw.photoDamage || '').trim() }
+        { key: 'photo_front',     short: 'Front',     label: 'Front View',           url: cleanUrl(raw.photo_front ?? raw.photoFront) },
+        { key: 'photo_rear',      short: 'Rear',      label: 'Rear View',            url: cleanUrl(raw.photo_rear ?? raw.photoRear) },
+        { key: 'photo_left',      short: 'Left',      label: 'Left Side',            url: cleanUrl(raw.photo_left ?? raw.photoLeft) },
+        { key: 'photo_right',     short: 'Right',     label: 'Right Side',           url: cleanUrl(raw.photo_right ?? raw.photoRight) },
+        { key: 'photo_interior',  short: 'Interior',  label: 'Interior Cabin',       url: cleanUrl(raw.photo_interior ?? raw.photoInterior) },
+        { key: 'photo_dashboard', short: 'Dashboard', label: 'Dashboard / Odometer', url: cleanUrl(raw.photo_dashboard ?? raw.photoDashboard) },
+        { key: 'photo_damage',    short: 'Damage',    label: 'Damage / Exterior',    url: cleanUrl(raw.photo_damage ?? raw.photoDamage) }
     ];
 
-    const driverLicenceUrl = String(raw.driver_licence || raw.driver_license || raw.licence || '').trim();
-    if (driverLicenceUrl) {
-        resolveImgBBUrl(driverLicenceUrl);
-    }
-    photoFields.forEach(p => { if (p.url) resolveImgBBUrl(p.url); });
-
+    const driverLicenceUrl = cleanUrl(raw.driver_licence ?? raw.driver_license ?? raw.licence);
     const attachedPhotos = photoFields.filter(p => Boolean(p.url));
-    const hasInspection = Boolean(
-        raw.handover_date || raw.fuel_level || raw.interior_status || raw.exterior_status ||
-        attachedPhotos.length > 0 || driverLicenceUrl
+
+    const hasInspectionData = Boolean(
+        raw.fuel_level || raw.interior_status || raw.exterior_status ||
+        raw.handover_date || attachedPhotos.length > 0 || driverLicenceUrl
     );
+
+    const rawAmount = typeof raw.amount === 'string'
+        ? Number(raw.amount.replace(/[^0-9.-]+/g, ''))
+        : Number(raw.amount);
 
     return {
         row_number: raw.row_number ?? (idx + 2),
         id: bookingId,
         booking_id: bookingId,
-        timestamp: raw.timestamp || '',
-        client: raw.client || 'Unspecified Client',
-        contact: raw.contact || raw.driver || '—',
-        email: raw.email || '—',
-        service: raw.service || 'Vehicle Deployment',
+        timestamp: String(raw.timestamp ?? '').trim(),
+        client: String(raw.client || 'Unspecified Client').trim(),
+        contact: String(raw.contact || raw.driver || '—').trim(),
+        email: String(raw.email || '—').trim(),
+        service: String(raw.service || 'Vehicle Deployment').trim(),
         start: startDate,
         end: endDate,
         start_date: startDate,
         end_date: endDate,
-        amount: Number(raw.amount) || 0,
-        location: raw.location || raw.handover_location || '—',
-        notes: raw.notes || '—',
-        status: raw.status || 'Pending',
-        driver: raw.driver || raw.contact || '—',
-        fuel_level: raw.fuel_level || raw.fuel || '',
-        handover_location: raw.handover_location || raw.location || '—',
-        interior_status: raw.interior_status || raw.clean || '',
-        exterior_status: raw.exterior_status || '',
-        handover_notes: raw.handover_notes ?? 'none',
+        amount: isNaN(rawAmount) ? 0 : rawAmount,
+        location: String(raw.location || raw.handover_location || '—').trim(),
+        notes: String(raw.notes || '—').trim(),
+        status: String(raw.status || 'Pending').trim(),
+        driver: String(raw.driver || raw.contact || '—').trim(),
+        fuel_level: String(raw.fuel_level ?? '').trim(),
+        handover_location: String(raw.handover_location || raw.location || '—').trim(),
+        interior_status: String(raw.interior_status ?? '').trim(),
+        exterior_status: String(raw.exterior_status ?? '').trim(),
+        handover_notes: String(raw.handover_notes ?? '').trim(),
         photo_front: photoFields[0].url,
         photo_rear: photoFields[1].url,
         photo_left: photoFields[2].url,
@@ -514,78 +556,94 @@ function normalizeRow(raw, idx = 0) {
         photo_interior: photoFields[4].url,
         photo_dashboard: photoFields[5].url,
         photo_damage: photoFields[6].url,
-        handover_date: raw.handover_date || '',
+        handover_date: String(raw.handover_date ?? '').trim(),
         driver_licence: driverLicenceUrl,
         photos: photoFields,
         attachedPhotos: attachedPhotos,
-        hasInspection: hasInspection,
-        inspectionStatus: raw.inspection_status || (hasInspection ? 'Reviewed' : 'Pending review')
+        hasInspection: hasInspectionData
     };
 }
 
-// ==========================================
-// DATA FETCHING
-// ==========================================
-async function loadData(manualRefresh = false) {
-    let loadedRows = [];
-    let networkError = false;
-    const freshTimestamp = new Date().getTime();
-
-    try {
-        const res = await fetch(`${WEBHOOK_GET_BOOKINGS}?t=${freshTimestamp}`, { cache: 'no-store' });
-        if (res.ok) {
-            const rawJson = await res.json();
-            loadedRows = extractRows(rawJson);
-        } else {
-            throw new Error(`HTTP ${res.status}`);
-        }
-    } catch (e) {
-        networkError = true;
-    }
-
-    // Optional secondary check if a separate inspections endpoint returns extra rows
-    try {
-        const resInsp = await fetch(`${WEBHOOK_GET_INSPECTIONS}?t=${freshTimestamp}`, { cache: 'no-store' });
-        if (resInsp.ok) {
-            const rawInsp = await resInsp.json();
-            const extraRows = extractRows(rawInsp);
-            extraRows.forEach(r => {
-                const rId = r.booking_id || r.id;
-                const existing = loadedRows.find(x => (x.booking_id || x.id) === rId);
-                if (existing) Object.assign(existing, r);
-                else if (rId) loadedRows.push(r);
-            });
-        }
-    } catch (_) {}
-
-    if (loadedRows.length === 0) {
-        loadedRows = FALLBACK_WEBHOOK_PAYLOAD;
-    }
-
-    state.bookings = loadedRows.map((r, i) => normalizeRow(r, i));
-    // All rows that contain pre-inspection data or bookings appear in Pre-inspections
+function applyRawRows(rawRows, shouldUpdateCalendarFocus = false) {
+    // Filter out completely blank sheet rows
+    const validRows = rawRows.filter(r => r && (r.booking_id || r.id || r.client || r.service));
+    state.bookings = validRows.map((r, i) => normalizeRow(r, i));
     state.inspections = state.bookings;
 
-    // Auto-focus calendar month on first booking start_date if available
-    const firstValidDate = parseSafeDate(state.bookings[0]?.start);
-    if (firstValidDate && !manualRefresh) {
-        calendarMonth = firstValidDate.getMonth();
-        calendarYear = firstValidDate.getFullYear();
+    if (shouldUpdateCalendarFocus && state.bookings.length > 0) {
+        const firstWithDate = state.bookings.find(b => parseSafeDate(b.start));
+        if (firstWithDate) {
+            const d = parseSafeDate(firstWithDate.start);
+            calendarMonth = d.getMonth();
+            calendarYear = d.getFullYear();
+        }
     }
+}
 
+// ==========================================
+// FAST NON-BLOCKING LIVE DATA FETCHING
+// ==========================================
+async function loadData(manualRefresh = false) {
     const syncStatus = document.getElementById('sync-status');
     const syncDot = document.getElementById('sync-dot');
-    if (networkError) {
-        if (syncStatus) syncStatus.textContent = 'Cached / Webhook payload active';
-        if (syncDot) syncDot.style.background = '#d1b57a';
-        if (manualRefresh) toast('Loaded latest webhook schema snapshot.');
-    } else {
-        if (syncStatus) syncStatus.textContent = `Synced (${state.bookings.length} records)`;
+
+    if (syncStatus) syncStatus.textContent = 'Syncing live webhook…';
+    if (syncDot) syncDot.style.background = '#d1b57a';
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 12000);
+
+    try {
+        const url = `${WEBHOOK_GET_BOOKINGS}?t=${Date.now()}`;
+        const res = await fetch(url, {
+            method: 'GET',
+            cache: 'no-store',
+            headers: { 'Accept': 'application/json' },
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (!res.ok) throw new Error(`Webhook returned HTTP ${res.status}`);
+
+        const text = await res.text();
+        const rawJson = text ? JSON.parse(text) : [];
+        const rows = extractRows(rawJson);
+
+        applyRawRows(rows, !manualRefresh);
+        isLoading = false;
+        lastSyncError = null;
+
+        try {
+            sessionStorage.setItem(STORAGE_CACHE_KEY, JSON.stringify(rows));
+        } catch (_) {}
+
+        if (syncStatus) syncStatus.textContent = `Live · ${state.bookings.length} row(s) synced`;
         if (syncDot) syncDot.style.background = '#42b883';
-        if (manualRefresh) toast('Workspace synchronized with Google Sheets webhook.');
+        if (manualRefresh) toast(`Synchronized ${state.bookings.length} live record(s) from webhook.`);
+    } catch (err) {
+        clearTimeout(timeoutId);
+        isLoading = false;
+        lastSyncError = err.message || 'Connection failed';
+        if (syncStatus) syncStatus.textContent = state.bookings.length ? `Cached (${state.bookings.length} rows)` : 'Webhook unreachable';
+        if (syncDot) syncDot.style.background = '#b95249';
+        if (manualRefresh) toast(`Webhook sync error: ${lastSyncError}`);
     }
 
     render();
+}
+
+// Hydrate from sessionStorage immediately for 0ms initial paint while live webhook loads
+function hydrateFromCache() {
+    try {
+        const cached = sessionStorage.getItem(STORAGE_CACHE_KEY);
+        if (cached) {
+            const rows = JSON.parse(cached);
+            if (Array.isArray(rows) && rows.length > 0) {
+                applyRawRows(rows, true);
+                isLoading = false;
+            }
+        }
+    } catch (_) {}
 }
 
 // ==========================================
@@ -593,16 +651,16 @@ async function loadData(manualRefresh = false) {
 // ==========================================
 function nav() {
     const pendingCount = state.bookings.filter(x => /Pending/i.test(x.status)).length;
-    const inspectionCount = state.inspections.filter(x => x.hasInspection).length;
+    const inspectionCount = state.inspections.filter(x => x.hasInspection).length || state.inspections.length;
     const item = (id, label, ic, count = '') =>
         `<button class="nav-item ${page === id ? 'active' : ''}" data-nav="${id}">${icon(ic)}<span>${label}</span>${count !== '' ? `<span class="count">${count}</span>` : ''}</button>`;
     document.getElementById('nav').innerHTML = `
         <div class="nav-label">Workspace</div>
         ${item('overview', 'Overview', 'grid')}
-        ${item('calendar', 'Calendar', 'calendar', state.bookings.length)}
+        ${item('calendar', 'Calendar', 'calendar', state.bookings.length || '')}
         <div class="nav-label">Mobility</div>
-        ${item('bookings', 'Car Bookings', 'car', pendingCount || state.bookings.length)}
-        ${item('inspections', 'Pre-inspections', 'clipboard', inspectionCount)}
+        ${item('bookings', 'Car Bookings', 'car', pendingCount || state.bookings.length || '')}
+        ${item('inspections', 'Pre-inspections', 'clipboard', inspectionCount || '')}
         <div class="nav-label">Other Services</div>
         ${item('infrastructure', 'Events & Setup', 'layers')}
         ${item('briefs', 'Project Briefs', 'folder')}
@@ -623,14 +681,27 @@ function getFilteredBookings() {
     const q = query.trim().toLowerCase();
     return state.bookings.filter(b => {
         const matchesFilter = filter === 'All' || b.status.toLowerCase() === filter.toLowerCase();
-        const hay = `${b.id} ${b.client} ${b.contact} ${b.email} ${b.service} ${b.location} ${b.driver} ${b.handover_location}`.toLowerCase();
-        return matchesFilter && (!q || hay.includes(q));
+        if (!matchesFilter) return false;
+        if (!q) return true;
+        const hay = `${b.booking_id} ${b.client} ${b.contact} ${b.email} ${b.service} ${b.location} ${b.driver} ${b.handover_location} ${b.status}`.toLowerCase();
+        return hay.includes(q);
     });
+}
+
+function renderLoadingSkeleton(rows = 5) {
+    return `<div style="padding:12px 0">${Array.from({ length: rows }, () => `<div class="skeleton-row"></div>`).join('')}</div>`;
 }
 
 // Car Bookings Table (Columns strictly preserved as requested)
 function bookingRows(list) {
-    if (!list.length) return `<div class="page-empty">${icon('search')}<h3>No matching records</h3><p>Try clearing your search filter or syncing the latest sheet rows.</p></div>`;
+    if (isLoading && !state.bookings.length) return renderLoadingSkeleton(6);
+    if (!list.length) {
+        return `<div class="page-empty">
+            ${icon('search')}
+            <h3>${lastSyncError && !state.bookings.length ? 'Could not reach live webhook' : 'No matching booking records'}</h3>
+            <p>${lastSyncError && !state.bookings.length ? esc(lastSyncError) + ' — Click the refresh button above to retry.' : 'Try clearing your search filter or clicking Refresh to sync.'}</p>
+        </div>`;
+    }
     return `<div class="table-wrap responsive"><table>
         <thead>
             <tr>
@@ -658,13 +729,13 @@ function bookingRows(list) {
                 </td>
                 <td class="date-column">
                     <strong>${date(b.start)} – ${date(b.end)}</strong>
-                    <small>${esc(b.start ? b.start.slice(0, 4) : '2026')}</small>
+                    <small>${esc(b.start ? b.start.slice(0, 4) : '—')}</small>
                 </td>
                 <td>${badge(b.status)}</td>
                 <td style="text-align:right">
                     <div style="display:inline-flex;gap:6px;justify-content:flex-end">
                         <button class="row-button" data-action="booking" data-id="${esc(b.id)}">View ${icon('chevron')}</button>
-                        ${b.status === 'Approved'
+                        ${/Approved/i.test(b.status)
                             ? `<button class="row-button" data-action="invoice" data-id="${esc(b.id)}">${icon('invoice')}Invoice</button>`
                             : `<button class="row-button" data-action="approval" data-id="${esc(b.id)}">${icon('check')}Approve</button>`}
                     </div>
@@ -678,19 +749,19 @@ function bookingPanel() {
     const list = getFilteredBookings();
     const counts = {
         All: state.bookings.length,
-        Pending: state.bookings.filter(x => x.status === 'Pending').length,
-        Approved: state.bookings.filter(x => x.status === 'Approved').length
+        Pending: state.bookings.filter(x => /Pending/i.test(x.status)).length,
+        Approved: state.bookings.filter(x => /Approved/i.test(x.status)).length
     };
     return `<section class="panel">
         <div class="panel-head">
-            <div><h2>Car Booking Requests</h2><p>Review and approve vehicle deployments synced from Google Sheets.</p></div>
+            <div><h2>Car Booking Requests</h2><p>Live rows synced from your Google Sheets webhook.</p></div>
         </div>
         <div class="tabs">
             ${['All', 'Pending', 'Approved'].map(f => `<button class="tab ${filter === f ? 'active' : ''}" data-filter="${f}">${f}<span>${counts[f] ?? 0}</span></button>`).join('')}
         </div>
         <div class="toolbar">
             <label class="searchbox">${icon('search')}<input id="booking-search" placeholder="Search ID, client, vehicle or route…" value="${esc(query)}"></label>
-            <small>Showing ${list.length} of ${state.bookings.length} row(s)</small>
+            <small id="booking-count-label">Showing ${list.length} of ${state.bookings.length} live row(s)</small>
         </div>
         <div id="booking-results">${bookingRows(list)}</div>
     </section>`;
@@ -699,100 +770,118 @@ function bookingPanel() {
 // ==========================================
 // PRE-INSPECTIONS VIEW (TABLE + VIEW FILE)
 // ==========================================
-function inspections() {
+function getFilteredInspections() {
     const q = query.trim().toLowerCase();
-    const list = state.inspections.filter(b => {
+    return state.inspections.filter(b => {
+        if (inspFilter === 'Submitted' && !b.hasInspection) return false;
+        if (inspFilter === 'Pending' && b.hasInspection) return false;
         if (!q) return true;
-        return `${b.booking_id} ${b.client} ${b.contact} ${b.service} ${b.driver} ${b.handover_location} ${b.fuel_level} ${b.interior_status} ${b.exterior_status}`.toLowerCase().includes(q);
+        return `${b.booking_id} ${b.client} ${b.contact} ${b.service} ${b.driver} ${b.handover_location} ${b.fuel_level} ${b.interior_status} ${b.exterior_status} ${b.handover_notes}`.toLowerCase().includes(q);
     });
+}
 
+function inspectionRows(list) {
+    if (isLoading && !state.inspections.length) return renderLoadingSkeleton(6);
     if (!list.length) {
-        return `<div class="page-empty">${icon('clipboard')}<h3>No pre-inspection records found</h3><p>Ensure your Google Sheets webhook is returning handover columns.</p></div>`;
+        return `<div class="page-empty">${icon('clipboard')}<h3>No matching pre-inspection records</h3><p>Try switching the filter tab or clicking Refresh to pull the latest sheet rows.</p></div>`;
     }
+
+    return `<div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Client Name</th>
+                    <th>Vehicle & Handover</th>
+                    <th>Car Conditions</th>
+                    <th>Driver Licence</th>
+                    <th>Attached Condition Photos (View File)</th>
+                    <th style="text-align:right">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${list.map((b, idx) => {
+                    const resolvedLicence = resolvedImageCache[b.driver_licence] || b.driver_licence;
+                    return `<tr>
+                        <td>
+                            <span class="id-pill">${esc(b.booking_id)}</span>
+                            <small>Row #${esc(b.row_number)} · ${esc(b.handover_date || b.timestamp || '—')}</small>
+                        </td>
+                        <td>
+                            <div class="client-cell">
+                                <span class="avatar ${['', 'blue', 'green'][idx % 3]}">${esc(b.client.charAt(0))}</span>
+                                <div>
+                                    <strong>${esc(b.client)}</strong>
+                                    <small>${esc(b.contact)} · ${esc(b.email)}</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <strong>${esc(b.service)}</strong>
+                            <small>Driver: ${esc(b.driver)} · ${esc(b.handover_location)}</small>
+                        </td>
+                        <td>
+                            <div class="condition-list">
+                                <span class="cond-tag"><b>Fuel:</b> ${esc(humanize(b.fuel_level))}</span>
+                                <span class="cond-tag"><b>Interior:</b> ${esc(humanize(b.interior_status))}</span>
+                                <span class="cond-tag"><b>Exterior:</b> ${esc(humanize(b.exterior_status))}</span>
+                                <span class="cond-tag"><b>Notes:</b> ${esc(b.handover_notes || 'none')}</span>
+                            </div>
+                        </td>
+                        <td>
+                            ${b.driver_licence ? `
+                                <div class="licence-cell">
+                                    <img class="mini-thumb" loading="lazy" decoding="async" src="${esc(resolvedLicence)}" data-raw-url="${esc(b.driver_licence)}" alt="Driver Licence" data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence" onerror="handleImgError(this)">
+                                    <button class="view-file-btn" data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence">
+                                        ${icon('idcard')} View File
+                                    </button>
+                                </div>
+                            ` : `<small>No licence file</small>`}
+                        </td>
+                        <td>
+                            <div class="file-pills">
+                                ${b.photos.map(p => p.url ? `
+                                    <button class="view-file-btn" data-action="view-file" data-id="${esc(b.id)}" data-key="${p.key}" title="View ${esc(p.label)}">
+                                        ${icon('eye')} View ${esc(p.short)}
+                                    </button>
+                                ` : '').join('')}
+                                ${b.attachedPhotos.length === 0 ? `<small>No photos attached yet</small>` : ''}
+                            </div>
+                        </td>
+                        <td style="text-align:right">
+                            <button class="row-button" data-action="inspection" data-id="${esc(b.id)}">
+                                ${icon('clipboard')} Full Report
+                            </button>
+                        </td>
+                    </tr>`;
+                }).join('')}
+            </tbody>
+        </table>
+    </div>`;
+}
+
+function inspections() {
+    const list = getFilteredInspections();
+    const submittedCount = state.inspections.filter(x => x.hasInspection).length;
+    const pendingCount = state.inspections.length - submittedCount;
 
     return `<section class="panel">
         <div class="panel-head">
             <div>
                 <h2>Vehicle Pre-Inspection & Handover Log</h2>
-                <p>Live condition reports, driver licences, and multi-angle vehicle photos read directly from the webhook.</p>
+                <p>First column ordered by Booking ID, followed by Client Name, Car Conditions, Driver Licence, and Viewable Condition Photos.</p>
             </div>
+        </div>
+        <div class="tabs">
+            <button class="tab ${inspFilter === 'All' ? 'active' : ''}" data-insp-filter="All">All Records<span>${state.inspections.length}</span></button>
+            <button class="tab ${inspFilter === 'Submitted' ? 'active' : ''}" data-insp-filter="Submitted">With Handover Data<span>${submittedCount}</span></button>
+            <button class="tab ${inspFilter === 'Pending' ? 'active' : ''}" data-insp-filter="Pending">Awaiting Handover<span>${pendingCount}</span></button>
         </div>
         <div class="toolbar">
             <label class="searchbox">${icon('search')}<input id="booking-search" placeholder="Search booking ID, client, driver, condition…" value="${esc(query)}"></label>
-            <small>${list.length} handover record(s) synced</small>
+            <small id="inspection-count-label">Showing ${list.length} of ${state.inspections.length} record(s)</small>
         </div>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Booking ID</th>
-                        <th>Client Name</th>
-                        <th>Vehicle & Handover</th>
-                        <th>Car Conditions</th>
-                        <th>Driver Licence</th>
-                        <th>Attached Condition Photos (View File)</th>
-                        <th style="text-align:right">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${list.map((b, idx) => {
-                        const resolvedLicence = resolvedImageCache[b.driver_licence] || b.driver_licence;
-                        return `<tr>
-                            <td>
-                                <span class="id-pill">${esc(b.booking_id)}</span>
-                                <small>Row #${esc(b.row_number)} · ${esc(b.handover_date || b.timestamp || '—')}</small>
-                            </td>
-                            <td>
-                                <div class="client-cell">
-                                    <span class="avatar ${['', 'blue', 'green'][idx % 3]}">${esc(b.client.charAt(0))}</span>
-                                    <div>
-                                        <strong>${esc(b.client)}</strong>
-                                        <small>${esc(b.contact)} · ${esc(b.email)}</small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <strong>${esc(b.service)}</strong>
-                                <small>Driver: ${esc(b.driver)} · ${esc(b.handover_location)}</small>
-                            </td>
-                            <td>
-                                <div class="condition-list">
-                                    <span class="cond-tag"><b>Fuel:</b> ${esc(humanize(b.fuel_level))}</span>
-                                    <span class="cond-tag"><b>Interior:</b> ${esc(humanize(b.interior_status))}</span>
-                                    <span class="cond-tag"><b>Exterior:</b> ${esc(humanize(b.exterior_status))}</span>
-                                    <span class="cond-tag"><b>Notes:</b> ${esc(b.handover_notes || 'none')}</span>
-                                </div>
-                            </td>
-                            <td>
-                                ${b.driver_licence ? `
-                                    <div class="licence-cell">
-                                        <img class="mini-thumb" src="${esc(resolvedLicence)}" data-raw-url="${esc(b.driver_licence)}" alt="Driver Licence" data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence" onerror="this.style.display='none'">
-                                        <button class="view-file-btn" data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence">
-                                            ${icon('idcard')} View File
-                                        </button>
-                                    </div>
-                                ` : `<small>Not attached</small>`}
-                            </td>
-                            <td>
-                                <div class="file-pills">
-                                    ${b.photos.map(p => p.url ? `
-                                        <button class="view-file-btn" data-action="view-file" data-id="${esc(b.id)}" data-key="${p.key}" title="View ${esc(p.label)}">
-                                            ${icon('eye')} View ${esc(p.short)}
-                                        </button>
-                                    ` : '').join('')}
-                                    ${b.attachedPhotos.length === 0 ? `<small>No photos attached</small>` : ''}
-                                </div>
-                            </td>
-                            <td style="text-align:right">
-                                <button class="row-button" data-action="inspection" data-id="${esc(b.id)}">
-                                    ${icon('clipboard')} Full Report
-                                </button>
-                            </td>
-                        </tr>`;
-                    }).join('')}
-                </tbody>
-            </table>
-        </div>
+        <div id="inspection-results">${inspectionRows(list)}</div>
     </section>`;
 }
 
@@ -801,57 +890,59 @@ function inspections() {
 // ==========================================
 function overview() {
     const totalValue = state.bookings.reduce((sum, b) => sum + (Number(b.amount) || 0), 0);
-    const approvedCount = state.bookings.filter(b => b.status === 'Approved').length;
+    const approvedCount = state.bookings.filter(b => /Approved/i.test(b.status)).length;
     const inspectedCount = state.bookings.filter(b => b.hasInspection).length;
+    const recentInspections = state.bookings.filter(b => b.hasInspection).slice(0, 6);
+    const sidebarList = recentInspections.length ? recentInspections : state.bookings.slice(0, 6);
 
     return `
         <div class="kpi-grid">
             <div class="kpi-card">
-                <small>Active Bookings</small>
-                <strong>${state.bookings.length}</strong>
-                <span>Synced from Google Sheets</span>
+                <small>Total Webhook Rows</small>
+                <strong>${isLoading && !state.bookings.length ? '…' : state.bookings.length}</strong>
+                <span>Live from Google Sheets</span>
             </div>
             <div class="kpi-card">
                 <small>Approved Deployments</small>
-                <strong>${approvedCount}</strong>
-                <span>Mapped on operations calendar</span>
+                <strong>${isLoading && !state.bookings.length ? '…' : approvedCount}</strong>
+                <span>Scheduled on calendar</span>
             </div>
             <div class="kpi-card">
                 <small>Pre-Inspections Logged</small>
-                <strong>${inspectedCount}</strong>
-                <span>With photos & driver licence</span>
+                <strong>${isLoading && !state.bookings.length ? '…' : inspectedCount}</strong>
+                <span>Condition & licence records</span>
             </div>
             <div class="kpi-card">
                 <small>Total Pipeline Value</small>
-                <strong>${money(totalValue)}</strong>
-                <span>Value-based contract total</span>
+                <strong>${isLoading && !state.bookings.length ? '…' : money(totalValue)}</strong>
+                <span>Combined booking value</span>
             </div>
         </div>
         <div class="dashboard-grid">
             <div>${bookingPanel()}</div>
             <aside class="dashboard-aside">
                 <section class="focus-card">
-                    <div class="eyebrow">OPERATIONS PRIORITY</div>
+                    <div class="eyebrow">LIVE OPERATIONS</div>
                     <h2>Keep deployments & handovers verified.</h2>
-                    <p>Every vehicle dispatch includes full pre-inspection photo verification, fuel & interior sign-off, and driver licence validation.</p>
+                    <p>All ${state.bookings.length} active bookings and vehicle pre-inspection reports sync directly from your Google Sheets webhook.</p>
                 </section>
                 <section class="panel">
                     <div class="panel-head">
                         <div>
-                            <h2>Recent Pre-Inspections</h2>
-                            <p>Quick access to vehicle handover files.</p>
+                            <h2>Live Handover Feed</h2>
+                            <p>Quick jump to pre-inspection files.</p>
                         </div>
                     </div>
                     <div class="aside-list">
-                        ${state.bookings.slice(0, 4).map(b => `
+                        ${sidebarList.length ? sidebarList.map(b => `
                             <div class="aside-item">
                                 <div>
-                                    <strong>${esc(b.booking_id)} · ${esc(b.service)}</strong>
-                                    <small>${esc(b.client)} · ${esc(humanize(b.fuel_level))} fuel · ${b.attachedPhotos.length} photos</small>
+                                    <strong>${esc(b.booking_id)} · ${esc(b.client)}</strong>
+                                    <small>${esc(b.service)} · Fuel: ${esc(humanize(b.fuel_level))} · ${b.attachedPhotos.length} photo(s)</small>
                                 </div>
                                 <button class="row-button" data-action="inspection" data-id="${esc(b.id)}">Inspect</button>
                             </div>
-                        `).join('')}
+                        `).join('') : `<div style="padding:14px;font-size:11px;color:var(--muted)">${isLoading ? 'Loading live webhook rows…' : 'No records available.'}</div>`}
                     </div>
                 </section>
             </aside>
@@ -866,16 +957,16 @@ function calendar() {
     const first = new Date(calendarYear, calendarMonth, 1);
     const days = new Date(calendarYear, calendarMonth + 1, 0).getDate();
     const offset = (first.getDay() + 6) % 7;
-    const todayStr = new Date().toISOString().slice(0, 10);
+    const todayStr = toYMD(new Date());
 
     return `<section class="panel">
         <div class="panel-head">
             <div>
                 <h2>Vehicle Deployment Schedule</h2>
-                <p>Mapped from booking start_date to end_date (${first.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' })}).</p>
+                <p>Live bookings mapped across their start_date and end_date (${first.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' })}).</p>
             </div>
             <div class="month-nav">
-                <button class="btn" data-action="toggle-cal-filter">${showAllCalendar ? 'Showing: All Bookings' : 'Showing: Approved Only'}</button>
+                <button class="btn" data-action="toggle-cal-filter">${showAllCalendar ? 'Showing: All Bookings (' + state.bookings.length + ')' : 'Showing: Approved Only'}</button>
                 <button class="icon-btn" data-action="month-prev" title="Previous Month">‹</button>
                 <strong style="min-width:130px;text-align:center">${first.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' })}</strong>
                 <button class="icon-btn" data-action="month-next" title="Next Month">›</button>
@@ -888,16 +979,17 @@ function calendar() {
                 ${Array.from({ length: days }, (_, j) => {
                     const d = `${calendarYear}-${String(calendarMonth + 1).padStart(2, '0')}-${String(j + 1).padStart(2, '0')}`;
                     const dayBookings = state.bookings.filter(b => {
-                        if (!b.start || !b.end) return false;
-                        const statusOk = showAllCalendar || b.status === 'Approved';
-                        return statusOk && b.start <= d && b.end >= d;
+                        if (!b.start) return false;
+                        const end = b.end || b.start;
+                        const statusOk = showAllCalendar || /Approved/i.test(b.status);
+                        return statusOk && b.start <= d && end >= d;
                     });
                     return `<div class="day ${d === todayStr ? 'today' : ''}">
-                        <div class="day-num"><span>${j + 1}</span>${dayBookings.length ? `<small>${dayBookings.length} active</small>` : ''}</div>
+                        <div class="day-num"><span>${j + 1}</span>${dayBookings.length ? `<small>${dayBookings.length}</small>` : ''}</div>
                         ${dayBookings.map(b => `
-                            <button class="calendar-event ${b.status !== 'Approved' ? 'pending-ev' : ''}" data-action="booking" data-id="${esc(b.id)}" title="${esc(b.booking_id)}: ${esc(b.client)} (${esc(b.service)})">
+                            <button class="calendar-event ${!/Approved/i.test(b.status) ? 'pending-ev' : ''}" data-action="booking" data-id="${esc(b.id)}" title="${esc(b.booking_id)}: ${esc(b.client)} — ${esc(b.service)} (${esc(b.start)} to ${esc(b.end)})">
                                 ${esc(b.booking_id)} · ${esc(b.service)}
-                                <small>${esc(b.client)} (${esc(b.driver)})</small>
+                                <small>${esc(b.client)}</small>
                             </button>
                         `).join('')}
                     </div>`;
@@ -905,8 +997,8 @@ function calendar() {
             </div>
         </div>
         <div class="panel-foot">
-            <span>Click any vehicle block on the calendar to inspect booking details, handover conditions, or attached photos.</span>
-            <span>Total active in dataset: ${state.bookings.length}</span>
+            <span>Click any scheduled vehicle deployment to view booking details, pre-inspection conditions, or attached photos.</span>
+            <span>Total synced rows: ${state.bookings.length}</span>
         </div>
     </section>`;
 }
@@ -934,9 +1026,30 @@ function render() {
             infrastructure: () => placeholders('infrastructure'),
             briefs: () => placeholders('briefs')
         })[page]()}
-        <footer class="footer"><span>© 2026 S&H Consulting · Connected to Automania n8n Webhook</span><span>Row sync active</span></footer>
+        <footer class="footer">
+            <span>© 2026 S&H Consulting · Live Webhook Integration</span>
+            <span>Endpoint: sh-get-bookings (${state.bookings.length} rows)</span>
+        </footer>
     `;
     icons();
+}
+
+// Fast partial update when typing in search bar (avoids rebuilding entire DOM)
+function updateSearchResultsOnly() {
+    const bRes = document.getElementById('booking-results');
+    if (bRes) {
+        const list = getFilteredBookings();
+        bRes.innerHTML = bookingRows(list);
+        const lbl = document.getElementById('booking-count-label');
+        if (lbl) lbl.textContent = `Showing ${list.length} of ${state.bookings.length} live row(s)`;
+    }
+    const iRes = document.getElementById('inspection-results');
+    if (iRes) {
+        const list = getFilteredInspections();
+        iRes.innerHTML = inspectionRows(list);
+        const lbl = document.getElementById('inspection-count-label');
+        if (lbl) lbl.textContent = `Showing ${list.length} of ${state.inspections.length} record(s)`;
+    }
 }
 
 // ==========================================
@@ -956,7 +1069,7 @@ function openDialog(title, sub, body, foot = '') {
     d.scrollTop = 0;
 }
 function closeDialog() { document.getElementById('dialog').close(); }
-const booking = id => state.bookings.find(b => b.id === id || b.booking_id === id);
+const booking = id => state.bookings.find(b => String(b.id) === String(id) || String(b.booking_id) === String(id));
 
 // Visual Image Lightbox ("View File")
 async function openFileViewer(id, activeKey = 'photo_front') {
@@ -974,18 +1087,18 @@ async function openFileViewer(id, activeKey = 'photo_front') {
     }
 
     const current = allFiles.find(f => f.key === activeKey) || allFiles[0];
-    const displayUrl = resolvedImageCache[current.url] || current.url;
+    const initialUrl = resolvedImageCache[current.url] || current.url;
 
     openDialog(
         `${esc(current.label)} — ${esc(b.booking_id)}`,
         `${esc(b.client)} · ${esc(b.service)} · Driver: ${esc(b.driver)}`,
         `
         <div class="lightbox-stage">
-            <img id="lightbox-main-img" src="${esc(displayUrl)}" data-raw-url="${esc(current.url)}" alt="${esc(current.label)}"
+            <img id="lightbox-main-img" src="${esc(initialUrl)}" data-raw-url="${esc(current.url)}" alt="${esc(current.label)}"
                  onerror="this.style.display='none'; document.getElementById('lightbox-fallback').style.display='block';">
             <div id="lightbox-fallback" style="display:none;color:#fff;text-align:center;padding:24px">
-                <p style="margin-bottom:12px">Resolving image preview from host...</p>
-                <a href="${esc(current.url)}" target="_blank" rel="noopener" class="btn gold-btn">Open Original Image Source ↗</a>
+                <p style="margin-bottom:12px">Loading direct image preview…</p>
+                <a href="${esc(current.url)}" target="_blank" rel="noopener" class="btn gold-btn">Open Image in New Tab ↗</a>
             </div>
         </div>
         <div class="lightbox-strip">
@@ -996,19 +1109,21 @@ async function openFileViewer(id, activeKey = 'photo_front') {
             `).join('')}
         </div>
         `,
-        `<a class="btn" href="${esc(displayUrl)}" target="_blank" rel="noopener">Open Full Resolution ↗</a>
-         <button class="btn" data-action="inspection" data-id="${esc(b.id)}">${icon('clipboard')}Back to Full Pre-Inspection</button>
-         <button class="btn primary" data-action="close">Done</button>`
+        `<a class="btn" id="lightbox-open-link" href="${esc(initialUrl)}" target="_blank" rel="noopener">Open Full Resolution ↗</a>
+         <button class="btn" data-action="inspection" data-id="${esc(b.id)}">${icon('clipboard')}Full Pre-Inspection Report</button>
+         <button class="btn primary" data-action="close">Close</button>`
     );
 
-    // Resolve shortlink if needed and update live image
+    // On-demand resolve if it's an ibb.co viewer shortlink
     const resolved = await resolveImgBBUrl(current.url);
     const imgEl = document.getElementById('lightbox-main-img');
     const fbEl = document.getElementById('lightbox-fallback');
+    const linkEl = document.getElementById('lightbox-open-link');
     if (imgEl && resolved) {
         imgEl.src = resolved;
         imgEl.style.display = 'block';
         if (fbEl) fbEl.style.display = 'none';
+        if (linkEl) linkEl.href = resolved;
     }
 }
 
@@ -1016,7 +1131,7 @@ async function openFileViewer(id, activeKey = 'photo_front') {
 function viewBooking(id) {
     const b = booking(id);
     if (!b) return;
-    const heroPhoto = b.photo_front || b.photo_interior || '';
+    const heroPhoto = b.photo_front || b.photo_interior || b.photo_dashboard || '';
 
     openDialog(
         'Booking & Deployment Details',
@@ -1029,7 +1144,7 @@ function viewBooking(id) {
         </div>
         ${heroPhoto ? `
             <div style="margin-top:16px;border-radius:8px;overflow:hidden;border:1px solid var(--line);max-height:220px;background:#eef0ec">
-                <img src="${esc(heroPhoto)}" alt="${esc(b.service)}" style="width:100%;height:220px;object-fit:cover;display:block;cursor:pointer" data-action="view-file" data-id="${esc(b.id)}" data-key="photo_front">
+                <img loading="lazy" src="${esc(resolvedImageCache[heroPhoto] || heroPhoto)}" data-raw-url="${esc(heroPhoto)}" alt="${esc(b.service)}" style="width:100%;height:220px;object-fit:cover;display:block;cursor:pointer" data-action="view-file" data-id="${esc(b.id)}" data-key="photo_front" onerror="handleImgError(this)">
             </div>
         ` : ''}
         <div class="details-grid">
@@ -1052,9 +1167,9 @@ function viewBooking(id) {
         <div class="info-box">${esc(b.notes)}</div>
         `,
         `<button class="btn" data-action="close">Close</button>
-         <button class="btn gold-btn" data-action="inspection" data-id="${esc(b.id)}">${icon('clipboard')}View Pre-Inspection & Photos (${b.attachedPhotos.length})</button>
-         ${b.status === 'Pending' ? `<button class="btn primary" data-action="approval" data-id="${esc(b.id)}">${icon('check')}Approve & Invoice</button>` : ''}
-         ${b.status === 'Approved' ? `<button class="btn primary" data-action="invoice" data-id="${esc(b.id)}">${icon('invoice')}Manage Invoice</button>` : ''}`
+         <button class="btn gold-btn" data-action="inspection" data-id="${esc(b.id)}">${icon('clipboard')}Pre-Inspection & Photos (${b.attachedPhotos.length})</button>
+         ${!/Approved/i.test(b.status) ? `<button class="btn primary" data-action="approval" data-id="${esc(b.id)}">${icon('check')}Approve & Invoice</button>` : ''}
+         ${/Approved/i.test(b.status) ? `<button class="btn primary" data-action="invoice" data-id="${esc(b.id)}">${icon('invoice')}Manage Invoice</button>` : ''}`
     );
 }
 
@@ -1064,19 +1179,18 @@ function viewInspection(id) {
     if (!b) return;
 
     const resolvedLicence = resolvedImageCache[b.driver_licence] || b.driver_licence;
-    if (b.driver_licence) resolveImgBBUrl(b.driver_licence);
 
     const renderPhotoCard = (p) => {
         const resolvedUrl = resolvedImageCache[p.url] || p.url;
         if (!p.url) {
             return `<div class="photo-card">
-                <div class="photo-frame"><span class="muted" style="font-size:11px">No image</span></div>
-                <div class="photo-foot"><strong>${esc(p.label)}</strong><small>Missing</small></div>
+                <div class="photo-frame"><span class="muted" style="font-size:11px">Not submitted</span></div>
+                <div class="photo-foot"><strong>${esc(p.label)}</strong><small>No file</small></div>
             </div>`;
         }
         return `<div class="photo-card">
             <div class="photo-frame">
-                <img src="${esc(resolvedUrl)}" data-raw-url="${esc(p.url)}" alt="${esc(p.label)}" data-action="view-file" data-id="${esc(b.id)}" data-key="${p.key}">
+                <img loading="lazy" decoding="async" src="${esc(resolvedUrl)}" data-raw-url="${esc(p.url)}" alt="${esc(p.label)}" data-action="view-file" data-id="${esc(b.id)}" data-key="${p.key}" onerror="handleImgError(this)">
             </div>
             <div class="photo-foot">
                 <strong>${esc(p.label)}</strong>
@@ -1089,13 +1203,13 @@ function viewInspection(id) {
 
     openDialog(
         `Pre-Inspection Report · ${esc(b.booking_id)}`,
-        `Client: ${esc(b.client)} · Vehicle: ${esc(b.service)} · Handover: ${esc(b.handover_date || 'Recorded')}`,
+        `Client: ${esc(b.client)} · Vehicle: ${esc(b.service)} · Handover: ${esc(b.handover_date || '—')}`,
         `
         <div class="booking-summary">
             <span class="summary-icon">${icon('clipboard')}</span>
             <div>
                 <h3>${esc(b.booking_id)} — ${esc(b.service)}</h3>
-                <p>${esc(b.client)} (${esc(b.contact)}) · Handover at ${esc(b.handover_location)}</p>
+                <p>${esc(b.client)} (${esc(b.contact)}) · Handover Location: ${esc(b.handover_location)}</p>
             </div>
             ${badge(b.status)}
         </div>
@@ -1117,31 +1231,28 @@ function viewInspection(id) {
         <div class="licence-showcase">
             <div class="licence-img-wrap">
                 ${b.driver_licence ? `
-                    <img src="${esc(resolvedLicence)}" data-raw-url="${esc(b.driver_licence)}" alt="Driver Licence"
+                    <img loading="lazy" src="${esc(resolvedLicence)}" data-raw-url="${esc(b.driver_licence)}" alt="Driver Licence"
                          data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-                    <div style="display:none;place-items:center;padding:12px;text-align:center;font-size:11px;color:var(--muted)">
-                        Licence file attached<br><small>Click View File to inspect</small>
-                    </div>
+                         onerror="handleImgError(this)">
                 ` : `<span class="muted">No licence uploaded</span>`}
             </div>
             <div>
                 <strong style="font-size:14px">Driver: ${esc(b.driver)}</strong>
                 <p style="font-size:11px;color:var(--muted);margin:6px 0 14px">
-                    Verified driver credential attached to booking <b>${esc(b.booking_id)}</b> for handover in <b>${esc(b.handover_location)}</b>.
+                    Driver credential linked to booking <b>${esc(b.booking_id)}</b> for handover at <b>${esc(b.handover_location)}</b>.
                 </p>
                 ${b.driver_licence ? `
                     <div style="display:flex;gap:8px;flex-wrap:wrap">
                         <button class="btn gold-btn" data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence">
                             ${icon('eye')} View File (Driver Licence Image)
                         </button>
-                        <a class="btn" href="${esc(b.driver_licence)}" target="_blank" rel="noopener">Open Source URL ↗</a>
+                        <a class="btn" href="${esc(b.driver_licence)}" target="_blank" rel="noopener">Open Original URL ↗</a>
                     </div>
-                ` : ''}
+                ` : `<small>No driver licence URL present in this row.</small>`}
             </div>
         </div>
 
-        <h3 class="section-title">3. Attached Vehicle Condition Photos (7 Angles)</h3>
+        <h3 class="section-title">3. Attached Vehicle Condition Photos (Front, Rear, Sides, Interior, Dashboard, Damage)</h3>
         <div class="photo-grid">
             ${b.photos.map(renderPhotoCard).join('')}
         </div>
@@ -1193,9 +1304,8 @@ function approval(id) {
             render();
             invoice(id);
         } catch (err) {
-            toast('Saved locally (Approval webhook offline).');
-            render();
-            invoice(id);
+            toast('Warning: Could not reach approval endpoint.');
+            btn.innerHTML = `${icon('check')}Approve Booking`; btn.disabled = false;
         }
     };
 }
@@ -1209,7 +1319,7 @@ function nextInvoiceId() {
 function invoice(id) {
     const b = booking(id);
     if (!b) return;
-    if (b.status !== 'Approved') { toast('Approve this booking before preparing an invoice.'); return viewBooking(id); }
+    if (!/Approved/i.test(b.status)) { toast('Approve this booking before preparing an invoice.'); return viewBooking(id); }
 
     const existing = state.invoices.find(i => i.bookingId === id);
     const draft = existing ? structuredClone(existing) : { id: nextInvoiceId(), bookingId: id, amount: b.amount, tax: 15, deposit: 50, due: b.start, notes: '', status: 'Draft' };
@@ -1324,8 +1434,8 @@ function newBooking() {
         btn.innerHTML = 'Submitting...'; btn.disabled = true;
 
         const f = Object.fromEntries(new FormData(e.target));
-        const nums = state.bookings.map(b => Number(String(b.booking_id).replace(/\D+/g, '')) || 1042);
-        const nextNum = Math.max(1042, ...nums) + 1;
+        const nums = state.bookings.map(b => Number(String(b.booking_id).replace(/\D+/g, '')) || 1040);
+        const nextNum = Math.max(1040, ...nums) + 1;
         const newRaw = {
             ...f,
             booking_id: 'BK-' + nextNum,
@@ -1336,17 +1446,15 @@ function newBooking() {
             status: 'Pending',
             timestamp: new Date().toISOString().slice(0, 19).replace('T', ' ')
         };
-        const normalized = normalizeRow(newRaw, state.bookings.length);
 
         try {
             await fetch(WEBHOOK_POST_BOOKING, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newRaw) });
-            state.bookings.unshift(normalized);
-            closeDialog(); setPage('bookings');
-            toast('Booking successfully created.');
+            closeDialog();
+            toast('Booking submitted. Refreshing live sheet data…');
+            await loadData(false);
         } catch (err) {
-            state.bookings.unshift(normalized);
-            closeDialog(); setPage('bookings');
-            toast('Added locally (Webhook unreachable).');
+            toast('Network error: Could not submit booking.');
+            btn.innerHTML = `${icon('plus')}Submit Booking`; btn.disabled = false;
         }
     };
 }
@@ -1366,7 +1474,6 @@ document.getElementById('menu-overlay').onclick = () => {
 document.getElementById('refresh-btn').onclick = async () => {
     const svg = document.querySelector('#refresh-btn span svg');
     if (svg) svg.classList.add('spin');
-    toast('Syncing with Google Sheets webhook...');
     await loadData(true);
     if (svg) svg.classList.remove('spin');
 };
@@ -1377,6 +1484,9 @@ document.addEventListener('click', e => {
 
     const ft = e.target.closest('[data-filter]');
     if (ft) { filter = ft.dataset.filter; render(); return; }
+
+    const ift = e.target.closest('[data-insp-filter]');
+    if (ift) { inspFilter = ift.dataset.inspFilter; render(); return; }
 
     const el = e.target.closest('[data-action]');
     if (!el) return;
@@ -1405,12 +1515,11 @@ document.addEventListener('click', e => {
                     body: JSON.stringify({ booking_id: item.booking_id, inspectionId: item.booking_id, status: 'Reviewed' })
                 })
                 .then(() => {
-                    item.inspectionStatus = 'Reviewed';
-                    closeDialog(); render(); toast(`Pre-inspection for ${item.booking_id} confirmed.`);
+                    closeDialog(); loadData(false); toast(`Pre-inspection for ${item.booking_id} marked as reviewed.`);
                 })
                 .catch(() => {
-                    item.inspectionStatus = 'Reviewed';
-                    closeDialog(); render(); toast(`Pre-inspection marked reviewed locally.`);
+                    toast('Warning: Could not reach review webhook.');
+                    if (btn) { btn.innerHTML = `${icon('check')}Confirm Inspection Reviewed`; btn.disabled = false; }
                 });
             }
             break;
@@ -1431,18 +1540,14 @@ document.addEventListener('input', e => {
         const otherId = e.target.id === 'booking-search' ? 'global-search' : 'booking-search';
         const otherInput = document.getElementById(otherId);
         if (otherInput && otherInput.value !== query) otherInput.value = query;
-        render();
-        // Keep focus cleanly inside the active search input
-        const currentInput = document.getElementById(e.target.id);
-        if (currentInput) {
-            currentInput.focus();
-            currentInput.setSelectionRange(query.length, query.length);
-        }
+        updateSearchResultsOnly();
     }
 });
 
-// INITIALIZE
-loadData();
+// INITIALIZE: Instant UI render + immediate live webhook fetch
+hydrateFromCache();
+render();
+loadData(false);
 </script>
 </body>
 </html>
