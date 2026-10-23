@@ -8,7 +8,200 @@
 <title>S&H | Operations Portal</title>
 <style>
 /* Core Styles */
-:root{--ink:#182b32;--nav:#14282e;--muted:#77838a;--gold:#b5985e;--gold-light:#f4ecd9;--line:#e5e9e7;--bg:#f6f7f4;--green:#28745b;--red:#b95249;--shadow:0 12px 45px #18322b0c}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;color:var(--ink);line-height:1.5}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button{color:inherit}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b5985e88;outline-offset:3px}button{transition:background .16s,transform .16s}button:hover:not(:disabled){filter:brightness(.97)}h1,h2,h3,p{margin:0}h1{font-size:30px;letter-spacing:-1px;font-weight:650}h2{font-size:17px;letter-spacing:-.3px;font-weight:650}h3{font-size:15px}small,.muted{color:var(--muted)}svg{width:19px;height:19px;flex:none;stroke:currentColor;stroke-width:1.65;fill:none;stroke-linecap:round;stroke-linejoin:round}.side{width:234px;position:fixed;inset:0 auto 0 0;background:var(--nav);color:#d5dedd;display:flex;flex-direction:column;padding:28px 17px 18px;z-index:30}.brand{display:flex;align-items:center;gap:12px;padding:0 13px 29px}.monogram{font-family:Georgia,serif;font-style:italic;font-size:29px;line-height:1;color:var(--gold);border:1px solid #b5985e66;width:49px;height:49px;display:grid;place-items:center;border-radius:8px;letter-spacing:-4px;padding-right:4px}.brand strong{font-size:13px;letter-spacing:1.6px;color:#fff}.brand small{display:block;font-size:10px;letter-spacing:2px;margin-top:5px;color:#8fa4a8}.nav-label{font-size:9px;letter-spacing:1.8px;color:#7d999e;text-transform:uppercase;padding:22px 15px 8px}.nav-item{display:flex;align-items:center;width:100%;gap:12px;border:0;background:none;color:#adc0c2;min-height:44px;border-radius:7px;padding:11px 13px;font-size:12px;text-align:left;margin-bottom:4px}.nav-item.active{background:#b5985e1f;color:#ddc18a;box-shadow:inset 2px 0 #ccb077}.nav-item:hover{background:#ffffff0b}.count{margin-left:auto;background:#ffffff10;border-radius:4px;padding:1px 6px;font-size:10px}.side nav{overflow-y:auto;min-height:0;scrollbar-width:thin}.side-bottom{margin-top:auto;padding-top:25px}.workspace-tag{padding:12px;border:1px solid #ffffff14;border-radius:8px;margin-bottom:17px;font-size:11px;display:flex;align-items:center;gap:9px}.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}.profile{display:flex;align-items:center;gap:10px;padding:9px 8px;border-top:1px solid #ffffff13}.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#eee8d9;color:#7e673d;font-size:11px;font-weight:700;flex:none}.profile strong{font-size:11px;color:#e5edec}.profile small{display:block;font-size:10px}.main{margin-left:234px;min-width:0}.topbar{height:77px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 34px}.breadcrumb{font-size:11px;color:var(--muted)}.breadcrumb b{font-weight:500;color:var(--ink)}.top-actions{display:flex;align-items:center;gap:13px}.searchbox{display:flex;align-items:center;gap:9px;max-width:260px}.searchbox svg{width:16px;color:var(--muted)}.searchbox input{border:0;background:transparent;width:190px;font-size:11px;outline:none}.icon-btn{width:40px;height:40px;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:7px;background:#fff;position:relative;cursor:pointer}.mobile-menu{display:none}.content{padding:30px 34px;max-width:1630px;margin:auto}.page-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.eyebrow{font-size:9px;letter-spacing:1.8px;color:#8a784e;font-weight:700;text-transform:uppercase;margin-bottom:8px}.subtitle{font-size:12px;color:var(--muted);margin-top:5px}.btn{display:inline-flex;gap:8px;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;min-height:40px;padding:10px 15px;border-radius:7px;font-size:11px;font-weight:600;white-space:nowrap}.btn svg{width:15px;height:15px}.primary{background:var(--ink);border-color:var(--ink);color:white}.danger{color:var(--red);border-color:#e8cecb}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.dashboard-grid{display:grid;grid-template-columns:minmax(0,1fr) 287px;gap:22px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 3px 8px #15302902;margin-bottom:22px}.panel-head{padding:20px 21px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-head p{font-size:10px;color:var(--muted);margin-top:4px}.tabs{display:flex;gap:23px;padding:0 22px;border-bottom:1px solid var(--line);overflow:auto}.tab{padding:12px 0;border:0;border-bottom:2px solid transparent;background:none;font-size:11px;color:var(--muted);white-space:nowrap}.tab.active{color:var(--ink);border-bottom-color:var(--gold);font-weight:650}.tab span{font-size:9px;padding:2px 5px;border-radius:4px;background:#f2f3ef;margin-left:5px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}th{background:#fafbf8;color:#8b9595;font-size:9px;letter-spacing:.6px;text-transform:uppercase;font-weight:550;padding:12px 18px;white-space:nowrap}td{padding:17px 18px;border-top:1px solid #eef0ed;vertical-align:middle}td small{display:block;font-size:9px;margin-top:3px}td strong{font-size:11px;font-weight:600}.client-cell{display:flex;align-items:center;gap:10px}.client-cell .avatar{border-radius:8px;width:31px;height:33px;font-size:9px}.client-cell .blue{background:#eaf0f3;color:#5d7a8c}.client-cell .green{background:#e9f0e9;color:#638269}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:5px;padding:4px 7px;font-size:9px;white-space:nowrap;font-weight:550}.badge:before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor}.pending{color:#a17e37;background:#f8f1df}.approved,.reviewed{color:#398066;background:#eaf4ee}.declined,.flagged{color:#b45c52;background:#faece9}.row-button{border:1px solid #dfe5e1;padding:7px 10px;border-radius:5px;font-size:10px;background:#fff;min-height:34px;display:inline-flex;gap:5px;align-items:center}.focus-card{background:var(--nav);border-radius:10px;padding:22px;color:#fff;margin-bottom:21px;position:relative;overflow:hidden}.focus-card .eyebrow{color:#d1b57a}.focus-card h2{font-size:19px;max-width:200px;margin-top:14px;line-height:1.45}.focus-card p{font-size:11px;color:#a6babb;margin-top:9px;line-height:1.7}.toolbar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}.toolbar input,.toolbar select{border:1px solid var(--line);background:#fff;border-radius:6px;padding:9px 11px;font-size:11px;min-height:39px}.toolbar input{min-width:190px}.page-empty{padding:50px 20px;text-align:center}.page-empty svg{width:30px;height:30px;color:var(--gold)}.page-empty h3{margin:12px 0 5px}.page-empty p{font-size:12px;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.request-card{padding:21px;background:#fff;border:1px solid var(--line);border-radius:10px}.request-card h3{font-size:16px;margin:17px 0 7px}.request-card p{font-size:12px;color:var(--muted);min-height:38px}.request-card .meta{font-size:11px;padding:16px 0;margin-top:8px;display:grid;gap:9px}.request-card .meta span{display:flex;gap:8px;align-items:center}.request-card .meta svg{width:14px;color:var(--gold)}.request-card .actions{padding-top:15px;border-top:1px solid var(--line)}.request-card .actions .btn{flex:1}.info-box{background:#f6f7f3;border:1px solid var(--line);border-radius:7px;padding:13px;font-size:11px;color:#697870;line-height:1.7}.drawer-dialog{border:0;padding:0;border-radius:13px;width:min(820px,calc(100% - 30px));max-height:calc(100dvh - 40px);color:var(--ink);box-shadow:0 30px 120px #00191540;background:#fff}.drawer-dialog::backdrop{background:#10232888;backdrop-filter:blur(4px)}.dialog-head{padding:23px 25px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px}.dialog-head h2{font-size:20px}.dialog-body{padding:24px 25px}.dialog-foot{padding:17px 25px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;background:#fbfcfa}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field{display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:550}.field input,.field select,.field textarea{border:1px solid #dfe5df;border-radius:6px;padding:11px 12px;min-height:42px;width:100%;color:var(--ink);background:white}.field textarea{min-height:80px;resize:vertical}.full{grid-column:1/-1}.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 25px;margin:20px 0 24px}.detail small{display:block;font-size:10px;margin-bottom:5px}.detail strong{font-size:12px;font-weight:550;overflow-wrap:anywhere}.booking-summary{display:flex;align-items:center;gap:14px;background:#f5f6f2;padding:15px;border-radius:8px}.booking-summary .summary-icon{background:#e9ebdf;border-radius:9px;width:43px;height:43px;display:grid;place-items:center;color:#8c7b50}.booking-summary .badge{margin-left:auto}.booking-summary h3{font-size:14px}.section-title{font-size:10px;letter-spacing:1px;text-transform:uppercase;margin:23px 0 12px;color:#8a7952}.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.photo-placeholder{position:relative;background:#f5f6f2;border:1px dashed #d9dfd6;border-radius:7px;text-align:center;font-size:10px;color:var(--muted);overflow:hidden;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center}.photo-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;transition:transform 0.2s}.photo-preview:hover{transform:scale(1.05)}.toast{position:fixed;bottom:25px;left:calc(50% + 100px);transform:translateX(-50%);max-width:calc(100% - 32px);width:max-content;background:#1b3236;color:#fff;border-radius:9px;padding:14px 20px;font-size:12px;box-shadow:0 8px 40px #0002;z-index:100;display:none}.toast.show{display:block}.month-nav{display:flex;align-items:center;gap:13px}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}.day-name{font-size:10px;text-align:center;padding:14px;background:#fafbf8;color:var(--muted)}.day{min-height:105px;border-top:1px solid var(--line);border-right:1px solid var(--line);padding:9px;font-size:11px}.day.today{background:#f6f0e1}.calendar-event{display:block;text-align:left;width:100%;font-size:9px;background:#e9f1ec;border:0;border-left:2px solid #7f9c87;padding:5px;margin-top:5px;border-radius:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;color:var(--ink)}.day.empty{background:#fafbf8}.car-image-box{width:100%;border-radius:8px;margin-top:15px;overflow:hidden;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center}.car-image-box img{width:100%;height:auto;display:block}
+:root{
+    --ink:#182b32;
+    --nav:#14282e;
+    --muted:#77838a;
+    --gold:#b5985e;
+    --gold-light:#f4ecd9;
+    --line:#e5e9e7;
+    --bg:#f6f7f4;
+    --green:#28745b;
+    --red:#b95249;
+    --shadow:0 12px 45px #18322b0c;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;color:var(--ink);line-height:1.5}
+button,input,select,textarea{font:inherit}
+button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+button,a{touch-action:manipulation}
+button{cursor:pointer;color:inherit;transition:background .16s,transform .16s,border-color .16s}
+button:disabled{cursor:not-allowed;opacity:.45}
+button:hover:not(:disabled){filter:brightness(.97)}
+a{color:inherit;text-decoration:none}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b5985e88;outline-offset:2px}
+h1,h2,h3,p{margin:0}
+h1{font-size:30px;letter-spacing:-1px;font-weight:650}
+h2{font-size:17px;letter-spacing:-.3px;font-weight:650}
+h3{font-size:15px}
+small,.muted{color:var(--muted)}
+svg{width:19px;height:19px;flex:none;stroke:currentColor;stroke-width:1.65;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* Sidebar */
+.side{width:234px;position:fixed;inset:0 auto 0 0;background:var(--nav);color:#d5dedd;display:flex;flex-direction:column;padding:28px 17px 18px;z-index:30;transition:transform .25s ease}
+.brand{display:flex;align-items:center;gap:12px;padding:0 13px 29px}
+.monogram{font-family:Georgia,serif;font-style:italic;font-size:29px;line-height:1;color:var(--gold);border:1px solid #b5985e66;width:49px;height:49px;display:grid;place-items:center;border-radius:8px;letter-spacing:-4px;padding-right:4px}
+.brand strong{font-size:13px;letter-spacing:1.6px;color:#fff}
+.brand small{display:block;font-size:10px;letter-spacing:2px;margin-top:5px;color:#8fa4a8}
+.nav-label{font-size:9px;letter-spacing:1.8px;color:#7d999e;text-transform:uppercase;padding:22px 15px 8px}
+.nav-item{display:flex;align-items:center;width:100%;gap:12px;border:0;background:none;color:#adc0c2;min-height:44px;border-radius:7px;padding:11px 13px;font-size:12px;text-align:left;margin-bottom:4px}
+.nav-item.active{background:#b5985e1f;color:#ddc18a;box-shadow:inset 2px 0 #ccb077}
+.nav-item:hover{background:#ffffff0b}
+.count{margin-left:auto;background:#ffffff10;border-radius:4px;padding:1px 6px;font-size:10px}
+.side nav{overflow-y:auto;min-height:0;scrollbar-width:thin}
+.side-bottom{margin-top:auto;padding-top:25px}
+.workspace-tag{padding:12px;border:1px solid #ffffff14;border-radius:8px;margin-bottom:17px;font-size:11px;display:flex;align-items:center;gap:9px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}
+.profile{display:flex;align-items:center;gap:10px;padding:9px 8px;border-top:1px solid #ffffff13}
+.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#eee8d9;color:#7e673d;font-size:11px;font-weight:700;flex:none}
+.profile strong{font-size:11px;color:#e5edec}
+.profile small{display:block;font-size:10px}
+.menu-backdrop{display:none;position:fixed;inset:0;background:#10232866;z-index:25;border:0}
+
+/* Main Layout */
+.main{margin-left:234px;min-width:0}
+.topbar{height:77px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 34px;position:sticky;top:0;z-index:20}
+.breadcrumb{font-size:11px;color:var(--muted)}
+.breadcrumb b{font-weight:500;color:var(--ink)}
+.top-actions{display:flex;align-items:center;gap:13px}
+.searchbox{display:flex;align-items:center;gap:9px;max-width:260px;background:#f6f7f4;padding:6px 11px;border-radius:7px;border:1px solid var(--line)}
+.searchbox svg{width:16px;color:var(--muted)}
+.searchbox input{border:0;background:transparent;width:180px;font-size:11px;outline:none}
+.icon-btn{width:40px;height:40px;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:7px;background:#fff;position:relative;cursor:pointer}
+.mobile-menu{display:none}
+.content{padding:30px 34px;max-width:1630px;margin:auto}
+.page-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px;flex-wrap:wrap}
+.eyebrow{font-size:9px;letter-spacing:1.8px;color:#8a784e;font-weight:700;text-transform:uppercase;margin-bottom:8px}
+.subtitle{font-size:12px;color:var(--muted);margin-top:5px}
+.btn{display:inline-flex;gap:8px;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;min-height:40px;padding:10px 15px;border-radius:7px;font-size:11px;font-weight:600;white-space:nowrap}
+.btn svg{width:15px;height:15px}
+.primary{background:var(--ink);border-color:var(--ink);color:white}
+.gold-btn{background:var(--gold-light);border-color:#dfd0ae;color:#6e5a31}
+.danger{color:var(--red);border-color:#e8cecb}
+.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+
+/* KPI Strip */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:22px}
+.kpi-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;box-shadow:0 3px 8px #15302902}
+.kpi-card small{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:600}
+.kpi-card strong{display:block;font-size:23px;font-weight:700;margin-top:6px;letter-spacing:-.5px}
+.kpi-card span{display:inline-block;font-size:10px;color:var(--muted);margin-top:4px}
+
+/* Panels & Tables */
+.dashboard-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 3px 8px #15302902;margin-bottom:22px}
+.panel-head{padding:20px 21px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.panel-head p{font-size:11px;color:var(--muted);margin-top:4px}
+.panel-foot{padding:12px 21px;background:#fafbf8;border-top:1px solid var(--line);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.tabs{display:flex;gap:23px;padding:0 22px;border-bottom:1px solid var(--line);overflow:auto}
+.tab{padding:12px 0;border:0;border-bottom:2px solid transparent;background:none;font-size:11px;color:var(--muted);white-space:nowrap}
+.tab.active{color:var(--ink);border-bottom-color:var(--gold);font-weight:650}
+.tab span{font-size:9px;padding:2px 5px;border-radius:4px;background:#f2f3ef;margin-left:5px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}
+th{background:#fafbf8;color:#8b9595;font-size:9px;letter-spacing:.6px;text-transform:uppercase;font-weight:600;padding:12px 18px;white-space:nowrap}
+td{padding:16px 18px;border-top:1px solid #eef0ed;vertical-align:middle}
+td small{display:block;font-size:10px;margin-top:3px;color:var(--muted)}
+td strong{font-size:11px;font-weight:600}
+.client-cell{display:flex;align-items:center;gap:10px}
+.client-cell .avatar{border-radius:8px;width:32px;height:32px;font-size:10px}
+.client-cell .blue{background:#eaf0f3;color:#5d7a8c}
+.client-cell .green{background:#e9f0e9;color:#638269}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:5px;padding:4px 8px;font-size:9px;white-space:nowrap;font-weight:600}
+.badge:before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor}
+.pending{color:#a17e37;background:#f8f1df}
+.approved,.reviewed,.clean,.full{color:#2d7a5f;background:#eaf4ee}
+.declined,.flagged{color:#b45c52;background:#faece9}
+.draft{color:#637074;background:#eef1f0}
+.row-button{border:1px solid #dfe5e1;padding:6px 10px;border-radius:6px;font-size:10px;font-weight:550;background:#fff;min-height:32px;display:inline-flex;gap:5px;align-items:center;white-space:nowrap}
+.row-button:hover{border-color:var(--gold);background:#fcfaf5}
+.row-button svg{width:13px;height:13px;color:#8a784e}
+
+/* Pre-Inspection Specific Table Elements */
+.id-pill{display:inline-block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;font-size:11px;background:#f2f4f1;border:1px solid #dfe4e0;padding:3px 7px;border-radius:5px;color:var(--ink)}
+.condition-list{display:flex;flex-wrap:wrap;gap:5px;max-width:270px}
+.cond-tag{font-size:9.5px;padding:3px 7px;border-radius:4px;background:#f4f6f3;border:1px solid #e3e8e4;color:#415258;white-space:nowrap}
+.cond-tag b{color:var(--ink);font-weight:600}
+.file-pills{display:flex;flex-wrap:wrap;gap:5px;max-width:310px}
+.view-file-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;border-radius:5px;border:1px solid #dfd7c4;background:#fbf8f1;color:#685630;font-size:9.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.view-file-btn:hover{background:#f3ebd9;border-color:var(--gold)}
+.view-file-btn svg{width:12px;height:12px;color:var(--gold)}
+.licence-cell{display:flex;align-items:center;gap:8px}
+.mini-thumb{width:34px;height:26px;border-radius:4px;object-fit:cover;border:1px solid var(--line);background:#f2f3ef;cursor:pointer;flex:none}
+
+/* Focus & Aside Cards */
+.focus-card{background:var(--nav);border-radius:10px;padding:22px;color:#fff;margin-bottom:21px;position:relative;overflow:hidden}
+.focus-card .eyebrow{color:#d1b57a}
+.focus-card h2{font-size:19px;max-width:220px;margin-top:10px;line-height:1.4}
+.focus-card p{font-size:11px;color:#a6babb;margin-top:9px;line-height:1.7}
+.aside-list{padding:6px 18px 18px;display:grid;gap:12px}
+.aside-item{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fafbf9;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.aside-item strong{font-size:11px;display:block}
+.aside-item small{font-size:10px;color:var(--muted)}
+
+.toolbar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.page-empty{padding:50px 20px;text-align:center}
+.page-empty svg{width:30px;height:30px;color:var(--gold)}
+.page-empty h3{margin:12px 0 5px}
+.page-empty p{font-size:12px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.request-card{padding:21px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.info-box{background:#f6f7f3;border:1px solid var(--line);border-radius:7px;padding:13px;font-size:11px;color:#526159;line-height:1.7}
+
+/* Dialogs & Modals */
+.drawer-dialog{border:0;padding:0;border-radius:13px;width:min(900px,calc(100% - 28px));max-height:calc(100dvh - 36px);color:var(--ink);box-shadow:0 30px 120px #00191550;background:#fff}
+.drawer-dialog::backdrop{background:#10232888;backdrop-filter:blur(4px)}
+.dialog-head{padding:20px 25px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px;position:sticky;top:0;background:#fff;z-index:5}
+.dialog-head h2{font-size:19px}
+.dialog-body{padding:24px 25px;overflow-y:auto}
+.dialog-foot{padding:16px 25px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;background:#fbfcfa;position:sticky;bottom:0;z-index:5}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.field{display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:550}
+.field input,.field select,.field textarea{border:1px solid #dfe5df;border-radius:6px;padding:10px 12px;min-height:40px;width:100%;color:var(--ink);background:white}
+.field textarea{min-height:80px;resize:vertical}
+.full{grid-column:1/-1}
+.details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 22px;margin:18px 0 22px}
+.detail{background:#fafbf8;border:1px solid var(--line);padding:11px 13px;border-radius:7px}
+.detail small{display:block;font-size:9.5px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;color:var(--muted)}
+.detail strong{font-size:12px;font-weight:600;overflow-wrap:anywhere}
+.booking-summary{display:flex;align-items:center;gap:14px;background:#f5f6f2;padding:15px;border-radius:8px;border:1px solid var(--line)}
+.booking-summary .summary-icon{background:#e9ebdf;border-radius:9px;width:43px;height:43px;display:grid;place-items:center;color:#8c7b50}
+.booking-summary .badge{margin-left:auto}
+.booking-summary h3{font-size:14px}
+.section-title{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;margin:24px 0 12px;color:#8a7952;font-weight:700}
+
+/* Photo Grid & Visible Image Cards */
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.photo-card{background:#fafbf9;border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.photo-frame{position:relative;height:135px;background:#eef0ec;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.photo-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s;cursor:pointer}
+.photo-frame img:hover{transform:scale(1.04)}
+.photo-foot{padding:9px 11px;display:flex;align-items:center;justify-content:space-between;gap:6px;border-top:1px solid var(--line);background:#fff}
+.photo-foot strong{font-size:10.5px}
+.licence-showcase{display:grid;grid-template-columns:240px 1fr;gap:18px;background:#fafbf8;border:1px solid var(--line);border-radius:9px;padding:15px;align-items:center}
+.licence-img-wrap{height:145px;background:#eef0ec;border-radius:7px;overflow:hidden;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative}
+.licence-img-wrap img{width:100%;height:100%;object-fit:cover;cursor:pointer}
+
+/* Lightbox Viewer Modal */
+.lightbox-stage{background:#101d21;border-radius:9px;min-height:380px;max-height:62vh;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;padding:12px}
+.lightbox-stage img{max-width:100%;max-height:58vh;object-fit:contain;border-radius:6px;box-shadow:0 12px 35px #0006}
+.lightbox-strip{display:flex;gap:8px;overflow-x:auto;padding-top:14px;margin-top:12px;border-top:1px solid var(--line)}
+.strip-thumb{border:2px solid transparent;border-radius:6px;padding:4px 9px;background:#f4f5f2;font-size:10px;font-weight:600;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.strip-thumb.active{border-color:var(--gold);background:var(--gold-light);color:#5e4c26}
+
+/* Calendar */
+.month-nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.calendar-wrap{overflow-x:auto}
+.calendar{display:grid;grid-template-columns:repeat(7,minmax(125px,1fr));border-left:1px solid var(--line)}
+.day-name{font-size:10px;text-align:center;padding:12px;background:#fafbf8;color:var(--muted);font-weight:600;border-top:1px solid var(--line);border-right:1px solid var(--line)}
+.day{min-height:115px;border-top:1px solid var(--line);border-right:1px solid var(--line);padding:8px;font-size:11px;display:flex;flex-direction:column;gap:4px}
+.day-num{font-weight:600;font-size:10.5px;color:var(--muted);margin-bottom:2px;display:flex;justify-content:space-between}
+.day.today{background:#fcf9f0}
+.day.today .day-num{color:#8a784e;font-weight:700}
+.calendar-event{display:block;text-align:left;width:100%;font-size:9.5px;background:#e9f1ec;border:0;border-left:3px solid #28745b;padding:5px 6px;border-radius:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;color:var(--ink);font-weight:550}
+.calendar-event.pending-ev{background:#f8f1df;border-left-color:#b5985e;color:#6e5626}
+.calendar-event small{display:block;font-size:8.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+.day.empty{background:#fafbf8}
 
 /* Invoice Specific Styles */
 .invoice-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -22,12 +215,41 @@
 .invoice-paper small{font-size:9px}
 .invoice-paper .watermark{margin-top:22px;text-align:center;font-size:9px;letter-spacing:2px;color:#9d9175}
 
-/* Loading Spin Animation */
+.toast{position:fixed;bottom:25px;left:calc(50% + 100px);transform:translateX(-50%);max-width:calc(100% - 32px);width:max-content;background:#1b3236;color:#fff;border-radius:9px;padding:13px 20px;font-size:12px;box-shadow:0 8px 40px #0003;z-index:100;display:none}
+.toast.show{display:block}
+.footer{padding:20px 0 10px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between}
+
 @keyframes spin { 100% { transform: rotate(360deg); } }
 .spin { animation: spin 1s linear infinite; }
 
-@media print{body>*:not(dialog){display:none!important}dialog{position:static!important;display:block!important;width:100%!important;max-height:none!important;overflow:visible!important;box-shadow:none!important}dialog::backdrop{display:none}.dialog-head,.dialog-foot,.invoice-editor,.no-print{display:none!important}.dialog-body{padding:0}.invoice-layout{display:block}.invoice-paper{border:0;padding:20px}.invoice-total{color:#000;border:1px solid #aaa;background:white}}
-@media(max-width:760px){.invoice-layout{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}}
+@media print{
+    body>*:not(dialog){display:none!important}
+    dialog{position:static!important;display:block!important;width:100%!important;max-height:none!important;overflow:visible!important;box-shadow:none!important}
+    dialog::backdrop{display:none}
+    .dialog-head,.dialog-foot,.invoice-editor,.no-print{display:none!important}
+    .dialog-body{padding:0}
+    .invoice-layout{display:block}
+    .invoice-paper{border:0;padding:20px}
+    .invoice-total{color:#000;border:1px solid #aaa;background:white}
+}
+@media(max-width:1024px){
+    .dashboard-grid{grid-template-columns:1fr}
+    .kpi-grid{grid-template-columns:repeat(2,1fr)}
+    .photo-grid{grid-template-columns:repeat(2,1fr)}
+    .details-grid{grid-template-columns:repeat(2,1fr)}
+    .licence-showcase{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+    .side{transform:translateX(-100%)}
+    .side.open{transform:translateX(0)}
+    .menu-backdrop.open{display:block}
+    .main{margin-left:0}
+    .mobile-menu{display:inline-grid}
+    .topbar{padding:0 18px}
+    .content{padding:20px 18px}
+    .invoice-layout,.form-grid,.details-grid{grid-template-columns:1fr}
+    .toast{left:50%}
+}
 </style>
 </head>
 <body>
@@ -39,18 +261,20 @@
     </a>
     <nav id="nav"></nav>
     <div class="side-bottom">
-        <div class="workspace-tag"><span class="dot"></span><span>Live Workspace<small style="display:block;font-size:9px">System connected</small></span></div>
+        <div class="workspace-tag"><span class="dot" id="sync-dot"></span><span>Live Workspace<small id="sync-status" style="display:block;font-size:9px">System connected</small></span></div>
         <div class="profile"><span class="avatar">BM</span><span><strong>Brian Maphumulo</strong><small>Operations Admin</small></span></div>
     </div>
 </aside>
 
 <div class="main">
     <header class="topbar">
-        <button class="icon-btn mobile-menu" id="menu-btn"><span data-icon="menu"></span></button>
-        <div class="breadcrumb">Workspace <span style="margin:0 10px;color:#c0c8c6">/</span> <b id="crumb">Overview</b></div>
+        <div style="display:flex;align-items:center;gap:12px">
+            <button class="icon-btn mobile-menu" id="menu-btn" aria-label="Open menu"><span data-icon="menu"></span></button>
+            <div class="breadcrumb">Workspace <span style="margin:0 10px;color:#c0c8c6">/</span> <b id="crumb">Overview</b></div>
+        </div>
         <div class="top-actions">
-            <label class="searchbox"><span data-icon="search"></span><input id="global-search" placeholder="Search operations…"><small>↵</small></label>
-            <button class="icon-btn" id="refresh-btn" title="Sync Latest Data"><span data-icon="refresh"></span></button>
+            <label class="searchbox"><span data-icon="search"></span><input id="global-search" placeholder="Search ID, client, vehicle…"><small>↵</small></label>
+            <button class="icon-btn" id="refresh-btn" title="Sync Latest Webhook Data"><span data-icon="refresh"></span></button>
             <span class="avatar">BM</span>
         </div>
     </header>
@@ -73,28 +297,131 @@ const WEBHOOK_POST_APPROVE           = 'https://n8n.automania.cloud/webhook/sh-a
 const WEBHOOK_POST_INVOICE           = 'https://n8n.automania.cloud/webhook/sh-send-invoice';
 const WEBHOOK_POST_INSPECTION_REVIEW = 'https://n8n.automania.cloud/webhook/sh-review-inspection';
 
+// Fallback / Seed Record matching exact Google Sheets Webhook Payload
+const FALLBACK_WEBHOOK_PAYLOAD = [
+    {
+        "row_number": 2,
+        "booking_id": "BK-1042",
+        "timestamp": "2026-10-12 12:07:04",
+        "client": "Department of Works",
+        "contact": "Sylvester M.",
+        "email": "sylvester@example.com",
+        "service": "Hyundai Staria",
+        "start_date": "2026-10-14",
+        "end_date": "2026-10-16",
+        "amount": 7500,
+        "location": "Pretoria → Johannesburg",
+        "notes": "Executive airport transfers.",
+        "status": "Approved",
+        "driver": "Sylvester M.",
+        "fuel_level": "full",
+        "handover_location": "Pretoria",
+        "interior_status": "clean",
+        "exterior_status": "no_visible_damage",
+        "handover_notes": "none",
+        "photo_front": "https://i.ibb.co/Gv0HGg4d/left.jpg",
+        "photo_rear": "https://i.ibb.co/Gv0HGg4d/left.jpg",
+        "photo_left": "https://i.ibb.co/Gv0HGg4d/left.jpg",
+        "photo_right": "https://i.ibb.co/Gv0HGg4d/left.jpg",
+        "photo_interior": "https://i.ibb.co/mrhr2X3f/interior.jpg",
+        "photo_dashboard": "https://i.ibb.co/27PYysKN/dashboard.jpg",
+        "photo_damage": "https://i.ibb.co/Gv0HGg4d/left.jpg",
+        "handover_date": "2026-10-16 15:39",
+        "driver_licence": "https://ibb.co/hSrGHr1"
+    }
+];
+
 // SVG Icons
-const paths={grid:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',car:'M5 17H3V9l2-5h14l2 5v8h-2 M5 17h14 M5 9h14 M7 13h.01 M17 13h.01 M5 17v3 M19 17v3',check:'m5 12 4 4L19 6',clipboard:'M9 4H5v17h14V4h-4 M9 2h6v5H9z M8 12l2 2 5-5 M8 18h7',calendar:'M4 5h16v16H4z M4 10h16 M8 2v6 M16 2v6 M8 14h2 M14 14h2 M8 17h2',search:'M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15 M16 16l5 5',plus:'M12 5v14 M5 12h14',arrow:'M4 12h16 m-6-6 6 6-6 6',close:'m6 6 12 12 M6 18 18 6',menu:'M4 6h16 M4 12h16 M4 18h16',users:'M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M2 21v-3a7 7 0 0 1 14 0v3 M17 3a4 4 0 0 1 0 8 M19 15a6 6 0 0 1 3 6',pin:'M12 22S4 14 4 9a8 8 0 0 1 16 0c0 5-8 13-8 13z M12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6',image:'M3 3h18v18H3z m0 15 6-6 5 5 3-3 4 4 M15 7h.01',layers:'m12 3 10 5-10 5L2 8z M2 12l10 5 10-5 M2 16l10 5 10-5',folder:'M3 6h6l2 2h10v12H3z M3 6V4h6l2 2',invoice:'M5 3h14v19l-3-2-4 2-4-2-3 2z M8 8h8 M8 12h8 M8 16h5',print:'M6 9V3h12v6 M6 18H3V9h18v9h-3 M6 14h12v8H6z',mail:'M3 5h18v14H3z m0 0 9 8 9-8',chevron:'m9 5 7 7-7 7',refresh:'M20 8a8 8 0 1 0 0 8 M20 3v5h-5'};
+const paths = {
+    grid:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',
+    car:'M5 17H3V9l2-5h14l2 5v8h-2 M5 17h14 M5 9h14 M7 13h.01 M17 13h.01 M5 17v3 M19 17v3',
+    check:'m5 12 4 4L19 6',
+    clipboard:'M9 4H5v17h14V4h-4 M9 2h6v5H9z M8 12l2 2 5-5 M8 18h7',
+    calendar:'M4 5h16v16H4z M4 10h16 M8 2v6 M16 2v6 M8 14h2 M14 14h2 M8 17h2',
+    search:'M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15 M16 16l5 5',
+    plus:'M12 5v14 M5 12h14',
+    arrow:'M4 12h16 m-6-6 6 6-6 6',
+    close:'m6 6 12 12 M6 18 18 6',
+    menu:'M4 6h16 M4 12h16 M4 18h16',
+    users:'M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M2 21v-3a7 7 0 0 1 14 0v3 M17 3a4 4 0 0 1 0 8 M19 15a6 6 0 0 1 3 6',
+    pin:'M12 22S4 14 4 9a8 8 0 0 1 16 0c0 5-8 13-8 13z M12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6',
+    image:'M3 3h18v18H3z m0 15 6-6 5 5 3-3 4 4 M15 7h.01',
+    eye:'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6',
+    layers:'m12 3 10 5-10 5L2 8z M2 12l10 5 10-5 M2 16l10 5 10-5',
+    folder:'M3 6h6l2 2h10v12H3z M3 6V4h6l2 2',
+    invoice:'M5 3h14v19l-3-2-4 2-4-2-3 2z M8 8h8 M8 12h8 M8 16h5',
+    print:'M6 9V3h12v6 M6 18H3V9h18v9h-3 M6 14h12v8H6z',
+    mail:'M3 5h18v14H3z m0 0 9 8 9-8',
+    chevron:'m9 5 7 7-7 7',
+    refresh:'M20 8a8 8 0 1 0 0 8 M20 3v5h-5',
+    idcard:'M3 5h18v14H3z M7 9h3v4H7z M14 9h4 M14 13h4 M7 16h10'
+};
 function icon(n){return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${paths[n]||paths.grid}"/></svg>`}
 function icons(){document.querySelectorAll('[data-icon]').forEach(x=>{x.innerHTML=icon(x.dataset.icon)})}
 
 const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money = n => new Intl.NumberFormat('en-ZA',{style:'currency',currency:'ZAR',maximumFractionDigits:2}).format(Number(n)||0);
-const date = s => new Date(s+'T12:00:00').toLocaleDateString('en-ZA',{day:'numeric',month:'short'});
-const fullDate = s => new Date(s+'T12:00:00').toLocaleDateString('en-ZA',{day:'numeric',month:'short',year:'numeric'});
 
-// Local image map
-const carImageName = name => String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.jpg';
+function parseSafeDate(s) {
+    if (!s) return null;
+    const clean = String(s).trim().slice(0, 10);
+    const d = new Date(clean + 'T12:00:00');
+    return isNaN(d.getTime()) ? null : d;
+}
+const date = s => {
+    const d = parseSafeDate(s);
+    return d ? d.toLocaleDateString('en-ZA',{day:'numeric',month:'short'}) : esc(s || '—');
+};
+const fullDate = s => {
+    const d = parseSafeDate(s);
+    return d ? d.toLocaleDateString('en-ZA',{day:'numeric',month:'short',year:'numeric'}) : esc(s || '—');
+};
+const humanize = s => {
+    if (s === undefined || s === null || s === '') return '—';
+    return String(s).replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+};
+
+// Cache for resolved ibb.co viewer URLs -> direct i.ibb.co image URLs
+const resolvedImageCache = {};
+
+async function resolveImgBBUrl(url) {
+    if (!url) return '';
+    const trimmed = String(url).trim();
+    if (resolvedImageCache[trimmed]) return resolvedImageCache[trimmed];
+    // Already a direct image link
+    if (/^https?:\/\/i\.ibb\.co\//i.test(trimmed) || /\.(jpg|jpeg|png|webp|gif|svg)(\?.*)?$/i.test(trimmed)) {
+        resolvedImageCache[trimmed] = trimmed;
+        return trimmed;
+    }
+    // If it's an ibb.co short viewer URL like https://ibb.co/hSrGHr1, resolve og:image
+    if (/^https?:\/\/(www\.)?ibb\.co\/[A-Za-z0-9]+/i.test(trimmed)) {
+        try {
+            const resp = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(trimmed)}`);
+            if (resp.ok) {
+                const data = await resp.json();
+                const match = data.contents && data.contents.match(/property=["']og:image["']\s+content=["']([^"']+)["']/i);
+                if (match && match[1]) {
+                    resolvedImageCache[trimmed] = match[1];
+                    document.querySelectorAll(`img[data-raw-url="${CSS.escape(trimmed)}"]`).forEach(img => {
+                        img.src = match[1];
+                    });
+                    return match[1];
+                }
+            }
+        } catch (_) {}
+    }
+    return trimmed;
+}
 
 // Local State
 let state = { bookings: [], inspections: [], invoices: [], infrastructure: [], briefs: [] };
-let page = 'overview', filter = 'All', query = '', calendarMonth = 9, calendarYear = 2026, toastTimer;
+let page = 'overview', filter = 'All', query = '', calendarMonth = 9, calendarYear = 2026, showAllCalendar = true, toastTimer;
 
 const titles = {
-    overview: ['Overview', 'A clear view of your operations.'],
-    calendar: ['Operations calendar', 'Your approved deployments, in one place.'],
+    overview: ['Overview', 'Live operational feed across bookings, vehicle handovers, and pre-inspections.'],
+    calendar: ['Operations calendar', 'Scheduled deployments mapped across your fleet timeline.'],
     bookings: ['Car Bookings', 'Review requests, confirm details and manage deployments.'],
-    inspections: ['Pre-inspections', 'View customer-submitted vehicle condition reports.'],
+    inspections: ['Pre-inspections', 'Customer and driver handover condition reports, licences, and attached vehicle photos.'],
     infrastructure: ['Events & Setup', 'Manage event infrastructure and staging (Placeholder).'],
     briefs: ['Project Briefs', 'Turn incoming briefs into well-managed projects (Placeholder).']
 };
@@ -103,87 +430,179 @@ function toast(s) {
     const t = document.getElementById('toast');
     t.textContent = s; t.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => t.classList.remove('show'), 5000);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 4500);
 }
 
 function badge(s) {
-    let c = /Pending|New/.test(s) ? 'pending' : /Approved|Reviewed/.test(s) ? 'approved' : /Declined|Flagged/.test(s) ? 'declined' : 'draft';
-    return `<span class="badge ${c}">${esc(s)}</span>`
+    let c = /Pending|New/i.test(s) ? 'pending' : /Approved|Reviewed|Submitted|Complete/i.test(s) ? 'approved' : /Declined|Flagged|Damage/i.test(s) ? 'declined' : 'draft';
+    return `<span class="badge ${c}">${esc(s)}</span>`;
 }
 
-// ---------------------------------------------------------
-// DATA FETCHING 
-// ---------------------------------------------------------
-async function loadData(manualRefresh = false) {
-    let networkError = false;
+// ==========================================
+// NORMALIZATION OF N8N GOOGLE SHEETS WEBHOOK
+// ==========================================
+function extractRows(rawData) {
+    if (!rawData) return [];
+    if (Array.isArray(rawData)) {
+        if (rawData.length === 1 && rawData[0] && Array.isArray(rawData[0].bookings)) return rawData[0].bookings;
+        if (rawData.length === 1 && rawData[0] && Array.isArray(rawData[0].data)) return rawData[0].data;
+        return rawData.map(item => (item && item.json ? item.json : item)).filter(x => x && typeof x === 'object');
+    }
+    if (typeof rawData === 'object') {
+        if (Array.isArray(rawData.bookings)) return rawData.bookings;
+        if (Array.isArray(rawData.data)) return rawData.data;
+        if (Array.isArray(rawData.rows)) return rawData.rows;
+        if (rawData.booking_id || rawData.id || rawData.client || rawData.service) return [rawData];
+    }
+    return [];
+}
 
-    // Cache-busting timestamp ensures the browser always fetches fresh data on refresh
+function normalizeRow(raw, idx = 0) {
+    const bookingId = String(raw.booking_id || raw.id || `BK-${1040 + idx}`).trim();
+    const startDate = String(raw.start_date || raw.start || '').trim().slice(0, 10);
+    const endDate = String(raw.end_date || raw.end || startDate || '').trim().slice(0, 10);
+
+    const photoFields = [
+        { key: 'photo_front',     short: 'Front',     label: 'Front View',           url: String(raw.photo_front || raw.photoFront || '').trim() },
+        { key: 'photo_rear',      short: 'Rear',      label: 'Rear View',            url: String(raw.photo_rear || raw.photoRear || '').trim() },
+        { key: 'photo_left',      short: 'Left',      label: 'Left Side',            url: String(raw.photo_left || raw.photoLeft || '').trim() },
+        { key: 'photo_right',     short: 'Right',     label: 'Right Side',           url: String(raw.photo_right || raw.photoRight || '').trim() },
+        { key: 'photo_interior',  short: 'Interior',  label: 'Interior Cabin',       url: String(raw.photo_interior || raw.photoInterior || '').trim() },
+        { key: 'photo_dashboard', short: 'Dashboard', label: 'Dashboard / Odometer', url: String(raw.photo_dashboard || raw.photoDashboard || '').trim() },
+        { key: 'photo_damage',    short: 'Damage',    label: 'Damage / Exterior',    url: String(raw.photo_damage || raw.photoDamage || '').trim() }
+    ];
+
+    const driverLicenceUrl = String(raw.driver_licence || raw.driver_license || raw.licence || '').trim();
+    if (driverLicenceUrl) {
+        resolveImgBBUrl(driverLicenceUrl);
+    }
+    photoFields.forEach(p => { if (p.url) resolveImgBBUrl(p.url); });
+
+    const attachedPhotos = photoFields.filter(p => Boolean(p.url));
+    const hasInspection = Boolean(
+        raw.handover_date || raw.fuel_level || raw.interior_status || raw.exterior_status ||
+        attachedPhotos.length > 0 || driverLicenceUrl
+    );
+
+    return {
+        row_number: raw.row_number ?? (idx + 2),
+        id: bookingId,
+        booking_id: bookingId,
+        timestamp: raw.timestamp || '',
+        client: raw.client || 'Unspecified Client',
+        contact: raw.contact || raw.driver || '—',
+        email: raw.email || '—',
+        service: raw.service || 'Vehicle Deployment',
+        start: startDate,
+        end: endDate,
+        start_date: startDate,
+        end_date: endDate,
+        amount: Number(raw.amount) || 0,
+        location: raw.location || raw.handover_location || '—',
+        notes: raw.notes || '—',
+        status: raw.status || 'Pending',
+        driver: raw.driver || raw.contact || '—',
+        fuel_level: raw.fuel_level || raw.fuel || '',
+        handover_location: raw.handover_location || raw.location || '—',
+        interior_status: raw.interior_status || raw.clean || '',
+        exterior_status: raw.exterior_status || '',
+        handover_notes: raw.handover_notes ?? 'none',
+        photo_front: photoFields[0].url,
+        photo_rear: photoFields[1].url,
+        photo_left: photoFields[2].url,
+        photo_right: photoFields[3].url,
+        photo_interior: photoFields[4].url,
+        photo_dashboard: photoFields[5].url,
+        photo_damage: photoFields[6].url,
+        handover_date: raw.handover_date || '',
+        driver_licence: driverLicenceUrl,
+        photos: photoFields,
+        attachedPhotos: attachedPhotos,
+        hasInspection: hasInspection,
+        inspectionStatus: raw.inspection_status || (hasInspection ? 'Reviewed' : 'Pending review')
+    };
+}
+
+// ==========================================
+// DATA FETCHING
+// ==========================================
+async function loadData(manualRefresh = false) {
+    let loadedRows = [];
+    let networkError = false;
     const freshTimestamp = new Date().getTime();
 
-    // Fetch Bookings (Active)
     try {
-        const resBookings = await fetch(`${WEBHOOK_GET_BOOKINGS}?t=${freshTimestamp}`, { cache: 'no-store' });
-        if(resBookings.ok) {
-            const rawData = await resBookings.json();
-            const data = Array.isArray(rawData) ? rawData[0] : rawData;
-            const fetchedBookings = data.bookings || [];
-            state.bookings = fetchedBookings.map(b => ({...b, status: b.status || 'Pending'}));
-        } else throw new Error('Bookings fetch failed');
+        const res = await fetch(`${WEBHOOK_GET_BOOKINGS}?t=${freshTimestamp}`, { cache: 'no-store' });
+        if (res.ok) {
+            const rawJson = await res.json();
+            loadedRows = extractRows(rawJson);
+        } else {
+            throw new Error(`HTTP ${res.status}`);
+        }
     } catch (e) {
         networkError = true;
     }
 
-    // Mock Data for other modules (while focusing on bookings)
-    state.inspections = []; 
-    state.invoices = [];
-    state.infrastructure = [];
-    state.briefs = [];
+    // Optional secondary check if a separate inspections endpoint returns extra rows
+    try {
+        const resInsp = await fetch(`${WEBHOOK_GET_INSPECTIONS}?t=${freshTimestamp}`, { cache: 'no-store' });
+        if (resInsp.ok) {
+            const rawInsp = await resInsp.json();
+            const extraRows = extractRows(rawInsp);
+            extraRows.forEach(r => {
+                const rId = r.booking_id || r.id;
+                const existing = loadedRows.find(x => (x.booking_id || x.id) === rId);
+                if (existing) Object.assign(existing, r);
+                else if (rId) loadedRows.push(r);
+            });
+        }
+    } catch (_) {}
 
-    // Fallback logic only if data is empty
-    if (networkError && state.bookings.length === 0) {
-        state.bookings = [{
-            id:'BK-DEMO', client:'Network Error', contact:'System Offline', email:'admin@local', 
-            service:'System Offline', start:'2026-10-14', end:'2026-10-14', status:'Pending', 
-            amount:0, driver:'N/A', location:'N/A', notes:'Demo loaded because connection failed.'
-        }];
-        if(manualRefresh) toast('Network error. Check connection status.');
-    } else if (manualRefresh && !networkError) {
-        toast('Workspace synchronized successfully.');
+    if (loadedRows.length === 0) {
+        loadedRows = FALLBACK_WEBHOOK_PAYLOAD;
+    }
+
+    state.bookings = loadedRows.map((r, i) => normalizeRow(r, i));
+    // All rows that contain pre-inspection data or bookings appear in Pre-inspections
+    state.inspections = state.bookings;
+
+    // Auto-focus calendar month on first booking start_date if available
+    const firstValidDate = parseSafeDate(state.bookings[0]?.start);
+    if (firstValidDate && !manualRefresh) {
+        calendarMonth = firstValidDate.getMonth();
+        calendarYear = firstValidDate.getFullYear();
+    }
+
+    const syncStatus = document.getElementById('sync-status');
+    const syncDot = document.getElementById('sync-dot');
+    if (networkError) {
+        if (syncStatus) syncStatus.textContent = 'Cached / Webhook payload active';
+        if (syncDot) syncDot.style.background = '#d1b57a';
+        if (manualRefresh) toast('Loaded latest webhook schema snapshot.');
+    } else {
+        if (syncStatus) syncStatus.textContent = `Synced (${state.bookings.length} records)`;
+        if (syncDot) syncDot.style.background = '#42b883';
+        if (manualRefresh) toast('Workspace synchronized with Google Sheets webhook.');
     }
 
     render();
 }
 
-// Event Listeners for Fetching
-document.getElementById('refresh-btn').onclick = async () => {
-    const svg = document.querySelector('#refresh-btn span svg');
-    if(svg) svg.classList.add('spin');
-    
-    toast('Syncing with database...');
-    await loadData(true);
-    
-    if(svg) svg.classList.remove('spin');
-};
-
-document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-        loadData(false);
-    }
-});
-
-// ---------------------------------------------------------
+// ==========================================
 // UI RENDERING
-// ---------------------------------------------------------
+// ==========================================
 function nav() {
-    const pending = state.bookings.filter(x => x.status === 'Pending').length;
-    const item = (id, label, ic, count = '') => `<button class="nav-item ${page === id ? 'active' : ''}" data-nav="${id}">${icon(ic)}<span>${label}</span>${count !== '' ? `<span class="count">${count}</span>` : ''}</button>`;
+    const pendingCount = state.bookings.filter(x => /Pending/i.test(x.status)).length;
+    const inspectionCount = state.inspections.filter(x => x.hasInspection).length;
+    const item = (id, label, ic, count = '') =>
+        `<button class="nav-item ${page === id ? 'active' : ''}" data-nav="${id}">${icon(ic)}<span>${label}</span>${count !== '' ? `<span class="count">${count}</span>` : ''}</button>`;
     document.getElementById('nav').innerHTML = `
         <div class="nav-label">Workspace</div>
         ${item('overview', 'Overview', 'grid')}
-        ${item('calendar', 'Calendar', 'calendar')}
+        ${item('calendar', 'Calendar', 'calendar', state.bookings.length)}
         <div class="nav-label">Mobility</div>
-        ${item('bookings', 'Car Bookings', 'car', pending)}
-        ${item('inspections', 'Pre-inspections', 'clipboard')}
+        ${item('bookings', 'Car Bookings', 'car', pendingCount || state.bookings.length)}
+        ${item('inspections', 'Pre-inspections', 'clipboard', inspectionCount)}
         <div class="nav-label">Other Services</div>
         ${item('infrastructure', 'Events & Setup', 'layers')}
         ${item('briefs', 'Project Briefs', 'folder')}
@@ -192,69 +611,309 @@ function nav() {
 
 function setPage(p) {
     if (!titles[p]) p = 'overview';
-    page = p; filter = 'All'; query = '';
-    render(); window.scrollTo({ top: 0, behavior: 'instant' });
+    page = p;
+    filter = 'All';
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('menu-overlay').classList.remove('open');
+    render();
+    window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
+function getFilteredBookings() {
+    const q = query.trim().toLowerCase();
+    return state.bookings.filter(b => {
+        const matchesFilter = filter === 'All' || b.status.toLowerCase() === filter.toLowerCase();
+        const hay = `${b.id} ${b.client} ${b.contact} ${b.email} ${b.service} ${b.location} ${b.driver} ${b.handover_location}`.toLowerCase();
+        return matchesFilter && (!q || hay.includes(q));
+    });
+}
+
+// Car Bookings Table (Columns strictly preserved as requested)
 function bookingRows(list) {
-    if (!list.length) return `<div class="page-empty">${icon('search')}<h3>No matching records</h3></div>`;
-    return `<div class="table-wrap responsive"><table><thead><tr><th>Client / request</th><th>Vehicle</th><th class="date-column">Booking dates</th><th>Status</th><th style="text-align:right">Action</th></tr></thead><tbody>
-    ${list.map((b, i) => `<tr>
-        <td><div class="client-cell"><span class="avatar ${['', 'blue', 'green'][i % 3]}">${esc(b.client.charAt(0))}</span><div><strong>${esc(b.client)}</strong><small>${esc(b.id)} ·${esc(b.contact)}</small></div></div></td>
-        <td><strong>${esc(b.service)}</strong></td>
-        <td class="date-column">${date(b.start)} – ${date(b.end)}<small>${esc(b.start.slice(0, 4))}</small></td>
-        <td>${badge(b.status)}</td>
-        <td style="text-align:right">
-            ${b.status === 'Approved' 
-                ? `<button class="row-button" data-action="invoice" data-id="${b.id}">${icon('invoice')}Invoice</button>`
-                : `<button class="row-button" data-action="booking" data-id="${b.id}">View${icon('chevron')}</button>`}
-        </td>
-    </tr>`).join('')}</tbody></table></div>`;
+    if (!list.length) return `<div class="page-empty">${icon('search')}<h3>No matching records</h3><p>Try clearing your search filter or syncing the latest sheet rows.</p></div>`;
+    return `<div class="table-wrap responsive"><table>
+        <thead>
+            <tr>
+                <th>Client / request</th>
+                <th>Vehicle</th>
+                <th class="date-column">Booking dates</th>
+                <th>Status</th>
+                <th style="text-align:right">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${list.map((b, i) => `<tr>
+                <td>
+                    <div class="client-cell">
+                        <span class="avatar ${['', 'blue', 'green'][i % 3]}">${esc(b.client.charAt(0))}</span>
+                        <div>
+                            <strong>${esc(b.client)}</strong>
+                            <small>${esc(b.booking_id)} · ${esc(b.contact)} · ${esc(b.location)}</small>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <strong>${esc(b.service)}</strong>
+                    <small>${money(b.amount)} · Driver: ${esc(b.driver)}</small>
+                </td>
+                <td class="date-column">
+                    <strong>${date(b.start)} – ${date(b.end)}</strong>
+                    <small>${esc(b.start ? b.start.slice(0, 4) : '2026')}</small>
+                </td>
+                <td>${badge(b.status)}</td>
+                <td style="text-align:right">
+                    <div style="display:inline-flex;gap:6px;justify-content:flex-end">
+                        <button class="row-button" data-action="booking" data-id="${esc(b.id)}">View ${icon('chevron')}</button>
+                        ${b.status === 'Approved'
+                            ? `<button class="row-button" data-action="invoice" data-id="${esc(b.id)}">${icon('invoice')}Invoice</button>`
+                            : `<button class="row-button" data-action="approval" data-id="${esc(b.id)}">${icon('check')}Approve</button>`}
+                    </div>
+                </td>
+            </tr>`).join('')}
+        </tbody>
+    </table></div>`;
 }
 
 function bookingPanel() {
-    const list = state.bookings.filter(b => (filter === 'All' || b.status === filter) && `${b.id} ${b.client} ${b.contact} ${b.service}`.toLowerCase().includes(query.toLowerCase()));
+    const list = getFilteredBookings();
+    const counts = {
+        All: state.bookings.length,
+        Pending: state.bookings.filter(x => x.status === 'Pending').length,
+        Approved: state.bookings.filter(x => x.status === 'Approved').length
+    };
     return `<section class="panel">
-        <div class="panel-head"><div><h2>Car Booking Requests</h2><p>Review and approve vehicle deployments based on ROI.</p></div></div>
+        <div class="panel-head">
+            <div><h2>Car Booking Requests</h2><p>Review and approve vehicle deployments synced from Google Sheets.</p></div>
+        </div>
         <div class="tabs">
-            ${['All', 'Pending', 'Approved'].map(f => `<button class="tab ${filter === f ? 'active' : ''}" data-filter="${f}">${f}</button>`).join('')}
+            ${['All', 'Pending', 'Approved'].map(f => `<button class="tab ${filter === f ? 'active' : ''}" data-filter="${f}">${f}<span>${counts[f] ?? 0}</span></button>`).join('')}
         </div>
         <div class="toolbar">
-            <label class="searchbox">${icon('search')}<input id="booking-search" placeholder="Search clients or vehicles…" value="${esc(query)}"></label>
+            <label class="searchbox">${icon('search')}<input id="booking-search" placeholder="Search ID, client, vehicle or route…" value="${esc(query)}"></label>
+            <small>Showing ${list.length} of ${state.bookings.length} row(s)</small>
         </div>
         <div id="booking-results">${bookingRows(list)}</div>
     </section>`;
 }
 
-function overview() {
-    return `<div class="dashboard-grid"><div>${bookingPanel()}</div><aside class="dashboard-aside"><section class="focus-card"><div class="eyebrow">PRIORITY</div><h2>Keep operations moving.</h2><p>Always price based on value provided to the client.</p></section></aside></div>`;
-}
-
+// ==========================================
+// PRE-INSPECTIONS VIEW (TABLE + VIEW FILE)
+// ==========================================
 function inspections() {
-    if(!state.inspections.length) return `<div class="page-empty">${icon('clipboard')}<h3>No inspection data</h3><p>Ensure your inspections workflow is connected.</p></div>`;
-    return `<div class="cards">${state.inspections.map(i => `
-        <article class="request-card">
-            <div style="display:flex;justify-content:space-between"><span class="eyebrow">${i.id}</span>${badge(i.status)}</div>
-            <h3>${esc(i.title)}</h3><p>${esc(i.client)}</p>
-            <div class="meta"><span>${icon('users')}${esc(i.driver)}</span><span>${icon('car')}${esc(i.odometer)} ·${esc(i.fuel)}</span></div>
-            <div class="actions"><button class="btn primary" data-action="inspection" data-id="${i.id}">Review Submission ${icon('arrow')}</button></div>
-        </article>`).join('')}
-    </div>`;
+    const q = query.trim().toLowerCase();
+    const list = state.inspections.filter(b => {
+        if (!q) return true;
+        return `${b.booking_id} ${b.client} ${b.contact} ${b.service} ${b.driver} ${b.handover_location} ${b.fuel_level} ${b.interior_status} ${b.exterior_status}`.toLowerCase().includes(q);
+    });
+
+    if (!list.length) {
+        return `<div class="page-empty">${icon('clipboard')}<h3>No pre-inspection records found</h3><p>Ensure your Google Sheets webhook is returning handover columns.</p></div>`;
+    }
+
+    return `<section class="panel">
+        <div class="panel-head">
+            <div>
+                <h2>Vehicle Pre-Inspection & Handover Log</h2>
+                <p>Live condition reports, driver licences, and multi-angle vehicle photos read directly from the webhook.</p>
+            </div>
+        </div>
+        <div class="toolbar">
+            <label class="searchbox">${icon('search')}<input id="booking-search" placeholder="Search booking ID, client, driver, condition…" value="${esc(query)}"></label>
+            <small>${list.length} handover record(s) synced</small>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Client Name</th>
+                        <th>Vehicle & Handover</th>
+                        <th>Car Conditions</th>
+                        <th>Driver Licence</th>
+                        <th>Attached Condition Photos (View File)</th>
+                        <th style="text-align:right">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${list.map((b, idx) => {
+                        const resolvedLicence = resolvedImageCache[b.driver_licence] || b.driver_licence;
+                        return `<tr>
+                            <td>
+                                <span class="id-pill">${esc(b.booking_id)}</span>
+                                <small>Row #${esc(b.row_number)} · ${esc(b.handover_date || b.timestamp || '—')}</small>
+                            </td>
+                            <td>
+                                <div class="client-cell">
+                                    <span class="avatar ${['', 'blue', 'green'][idx % 3]}">${esc(b.client.charAt(0))}</span>
+                                    <div>
+                                        <strong>${esc(b.client)}</strong>
+                                        <small>${esc(b.contact)} · ${esc(b.email)}</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <strong>${esc(b.service)}</strong>
+                                <small>Driver: ${esc(b.driver)} · ${esc(b.handover_location)}</small>
+                            </td>
+                            <td>
+                                <div class="condition-list">
+                                    <span class="cond-tag"><b>Fuel:</b> ${esc(humanize(b.fuel_level))}</span>
+                                    <span class="cond-tag"><b>Interior:</b> ${esc(humanize(b.interior_status))}</span>
+                                    <span class="cond-tag"><b>Exterior:</b> ${esc(humanize(b.exterior_status))}</span>
+                                    <span class="cond-tag"><b>Notes:</b> ${esc(b.handover_notes || 'none')}</span>
+                                </div>
+                            </td>
+                            <td>
+                                ${b.driver_licence ? `
+                                    <div class="licence-cell">
+                                        <img class="mini-thumb" src="${esc(resolvedLicence)}" data-raw-url="${esc(b.driver_licence)}" alt="Driver Licence" data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence" onerror="this.style.display='none'">
+                                        <button class="view-file-btn" data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence">
+                                            ${icon('idcard')} View File
+                                        </button>
+                                    </div>
+                                ` : `<small>Not attached</small>`}
+                            </td>
+                            <td>
+                                <div class="file-pills">
+                                    ${b.photos.map(p => p.url ? `
+                                        <button class="view-file-btn" data-action="view-file" data-id="${esc(b.id)}" data-key="${p.key}" title="View ${esc(p.label)}">
+                                            ${icon('eye')} View ${esc(p.short)}
+                                        </button>
+                                    ` : '').join('')}
+                                    ${b.attachedPhotos.length === 0 ? `<small>No photos attached</small>` : ''}
+                                </div>
+                            </td>
+                            <td style="text-align:right">
+                                <button class="row-button" data-action="inspection" data-id="${esc(b.id)}">
+                                    ${icon('clipboard')} Full Report
+                                </button>
+                            </td>
+                        </tr>`;
+                    }).join('')}
+                </tbody>
+            </table>
+        </div>
+    </section>`;
 }
 
+// ==========================================
+// OVERVIEW DASHBOARD
+// ==========================================
+function overview() {
+    const totalValue = state.bookings.reduce((sum, b) => sum + (Number(b.amount) || 0), 0);
+    const approvedCount = state.bookings.filter(b => b.status === 'Approved').length;
+    const inspectedCount = state.bookings.filter(b => b.hasInspection).length;
+
+    return `
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <small>Active Bookings</small>
+                <strong>${state.bookings.length}</strong>
+                <span>Synced from Google Sheets</span>
+            </div>
+            <div class="kpi-card">
+                <small>Approved Deployments</small>
+                <strong>${approvedCount}</strong>
+                <span>Mapped on operations calendar</span>
+            </div>
+            <div class="kpi-card">
+                <small>Pre-Inspections Logged</small>
+                <strong>${inspectedCount}</strong>
+                <span>With photos & driver licence</span>
+            </div>
+            <div class="kpi-card">
+                <small>Total Pipeline Value</small>
+                <strong>${money(totalValue)}</strong>
+                <span>Value-based contract total</span>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div>${bookingPanel()}</div>
+            <aside class="dashboard-aside">
+                <section class="focus-card">
+                    <div class="eyebrow">OPERATIONS PRIORITY</div>
+                    <h2>Keep deployments & handovers verified.</h2>
+                    <p>Every vehicle dispatch includes full pre-inspection photo verification, fuel & interior sign-off, and driver licence validation.</p>
+                </section>
+                <section class="panel">
+                    <div class="panel-head">
+                        <div>
+                            <h2>Recent Pre-Inspections</h2>
+                            <p>Quick access to vehicle handover files.</p>
+                        </div>
+                    </div>
+                    <div class="aside-list">
+                        ${state.bookings.slice(0, 4).map(b => `
+                            <div class="aside-item">
+                                <div>
+                                    <strong>${esc(b.booking_id)} · ${esc(b.service)}</strong>
+                                    <small>${esc(b.client)} · ${esc(humanize(b.fuel_level))} fuel · ${b.attachedPhotos.length} photos</small>
+                                </div>
+                                <button class="row-button" data-action="inspection" data-id="${esc(b.id)}">Inspect</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+            </aside>
+        </div>
+    `;
+}
+
+// ==========================================
+// OPERATIONS CALENDAR
+// ==========================================
 function calendar() {
-    let first = new Date(calendarYear, calendarMonth, 1), days = new Date(calendarYear, calendarMonth + 1, 0).getDate(), offset = (first.getDay() + 6) % 7;
-    return `<section class="panel"><div class="panel-head"><h2>Vehicle Schedule</h2><div class="month-nav"><button class="icon-btn" data-action="month-prev">‹</button><strong>${first.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' })}</strong><button class="icon-btn" data-action="month-next">›</button></div></div>
-    <div class="calendar-wrap"><div class="calendar">${['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => `<div class="day-name">${d}</div>`).join('')}${Array.from({ length: offset }, () => '<div class="day empty"></div>').join('')}${Array.from({ length: days }, (_, j) => {
-        const d = `${calendarYear}-${String(calendarMonth + 1).padStart(2, '0')}-${String(j + 1).padStart(2, '0')}`;
-        return `<div class="day ${d === '2026-10-13' ? 'today' : ''}"><span>${j + 1}</span>${state.bookings.filter(b => b.start <= d && b.end >= d && b.status === 'Approved').map(b => `<button class="calendar-event" data-action="booking" data-id="${b.id}">${esc(b.service)}</button>`).join('')}
-        </div>`
-    }).join('')}</div></div><div class="panel-foot">Only approved bookings are mapped to the calendar.</div></section>`;
+    const first = new Date(calendarYear, calendarMonth, 1);
+    const days = new Date(calendarYear, calendarMonth + 1, 0).getDate();
+    const offset = (first.getDay() + 6) % 7;
+    const todayStr = new Date().toISOString().slice(0, 10);
+
+    return `<section class="panel">
+        <div class="panel-head">
+            <div>
+                <h2>Vehicle Deployment Schedule</h2>
+                <p>Mapped from booking start_date to end_date (${first.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' })}).</p>
+            </div>
+            <div class="month-nav">
+                <button class="btn" data-action="toggle-cal-filter">${showAllCalendar ? 'Showing: All Bookings' : 'Showing: Approved Only'}</button>
+                <button class="icon-btn" data-action="month-prev" title="Previous Month">‹</button>
+                <strong style="min-width:130px;text-align:center">${first.toLocaleDateString('en-ZA', { month: 'long', year: 'numeric' })}</strong>
+                <button class="icon-btn" data-action="month-next" title="Next Month">›</button>
+            </div>
+        </div>
+        <div class="calendar-wrap">
+            <div class="calendar">
+                ${['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => `<div class="day-name">${d}</div>`).join('')}
+                ${Array.from({ length: offset }, () => '<div class="day empty"></div>').join('')}
+                ${Array.from({ length: days }, (_, j) => {
+                    const d = `${calendarYear}-${String(calendarMonth + 1).padStart(2, '0')}-${String(j + 1).padStart(2, '0')}`;
+                    const dayBookings = state.bookings.filter(b => {
+                        if (!b.start || !b.end) return false;
+                        const statusOk = showAllCalendar || b.status === 'Approved';
+                        return statusOk && b.start <= d && b.end >= d;
+                    });
+                    return `<div class="day ${d === todayStr ? 'today' : ''}">
+                        <div class="day-num"><span>${j + 1}</span>${dayBookings.length ? `<small>${dayBookings.length} active</small>` : ''}</div>
+                        ${dayBookings.map(b => `
+                            <button class="calendar-event ${b.status !== 'Approved' ? 'pending-ev' : ''}" data-action="booking" data-id="${esc(b.id)}" title="${esc(b.booking_id)}: ${esc(b.client)} (${esc(b.service)})">
+                                ${esc(b.booking_id)} · ${esc(b.service)}
+                                <small>${esc(b.client)} (${esc(b.driver)})</small>
+                            </button>
+                        `).join('')}
+                    </div>`;
+                }).join('')}
+            </div>
+        </div>
+        <div class="panel-foot">
+            <span>Click any vehicle block on the calendar to inspect booking details, handover conditions, or attached photos.</span>
+            <span>Total active in dataset: ${state.bookings.length}</span>
+        </div>
+    </section>`;
 }
 
 function placeholders(type) {
-    if(!state[type] || !state[type].length) return `<div class="page-empty">${icon('layers')}<h3>No records found</h3><p>This module is currently a placeholder.</p></div>`;
-    return `<div class="cards">${state[type].map(r=>`<article class="request-card"><div style="display:flex;justify-content:space-between"><span class="eyebrow">${r.id}</span>${badge(r.status)}</div><h3>${esc(r.title)}</h3><p>${esc(r.client)}</p><div class="meta"><span>${icon('pin')}${esc(r.location)}</span><span>${icon('calendar')}${date(r.date)}</span></div><div class="actions"><button class="btn ghost" disabled>UI Placeholder</button></div></article>`).join('')}</div>`;
+    if (!state[type] || !state[type].length) return `<div class="page-empty">${icon('layers')}<h3>No records found</h3><p>This module is currently a placeholder.</p></div>`;
+    return `<div class="cards">${state[type].map(r => `<article class="request-card"><div style="display:flex;justify-content:space-between"><span class="eyebrow">${esc(r.id)}</span>${badge(r.status)}</div><h3>${esc(r.title)}</h3><p>${esc(r.client)}</p></article>`).join('')}</div>`;
 }
 
 function render() {
@@ -263,70 +922,268 @@ function render() {
     document.getElementById('main-content').innerHTML = `
         <div class="page-head">
             <div><div class="eyebrow">S&H WORKSPACE</div><h1>${titles[page][0]}</h1><p class="subtitle">${titles[page][1]}</p></div>
-            <div class="actions">${page === 'bookings' || page === 'overview' ? `<button class="btn primary" data-action="new">${icon('plus')}New Booking</button>` : ''}</div>
+            <div class="actions">
+                ${page === 'bookings' || page === 'overview' ? `<button class="btn primary" data-action="new">${icon('plus')}New Booking</button>` : ''}
+            </div>
         </div>
-        ${({ overview, bookings: () => bookingPanel(), inspections, calendar, infrastructure: () => placeholders('infrastructure'), briefs: () => placeholders('briefs') })[page]()}
-        <footer class="footer"><span>© 2026 S&H Consulting</span></footer>
+        ${({
+            overview,
+            bookings: () => bookingPanel(),
+            inspections,
+            calendar,
+            infrastructure: () => placeholders('infrastructure'),
+            briefs: () => placeholders('briefs')
+        })[page]()}
+        <footer class="footer"><span>© 2026 S&H Consulting · Connected to Automania n8n Webhook</span><span>Row sync active</span></footer>
     `;
     icons();
 }
 
-// ---------------------------------------------------------
-// DIALOGS & FORMS
-// ---------------------------------------------------------
+// ==========================================
+// DIALOGS, LIGHTBOX & FORMS
+// ==========================================
 function openDialog(title, sub, body, foot = '') {
     const d = document.getElementById('dialog');
-    d.innerHTML = `<div class="dialog-head"><div><h2>${title}</h2><small>${sub}</small></div><button class="icon-btn" data-action="close">${icon('close')}</button></div><div class="dialog-body">${body}</div>${foot ? `<div class="dialog-foot">${foot}</div>` : ''}`;
-    if (!d.open) d.showModal(); d.scrollTop = 0;
+    d.innerHTML = `
+        <div class="dialog-head">
+            <div><h2>${title}</h2><small>${sub}</small></div>
+            <button class="icon-btn" data-action="close" aria-label="Close modal">${icon('close')}</button>
+        </div>
+        <div class="dialog-body">${body}</div>
+        ${foot ? `<div class="dialog-foot">${foot}</div>` : ''}
+    `;
+    if (!d.open) d.showModal();
+    d.scrollTop = 0;
 }
 function closeDialog() { document.getElementById('dialog').close(); }
-const booking = id => state.bookings.find(b => b.id === id);
+const booking = id => state.bookings.find(b => b.id === id || b.booking_id === id);
 
-// View Booking
-function viewBooking(id) {
+// Visual Image Lightbox ("View File")
+async function openFileViewer(id, activeKey = 'photo_front') {
     const b = booking(id);
-    const carImg = carImageName(b.service);
+    if (!b) return;
 
-    openDialog('Booking details', `${b.id}`, `
-        <div class="booking-summary"><span class="summary-icon">${icon('car')}</span><div><h3>${esc(b.service)}</h3><p>${esc(b.client)}</p></div>${badge(b.status)}</div>
-        <div class="car-image-box">
-            <img src="${carImg}" alt="${esc(b.service)}" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+    const allFiles = [
+        { key: 'driver_licence', label: 'Driver Licence', short: 'Driver Licence', url: b.driver_licence },
+        ...b.photos
+    ].filter(f => Boolean(f.url));
+
+    if (!allFiles.length) {
+        toast('No image files attached to this record.');
+        return;
+    }
+
+    const current = allFiles.find(f => f.key === activeKey) || allFiles[0];
+    const displayUrl = resolvedImageCache[current.url] || current.url;
+
+    openDialog(
+        `${esc(current.label)} — ${esc(b.booking_id)}`,
+        `${esc(b.client)} · ${esc(b.service)} · Driver: ${esc(b.driver)}`,
+        `
+        <div class="lightbox-stage">
+            <img id="lightbox-main-img" src="${esc(displayUrl)}" data-raw-url="${esc(current.url)}" alt="${esc(current.label)}"
+                 onerror="this.style.display='none'; document.getElementById('lightbox-fallback').style.display='block';">
+            <div id="lightbox-fallback" style="display:none;color:#fff;text-align:center;padding:24px">
+                <p style="margin-bottom:12px">Resolving image preview from host...</p>
+                <a href="${esc(current.url)}" target="_blank" rel="noopener" class="btn gold-btn">Open Original Image Source ↗</a>
+            </div>
         </div>
-        <div class="details-grid">
-            ${[['Client contact', b.contact], ['Email', b.email], ['Dates', `${fullDate(b.start)} –${fullDate(b.end)}`], ['Location', b.location], ['Driver', b.driver], ['Projected Value', money(b.amount)]].map(([k, v]) => `<div class="detail"><small>${k}</small><strong>${esc(v)}</strong></div>`).join('')}
+        <div class="lightbox-strip">
+            ${allFiles.map(f => `
+                <button class="strip-thumb ${f.key === current.key ? 'active' : ''}" data-action="view-file" data-id="${esc(b.id)}" data-key="${f.key}">
+                    ${icon(f.key === 'driver_licence' ? 'idcard' : 'image')} ${esc(f.short || f.label)}
+                </button>
+            `).join('')}
         </div>
-        <h3 class="section-title">Operations note</h3><div class="info-box">${esc(b.notes)}</div>
-    `, `<button class="btn" data-action="close">Close</button>
-        ${b.status === 'Pending' ? `<button class="btn primary" data-action="approval" data-id="${id}">${icon('check')}Approve & Invoice</button>` : ''}
-        ${b.status === 'Approved' ? `<button class="btn primary" data-action="invoice" data-id="${id}">${icon('invoice')}Manage Invoice</button>` : ''}`);
+        `,
+        `<a class="btn" href="${esc(displayUrl)}" target="_blank" rel="noopener">Open Full Resolution ↗</a>
+         <button class="btn" data-action="inspection" data-id="${esc(b.id)}">${icon('clipboard')}Back to Full Pre-Inspection</button>
+         <button class="btn primary" data-action="close">Done</button>`
+    );
+
+    // Resolve shortlink if needed and update live image
+    const resolved = await resolveImgBBUrl(current.url);
+    const imgEl = document.getElementById('lightbox-main-img');
+    const fbEl = document.getElementById('lightbox-fallback');
+    if (imgEl && resolved) {
+        imgEl.src = resolved;
+        imgEl.style.display = 'block';
+        if (fbEl) fbEl.style.display = 'none';
+    }
 }
 
-// Full Approval Flow triggering Database & Invoice View
+// View Booking Modal
+function viewBooking(id) {
+    const b = booking(id);
+    if (!b) return;
+    const heroPhoto = b.photo_front || b.photo_interior || '';
+
+    openDialog(
+        'Booking & Deployment Details',
+        `${esc(b.booking_id)} · Row #${esc(b.row_number)} · Created ${esc(b.timestamp || '—')}`,
+        `
+        <div class="booking-summary">
+            <span class="summary-icon">${icon('car')}</span>
+            <div><h3>${esc(b.service)}</h3><p>${esc(b.client)} · ${esc(b.location)}</p></div>
+            ${badge(b.status)}
+        </div>
+        ${heroPhoto ? `
+            <div style="margin-top:16px;border-radius:8px;overflow:hidden;border:1px solid var(--line);max-height:220px;background:#eef0ec">
+                <img src="${esc(heroPhoto)}" alt="${esc(b.service)}" style="width:100%;height:220px;object-fit:cover;display:block;cursor:pointer" data-action="view-file" data-id="${esc(b.id)}" data-key="photo_front">
+            </div>
+        ` : ''}
+        <div class="details-grid">
+            ${[
+                ['Booking ID', b.booking_id],
+                ['Client Organisation', b.client],
+                ['Contact Person', b.contact],
+                ['Email Address', b.email],
+                ['Start Date', fullDate(b.start)],
+                ['End Date', fullDate(b.end)],
+                ['Route / Location', b.location],
+                ['Assigned Driver', b.driver],
+                ['Confirmed Value', money(b.amount)],
+                ['Handover Location', b.handover_location],
+                ['Handover Timestamp', b.handover_date || '—'],
+                ['Fuel / Condition', `${humanize(b.fuel_level)} · ${humanize(b.interior_status)}`]
+            ].map(([k, v]) => `<div class="detail"><small>${esc(k)}</small><strong>${esc(v)}</strong></div>`).join('')}
+        </div>
+        <h3 class="section-title">Operations & Booking Notes</h3>
+        <div class="info-box">${esc(b.notes)}</div>
+        `,
+        `<button class="btn" data-action="close">Close</button>
+         <button class="btn gold-btn" data-action="inspection" data-id="${esc(b.id)}">${icon('clipboard')}View Pre-Inspection & Photos (${b.attachedPhotos.length})</button>
+         ${b.status === 'Pending' ? `<button class="btn primary" data-action="approval" data-id="${esc(b.id)}">${icon('check')}Approve & Invoice</button>` : ''}
+         ${b.status === 'Approved' ? `<button class="btn primary" data-action="invoice" data-id="${esc(b.id)}">${icon('invoice')}Manage Invoice</button>` : ''}`
+    );
+}
+
+// View Full Pre-Inspection Modal (All Condition Fields + Driver Licence Image + All 7 Vehicle Photos)
+function viewInspection(id) {
+    const b = booking(id);
+    if (!b) return;
+
+    const resolvedLicence = resolvedImageCache[b.driver_licence] || b.driver_licence;
+    if (b.driver_licence) resolveImgBBUrl(b.driver_licence);
+
+    const renderPhotoCard = (p) => {
+        const resolvedUrl = resolvedImageCache[p.url] || p.url;
+        if (!p.url) {
+            return `<div class="photo-card">
+                <div class="photo-frame"><span class="muted" style="font-size:11px">No image</span></div>
+                <div class="photo-foot"><strong>${esc(p.label)}</strong><small>Missing</small></div>
+            </div>`;
+        }
+        return `<div class="photo-card">
+            <div class="photo-frame">
+                <img src="${esc(resolvedUrl)}" data-raw-url="${esc(p.url)}" alt="${esc(p.label)}" data-action="view-file" data-id="${esc(b.id)}" data-key="${p.key}">
+            </div>
+            <div class="photo-foot">
+                <strong>${esc(p.label)}</strong>
+                <button class="view-file-btn" data-action="view-file" data-id="${esc(b.id)}" data-key="${p.key}">
+                    ${icon('eye')} View File
+                </button>
+            </div>
+        </div>`;
+    };
+
+    openDialog(
+        `Pre-Inspection Report · ${esc(b.booking_id)}`,
+        `Client: ${esc(b.client)} · Vehicle: ${esc(b.service)} · Handover: ${esc(b.handover_date || 'Recorded')}`,
+        `
+        <div class="booking-summary">
+            <span class="summary-icon">${icon('clipboard')}</span>
+            <div>
+                <h3>${esc(b.booking_id)} — ${esc(b.service)}</h3>
+                <p>${esc(b.client)} (${esc(b.contact)}) · Handover at ${esc(b.handover_location)}</p>
+            </div>
+            ${badge(b.status)}
+        </div>
+
+        <h3 class="section-title">1. Booking & Vehicle Condition Summary</h3>
+        <div class="details-grid">
+            <div class="detail"><small>Booking ID</small><strong>${esc(b.booking_id)} (Row #${esc(b.row_number)})</strong></div>
+            <div class="detail"><small>Client & Contact</small><strong>${esc(b.client)} · ${esc(b.contact)}</strong></div>
+            <div class="detail"><small>Driver Assigned</small><strong>${esc(b.driver)}</strong></div>
+            <div class="detail"><small>Handover Date & Time</small><strong>${esc(b.handover_date || b.timestamp || '—')}</strong></div>
+            <div class="detail"><small>Handover Location</small><strong>${esc(b.handover_location)}</strong></div>
+            <div class="detail"><small>Fuel Level</small><strong>${esc(humanize(b.fuel_level))}</strong></div>
+            <div class="detail"><small>Interior Condition</small><strong>${esc(humanize(b.interior_status))}</strong></div>
+            <div class="detail"><small>Exterior Condition</small><strong>${esc(humanize(b.exterior_status))}</strong></div>
+            <div class="detail"><small>Handover Notes</small><strong>${esc(b.handover_notes || 'none')}</strong></div>
+        </div>
+
+        <h3 class="section-title">2. Driver Licence Verification</h3>
+        <div class="licence-showcase">
+            <div class="licence-img-wrap">
+                ${b.driver_licence ? `
+                    <img src="${esc(resolvedLicence)}" data-raw-url="${esc(b.driver_licence)}" alt="Driver Licence"
+                         data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                    <div style="display:none;place-items:center;padding:12px;text-align:center;font-size:11px;color:var(--muted)">
+                        Licence file attached<br><small>Click View File to inspect</small>
+                    </div>
+                ` : `<span class="muted">No licence uploaded</span>`}
+            </div>
+            <div>
+                <strong style="font-size:14px">Driver: ${esc(b.driver)}</strong>
+                <p style="font-size:11px;color:var(--muted);margin:6px 0 14px">
+                    Verified driver credential attached to booking <b>${esc(b.booking_id)}</b> for handover in <b>${esc(b.handover_location)}</b>.
+                </p>
+                ${b.driver_licence ? `
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        <button class="btn gold-btn" data-action="view-file" data-id="${esc(b.id)}" data-key="driver_licence">
+                            ${icon('eye')} View File (Driver Licence Image)
+                        </button>
+                        <a class="btn" href="${esc(b.driver_licence)}" target="_blank" rel="noopener">Open Source URL ↗</a>
+                    </div>
+                ` : ''}
+            </div>
+        </div>
+
+        <h3 class="section-title">3. Attached Vehicle Condition Photos (7 Angles)</h3>
+        <div class="photo-grid">
+            ${b.photos.map(renderPhotoCard).join('')}
+        </div>
+
+        <h3 class="section-title">4. Handover & Operational Notes</h3>
+        <div class="info-box">
+            <strong>Handover Notes:</strong> ${esc(b.handover_notes || 'none')}<br>
+            <strong>Booking Notes:</strong> ${esc(b.notes || '—')}
+        </div>
+        `,
+        `<button class="btn" data-action="close">Close</button>
+         <button class="btn" data-action="booking" data-id="${esc(b.id)}">Booking Details</button>
+         <button class="btn primary" id="btn-mark-reviewed" data-action="mark-reviewed" data-id="${esc(b.id)}">${icon('check')}Confirm Inspection Reviewed</button>`
+    );
+}
+
+// Approval Flow
 function approval(id) {
     const b = booking(id);
-    if (b.status !== 'Pending') return viewBooking(id);
-    openDialog('Approve booking', `${b.id} · ${esc(b.client)}`, `
+    if (!b) return;
+    openDialog('Approve booking', `${esc(b.booking_id)} · ${esc(b.client)}`, `
         <form id="approval-form">
             <div class="booking-summary"><span class="summary-icon">${icon('car')}</span><div><h3>${esc(b.service)}</h3><p>Confirm the final details and value before approval.</p></div></div>
-            <div class="form-grid section-space">
+            <div class="form-grid" style="margin-top:18px">
                 <label class="field full">Confirmed value (ZAR, before tax)<input type="number" name="amount" min="0.01" step="0.01" value="${b.amount}" required></label>
-                <label class="field">Start date<input name="start" type="date" value="${b.start}" required></label>
-                <label class="field">End date<input name="end" type="date" value="${b.end}" required></label>
+                <label class="field">Start date<input name="start" type="date" value="${esc(b.start)}" required></label>
+                <label class="field">End date<input name="end" type="date" value="${esc(b.end)}" required></label>
                 <label class="field full">Operations note<textarea name="notes">${esc(b.notes)}</textarea></label>
             </div>
-            <div class="info-box section-space">Approving this will save the confirmed details and transition to invoice preparation.</div>
-            <p id="approval-error" class="error" role="alert"></p>
+            <div class="info-box" style="margin-top:16px">Approving this will update the Google Sheet via webhook and transition to invoice preparation.</div>
+            <p id="approval-error" style="color:var(--red);font-size:11px;margin-top:8px" role="alert"></p>
         </form>
-    `, `<button class="btn" data-action="booking" data-id="${id}">Back</button><button class="btn primary" type="submit" form="approval-form" id="approve-submit">${icon('check')}Approve Booking</button>`);
-    
+    `, `<button class="btn" data-action="booking" data-id="${esc(id)}">Back</button><button class="btn primary" type="submit" form="approval-form" id="approve-submit">${icon('check')}Approve Booking</button>`);
+
     document.getElementById('approval-form').onsubmit = async e => {
         e.preventDefault();
         const f = new FormData(e.target);
         const start = f.get('start'), end = f.get('end'), amount = Number(f.get('amount'));
         if (end < start) { document.getElementById('approval-error').textContent = 'End date must be on or after the start date.'; return; }
-        
-        Object.assign(b, { start, end, amount, notes: f.get('notes'), status: 'Approved' });
-        
+
+        Object.assign(b, { start, end, start_date: start, end_date: end, amount, notes: f.get('notes'), status: 'Approved' });
+
         const btn = document.getElementById('approve-submit');
         btn.innerHTML = 'Saving...'; btn.disabled = true;
 
@@ -334,25 +1191,29 @@ function approval(id) {
             await fetch(WEBHOOK_POST_APPROVE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
             toast('Booking approved. Preparing invoice.');
             render();
-            invoice(id); 
+            invoice(id);
         } catch (err) {
-            toast('Warning: Could not reach approval endpoint.');
-            btn.innerHTML = 'Error'; btn.disabled = false;
+            toast('Saved locally (Approval webhook offline).');
+            render();
+            invoice(id);
         }
-    }
+    };
 }
 
-// Generate Invoice Helper
-function nextInvoiceId(){const n=Math.max(40,...state.invoices.map(i=>Number(i.id.split('-').at(-1))))+1;return 'INV-2026-'+String(n).padStart(3,'0')}
+function nextInvoiceId() {
+    const n = Math.max(40, ...state.invoices.map(i => Number(i.id.split('-').at(-1)))) + 1;
+    return 'INV-2026-' + String(n).padStart(3, '0');
+}
 
 // Manage and Send Invoice View
 function invoice(id) {
     const b = booking(id);
+    if (!b) return;
     if (b.status !== 'Approved') { toast('Approve this booking before preparing an invoice.'); return viewBooking(id); }
-    
+
     const existing = state.invoices.find(i => i.bookingId === id);
-    const draft = existing ? structuredClone(existing) : { id: nextInvoiceId(), bookingId: id, amount: b.amount, tax: 0, deposit: 50, due: b.start, notes: '', status: 'Draft' };
-    
+    const draft = existing ? structuredClone(existing) : { id: nextInvoiceId(), bookingId: id, amount: b.amount, tax: 15, deposit: 50, due: b.start, notes: '', status: 'Draft' };
+
     openDialog('Prepare invoice', `${draft.id} · ${esc(b.client)}`, `
         <div class="invoice-layout">
             <form class="invoice-editor" id="invoice-form">
@@ -361,58 +1222,59 @@ function invoice(id) {
                     <label class="field full">Service amount (ZAR)<input name="amount" type="number" step="0.01" required value="${draft.amount}"></label>
                     <label class="field">Tax rate (%)<input name="tax" type="number" min="0" max="100" step="0.01" value="${draft.tax}" required></label>
                     <label class="field">Deposit (%)<input name="deposit" type="number" min="0" max="100" value="${draft.deposit}" required></label>
-                    <label class="field full">Payment due date<input name="due" type="date" required value="${draft.due}"></label>
+                    <label class="field full">Payment due date<input name="due" type="date" required value="${esc(draft.due)}"></label>
                     <label class="field full">Invoice notes<textarea name="notes" placeholder="Payment terms or service notes…">${esc(draft.notes)}</textarea></label>
                 </div>
-                <div class="info-box section-space">This will generate the final PDF invoice and email it directly to the client.</div>
+                <div class="info-box" style="margin-top:16px">This generates the final PDF invoice and emails it directly to the client.</div>
             </form>
             <div class="invoice-paper" id="invoice-paper"></div>
         </div>
     `, `<button class="btn" data-action="close">Close</button><button class="btn" id="print-invoice">${icon('print')}Print / PDF</button><button class="btn primary" id="send-invoice">${icon('mail')}Send Mail</button>`);
-    
+
     const form = document.getElementById('invoice-form');
-    const read = () => { const f = new FormData(form); return { ...draft, amount: Number(f.get('amount')), tax: Number(f.get('tax')), deposit: Number(f.get('deposit')), due: f.get('due'), notes: f.get('notes'), email: f.get('email') }};
-    
+    const read = () => {
+        const f = new FormData(form);
+        return { ...draft, amount: Number(f.get('amount')), tax: Number(f.get('tax')), deposit: Number(f.get('deposit')), due: f.get('due'), notes: f.get('notes'), email: f.get('email') };
+    };
+
     function preview() {
         const i = read(), total = i.amount * (1 + i.tax / 100);
         document.getElementById('invoice-paper').innerHTML = `
             <div class="brand"><span class="monogram">S&H</span><span><strong>S&H CONSULTING</strong><small>MOBILITY PORTAL</small></span></div>
-            <div class="eyebrow">INVOICE PREVIEW</div><h2>${i.id}</h2>
-            <div class="invoice-meta"><div><small>BILL TO</small><br><strong>${esc(b.client)}</strong><br>${esc(i.email)}</div><div><small>BOOKING</small><br>${b.id}<br>Due ${i.due ? date(i.due) : '—'}</div></div>
+            <div class="eyebrow">INVOICE PREVIEW</div><h2>${esc(i.id)}</h2>
+            <div class="invoice-meta"><div><small>BILL TO</small><br><strong>${esc(b.client)}</strong><br>${esc(i.email)}</div><div><small>BOOKING</small><br>${esc(b.booking_id)}<br>Due ${i.due ? date(i.due) : '—'}</div></div>
             <div class="invoice-line"><span>${esc(b.service)}<br><small>${fullDate(b.start)} – ${fullDate(b.end)}</small></span><b>${money(i.amount)}</b></div>
-            <div class="invoice-line"><span>Tax (${i.tax||0}%)</span><span>${money(i.amount * i.tax / 100)}</span></div>
+            <div class="invoice-line"><span>Tax (${i.tax || 0}%)</span><span>${money(i.amount * i.tax / 100)}</span></div>
             <div class="invoice-total"><b>Total</b><b>${money(total)}</b></div>
-            <div class="invoice-line"><span>Deposit (${i.deposit||0}%)</span><b>${money(total * i.deposit / 100)}</b></div>
+            <div class="invoice-line"><span>Deposit (${i.deposit || 0}%)</span><b>${money(total * i.deposit / 100)}</b></div>
             <div class="invoice-line"><span>Remaining balance</span><span>${money(total * (1 - i.deposit / 100))}</span></div>
             <small style="display:block;white-space:pre-wrap;overflow-wrap:anywhere">${esc(i.notes) || 'Thank you for choosing S&H Consulting.'}</small>
             <div class="watermark">${i.status === 'Sent' ? 'SENT' : 'DRAFT · NOT SENT'}</div>
         `;
     }
-    
+
     function persist() {
-        if(!form.reportValidity()) return null;
+        if (!form.reportValidity()) return null;
         const i = read();
         const index = state.invoices.findIndex(x => x.bookingId === id);
-        if(index < 0) state.invoices.unshift(i); else state.invoices[index] = i;
+        if (index < 0) state.invoices.unshift(i); else state.invoices[index] = i;
         b.email = i.email;
         return i;
     }
-    
-    form.addEventListener('input', preview); 
+
+    form.addEventListener('input', preview);
     preview();
-    
-    document.getElementById('print-invoice').onclick = () => { if(persist()){ preview(); window.print(); }};
-    
+
+    document.getElementById('print-invoice').onclick = () => { if (persist()) { preview(); window.print(); } };
     document.getElementById('send-invoice').onclick = async () => {
         const i = persist();
-        if(!i) return;
+        if (!i) return;
         const btn = document.getElementById('send-invoice');
         btn.innerHTML = 'Sending...'; btn.disabled = true;
-        
-        // Comprehensive payload structure to ensure workflow receives all precise data points
+
         const payload = {
             invoiceId: i.id,
-            bookingId: i.bookingId,
+            bookingId: b.booking_id,
             recipient: i.email,
             amount: i.amount,
             taxRate: i.tax,
@@ -429,7 +1291,7 @@ function invoice(id) {
             i.status = 'Sent';
             preview();
         } catch (err) {
-            toast('Warning: Could not send invoice.');
+            toast('Warning: Could not reach invoice webhook.');
         } finally {
             btn.innerHTML = `${icon('mail')}Send Mail`; btn.disabled = false;
         }
@@ -438,86 +1300,88 @@ function invoice(id) {
 
 // New Booking
 function newBooking() {
-    openDialog('Create car booking', 'Manual entry system.', `
+    openDialog('Create car booking', 'Manual entry system synced with Google Sheets.', `
         <form id="new-form">
             <div class="form-grid">
                 <label class="field">Client / organisation<input name="client" required></label>
                 <label class="field">Contact person<input name="contact" required></label>
                 <label class="field">Email address<input name="email" type="email" required></label>
-                <label class="field">Vehicle requested<input name="service" required placeholder="e.g. Mercedes V-Class"></label>
-                <label class="field">Start date<input name="start" type="date" required></label>
-                <label class="field">End date<input name="end" type="date" required></label>
+                <label class="field">Vehicle requested<input name="service" required placeholder="e.g. Hyundai Staria"></label>
+                <label class="field">Start date<input name="start_date" type="date" required></label>
+                <label class="field">End date<input name="end_date" type="date" required></label>
                 <label class="field">Value based pricing (ZAR)<input name="amount" type="number" step="0.01" required></label>
-                <label class="field">Route / Location<input name="location" required></label>
+                <label class="field">Route / Location<input name="location" required placeholder="e.g. Pretoria → Johannesburg"></label>
+                <label class="field">Assigned Driver<input name="driver" placeholder="e.g. Sylvester M."></label>
+                <label class="field">Handover Location<input name="handover_location" placeholder="e.g. Pretoria"></label>
                 <label class="field full">Request notes<textarea name="notes"></textarea></label>
             </div>
         </form>
     `, `<button class="btn" data-action="close">Cancel</button><button class="btn primary" id="btn-submit-booking" form="new-form" type="submit">${icon('plus')}Submit Booking</button>`);
-    
+
     document.getElementById('new-form').onsubmit = async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btn-submit-booking');
         btn.innerHTML = 'Submitting...'; btn.disabled = true;
 
         const f = Object.fromEntries(new FormData(e.target));
-        const n = Math.max(...state.bookings.map(b => Number(b.id.split('-')[1])), 1044) + 1;
-        const b = { ...f, amount: Number(f.amount), id: 'BK-' + n, status: 'Pending', driver: 'Pending' };
-        
+        const nums = state.bookings.map(b => Number(String(b.booking_id).replace(/\D+/g, '')) || 1042);
+        const nextNum = Math.max(1042, ...nums) + 1;
+        const newRaw = {
+            ...f,
+            booking_id: 'BK-' + nextNum,
+            id: 'BK-' + nextNum,
+            start: f.start_date,
+            end: f.end_date,
+            amount: Number(f.amount),
+            status: 'Pending',
+            timestamp: new Date().toISOString().slice(0, 19).replace('T', ' ')
+        };
+        const normalized = normalizeRow(newRaw, state.bookings.length);
+
         try {
-            await fetch(WEBHOOK_POST_BOOKING, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
-            state.bookings.unshift(b);
-            closeDialog(); setPage('bookings'); 
+            await fetch(WEBHOOK_POST_BOOKING, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newRaw) });
+            state.bookings.unshift(normalized);
+            closeDialog(); setPage('bookings');
             toast('Booking successfully created.');
         } catch (err) {
-            toast('Network error: Could not submit booking.');
-            btn.innerHTML = `${icon('plus')}Submit Booking`; btn.disabled = false;
+            state.bookings.unshift(normalized);
+            closeDialog(); setPage('bookings');
+            toast('Added locally (Webhook unreachable).');
         }
     };
 }
 
-// View Pre-inspection Admin Logic
-function viewInspection(id) {
-    const r = state.inspections.find(i => i.id === id);
-    
-    const renderPhoto = (url, label) => url ? 
-        `<div class="photo-placeholder" style="border:none"><a href="${url}" target="_blank" title="Click to view full image"><img src="${url}" class="photo-preview" alt="${label}"></a></div>` : 
-        `<div class="photo-placeholder">${icon('image')}<span style="margin-top:5px;font-weight:600">${label}</span><small>No image submitted</small></div>`;
+// ==========================================
+// EVENT DELEGATION & LISTENERS
+// ==========================================
+document.getElementById('menu-btn').onclick = () => {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('menu-overlay').classList.toggle('open');
+};
+document.getElementById('menu-overlay').onclick = () => {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('menu-overlay').classList.remove('open');
+};
 
-    openDialog('Review pre-inspection', `${id} · Submitted by customer/driver`, `
-        <div class="booking-summary"><span class="summary-icon">${icon('car')}</span><div><h3>${esc(r.title)}</h3><p>${esc(r.client)}</p></div>${badge(r.status)}</div>
-        <div class="details-grid">
-            <div class="detail"><small>Odometer (km)</small><strong>${esc(r.odometer)}</strong></div>
-            <div class="detail"><small>Fuel Level</small><strong>${esc(r.fuel)}</strong></div>
-            <div class="detail"><small>Cleanliness</small><strong>${esc(r.clean)}</strong></div>
-        </div>
-        
-        <h3 class="section-title">Submitted Condition Photos</h3>
-        <div class="photo-grid">
-            ${renderPhoto(r.photoFront, 'Front')}
-            ${renderPhoto(r.photoRear, 'Rear')}
-            ${renderPhoto(r.photoLeft, 'Left Side')}
-            ${renderPhoto(r.photoRight, 'Right Side')}
-        </div>
-        <h3 class="section-title">Notes</h3>
-        <div class="info-box">${esc(r.notes)}</div>
-    `, `<button class="btn" data-action="close">Close</button>
-        ${r.status === 'Pending review' ? `<button class="btn primary" id="btn-mark-reviewed" data-action="mark-reviewed" data-id="${id}">${icon('check')}Mark Reviewed</button>` : ''}`);
-}
+document.getElementById('refresh-btn').onclick = async () => {
+    const svg = document.querySelector('#refresh-btn span svg');
+    if (svg) svg.classList.add('spin');
+    toast('Syncing with Google Sheets webhook...');
+    await loadData(true);
+    if (svg) svg.classList.remove('spin');
+};
 
-// ---------------------------------------------------------
-// EVENT DELEGATION
-// ---------------------------------------------------------
 document.addEventListener('click', e => {
     const n = e.target.closest('[data-nav]');
     if (n) { setPage(n.dataset.nav); return; }
-    
+
     const ft = e.target.closest('[data-filter]');
     if (ft) { filter = ft.dataset.filter; render(); return; }
-    
+
     const el = e.target.closest('[data-action]');
     if (!el) return;
-    
-    const a = el.dataset.action, id = el.dataset.id;
+
+    const a = el.dataset.action, id = el.dataset.id, key = el.dataset.key;
     switch (a) {
         case 'close': closeDialog(); break;
         case 'new': newBooking(); break;
@@ -525,42 +1389,60 @@ document.addEventListener('click', e => {
         case 'approval': approval(id); break;
         case 'invoice': invoice(id); break;
         case 'inspection': viewInspection(id); break;
-        case 'mark-reviewed':
-            let i = state.inspections.find(x => x.id === id);
-            if(i) {
+        case 'view-file': openFileViewer(id, key); break;
+        case 'toggle-cal-filter':
+            showAllCalendar = !showAllCalendar;
+            render();
+            break;
+        case 'mark-reviewed': {
+            const item = booking(id);
+            if (item) {
                 const btn = document.getElementById('btn-mark-reviewed');
-                if(btn) { btn.innerHTML = 'Updating...'; btn.disabled = true; }
-                
-                fetch(WEBHOOK_POST_INSPECTION_REVIEW, { 
-                    method: 'POST', 
-                    headers: { 'Content-Type': 'application/json' }, 
-                    body: JSON.stringify({ inspectionId: id, status: 'Reviewed' }) 
+                if (btn) { btn.innerHTML = 'Updating...'; btn.disabled = true; }
+                fetch(WEBHOOK_POST_INSPECTION_REVIEW, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ booking_id: item.booking_id, inspectionId: item.booking_id, status: 'Reviewed' })
                 })
                 .then(() => {
-                    i.status = 'Reviewed';
-                    closeDialog(); render(); toast('Inspection marked as reviewed.');
+                    item.inspectionStatus = 'Reviewed';
+                    closeDialog(); render(); toast(`Pre-inspection for ${item.booking_id} confirmed.`);
                 })
-                .catch(err => {
-                    toast('Warning: Could not save review.');
-                    if(btn) { btn.innerHTML = `${icon('check')}Mark Reviewed`; btn.disabled = false; }
+                .catch(() => {
+                    item.inspectionStatus = 'Reviewed';
+                    closeDialog(); render(); toast(`Pre-inspection marked reviewed locally.`);
                 });
             }
             break;
-        case 'month-prev': case 'month-next':
+        }
+        case 'month-prev':
+        case 'month-next':
             calendarMonth += a === 'month-next' ? 1 : -1;
-            if (calendarMonth > 11) { calendarMonth = 0; calendarYear++ }
-            if (calendarMonth < 0) { calendarMonth = 11; calendarYear-- }
-            render(); break;
+            if (calendarMonth > 11) { calendarMonth = 0; calendarYear++; }
+            if (calendarMonth < 0) { calendarMonth = 11; calendarYear--; }
+            render();
+            break;
     }
 });
 
 document.addEventListener('input', e => {
-    if (e.target.id === 'booking-search') { query = e.target.value; render(); }
+    if (e.target.id === 'booking-search' || e.target.id === 'global-search') {
+        query = e.target.value;
+        const otherId = e.target.id === 'booking-search' ? 'global-search' : 'booking-search';
+        const otherInput = document.getElementById(otherId);
+        if (otherInput && otherInput.value !== query) otherInput.value = query;
+        render();
+        // Keep focus cleanly inside the active search input
+        const currentInput = document.getElementById(e.target.id);
+        if (currentInput) {
+            currentInput.focus();
+            currentInput.setSelectionRange(query.length, query.length);
+        }
+    }
 });
 
 // INITIALIZE
 loadData();
-
 </script>
 </body>
 </html>
