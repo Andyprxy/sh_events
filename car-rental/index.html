@@ -116,6 +116,17 @@
         .social-upload-btn:focus-within{outline:3px solid #a38348;outline-offset:3px}
         #licenseUpload{display:block!important;position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
         @media(max-width:520px){#bookingPanel{border-radius:0}.privacy-card{padding:16px}#bookingPanel input,#bookingPanel textarea{font-size:16px}}
+    
+        .privacy-consent,.privacy-consent:has(input:checked){padding:4px 0;border:0;background:transparent;border-radius:0;font-size:12px;line-height:1.6;gap:10px}
+        .privacy-consent label{cursor:pointer}.privacy-consent input{width:18px;height:18px;flex-basis:18px;margin-top:1px}
+        #privacyLink{color:#1762c4;text-decoration:underline;text-underline-offset:3px;font-weight:500}#privacyLink:hover{color:#104895}
+        #privacyDialog{padding:0;border:1px solid #dce3ed;border-radius:20px;width:min(600px,calc(100% - 28px));max-height:85dvh;overflow-y:auto;color:#34465b;background:#fff;box-shadow:0 24px 100px #10203940;margin:auto}
+        #privacyDialog::backdrop{background:#0f172a99;backdrop-filter:blur(5px)}
+        .privacy-modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border-bottom:1px solid #e2e8f0;background:#fff;position:sticky;top:0;z-index:1;font-size:10px;letter-spacing:1px;font-weight:700}
+        #privacyClose{font-size:26px;width:40px;height:40px;border-radius:50%;background:#f1f5f9;color:#334155;cursor:pointer}
+        #privacyDialog .privacy-card{background:#fff;border:0;border-radius:0;padding:24px}
+        .privacy-modal-footer{padding:0 24px 24px}#privacyDone{background:#172c46;color:white;padding:12px 20px;border-radius:10px;font-size:13px;cursor:pointer}
+        #privacyDialog :focus-visible,#privacyLink:focus-visible{outline:3px solid #a38348;outline-offset:3px}
     </style>
 </head>
 <body class="antialiased selection:bg-gold selection:text-white">
@@ -240,7 +251,7 @@
                 <div class="space-y-4">
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Booked By (Name / Org)</label>
-                        <input type="text" name="client" required placeholder="John Doe / Ministry of Works" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
+                        <input type="text" name="client" required placeholder="Name/Company" class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition">
                     </div>
                     <div>
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Contact Details</label>
@@ -269,20 +280,7 @@
 
                 <hr class="border-slate-100">
 
-                <section class="privacy-card" aria-labelledby="privacyTitle" id="privacyNotice">
-                    <h3 class="privacy-heading" id="privacyTitle"><i class="fas fa-shield-alt" aria-hidden="true"></i> Your privacy matters</h3>
-                    <p>S&amp;H Events &amp; Projects Consulting (Pty) Ltd uses your contact details, booking information and any driver’s licence you provide to assess your rental request, verify the driver and arrange your booking.</p>
-                    <div class="privacy-retention"><strong>30-day retention policy</strong><br>Our policy is to delete your uploaded licence and personal booking information within 30 days after your rental ends, or within 30 days of cancellation or a declined request. S&amp;H does not keep these details indefinitely.</div>
-                    <p>We are committed to handling your information confidentially, with appropriate safeguards against unauthorised access. Access is limited to authorised staff and service providers who need it to process your booking.</p>
-                    <details>
-                        <summary>How your information is handled</summary>
-                        <p><strong>Limited use.</strong> Your licence is used for driver verification and rental administration, not marketing. We do not sell your personal information.</p>
-                        <p><strong>Retention exceptions.</strong> Only records required by law or reasonably needed for an unresolved claim or dispute may be retained for longer. These remain restricted and are deleted when that reason no longer applies.</p>
-                        <p><strong>Your choice.</strong> The licence upload is optional at this request stage; verification may be needed before the rental is confirmed. Please upload only the requested licence, with the driver’s permission if you are booking on their behalf. Without agreement to the processing described here, you cannot submit this online request.</p>
-                        <p><strong>Your rights.</strong> You may request access to, correction or deletion of your information, object to processing or withdraw consent, subject to lawful retention requirements. Withdrawal does not affect processing already lawfully completed and may affect our ability to arrange the rental.</p>
-                        <p>For privacy requests, <a href="https://sh-consulting.co.za/" target="_blank" rel="noopener">contact S&amp;H through our website</a>. You can also contact the <a href="https://inforegulator.org.za/" target="_blank" rel="noopener">Information Regulator of South Africa</a>.</p>
-                    </details>
-                </section>
+
 
                 <!-- Driver & License Upload -->
                 <div class="space-y-4">
@@ -313,11 +311,11 @@
                         <textarea name="notes" placeholder="Special requirements..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition min-h-[80px]"></textarea>
                     </div>
                 </div>
-                <label class="privacy-consent" for="privacyConsent">
-                    <input type="checkbox" id="privacyConsent" name="privacy_consent" value="agreed" required aria-describedby="privacyHint">
-                    <span>I have read the privacy notice and agree to S&amp;H processing the information and any driver’s licence I provide for this booking, under the retention policy above. I am authorised to provide the driver’s information.</span>
-                </label>
-                <input type="hidden" name="privacy_notice_version" value="rental-privacy-2026-10-27">
+                <div class="privacy-consent">
+                    <input type="checkbox" id="privacyConsent" name="privacy_consent" value="agreed" required aria-labelledby="consentText privacyLink" aria-describedby="privacyHint">
+                    <span><label id="consentText" for="privacyConsent">I have read and agree to the </label><a id="privacyLink" href="#privacyDialog" aria-haspopup="dialog" aria-controls="privacyDialog">Privacy and Policy</a>.</span>
+                </div>
+                <input type="hidden" name="privacy_notice_version" value="rental-privacy-2026-10-27-v2">
             </form>
         </div>
 
@@ -330,6 +328,30 @@
         </div>
     </div>
 
+    <dialog id="privacyDialog" aria-labelledby="privacyTitle">
+        <div class="privacy-modal-header"><span>YOUR INFORMATION &amp; YOUR RIGHTS</span><button type="button" id="privacyClose" aria-label="Close privacy policy" autofocus>×</button></div>
+                <section class="privacy-card" aria-labelledby="privacyTitle" id="privacyNotice">
+                    <h3 class="privacy-heading" id="privacyTitle"><i class="fas fa-shield-alt" aria-hidden="true"></i> Privacy and Policy</h3>
+                    <p>S&amp;H Events &amp; Projects Consulting (Pty) Ltd uses your contact details, booking information and any driver’s licence you provide to assess your rental request, verify the driver and arrange your booking.</p>
+                    <div class="privacy-retention" aria-labelledby="retentionTitle">
+                        <strong id="retentionTitle">Our data retention schedule</strong>
+                        <p style="margin-top:10px"><strong>Unsuccessful or abandoned requests · 30–90 days</strong><br>For requests that do not result in a lease, personal details and uploaded documents are scheduled for deletion within 30–90 days after the request is declined, cancelled or last active, unless a lawful reason requires longer retention.</p>
+                        <p style="margin-top:12px"><strong>Completed leases · generally 3–5 years</strong><br>Necessary lease, driver-verification and transaction records are retained in a restricted archive for tax administration, traffic fines, insurance, claims and fraud prevention. The period depends on the record and the applicable legal requirement; it is not a blanket deadline for every document.</p>
+                        <p style="margin-top:12px"><strong>Tax records · at least 5 years where required</strong><br>For filed returns, the five-year period generally runs from submission of the relevant tax return, rather than the vehicle’s return date. Other statutory retention periods may apply.</p>
+                        <p style="margin-top:12px"><strong>Deletion when retention ends</strong><br>Records are scheduled for secure deletion or irreversible de-identification once the applicable period expires and no legal hold or other lawful retention requirement remains.</p>
+                    </div>
+                    <p>We are committed to handling your information confidentially, with appropriate safeguards against unauthorised access. Access is limited to authorised staff and service providers who need it to process your booking.</p>
+                    <details open>
+                        <summary>How your information is handled</summary>
+                        <p><strong>Limited use.</strong> Your licence is used for driver verification and rental administration, not marketing. We do not sell your personal information.</p>
+                        <p><strong>Retention exceptions.</strong> Deletion is paused for records needed for outstanding traffic fines, insurance claims, disputes, audits, investigations, court orders or other legal obligations. Access remains restricted. Retention is reviewed and records are deleted when both the applicable period and the lawful reason for the hold have ended. Only information necessary for the relevant purpose is retained; licence copies are not kept indefinitely simply because a booking occurred.</p>
+                        <p><strong>Your choice.</strong> The licence upload is optional at this request stage; verification may be needed before the rental is confirmed. Please upload only the requested licence, with the driver’s permission if you are booking on their behalf. Without agreement to the processing described here, you cannot submit this online request.</p>
+                        <p><strong>Your rights.</strong> You may request access to, correction or deletion of your information, object to processing or withdraw consent, subject to lawful retention requirements. Withdrawal does not affect processing already lawfully completed and may affect our ability to arrange the rental.</p>
+                        <p>For privacy requests, <a href="https://sh-consulting.co.za/" target="_blank" rel="noopener">contact S&amp;H through our website</a>. You can also contact the <a href="https://inforegulator.org.za/" target="_blank" rel="noopener">Information Regulator of South Africa</a>.</p>
+                    </details>
+                </section>
+        <div class="privacy-modal-footer"><button type="button" id="privacyDone">Back to booking</button></div>
+    </dialog>
     <!-- Toast Notification -->
     <div id="toast" class="toast">
         <i class="fas fa-check-circle text-green-400"></i>
@@ -481,6 +503,21 @@
                     btn.disabled = false;
                 }, 3000);
             }
+        });
+    
+        const privacyDialog = document.getElementById('privacyDialog');
+        const privacyLink = document.getElementById('privacyLink');
+        privacyLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            privacyDialog.showModal();
+            privacyDialog.scrollTop = 0;
+        });
+        document.getElementById('privacyClose').addEventListener('click', () => privacyDialog.close());
+        document.getElementById('privacyDone').addEventListener('click', () => privacyDialog.close());
+        privacyDialog.addEventListener('close', () => privacyLink.focus());
+        privacyDialog.addEventListener('click', event => {
+            const bounds = privacyDialog.getBoundingClientRect();
+            if (event.target === privacyDialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) privacyDialog.close();
         });
     </script>
 </body>
