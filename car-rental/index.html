@@ -127,6 +127,12 @@
         #privacyDialog .privacy-card{background:#fff;border:0;border-radius:0;padding:24px}
         .privacy-modal-footer{padding:0 24px 24px}#privacyDone{background:#172c46;color:white;padding:12px 20px;border-radius:10px;font-size:13px;cursor:pointer}
         #privacyDialog :focus-visible,#privacyLink:focus-visible{outline:3px solid #a38348;outline-offset:3px}
+    
+        #privacyConsent{appearance:auto!important;-webkit-appearance:checkbox!important;display:inline-block!important;visibility:visible!important;opacity:1!important;position:static!important;width:20px!important;height:20px!important;min-width:20px;flex:0 0 20px;cursor:pointer;accent-color:#1762c4}
+        #privacyConsentRow{scroll-margin:100px 0 160px;min-height:44px;align-items:center;padding:10px 0}
+        #bookingFeedback{font-size:13px;line-height:1.5;margin-top:12px;color:#a12626}#bookingFeedback.success{color:#207443}
+        #submitBtn.sent{background:#21804b!important;color:#fff!important;opacity:1!important}
+        #bookingForm{padding-bottom:20px}#bookingPanel input{scroll-margin-bottom:180px}
     </style>
 </head>
 <body class="antialiased selection:bg-gold selection:text-white">
@@ -242,7 +248,7 @@
             
             <p class="text-xs text-slate-500 mb-8 border-b border-slate-100 pb-4 text-left">Please complete the details below to secure your reservation. Our logistics team will contact you to confirm deployment.</p>
             
-            <form id="bookingForm" class="space-y-5 text-left">
+            <form id="bookingForm" novalidate class="space-y-5 text-left">
                 <!-- Hidden inputs for n8n payload -->
                 <input type="hidden" name="service" id="hiddenCarName">
                 <input type="hidden" name="source" value="Customer Portal">
@@ -311,7 +317,7 @@
                         <textarea name="notes" placeholder="Special requirements..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition min-h-[80px]"></textarea>
                     </div>
                 </div>
-                <div class="privacy-consent">
+                <div class="privacy-consent" id="privacyConsentRow">
                     <input type="checkbox" id="privacyConsent" name="privacy_consent" value="agreed" required aria-labelledby="consentText privacyLink" aria-describedby="privacyHint">
                     <span><label id="consentText" for="privacyConsent">I have read and agree to the </label><a id="privacyLink" href="#privacyDialog" aria-haspopup="dialog" aria-controls="privacyDialog">Privacy and Policy</a>.</span>
                 </div>
@@ -324,6 +330,7 @@
             <button type="submit" form="bookingForm" id="submitBtn" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 rounded transition duration-300 shadow-md flex items-center justify-center gap-2 disabled:opacity-70">
                 Submit booking request <i class="fas fa-arrow-right"></i>
             </button>
+            <p id="bookingFeedback" role="status" aria-live="polite" hidden></p>
             <p id="privacyHint">Please read and tick the privacy agreement before submitting.</p>
         </div>
     </div>
@@ -404,6 +411,16 @@
         }
 
         function openBookingPanel(carName, imageSrc) {
+            if (bookingSent) {
+                bookingForm.reset();
+                consentCheckbox.setCustomValidity('');
+                bookingSent = false;
+                submitButton.disabled = false;
+                submitButton.classList.remove('sent');
+                submitButton.textContent = 'Submit booking request →';
+                bookingFeedback.hidden = true;
+                updateFileName(document.getElementById('licenseUpload'));
+            }
             document.getElementById('panelCarName').innerText = carName;
             
             const imgElement = document.getElementById('panelCarImage');
@@ -435,76 +452,74 @@
             }
         }
 
-        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const consent = document.getElementById('privacyConsent');
-            if (!consent.checked) {
-                consent.reportValidity();
-                consent.focus();
+        let bookingBusy = false;
+        let bookingSent = false;
+        const bookingForm = document.getElementById('bookingForm');
+        const submitButton = document.getElementById('submitBtn');
+        const consentCheckbox = document.getElementById('privacyConsent');
+        const bookingFeedback = document.getElementById('bookingFeedback');
+        function bookingMessage(message, success = false) {
+            bookingFeedback.textContent = message;
+            bookingFeedback.hidden = false;
+            bookingFeedback.classList.toggle('success', success);
+        }
+        consentCheckbox.addEventListener('change', () => {
+            consentCheckbox.setCustomValidity('');
+            if (!bookingBusy && !bookingSent) bookingFeedback.hidden = true;
+        });
+        bookingForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            if (bookingBusy || bookingSent) return;
+            consentCheckbox.setCustomValidity('');
+            if (!consentCheckbox.checked) {
+                bookingMessage('Please tick “I have read and agree to the Privacy and Policy” before submitting.');
+                document.getElementById('privacyConsentRow').scrollIntoView({block:'center',behavior:'smooth'});
+                consentCheckbox.focus({preventScroll:true});
+                consentCheckbox.setCustomValidity('Please agree to the Privacy and Policy to continue.');
+                consentCheckbox.reportValidity();
                 return;
             }
-            if (!this.reportValidity()) return;
-            const btn = document.getElementById('submitBtn');
-            if (btn.disabled) return;
-            const originalText = btn.innerHTML;
-            
-            // Set loading state
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            btn.disabled = true;
-
-            // Package the form data (handles the file and all text inputs cleanly)
-            const formData = new FormData(this);
-            formData.append('privacy_consent_at', new Date().toISOString());
-
+            if (!this.reportValidity()) {
+                bookingMessage('Please complete the required booking details above.');
+                return;
+            }
+            bookingBusy = true;
+            submitButton.disabled = true;
+            submitButton.setAttribute('aria-busy','true');
+            submitButton.textContent = 'Sending booking…';
+            bookingMessage('Please keep this page open while your booking is sent.');
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 120000);
             try {
-                // Post to n8n Webhook
+                const formData = new FormData(this);
+                formData.append('privacy_consent_at', new Date().toISOString());
                 const response = await fetch('https://n8n.automania.cloud/webhook/customer-booking', {
-                    method: 'POST',
-                    body: formData 
+                    method:'POST', body:formData, signal:controller.signal
                 });
-
-                if (response.ok) {
-                    btn.innerHTML = '<i class="fas fa-check"></i> Request Sent';
-                    btn.classList.replace('bg-slate-900', 'bg-green-600');
-                    btn.classList.remove('hover:bg-gold');
-                    
-                    showToast('Your booking request and information have been sent to S&H.');
-
-                    // Reset UI after 2 seconds
-                    setTimeout(() => {
-                        closeBookingPanel();
-                        this.reset();
-                        document.getElementById('fileNameDisplay').innerText = "Take a photo or upload file";
-                        document.getElementById('fileNameDisplay').classList.remove('text-gold');
-                        btn.innerHTML = originalText;
-                        btn.classList.replace('bg-green-600', 'bg-slate-900');
-                        btn.classList.add('hover:bg-gold');
-                        btn.disabled = false;
-                    }, 2000);
-                } else {
-                    throw new Error('Network error from webhook');
-                }
+                if (!response.ok) throw new Error('The service could not confirm your booking. Please check with S&H before sending again.');
+                const text = await response.text();
+                let result;
+                try {result = JSON.parse(text);} catch {}
+                if (Array.isArray(result)) result = result[0];
+                if (result && (result.ok === false || result.success === false || result.error || ['error','failed','failure'].includes(String(result.status).toLowerCase()))) throw new Error('Your booking was not confirmed. Please check with S&H before trying again.');
+                bookingSent = true;
+                submitButton.classList.add('sent');
+                submitButton.textContent = '✓ Booking request sent';
+                bookingMessage('Your booking information has been sent successfully. S&H will contact you to confirm availability.', true);
+                showToast('Your booking request has been sent to S&H.');
             } catch (error) {
-                console.error('Error submitting booking:', error);
-                
-                showToast('Connection error. Please try submitting again.', true);
-
-                // Show error state
-                btn.innerHTML = '<i class="fas fa-times"></i> Error. Try Again.';
-                btn.classList.replace('bg-slate-900', 'bg-red-600');
-                btn.classList.remove('hover:bg-gold');
-
-                // Revert after 3 seconds
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.classList.replace('bg-red-600', 'bg-slate-900');
-                    btn.classList.add('hover:bg-gold');
-                    btn.disabled = false;
-                }, 3000);
+                bookingMessage(error.name === 'AbortError' || error instanceof TypeError ? 'We could not confirm delivery. Your request may have arrived; please check with S&H before sending again. Your details are still here.' : error.message);
+            } finally {
+                clearTimeout(timer);
+                bookingBusy = false;
+                submitButton.removeAttribute('aria-busy');
+                if (!bookingSent) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit booking request →';
+                }
             }
         });
-    
+
         const privacyDialog = document.getElementById('privacyDialog');
         const privacyLink = document.getElementById('privacyLink');
         privacyLink.addEventListener('click', function(event) {
