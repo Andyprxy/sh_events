@@ -98,6 +98,24 @@
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
+    
+        .privacy-card{background:linear-gradient(145deg,#f5f8fc,#edf2f8);border:1px solid #d8e2ee;border-radius:16px;padding:20px;color:#34465b;line-height:1.65;font-size:13px}
+        .privacy-heading{display:flex;align-items:center;gap:10px;color:#142b46;font-size:16px;font-weight:700;margin-bottom:10px}
+        .privacy-heading i{background:#e0e9f3;padding:10px;border-radius:12px}
+        .privacy-retention{background:#fff;border-left:3px solid #a38348;border-radius:8px;padding:12px;margin:14px 0}
+        .privacy-card details{border-top:1px solid #d8e2ee;padding-top:12px;margin-top:14px}
+        .privacy-card summary{cursor:pointer;font-weight:600;color:#203b59;min-height:32px}
+        .privacy-card details p{margin-top:10px}.privacy-card a{text-decoration:underline;text-underline-offset:3px}
+        .privacy-consent{display:flex;gap:12px;align-items:flex-start;padding:16px;border:1px solid #ccd8e5;border-radius:12px;background:#fff;color:#30445c;font-size:13px;line-height:1.6;cursor:pointer}
+        .privacy-consent input{width:20px;height:20px;flex:0 0 20px;margin-top:3px;accent-color:#234e70}
+        .privacy-consent:has(input:checked){border-color:#74a489;background:#f3faf5}
+        .privacy-consent:focus-within{outline:3px solid #a38348;outline-offset:3px}
+        #bookingPanel{max-width:510px;border-radius:20px 0 0 20px}#bookingPanel input:not([type=checkbox]):not([type=file]),#bookingPanel textarea{border-radius:10px}
+        #bookingPanel .social-upload-btn{border-radius:12px}#submitBtn{border-radius:12px;min-height:52px}
+        #privacyHint{font-size:12px;line-height:1.5;color:#64748b;text-align:center;margin:10px 0 0}
+        .social-upload-btn:focus-within{outline:3px solid #a38348;outline-offset:3px}
+        #licenseUpload{display:block!important;position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+        @media(max-width:520px){#bookingPanel{border-radius:0}.privacy-card{padding:16px}#bookingPanel input,#bookingPanel textarea{font-size:16px}}
     </style>
 </head>
 <body class="antialiased selection:bg-gold selection:text-white">
@@ -251,6 +269,21 @@
 
                 <hr class="border-slate-100">
 
+                <section class="privacy-card" aria-labelledby="privacyTitle" id="privacyNotice">
+                    <h3 class="privacy-heading" id="privacyTitle"><i class="fas fa-shield-alt" aria-hidden="true"></i> Your privacy matters</h3>
+                    <p>S&amp;H Events &amp; Projects Consulting (Pty) Ltd uses your contact details, booking information and any driver’s licence you provide to assess your rental request, verify the driver and arrange your booking.</p>
+                    <div class="privacy-retention"><strong>30-day retention policy</strong><br>Our policy is to delete your uploaded licence and personal booking information within 30 days after your rental ends, or within 30 days of cancellation or a declined request. S&amp;H does not keep these details indefinitely.</div>
+                    <p>We are committed to handling your information confidentially, with appropriate safeguards against unauthorised access. Access is limited to authorised staff and service providers who need it to process your booking.</p>
+                    <details>
+                        <summary>How your information is handled</summary>
+                        <p><strong>Limited use.</strong> Your licence is used for driver verification and rental administration, not marketing. We do not sell your personal information.</p>
+                        <p><strong>Retention exceptions.</strong> Only records required by law or reasonably needed for an unresolved claim or dispute may be retained for longer. These remain restricted and are deleted when that reason no longer applies.</p>
+                        <p><strong>Your choice.</strong> The licence upload is optional at this request stage; verification may be needed before the rental is confirmed. Please upload only the requested licence, with the driver’s permission if you are booking on their behalf. Without agreement to the processing described here, you cannot submit this online request.</p>
+                        <p><strong>Your rights.</strong> You may request access to, correction or deletion of your information, object to processing or withdraw consent, subject to lawful retention requirements. Withdrawal does not affect processing already lawfully completed and may affect our ability to arrange the rental.</p>
+                        <p>For privacy requests, <a href="https://sh-consulting.co.za/" target="_blank" rel="noopener">contact S&amp;H through our website</a>. You can also contact the <a href="https://inforegulator.org.za/" target="_blank" rel="noopener">Information Regulator of South Africa</a>.</p>
+                    </details>
+                </section>
+
                 <!-- Driver & License Upload -->
                 <div class="space-y-4">
                     <div>
@@ -263,12 +296,12 @@
                         <label class="block text-[10px] tracking-widest text-slate-500 font-bold mb-2 uppercase">Identification</label>
                         
                         <label class="social-upload-btn w-full">
-                            <input type="file" name="licenseFile" accept="image/*,.pdf" capture="environment" class="hidden" id="licenseUpload" onchange="updateFileName(this)">
+                            <input type="file" name="licenseFile" accept="image/*,.pdf" capture="environment" class="hidden" id="licenseUpload" aria-describedby="privacyTitle" onchange="updateFileName(this)">
                             <div class="icon-circle">
                                 <i class="fas fa-camera text-sm"></i>
                             </div>
                             <div class="flex-grow text-left overflow-hidden">
-                                <span class="text-sm font-medium text-slate-700 block">Attach Driver's License</span>
+                                <span class="text-sm font-medium text-slate-700 block">Attach driver’s licence</span>
                                 <span class="text-[10px] text-slate-400 block truncate" id="fileNameDisplay">Take a photo or upload file</span>
                             </div>
                             <i class="fas fa-paperclip text-slate-400 text-lg"></i>
@@ -280,14 +313,20 @@
                         <textarea name="notes" placeholder="Special requirements..." class="w-full bg-slate-50 border border-slate-200 rounded p-3 text-sm focus:border-gold outline-none focus:ring-1 focus:ring-gold transition min-h-[80px]"></textarea>
                     </div>
                 </div>
+                <label class="privacy-consent" for="privacyConsent">
+                    <input type="checkbox" id="privacyConsent" name="privacy_consent" value="agreed" required aria-describedby="privacyHint">
+                    <span>I have read the privacy notice and agree to S&amp;H processing the information and any driver’s licence I provide for this booking, under the retention policy above. I am authorised to provide the driver’s information.</span>
+                </label>
+                <input type="hidden" name="privacy_notice_version" value="rental-privacy-2026-10-27">
             </form>
         </div>
 
         <!-- Footer Submit -->
         <div class="p-6 border-t border-slate-200 bg-white sticky bottom-0 z-10">
             <button type="submit" form="bookingForm" id="submitBtn" class="w-full bg-slate-900 hover:bg-gold text-white font-bold text-xs uppercase tracking-widest py-4 rounded transition duration-300 shadow-md flex items-center justify-center gap-2 disabled:opacity-70">
-                Submit Booking <i class="fas fa-arrow-right"></i>
+                Submit booking request <i class="fas fa-arrow-right"></i>
             </button>
+            <p id="privacyHint">Please read and tick the privacy agreement before submitting.</p>
         </div>
     </div>
 
@@ -377,7 +416,15 @@
         document.getElementById('bookingForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            const consent = document.getElementById('privacyConsent');
+            if (!consent.checked) {
+                consent.reportValidity();
+                consent.focus();
+                return;
+            }
+            if (!this.reportValidity()) return;
             const btn = document.getElementById('submitBtn');
+            if (btn.disabled) return;
             const originalText = btn.innerHTML;
             
             // Set loading state
@@ -386,6 +433,7 @@
 
             // Package the form data (handles the file and all text inputs cleanly)
             const formData = new FormData(this);
+            formData.append('privacy_consent_at', new Date().toISOString());
 
             try {
                 // Post to n8n Webhook
@@ -399,7 +447,7 @@
                     btn.classList.replace('bg-slate-900', 'bg-green-600');
                     btn.classList.remove('hover:bg-gold');
                     
-                    showToast('Booking request routed successfully to S&H operations.');
+                    showToast('Your booking request and information have been sent to S&H.');
 
                     // Reset UI after 2 seconds
                     setTimeout(() => {
